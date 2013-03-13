@@ -1,0 +1,23 @@
+package networkMonitor;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "DPIMessageProtosProtos";
+
+message DpiMsgLRproto 
+{
+   required string Uuid = 1;
+   optional uint64 EthSrc = 2;  
+   optional uint64 EthDst = 3;
+   optional uint32 IpSrc = 4;
+   optional uint32 IpDst = 5;
+   optional string PktPath = 6;
+   optional uint32 FlowSessionCnt = 7;
+   optional uint32 SourcePort = 8;
+   optional uint32 DestPort = 9;
+   optional bool FlowCompleted = 10;
+   optional string Delay = 11;
+   optional uint32 ProtoId = 12;
+   optional uint32 PacketCount = 13;
+   optional uint64 StartTime = 14;
+   optional uint64 EndTime = 15;
+   optional uint64 SessionLen = 16;

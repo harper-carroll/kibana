@@ -1,0 +1,31 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "BaseConfMsg";
+
+message BaseConf {
+  optional string dpiThreads = 7;
+  optional string pcapETimeout = 8;
+  optional string pcapBufferSize = 9;
+  optional string pcapInterface = 10;
+  optional string dpiHalfSessions = 11;
+  optional string packetSendQueueSize = 13;
+  optional string packetRecvQueueSize = 14;
+  optional string dpiMsgSendQueueSize = 15;
+  optional string dpiMsgRecvQueueSize = 16;
+  optional string qosmosDebugModeEnabled = 18;
+  optional string qosmos64BytePool = 19;
+  optional string qosmos128BytePool = 20;
+  optional string qosmos256BytePool = 21;
+  optional string qosmos512BytePool = 22;
+  optional string statsAccumulatorQueue = 23;
+  optional string sendStatsQueue = 24;
+  optional string qosmosExpirePerCallback = 25;
+  optional string qosmosTCPReAssemblyEnabled = 26;
+  optional string qosmosIPDefragmentationEnabled = 27;
+  optional string multiThreadQosmos = 28;
+  optional string dbClusterName = 30;
+  optional string dbUrl = 31;
+  optional string statsAggregationQueue = 32;
+}
+

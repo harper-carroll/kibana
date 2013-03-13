@@ -1,0 +1,16 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "StatsAggMsg";
+
+message StatsAgg {
+  required string Key = 1;
+  optional uint64 lastDate = 2;
+  optional int64 sum = 3;
+  optional uint64 avg = 4;
+  optional int64 statCount = 5;
+  optional string statName = 6;
+  optional string indexName = 7;
+  optional string compositeKey = 8;
+}
+

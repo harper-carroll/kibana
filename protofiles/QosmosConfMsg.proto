@@ -1,0 +1,16 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "QosmosConfMsg";
+
+message QosmosConf {
+   message Protocol {
+      required string protocolName = 1;
+      optional string protocolLongName = 2;
+      optional string protocolFamily = 3;
+      optional bool protocolEnabled = 4;
+   }
+
+   repeated Protocol qosmosProtocol = 1;
+}
+
