@@ -8,6 +8,7 @@ protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
 PROTOBUFFER_VERSION=2.4.1
 GLOBAL_CPP_FLAGS="-fPIC"
+PATH=/usr/local/probe/bin:$PATH
 
 rm -rf "$DISTDIR"/protobuf
 rm -rf "$thirdPartyDir"/protobuf-$PROTOBUFFER_VERSION
