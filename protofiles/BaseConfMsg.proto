@@ -27,5 +27,6 @@ message BaseConf {
   optional string dbClusterName = 30;
   optional string dbUrl = 31;
   optional string statsAggregationQueue = 32;
+  optional string commandQueue = 33;
 }
 

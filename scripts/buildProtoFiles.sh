@@ -33,16 +33,12 @@ cd "$javaSrcDir"
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/StatsMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/StatsAggMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/QosmosConfMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/ConfTypeMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/RestartMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/VersionMsg.proto
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/SyslogConfMsg.proto
+for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto` ; do 
+"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/$file
+done
 cd "$startDir"
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libstats  "$protoFileDir"/StatsMsg.proto
@@ -52,6 +48,8 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/RestartMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/VersionMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/SyslogConfMsg.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandRequest.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandReply.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
 mv  libconf/BaseConfMsg.pb.cc  libconf/BaseConfMsg.pb.cpp
@@ -60,14 +58,13 @@ mv  libconf/ConfTypeMsg.pb.cc  libconf/ConfTypeMsg.pb.cpp
 mv  libconf/RestartMsg.pb.cc  libconf/RestartMsg.pb.cpp
 mv  libconf/VersionMsg.pb.cc  libconf/VersionMsg.pb.cpp
 mv  libconf/SyslogConfMsg.pb.cc  libconf/SyslogConfMsg.pb.cpp
+mv  libcommand/CommandRequest.pb.cc  libcommand/CommandRequest.pb.cpp
+mv  libcommand/CommandReply.pb.cc  libcommand/CommandReply.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"
 cd "$phpSrcDir"
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/BaseConfMsg.proto
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/QosmosConfMsg.proto
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/ConfTypeMsg.proto
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/RestartMsg.proto
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/VersionMsg.proto
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/SyslogConfMsg.proto
+for file in `ls "$protoFileDir" ` ; do 
+"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/$file
+done
 cd "$startDir"
