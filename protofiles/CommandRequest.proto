@@ -1,0 +1,15 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "CommandRequestMsg";
+
+message CommandRequest {
+  enum CommandType {
+     UPGRADE = 0;
+  }
+  required CommandType type = 1; 
+  optional string stringArgOne = 2;
+  optional string stringArgTwo = 3;
+}
+
+
