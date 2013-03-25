@@ -1,0 +1,12 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ProcessRequestMsg";
+
+message ProcessRequest {
+  required string path = 1; 
+  optional string args = 2; 
+  optional bool keepRunning = 3; 
+}
+
+

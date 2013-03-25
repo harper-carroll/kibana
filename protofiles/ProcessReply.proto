@@ -1,0 +1,13 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ProcessReplyMsg";
+
+message ProcessReply {
+  required bool success = 1; 
+  optional int32 pid = 2; 
+  repeated int32 children = 3; 
+  optional string result = 4; 
+}
+
+
