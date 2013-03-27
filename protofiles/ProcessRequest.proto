@@ -7,6 +7,7 @@ message ProcessRequest {
   required string path = 1; 
   optional string args = 2; 
   optional bool keepRunning = 3; 
+  optional bool stop = 4; 
 }
 
 
