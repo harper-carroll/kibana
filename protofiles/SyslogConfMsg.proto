@@ -4,12 +4,13 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "SyslogConfMsg";
 
 message SyslogConf {
-  optional string syslogLogAgentIP = 1;
-  optional string syslogLogAgentPort = 2;
-  optional string syslogEnabled = 6;
-  optional string reportEverything = 7;
-  optional string syslogMaxLineLength = 8;
-  optional string siemLogging = 9;
-  optional string debugSiemLogging = 10;
+  optional string syslogEnabled = 1;
+  optional string syslogLogAgentIP = 2;
+  optional string syslogLogAgentPort = 3;
+  optional string syslogMaxLineLength = 4;
+  optional string siemLogging = 5;
+  optional string debugSiemLogging = 6;
+  optional string scrubPasswords = 7;
+  optional string reportEverything = 99;
 }
 
