@@ -7,6 +7,7 @@ message CommandRequest {
   enum CommandType {
      UPGRADE = 0;
      SYSLOG_RESTART = 1;
+     REBOOT = 2;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
