@@ -6,6 +6,7 @@ option java_outer_classname = "CommandRequestMsg";
 message CommandRequest {
   enum CommandType {
      UPGRADE = 0;
+     SYSLOG_RESTART = 1;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
