@@ -4,12 +4,18 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ConfTypeMsg";
 
 message ConfType {
-  optional bool receiving = 1; // Set when requesting a confUpdate or qosmosConfUpdate
-  optional bool sending = 2; // Set when sending a confUpdate or qosmosConfUpdate
-  optional bool conf = 3; // Next frame is base config message
-  optional bool qosmosConf = 4; // Next frame is Qosmos config message
-  optional bool versionConf = 5; // Next frame is version message
-  optional bool syslogConf = 6; // Next frame is syslog config message
-  optional bool restart = 100; // Component restart; next frame provides restart details.
+  enum Type {
+     BASE = 0;
+     QOSMOS = 1;
+     APP_VERSION = 2;
+     SYSLOG = 3;
+     RESTART = 4;
+  }
+  enum Direction {
+     RECEIVING = 0;
+     SENDING = 1;
+  }
+  required Type type = 1;
+  required Direction direction = 2;
 }
 
