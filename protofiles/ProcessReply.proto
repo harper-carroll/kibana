@@ -8,6 +8,7 @@ message ProcessReply {
   optional int32 pid = 2; 
   repeated int32 children = 3; 
   optional string result = 4; 
+  optional int32 returnCode = 5;
 }
 
 
