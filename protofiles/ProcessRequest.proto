@@ -9,6 +9,7 @@ message ProcessRequest {
   optional bool keepRunning = 3; 
   optional bool stop = 4; 
   repeated string environment = 5; 
+  optional string realExecString = 6;
 }
 
 
