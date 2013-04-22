@@ -20,4 +20,5 @@ message DpiMsgLRproto
    optional uint32 PacketCount = 13;
    optional uint64 StartTime = 14;
    optional uint64 EndTime = 15;
-   optional uint64 SessionLen = 16;
+   optional uint64 SessionLenServer = 16;
+   optional uint64 SessionLenClient = 17;
