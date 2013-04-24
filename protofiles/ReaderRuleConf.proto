@@ -1,0 +1,23 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ReaderRuleConfMsg";
+
+message ReaderRuleConf {
+
+   message Script {
+      enum Type {
+         PACKET = 0;
+         FLOWSTART = 1;
+         FLOWCOMPLETE = 2;
+         CLASSIFIED = 3;
+      }
+      required string name = 1;
+      required bool runForever = 2 [default = true];
+      optional int32 repitions = 3;
+      required Type ruleType = 4 [default = PACKET];
+   }
+
+   repeated Script ruleScripts = 1;
+}
+
