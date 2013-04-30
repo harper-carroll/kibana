@@ -5,6 +5,11 @@ option java_outer_classname = "DPIMessageProtosProtos";
 
 message DpiMsgLRproto 
 {
+   enum Type {
+      FINAL = 1;
+      INTERMEDIATE = 2;
+   }
+
    required string Uuid = 1;
    optional uint64 EthSrc = 2;  
    optional uint64 EthDst = 3;
@@ -22,3 +27,4 @@ message DpiMsgLRproto
    optional uint64 EndTime = 15;
    optional uint64 SessionLenServer = 16;
    optional uint64 SessionLenClient = 17;
+   optional Type FlowType = 18;
