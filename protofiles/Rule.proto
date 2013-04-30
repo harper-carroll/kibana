@@ -1,0 +1,26 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "RuleConfMsg";
+
+message RuleConf {
+
+   enum Type {
+      PACKET = 1;
+      FLOWSTART = 2;
+      FLOWCOMPLETE = 3;
+      CLASSIFIED = 4;
+      GENERIC = 5;
+   }
+   required string name = 1;
+   required bool runForever = 2 [default = true];
+   optional int32 repetitions = 3;
+   required Type ruleType = 4 [default = PACKET];
+   optional string ruleText = 5;
+   required int32 numberOfReturnVals = 7 [default = 0];
+   repeated bool inputBooleans = 8;
+   repeated int32 inputIntegers = 9;
+   repeated string inputStrings = 10;
+
+}
+

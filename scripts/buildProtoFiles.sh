@@ -38,7 +38,7 @@ for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto` ; do
 done
 cd "$startDir"
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libstats  "$protoFileDir"/StatsMsg.proto
@@ -48,6 +48,8 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/RestartMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/VersionMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/SyslogConfMsg.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ReaderRuleConf.proto
+"$protoc" -I="$protoFileDir" --cpp_out=liblua  "$protoFileDir"/Rule.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessRequest.proto
@@ -60,6 +62,8 @@ mv  libconf/ConfTypeMsg.pb.cc  libconf/ConfTypeMsg.pb.cpp
 mv  libconf/RestartMsg.pb.cc  libconf/RestartMsg.pb.cpp
 mv  libconf/VersionMsg.pb.cc  libconf/VersionMsg.pb.cpp
 mv  libconf/SyslogConfMsg.pb.cc  libconf/SyslogConfMsg.pb.cpp
+mv  libconf/ReaderRuleConf.pb.cc  libconf/ReaderRuleConf.pb.cpp
+mv  liblua/Rule.pb.cc  liblua/Rule.pb.cpp
 mv  libcommand/CommandRequest.pb.cc  libcommand/CommandRequest.pb.cpp
 mv  libcommand/CommandReply.pb.cc  libcommand/CommandReply.pb.cpp
 mv  libprocess/ProcessRequest.pb.cc  libprocess/ProcessRequest.pb.cpp
