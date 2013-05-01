@@ -45,20 +45,28 @@ print @previousData;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
-     if ($callbackNames !~ /,$lineValues[7]$lineValues[1],/ ) {
+     $field = "$lineValues[7]$lineValues[1]";
+     if ( $field =~ /^[0-9]/ ) {
+        $field = "_$lineValues[7]$lineValues[1]";
+     }
+     if ($callbackNames !~ /,$field,/ ) {
         $highest += 1;
-        $field = "$lineValues[7]$lineValues[1]";
-        $type = $lineValues[8];
+        $type = $lineValues[9];
         $optionalStuff = "";
-        if ($lineValues[8] =~ /timeval/ ) {
+        if ($lineValues[9] =~ /timeval/ ) {
            $type = "string";
            $optionalStuff = ",timeval,timevalToString";
-        } elsif ( $lineValues[8] =~ /ip_addr/ ) {
+        } elsif ( $lineValues[9] =~ /ip_addr/ ) {
            $type = "string";
            $optionalStuff = ",uint32,ip_addrToString";
-        } elsif ( $lineValues[8] =~ /mac_addr/ ) {
+        } elsif ( $lineValues[9] =~ /mac_addr/ ) {
            $type = "string";
            $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
+        } elsif ($lineValues[9] eq "" ) {
+           print "MALFORMED FILE!!!!";
+           print "0:$lineValues[0],1:$lineValues[1],2:$lineValues[2],3:lineValues[3],4:$lineValues[4],5:$lineValues[5],6:$lineValues[6],7:$lineValues[7],8:$lineValues[8],9:$lineValues[9]";
+           exit(1);
+           
         }
         print "optional $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
      }
