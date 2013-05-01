@@ -8,6 +8,7 @@ message DpiMsgLRproto
    enum Type {
       FINAL = 1;
       INTERMEDIATE = 2;
+      INTERMEDIATE_FINAL = 3;
    }
 
    required string Uuid = 1;
