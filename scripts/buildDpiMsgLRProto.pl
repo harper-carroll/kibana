@@ -45,12 +45,12 @@ print @previousData;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
-     if ($callbackNames !~ /,$lineValues[7]$lineValues[1],/ ) {
+     $field = "$lineValues[7]$lineValues[1]";
+     if ( $field =~ /^[0-9]/ ) {
+        $field = "_$lineValues[7]$lineValues[1]";
+     }
+     if ($callbackNames !~ /,$field,/ ) {
         $highest += 1;
-        $field = "$lineValues[7]$lineValues[1]";
-        if ( $field =~ /^[0-9]/ ) {
-           $field = "_$lineValues[7]$lineValues[1]";
-        }
         $type = $lineValues[9];
         $optionalStuff = "";
         if ($lineValues[9] =~ /timeval/ ) {
