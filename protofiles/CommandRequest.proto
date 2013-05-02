@@ -8,6 +8,7 @@ message CommandRequest {
      UPGRADE = 0;
      SYSLOG_RESTART = 1;
      REBOOT = 2;
+     NETWORK_CONFIG = 3;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
