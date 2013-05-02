@@ -11,6 +11,7 @@ message ConfType {
      SYSLOG = 3;
      RESTART = 4;
      READER_RULE = 5;
+     INTERFACE = 6;
   }
   enum Direction {
      RECEIVING = 0;
