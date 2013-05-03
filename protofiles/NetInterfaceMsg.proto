@@ -1,0 +1,20 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "NetInterfaceMsg";
+
+enum NetInterfaceMethod {
+   DHCP = 0;
+   STATICIP = 1; 
+}
+
+message NetInterface {
+   optional string interface = 1 [default = "eth0"];
+   optional NetInterfaceMethod method = 2 [default = DHCP];
+   optional string ipAddress = 3;
+   optional string netMask = 4;
+   optional string gateway = 5;
+   optional string dnsServers = 6;
+   optional string searchDomains = 7; 
+   optional string name = 8;
+}
