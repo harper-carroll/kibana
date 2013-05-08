@@ -10,8 +10,8 @@ message ConfType {
      APP_VERSION = 2;
      SYSLOG = 3;
      RESTART = 4;
-     READER_RULE = 5;
-     INTERFACE = 6;
+     NETINTERFACE  = 5;
+     READER_RULE = 6;
   }
   enum Direction {
      RECEIVING = 0;
