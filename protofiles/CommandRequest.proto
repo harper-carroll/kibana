@@ -13,7 +13,7 @@ message CommandRequest {
   required CommandType type = 1; 
   optional string stringArgOne = 2;
   optional string stringArgTwo = 3;
-  optional bool async = 4 [default = false];
+  optional bool async = 4;
 }
 
 
