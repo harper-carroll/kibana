@@ -29,3 +29,7 @@ message DpiMsgLRproto
    optional uint64 SessionLenServer = 16;
    optional uint64 SessionLenClient = 17;
    optional Type FlowType = 18;
+   optional uint64 deltaPackets = 19;
+   optional uint64 deltaTime = 20;
+   optional uint64 deltaSessionLenServer = 21;
+   optional uint64 deltaSessionLenClient = 22;
