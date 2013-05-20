@@ -66,8 +66,10 @@ while (<qosmosWorkbook>) {
            print "MALFORMED FILE!!!!";
            print "0:$lineValues[0],1:$lineValues[1],2:$lineValues[2],3:lineValues[3],4:$lineValues[4],5:$lineValues[5],6:$lineValues[6],7:$lineValues[7],8:$lineValues[8],9:$lineValues[9]";
            exit(1);
-           
+        } elsif ( $lineValues[9] =~ /string/ ) {
+           $type = "bytes";
         }
+
         print "optional $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
      }
   } 
