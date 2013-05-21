@@ -27,13 +27,13 @@ my @newFields;
 my $highest = 1;
 my $callbackNames = ",";
 while (<previousData>) {
-   if ($_ =~ m/^optional\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
-      push(@ids,$2);
-      if ( $2 > $highest ) {
-         $highest = $2;
+   if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
+      push(@ids,$3);
+      if ( $3 > $highest ) {
+         $highest = $3;
       }
-      $callbackNames .= "$1,";
-      push(@previousFields,$1);
+      $callbackNames .= "$2,";
+      push(@previousFields,$2);
       push(@previousData,$_);
    }
 }
@@ -50,6 +50,7 @@ while (<qosmosWorkbook>) {
         $field = "_$lineValues[7]$lineValues[1]";
      }
      if ($callbackNames !~ /,$field,/ ) {
+        $requirement = "optional";
         $highest += 1;
         $type = $lineValues[9];
         $optionalStuff = "";
@@ -68,9 +69,10 @@ while (<qosmosWorkbook>) {
            exit(1);
         } elsif ( $lineValues[9] =~ /string/ ) {
            $type = "bytes";
+           $requirement = "repeated";
         }
 
-        print "optional $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
+        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
      }
   } 
 }
