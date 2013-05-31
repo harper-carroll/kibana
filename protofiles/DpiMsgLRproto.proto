@@ -33,6 +33,7 @@ message DpiMsgLRproto
    optional uint64 deltaTime = 20;
    optional uint64 deltaSessionLenServer = 21;
    optional uint64 deltaSessionLenClient = 22;
+   repeated string CustomApplication = 23;
 repeated bytes applicationQ_PROTO_BASE = 100; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
 optional uint32 timeQ_PROTO_BASE = 101; // QOSMOS:Q_PROTO_BASE,Q_BASE_TIME
 optional uint64 flow_idQ_PROTO_BASE = 102; // QOSMOS:Q_PROTO_BASE,Q_BASE_FLOW_ID
