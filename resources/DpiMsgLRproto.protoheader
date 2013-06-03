@@ -33,3 +33,4 @@ message DpiMsgLRproto
    optional uint64 deltaTime = 20;
    optional uint64 deltaSessionLenServer = 21;
    optional uint64 deltaSessionLenClient = 22;
+   repeated bytes CustomApplication = 23;
