@@ -40,7 +40,24 @@ while (<previousData>) {
 close previousData;
 
 #print "$callbackNames\n";
-print @previousData;
+
+while ( my $line = <qosmosWorkbook>) {
+   @lineValues = split(/,/,$line);
+   $field = "$lineValues[7]$lineValues[1]";
+   my $index = 0;
+   foreach (@previousData) {
+      if ( $_ =~ /$field/ ) {
+         print $_;
+         splice(@previousData, $index, 1);
+         break;
+      }   
+      $index += 1;
+   }
+}
+
+seek qosmosWorkbook, 0, 0;
+#print @previousData;
+
 
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
