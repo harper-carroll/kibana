@@ -11,6 +11,14 @@ message DpiMsgLRproto
       INTERMEDIATE_FINAL = 3;
    }
 
+   enum FlowStateType {
+      CLOSED_UNKNOWN = 1;
+      SYN = 2;
+      SYN_ACK = 3;
+      ESTABLISHED = 4;
+      MID_FLOW_DETECT = 5;
+   }
+
    required string Uuid = 1;
    optional uint64 EthSrc = 2;  
    optional uint64 EthDst = 3;
@@ -34,6 +42,7 @@ message DpiMsgLRproto
    optional uint64 deltaSessionLenServer = 21;
    optional uint64 deltaSessionLenClient = 22;
    repeated bytes CustomApplication = 23;
+   optional FlowStateType FlowState = 24 [default = CLOSED_UNKNOWN];
 repeated bytes applicationQ_PROTO_BASE = 100; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
 optional uint32 timeQ_PROTO_BASE = 101; // QOSMOS:Q_PROTO_BASE,Q_BASE_TIME
 optional uint64 flow_idQ_PROTO_BASE = 102; // QOSMOS:Q_PROTO_BASE,Q_BASE_FLOW_ID
