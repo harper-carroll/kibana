@@ -43,3 +43,4 @@ message DpiMsgLRproto
    optional uint64 deltaSessionLenClient = 22;
    repeated bytes CustomApplication = 23;
    optional FlowStateType FlowState = 24 [default = CLOSED_UNKNOWN];
+   optional bool Captured = 25 [default = false];
