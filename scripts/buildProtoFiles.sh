@@ -23,7 +23,10 @@ if [ ! -f "$phpprotoc" ]; then
 fi
 
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
+cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
 sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
+sh "$scriptsDir"/buildApplicationsProto.sh > "$protoFileDir"/Applications.proto
+rm "$protoFileDir"/Applications.proto.orig
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
