@@ -1,8 +1,8 @@
-optional string 3Com = 1 [default = "Ethernet Type 3Com"];
-optional string 3Com_Corp = 2 [default = "Ethernet Type 3Com_Corp"];
-optional string 3Com_NBP = 3 [default = "Ethernet Type 3Com_NBP"];
-optional string 802_1aq = 4 [default = "Ethernet Type 802_1aq"];
-optional string 802_1q = 5 [default = "Ethernet Type 802_1q"];
+optional string _3Com = 1 [default = "Ethernet Type 3Com"];
+optional string _3Com_Corp = 2 [default = "Ethernet Type 3Com_Corp"];
+optional string _3Com_NBP = 3 [default = "Ethernet Type 3Com_NBP"];
+optional string _802_1aq = 4 [default = "Ethernet Type 802_1aq"];
+optional string _802_1q = 5 [default = "Ethernet Type 802_1q"];
 optional string AARP = 6 [default = "Ethernet Type AARP"];
 optional string Accton = 7 [default = "Ethernet Type Accton"];
 optional string Aeonic = 8 [default = "Ethernet Type Aeonic"];
