@@ -121,7 +121,7 @@ optional string UB_db = 120 [default = "Ethernet Type UB_db"];
 optional string UB_Diag = 121 [default = "Ethernet Type UB_Diag"];
 optional string UB_Down = 122 [default = "Ethernet Type UB_Down"];
 optional string UB_NIU = 123 [default = "Ethernet Type UB_NIU"];
-optional string UB_UNKOWN = 124 [default = "Ethernet Type UB_UNKOWN"];
+optional string UB_UNKNOWN = 124 [default = "Ethernet Type UB_UNKNOWN"];
 optional string U_Mass = 125 [default = "Ethernet Type U_Mass"];
 optional string VALID = 126 [default = "Ethernet Type VALID"];
 optional string Varian = 127 [default = "Ethernet Type Varian"];
