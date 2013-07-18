@@ -27,6 +27,7 @@ cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
 sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
 sh "$scriptsDir"/buildApplicationsProto.sh > "$protoFileDir"/Applications.proto
 rm "$protoFileDir"/Applications.proto.orig
+rm "$protoFileDir"/DpiMsgLRproto.proto.orig
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
