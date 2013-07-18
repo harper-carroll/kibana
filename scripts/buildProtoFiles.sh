@@ -28,6 +28,7 @@ sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
 sh "$scriptsDir"/buildApplicationsProto.sh > "$protoFileDir"/Applications.proto
 rm "$protoFileDir"/Applications.proto.orig
 rm "$protoFileDir"/DpiMsgLRproto.proto.orig
+sh "$scriptsDir"/generateApplicationsCSV.sh > "$protoFileDir"/../resources/Applications.csv
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
