@@ -1,0 +1,15 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "NtpMsg";
+
+message Ntp {
+
+   message ServerAddress {
+      optional string address = 1 [default = "10.128.64.251"];
+   }
+
+   repeated ServerAddress server = 1;
+}
+
+
