@@ -23,7 +23,12 @@ if [ ! -f "$phpprotoc" ]; then
 fi
 
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
+cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
 sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
+sh "$scriptsDir"/buildApplicationsProto.sh > "$protoFileDir"/Applications.proto
+rm "$protoFileDir"/Applications.proto.orig
+rm "$protoFileDir"/DpiMsgLRproto.proto.orig
+sh "$scriptsDir"/generateApplicationsCSV.sh > "$protoFileDir"/../resources/Applications.csv
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
@@ -33,7 +38,7 @@ cd "$javaSrcDir"
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
-for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto` ; do 
+for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do 
 "$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/$file
 done
 cd "$startDir"
