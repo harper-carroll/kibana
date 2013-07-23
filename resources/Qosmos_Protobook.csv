@@ -109,11 +109,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1438,Q_PROTO_ADC,Peer to Peer,adc,adc,1,Q_ADC_COMMAND,command,,parent,Parent attribute denoting the start of a message of the protocol.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,6,Q_ADOBE_UPDATE_COMPONENT_LIST_ENTRY,component_list_entry,,parent,Update server's answer entry.,0,session,0
-549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,5,Q_ADOBE_UPDATE_UPDATE_REQUEST,update_request,,parent,Client's component update request to the update server.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,7,Q_ADOBE_UPDATE_COMPONENT_LIST_NAME,component_list_name,,string,Name of a piece of Adobe software we have a new version for.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,8,Q_ADOBE_UPDATE_COMPONENT_LIST_DESC,component_list_desc,,string,"Short component update description, including version number.",0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,9,Q_ADOBE_UPDATE_COMPONENT_LIST_VERSION,component_list_version,,string,"Last component version available.""",0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,10,Q_ADOBE_UPDATE_COMPONENT_LIST_URL,component_list_url,,string,"Component update download link.""",0,session,0
+549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,5,Q_ADOBE_UPDATE_UPDATE_REQUEST,update_request,,parent,Client's component update request to the update server.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,4,Q_ADOBE_UPDATE_UPDATE_MANAGER,update_manager,,string,Adobe Update Manager version and identifier.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,11,Q_ADOBE_UPDATE_PRODUCT_NAME,product_name,,string,User's request for a product update.,0,session,0
 549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session,0
@@ -867,6 +867,9 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,10,Q_GNUTELLA_FILE_CHUNK_DATA,file_chunk_data,,parent,Information about downloaded data.,0,session,0
 52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session,1
 52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,620,Q_MPA_FILE_CHUNK_NUMBER,file_chunk_number,,uint16,Number of the transferred piece.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,21,Q_GNUTELLA_PEER,peer,,parent,Parent attribute containing some Gnutella Peer connection metadata. This metadata can be used to classify Gnutella connections targetted to this machine.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,19,Q_GNUTELLA_PEER_ADDR,peer_addr,,ip_addr,Gnutella peer's IPv4 address.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,20,Q_GNUTELLA_PEER_PORT,peer_port,,,Gnutella peer's listenning port number.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
@@ -1138,6 +1141,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 60,Q_PROTO_H225,Audio/Video,h225,H225,17,Q_H225_H245_METHOD,h245_method,,string,The command for a H245 message.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,18,Q_H225_LANGUAGE,language,,string,Used language.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,19,Q_H225_PRODUCT_ID,product_id,,string,H225 product component identifier.,0,session,0
+60,Q_PROTO_H225,Audio/Video,h225,H225,608,Q_MPA_VERSION,version,,string,Version of the H225 VoIP client software.,0,session,0
 61,Q_PROTO_H245,Audio/Video,h245,H245,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session,0
 61,Q_PROTO_H245,Audio/Video,h245,H245,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
 61,Q_PROTO_H245,Audio/Video,h245,H245,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
@@ -1160,6 +1164,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 301,Q_PROTO_HI5,Web,hi5,Hi5,704,Q_MPA_NICKNAME,nickname,,string,User's profile displayed name.,0,session,0
 301,Q_PROTO_HI5,Web,hi5,Hi5,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 301,Q_PROTO_HI5,Web,hi5,Hi5,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+301,Q_PROTO_HI5,Web,hi5,Hi5,748,Q_MPA_UID,uid,,buffer,Generic user ID.,0,session,0
 301,Q_PROTO_HI5,Web,hi5,Hi5,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
 301,Q_PROTO_HI5,Web,hi5,Hi5,633,Q_MPA_IS_MOBILE_SERVICE,is_mobile_service,,uint32,Whether or not the access was made through a mobile device.,0,session,0
 65,Q_PROTO_HPELLC,Network Service,hpellc,HP Extended Local-Link Control,1,Q_HPELLC_DST_XSAP,dst_xsap,,uint16,SAP destination address.,0,pkt,0
@@ -1170,16 +1175,18 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 66,Q_PROTO_HSRP,Routing,hsrp,Cisco Hot Standby Router Protocol(HSRP),4,Q_HSRP_PRIORITY,priority,,uint8,"This field is used to elect the active and standby routers. When comparing priorities of two different routers, the router with the numerically higher priority wins.",0,pkt,0
 66,Q_PROTO_HSRP,Routing,hsrp,Cisco Hot Standby Router Protocol(HSRP),5,Q_HSRP_GROUP,group,,uint8,This field identifies the standby group.,0,pkt,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,790,Q_MPA_DECLASSIFY_OVERRIDE,declassify_override,,uint8,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,794,Q_MPA_NOCACHING_OVERRIDE,nocaching_override,,uint8,Attribute used to specify if it's unsafe to cache the final classification path of the current session. This value overrides the proto_feature flag defined in the layer raising this event.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,1,Q_HTTP_REQUEST,request,,parent,An HTTP request.,0,session,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,2,Q_HTTP_SERVER,server,,string,Web server name.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,2,Q_HTTP_SERVER,server,,string,"Normalized web server name, including lowercase transformation and suffix cleaning.",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,66,Q_HTTP_HOST,host,,string,Host name value extracted from the Host header.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,3,Q_HTTP_LOCATION,location,,string,Destination address where the client is redirected.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,4,Q_HTTP_REFERER,referer,,string,Source address from which the client obtained the requested URI.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,51,Q_HTTP_REFERER_PATH,referer_path,,string,Source address from which the client obtained the requested URI without query parameters.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,52,Q_HTTP_REFERER_SERVER,referer_server,,string,Contains the host or the website name of the referer.,0,session,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,5,Q_HTTP_URI,uri,,string,URL path (path + filename + etc.) of a web resource.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,5,Q_HTTP_URI,uri,,string,"Normalized URL form (path + filename + parameters) of a web resource, including unreserved percent-encoded characters decoding (RFC3986).",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,50,Q_HTTP_URI_PATH,uri_path,,string,"URL path (path + filename) of a web resource, without query parameters.",0,session,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,6,Q_HTTP_URI_FULL,uri_full,,string,Complete URL (hostname + path + etc.) of a web resource.,1,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,6,Q_HTTP_URI_FULL,uri_full,,string,Complete raw URL (optional hostname + path + parameters) of a web resource.,1,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,72,Q_HTTP_URI_START_OFFSET,uri_start_offset,,uint32,Offset to the first URI byte in the TCP stream. The URI start is located in the current packet (the offset value is positive).,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,73,Q_HTTP_URI_END_OFFSET,uri_end_offset,,int32,"Offset to the first byte which is not part of the URI, in the TCP stream. This value might be less or equal to zero when the URI actually ends on a previous packet, in which the Request-line did not terminate (HTTP/1.x\r\n"").""",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,626,Q_MPA_USER_AGENT,user_agent,,string,Software used by the client to access the web page.,0,session,0
@@ -1217,6 +1224,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,549,Q_MPA_IS_WEBDAV,is_webdav,,uint8,Indicates that the protocol is WebDAV.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,78,Q_HTTP_AUTH_USERNAME,auth_username,,string,Login used in the HTTP Authorization request extension for authentication. The supported authentication methods are Basic and Digest.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,79,Q_HTTP_AUTH_PASSWORD,auth_password,,string,Password used in the HTTP request Authorization extension. The only supported authentication method for password extraction is Basic.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,80,Q_HTTP_FILE_COMPLETED,file_completed,,uint8,Indicates that the request or response is completed.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,627,Q_MPA_MIME,mime,,parent,"Parent attribute, containing mime_type_main and mime_typ_sub.",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,628,Q_MPA_MIME_TYPE_MAIN,mime_type_main,,string,Primary part of the MIME type.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,629,Q_MPA_MIME_TYPE_SUB,mime_type_sub,,string,Second part of the MIME type.,0,session,0
@@ -1259,6 +1267,9 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,709,Q_MPA_START_TIME,start_time,,uint32,Start date of the call.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,785,Q_MPA_VIDEO_URL,video_url,,string,URL of the binary video file referenced by the current metadata.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,770,Q_MPA_TOTAL_DATARATE,total_datarate,,uint32,Sum of video and audio datarates.,0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,786,Q_MPA_NTLM_DOMAIN,ntlm_domain,,string,"Domain"" attribute of the NTLM protocol.""",0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,787,Q_MPA_NTLM_USER,ntlm_user,,string,"User"" attribute of the NTLM protocol.""",0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,788,Q_MPA_NTLM_WORKSTATION,ntlm_workstation,,string,"Workstation"" attribute of the NTLM protocol.""",0,session,0
 750,Q_PROTO_HTTP_TUNNEL,Tunneling,http_tunnel,HTTP Tunnel,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
 750,Q_PROTO_HTTP_TUNNEL,Tunneling,http_tunnel,HTTP Tunnel,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session,0
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),1,Q_ICA_APPLICATION,application,,string,Application name used by the client.,0,session,0
@@ -1267,6 +1278,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),6,Q_ICA_LOGIN_INFO_UTF16,login_info_utf16,,buffer,"Login information for the given connection (host, username, network domain), in UTF-16 format.",0,session,0
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),3,Q_ICA_PRIORITY,priority,,uint8,Priority of the service.,0,session,0
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),4,Q_ICA_SERVICE,service,,string,Service used by the client.,0,session,0
+1103,Q_PROTO_ICAP,Web,icap,ICAP,1,Q_ICAP_X_CLIENT_IP,x_client_ip,,string,"The IP source address of the encapsulated HTTP request, when using the X-Client-IP ICAP header extension (draft-stecher-icap-subid-00).",0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,604,Q_MPA_SERVICE,service,,string,Current iCloud service..,0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,643,Q_MPA_REQUEST,request,,parent,Parent structure containing iCloud service metadata.,0,session,0
@@ -1647,6 +1659,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,660,Q_MPA_CALL_ID,call_id,,string,"Call id, extracted for each call.",0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,522,Q_MPA_CALL,call,,parent,"Parent entry, empty, for fields belonging to the call (caller, callee, etc.).",0,session,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,635,Q_MPA_CONTACT_FIRSTNAME,contact_firstname,,string,Contact first name.,0,session,0
@@ -2091,6 +2104,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,2,Q_MPLS_EXP,exp,,uint8,Packet queuing priority (QoS).,0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,3,Q_MPLS_BOS,bos,,uint8,"Bottom Of Stack: equals to 1 if the last level of MPLS is reached, and 0 if another level of MPLS exists.",0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,4,Q_MPLS_TTL,ttl,,uint8,Lifetime of the MPLS message.,0,pkt,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used in M+ Messenger. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,604,Q_MPA_SERVICE,service,,string,"M+ current service identification string. The service is computed every 5 secondes, this attribute is extracted only when the service changes.",0,session,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
@@ -2215,6 +2230,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 832,Q_PROTO_NICONICO_DOUGA,Audio/Video,niconico_douga,NicoNico Douga,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 832,Q_PROTO_NICONICO_DOUGA,Audio/Video,niconico_douga,NicoNico Douga,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,1,Q_NNTP_NEWSGROUP,newsgroup,,string,Newsgroup name.,0,session,0
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,2,Q_NNTP_SUBJECT,subject,,string,Message subject.,0,session,0
 137,Q_PROTO_NTP,Network Service,ntp,Network Time Protocol,608,Q_MPA_VERSION,version,,uint8,Protocol version.,0,session,0
@@ -2462,6 +2479,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol,749,Q_MPA_RECEIVED_SERVER_AGENT,received_server_agent,,string,Contains the name of the sever agent,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+150,Q_PROTO_POSTGRES,Database,postgres,Postgres,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+150,Q_PROTO_POSTGRES,Database,postgres,Postgres,4,Q_POSTGRES_AUTHENTIFICATION_TYPE,authentification_type,,string,Authentication method requested by the server.,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,1,Q_POSTGRES_BASE,base,,string,Database name.,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,2,Q_POSTGRES_SERVER_VERSION,server_version,,string,Server version,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol version used,0,session,0
@@ -2731,8 +2750,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,6,Q_RTP_TIMESTAMP,timestamp,,uint32,RTP packet timestamp.,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,10,Q_RTP_SNUMBER,snumber,,uint16,Sequence number of RTP packet,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,12,Q_RTP_PAYLOAD_DATA,payload_data,,buffer,A binary buffer containing the RTP data (without header),1,session,1
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,8,Q_RTP_MOS_SESSION,mos_session,,float,Standard voice quality indicator at the end of the RTP session.,0,session,0
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,9,Q_RTP_RFACTOR,rfactor,,float,"Rfactor value at the end of the session, following the ITU G.107 calculation method.",0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,8,Q_RTP_MOS_SESSION,mos_session,,float,Standard voice quality indicator.,0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,9,Q_RTP_RFACTOR,rfactor,,float,"Rfactor value, following the ITU G.107 calculation method.",0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,7,Q_RTP_MOS_SATELLITE,mos_satellite,x,float,Standard voice quality indicator for satellite (Mean Opinion Score). This attribute is deprecated.,0,session,0
 176,Q_PROTO_RTSP,Audio/Video,rtsp,Real Time Streaming Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 176,Q_PROTO_RTSP,Audio/Video,rtsp,Real Time Streaming Protocol,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
@@ -2804,7 +2823,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,522,Q_MPA_CALL,call,,parent,"Parent entry, empty, for fields belonging to the call (caller, callee, etc.).",0,session,0
-179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,1,Q_SCCP_MESSAGE_TYPE,message_type,,string_index,The type of the message.,0,session,0
+179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,1,Q_SCCP_MESSAGE_TYPE,message_type,,uint32,The type of the message.,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,660,Q_MPA_CALL_ID,call_id,,uint32,"Call id, extracted for each call.",0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,524,Q_MPA_CALLER,caller,,string,Contains the identity (or the phone number) of the initiator of the call.,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session,0
@@ -2812,10 +2831,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,4,Q_SCCP_CALLEENAME,calleename,,string,Called party identity,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,20,Q_SCCP_DEVICE_TYPE,device_type,,uint32,Device type,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,21,Q_SCCP_DEVICE_NAME,device_name,,string,Device name,0,session,0
-179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,5,Q_SCCP_CALL_WAY,call_way,,string_index,"The call Way (In, Out)",0,session,0
+179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,5,Q_SCCP_CALL_WAY,call_way,,uint32,"The call Way (In, Out)",0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,709,Q_MPA_START_TIME,start_time,,timeval,Start date of the call.,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,521,Q_MPA_CALL_DURATION,call_duration,,timeval,Call duration.,0,session,0
-179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,8,Q_SCCP_CALLSTATE,callstate,,string_index,Status of the current call,0,session,0
+179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,8,Q_SCCP_CALLSTATE,callstate,,uint32,Status of the current call,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,19,Q_SCCP_STATS,stats,,parent,Regroups connection statistics,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,9,Q_SCCP_NB_PKT_SENT,nb_pkt_sent,,uint32,Number of RTP packets sent,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,10,Q_SCCP_NB_PKT_RCV,nb_pkt_rcv,,uint32,Number of RTP packets received,0,session,0
@@ -2825,8 +2844,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,14,Q_SCCP_STATS_JITTER,stats_jitter,,uint32,Observed Jitter for RTP packets,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,15,Q_SCCP_STATS_LATENCY,stats_latency,,uint32,Observed latency for RTP packets,0,session,0
 179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,16,Q_SCCP_KEYPAD,keypad,,uint32,Contains the key pressed on the handset,0,pkt,0
-179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,17,Q_SCCP_CODEC,codec,,string_index,The codec used in the RTP session,0,session,0
-179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,18,Q_SCCP_SOFTKEYEVENT,softkeyevent,,string_index,Contains the soft key event,0,session,0
+179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,17,Q_SCCP_CODEC,codec,,uint32,The codec used in the RTP session,0,session,0
+179,Q_PROTO_SCCP,Audio/Video,sccp,Skinny Client Control Protocol,18,Q_SCCP_SOFTKEYEVENT,softkeyevent,,uint32,Contains the soft key event,0,session,0
 180,Q_PROTO_SCTP,Network Service,sctp,Stream Control Transmission Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 180,Q_PROTO_SCTP,Network Service,sctp,Stream Control Transmission Protocol,605,Q_MPA_SRC_PORT,src_port,,uint16,Source port.,0,session,0
 180,Q_PROTO_SCTP,Network Service,sctp,Stream Control Transmission Protocol,534,Q_MPA_DST_PORT,dst_port,,uint16,Destination port.,0,session,0
@@ -3078,6 +3097,26 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKSv5,1,Q_SOCKS5_REMOTE_ADDR,remote_addr,,ip_addr,Remote IP address.,0,session,0
 193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKSv5,3,Q_SOCKS5_REMOTE_NAME,remote_name,,string,Remote FQDN.,0,session,0
 193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKSv5,2,Q_SOCKS5_REMOTE_PORT,remote_port,,uint16,Remote TCP port.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,1,Q_SPDY_FRAME_TYPE,frame_type,,uint8,Frame type.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,2,Q_SPDY_STREAM_ID,stream_id,,uint32,Stream identifier.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,3,Q_SPDY_FLAGS,flags,,uint8,Flags,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,4,Q_SPDY_LENGTH,length,,uint32,Length of the message starting at the offset of this field.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,5,Q_SPDY_CONTROL_FRAME,control_frame,,parent,Parent attribute for control frame elements.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,6,Q_SPDY_VERSION,version,,uint16,Version number.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,7,Q_SPDY_CONTROL_TYPE,control_type,,uint16,Control frame type.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,8,Q_SPDY_SYN_STREAM,syn_stream,,parent,Parent attribute for elements of stream synchronization frames.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,9,Q_SPDY_ASSOCIATED_STREAM_ID,associated_stream_id,,uint16,Identifier for a stream which this stream is associated to.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,10,Q_SPDY_PRIORITY,priority,,uint8,A stream priority is represented as an integer. 0 represents the highest priority and 7 represents the lowest priority.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,11,Q_SPDY_SLOT,slot,,uint8,An 8 bit unsigned integer specifying the index in the server's CREDENTIAL vector of the client certificate to be used for this request.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,13,Q_SPDY_RST_STREAM,rst_stream,,parent,Parent attribute for elements of stream reset frames.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,14,Q_SPDY_STATUS_CODE,status_code,,uint32,An indicator for why the stream is being terminated.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,15,Q_SPDY_HEADER_COUNT,header_count,,uint32,The number of repeating name/value pairs following this field,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,16,Q_SPDY_HEADER,header,,parent,Parent attribute for a name/value pair.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,21,Q_SPDY_HEADER_NAME,header_name,,string,"Header name, prefixed by a ':' if it's a mandatory SPDY header.",0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,22,Q_SPDY_HEADER_VALUE,header_value,,string,Header value.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,19,Q_SPDY_DATA_FRAME,data_frame,,parent,Parent attribute for elements of a data frame.,0,session,0
+1469,Q_PROTO_SPDY,Web,spdy,SPDY,20,Q_SPDY_CONTENT,content,,buffer,Message content.,0,session,1
 1446,Q_PROTO_SPID,Standard,spid,SPID : Statistical Protocol IDentification,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 1446,Q_PROTO_SPID,Standard,spid,SPID : Statistical Protocol IDentification,1,Q_SPID_RESULT,result,,parent,Parent attribute containing SPID classification results.,0,session,0
 1446,Q_PROTO_SPID,Standard,spid,SPID : Statistical Protocol IDentification,2,Q_SPID_FOUND_PROTOCOL,found_protocol,,string,Protocol name that has been discovered by SPID.,0,session,0
@@ -3127,6 +3166,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 195,Q_PROTO_SQUIRRELMAIL,Webmail,squirrelmail,SquirrelMail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
 198,Q_PROTO_SSH,Encrypted,ssh,Secure Shell,1,Q_SSH_RTT,rtt,,timeval,Server response time.,0,session,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,790,Q_MPA_DECLASSIFY_OVERRIDE,declassify_override,,uint8,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.,0,session,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,608,Q_MPA_VERSION,version,,string_index,Protocol version.,0,session,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,739,Q_MPA_SESSION_ID,session_id,,buffer,Uniquely identifies the current user session.,0,session,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,3,Q_SSL_CERTIFICATE,certificate,,parent,Parent attribute for the common_name and the MD5 hash of the certificate,0,session,0
@@ -3540,36 +3580,36 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,575,Q_MPA_MSGLIST_SIZE,msglist_size,,string,Message size in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,636,Q_MPA_CONTACT_LASTNAME,contact_lastname,,string,Contact last name.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,635,Q_MPA_CONTACT_FIRSTNAME,contact_firstname,,string,Contact first name.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,575,Q_MPA_MSGLIST_SIZE,msglist_size,,string,Message size in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
 236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
@@ -3782,7 +3822,6 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 239,Q_PROTO_YMSG_VIDEO,Audio/Video,ymsg_video,YMSG Video,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 239,Q_PROTO_YMSG_VIDEO,Audio/Video,ymsg_video,YMSG Video,1,Q_YMSG_VIDEO_WEBCAM_BRAND,webcam_brand,,string,Brand of webcam.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,604,Q_MPA_SERVICE,service,,string,Type of service.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,2,Q_YMSG_WEBMESSENGER_SESSIONID,sessionid,,string,Identification number of session.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,608,Q_MPA_VERSION,version,,string,Version number.,0,session,0
@@ -3797,6 +3836,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,529,Q_MPA_CONTACT_STATUS,contact_status,,string_index,Contact status.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,640,Q_MPA_CONTACT_NAME,contact_name,,string,Contact name.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,604,Q_MPA_SERVICE,service,,string,Type of service.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,555,Q_MPA_METHOD,method,,string_index,Contains the description of YMSG command.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,1,Q_YMSG_WEBMESSENGER_MSG_CODE,msg_code,,string,Contains the number of YMSG command.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,643,Q_MPA_REQUEST,request,,parent,Contains the YMSG command.,0,session,0
