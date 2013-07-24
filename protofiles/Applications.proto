@@ -1561,4 +1561,6 @@ optional string slacker = 1559 [default = "This protocol plug-in classifies the 
 optional string blogster = 1560 [default = "This protocol plug-in classifies the http traffic to the host blogster.com."];
 optional string gamesmomo = 1561 [default = "Selection of fun games Flash Games."];
 optional string hankyung = 1562 [default = "This protocol plug-in classifies the http traffic to the host hankyung.com."];
+optional string baidu_player = 1563 [default = "BaiduPlayer is a video player that can play local online and OnDemand videos."];
+optional string jingdong = 1564 [default = "Popular chinese on-line hi-tech shop."];
 }
