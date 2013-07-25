@@ -6,7 +6,8 @@ option java_outer_classname = "NtpMsg";
 message Ntp {
 
    optional bool active = 1;
-   repeated string address = 2;
+   optional string master_server = 2;
+   optional string backup_server = 3;
 }
 
 
