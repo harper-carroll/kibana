@@ -5,11 +5,8 @@ option java_outer_classname = "NtpMsg";
 
 message Ntp {
 
-   message ServerAddress {
-      optional string address = 1 [default = "10.128.64.251"];
-   }
-
-   repeated ServerAddress server = 1;
+   optional bool active = 1;
+   repeated string address = 2;
 }
 
 
