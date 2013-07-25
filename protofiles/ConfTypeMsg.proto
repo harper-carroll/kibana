@@ -12,6 +12,7 @@ message ConfType {
      RESTART = 4;
      NETINTERFACE  = 5;
      READER_RULE = 6;
+     NTP = 7;
   }
   enum Direction {
      RECEIVING = 0;
