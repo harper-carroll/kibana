@@ -28,7 +28,7 @@ my %newComments = ();
 my $highest = 1;
 my $callbackNames = ",";
 while (<previousData>) {
-   if ($_ =~ m/^(optional|repeated)\s+.*\s+_*(\w+)\s+=\s+(\d+)/) {
+   if ($_ =~ m/^(required|optional|repeated)\s+.*\s+_*(\w+)\s+=\s+(\d+)/) {
       push(@ids,$3);
       if ( $3 > $highest ) {
          $highest = $3;
