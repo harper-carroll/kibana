@@ -45,6 +45,7 @@ message DpiMsgLRproto
    optional FlowStateType FlowState = 24 [default = CLOSED_UNKNOWN];
    optional bool Captured = 25 [default = false];
    optional uint32 ChildFlowNum = 26;
+   optional uint64 TotalSessionLen = 27;
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
 repeated bytes applicationQ_PROTO_BASE = 344; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
 optional uint32 timeQ_PROTO_BASE = 345; // QOSMOS:Q_PROTO_BASE,Q_BASE_TIME
