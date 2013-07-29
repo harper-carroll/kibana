@@ -46,6 +46,7 @@ cd "$startDir"
 mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
+"$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/Applications.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libstats  "$protoFileDir"/StatsMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/BaseConfMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/QosmosConfMsg.proto
@@ -61,6 +62,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessReply.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
+mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
 mv  libconf/BaseConfMsg.pb.cc  libconf/BaseConfMsg.pb.cpp
 mv  libconf/NetInterfaceMsg.pb.cc  libconf/NetInterfaceMsg.pb.cpp
