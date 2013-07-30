@@ -9,6 +9,7 @@ message CommandRequest {
      SYSLOG_RESTART = 1;
      REBOOT = 2;
      NETWORK_CONFIG = 3;
+     NTP_CONFIG = 4;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
