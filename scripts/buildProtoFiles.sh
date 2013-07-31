@@ -52,6 +52,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/QosmosConfMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ConfTypeMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NetInterfaceMsg.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NtpMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/RestartMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/VersionMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/SyslogConfMsg.proto
@@ -66,6 +67,7 @@ mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
 mv  libconf/BaseConfMsg.pb.cc  libconf/BaseConfMsg.pb.cpp
 mv  libconf/NetInterfaceMsg.pb.cc  libconf/NetInterfaceMsg.pb.cpp
+mv  libconf/NtpMsg.pb.cc  libconf/NtpMsg.pb.cpp
 mv  libconf/QosmosConfMsg.pb.cc  libconf/QosmosConfMsg.pb.cpp
 mv  libconf/ConfTypeMsg.pb.cc  libconf/ConfTypeMsg.pb.cpp
 mv  libconf/RestartMsg.pb.cc  libconf/RestartMsg.pb.cpp

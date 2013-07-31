@@ -1,0 +1,13 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "NtpMsg";
+
+message Ntp {
+
+   optional bool active = 1;
+   optional string master_server = 2;
+   optional string backup_server = 3;
+}
+
+
