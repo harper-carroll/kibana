@@ -1,0 +1,9 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ShutdownMsgProto";
+
+message ShutdownMsg {
+  optional bool now = 1 [default = true];
+}
+
