@@ -19,28 +19,28 @@ message DpiMsgLRproto
       MID_FLOW_DETECT = 5;
    }
 
-   required string Uuid = 1;
-   optional uint64 EthSrc = 2;  
-   optional uint64 EthDst = 3;
-   optional uint32 IpSrc = 4;
-   optional uint32 IpDst = 5;
+   required string SessionId = 1;
+   optional uint64 EthSource = 2;  
+   optional uint64 EthDest = 3;
+   optional uint32 IpSource = 4;
+   optional uint32 IpDest = 5;
    optional string PktPath = 6;
    optional uint32 FlowSessionCnt = 7;
-   optional uint32 SourcePort = 8;
-   optional uint32 DestPort = 9;
+   optional uint32 PortSource = 8;
+   optional uint32 PortDest = 9;
    optional bool FlowCompleted = 10;
    optional string Delay = 11;
    optional uint32 ProtoId = 12;
-   optional uint32 PacketCount = 13;
-   optional uint64 StartTime = 14;
-   optional uint64 EndTime = 15;
-   optional uint64 SessionLenServer = 16;
-   optional uint64 SessionLenClient = 17;
+   optional uint32 PacketTotal = 13;
+   optional uint64 TimeStart = 14;
+   optional uint64 TimeUpdate = 15;
+   optional uint64 BytesServer = 16;
+   optional uint64 BytesClient = 17;
    optional Type FlowType = 18;
-   optional uint64 deltaPackets = 19;
-   optional uint64 deltaTime = 20;
-   optional uint64 deltaSessionLenServer = 21;
-   optional uint64 deltaSessionLenClient = 22;
+   optional uint64 PacketsDelta = 19;
+   optional uint64 TimeDelta = 20;
+   optional uint64 BytesServerDelta = 21;
+   optional uint64 BytesClientDelta = 22;
    repeated bytes CustomApplication = 23;
    optional FlowStateType FlowState = 24 [default = CLOSED_UNKNOWN];
    optional bool Captured = 25 [default = false];
@@ -49,3 +49,4 @@ message DpiMsgLRproto
    optional uint64 BytesTotalDelta = 28;
    optional string Application = 29;
    optional string ApplicationPath = 30;
+   
