@@ -52,3 +52,4 @@ message DpiMsgLRproto
    optional uint64 timeTotal = 31;
    optional uint64 messageSize = 32;
    optional uint32 threadId = 33;
+   optional uint64 fieldCount = 34;
