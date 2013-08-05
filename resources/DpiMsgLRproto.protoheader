@@ -50,4 +50,5 @@ message DpiMsgLRproto
    optional string Application = 29;
    optional string ApplicationPath = 30;
    optional uint64 timeTotal = 31;
-   
+   optional uint64 messageSize = 32;
+   optional uint32 threadId = 33;
