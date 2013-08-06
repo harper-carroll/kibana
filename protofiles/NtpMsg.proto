@@ -5,7 +5,7 @@ option java_outer_classname = "NtpMsg";
 
 message Ntp {
 
-   optional bool active = 1;
+   // optional bool active = 1;  // Deprecated. Active is no longer used
    optional string master_server = 2;
    optional string backup_server = 3;
 }
