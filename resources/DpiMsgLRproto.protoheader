@@ -54,3 +54,4 @@ message DpiMsgLRproto
    optional uint32 threadId = 33;
    optional uint64 fieldCount = 34;
    optional string debugMessage = 35;
+   optional uint32 ApplicationId = 36;

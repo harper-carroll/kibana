@@ -54,6 +54,7 @@ message DpiMsgLRproto
    optional uint32 threadId = 33;
    optional uint64 fieldCount = 34;
    optional string debugMessage = 35;
+   optional uint32 ApplicationId = 36;
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
 repeated bytes applicationQ_PROTO_BASE = 344; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
 optional uint32 timeQ_PROTO_BASE = 345; // QOSMOS:Q_PROTO_BASE,Q_BASE_TIME
