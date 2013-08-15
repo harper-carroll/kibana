@@ -33,7 +33,7 @@ message DpiMsgLRproto
    optional uint32 ProtoId = 12;
    optional uint32 PacketTotal = 13;
    optional uint64 TimeStart = 14;
-   optional uint64 TimeUpdate = 15;
+   optional uint64 TimeUpdated = 15;
    optional uint64 BytesServer = 16;
    optional uint64 BytesClient = 17;
    optional Type FlowType = 18;
