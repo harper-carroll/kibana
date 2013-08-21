@@ -54,6 +54,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NetInterfaceMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NtpMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/RestartMsg.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ShutdownMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/VersionMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/SyslogConfMsg.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ReaderRuleConf.proto
@@ -71,6 +72,7 @@ mv  libconf/NtpMsg.pb.cc  libconf/NtpMsg.pb.cpp
 mv  libconf/QosmosConfMsg.pb.cc  libconf/QosmosConfMsg.pb.cpp
 mv  libconf/ConfTypeMsg.pb.cc  libconf/ConfTypeMsg.pb.cpp
 mv  libconf/RestartMsg.pb.cc  libconf/RestartMsg.pb.cpp
+mv  libconf/ShutdownMsg.pb.cc  libconf/ShutdownMsg.pb.cpp
 mv  libconf/VersionMsg.pb.cc  libconf/VersionMsg.pb.cpp
 mv  libconf/SyslogConfMsg.pb.cc  libconf/SyslogConfMsg.pb.cpp
 mv  libconf/ReaderRuleConf.pb.cc  libconf/ReaderRuleConf.pb.cpp
