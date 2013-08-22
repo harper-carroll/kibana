@@ -55,3 +55,5 @@ message DpiMsgLRproto
    optional uint64 fieldCount = 34;
    optional string debugMessage = 35;
    optional uint32 ApplicationId = 36 [default = 0];
+   optional bool LatestUpdate = 37 [default = true];
+   optional uint64 TimeLast = 38;
