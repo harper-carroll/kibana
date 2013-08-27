@@ -49,7 +49,7 @@ message DpiMsgLRproto
    optional uint64 BytesTotalDelta = 28;
    optional string Application = 29;
    optional string ApplicationPath = 30;
-   optional uint64 timeTotal = 31;
+   optional uint64 duration = 31;
    optional uint64 messageSize = 32;
    optional uint32 threadId = 33;
    optional uint64 fieldCount = 34;
