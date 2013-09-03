@@ -34,5 +34,6 @@ message BaseConf {
   optional string captureSizeLimit = 38;
   optional string captureMemoryLimit = 39;
   optional string captureMaxPackets = 41;
+  optional string captureIndividualFileLimit = 42;
 }
 
