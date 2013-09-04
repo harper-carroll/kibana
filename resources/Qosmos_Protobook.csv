@@ -1188,10 +1188,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,50,Q_HTTP_URI_PATH,uri_path,,string,"URL path (path + filename) of a web resource, without query parameters.",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,6,Q_HTTP_URI_FULL,uri_full,,string,Complete raw URL (optional hostname + path + parameters) of a web resource.,1,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,72,Q_HTTP_URI_START_OFFSET,uri_start_offset,,uint32,Offset to the first URI byte in the TCP stream. The URI start is located in the current packet (the offset value is positive).,0,session,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,73,Q_HTTP_URI_END_OFFSET,uri_end_offset,,int32,"Offset to the first byte which is not part of the URI, in the TCP stream. This value might be less or equal to zero when the URI actually ends on a previous packet, in which the Request-line did not terminate (HTTP/1.x\r\n"").""",0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,73,Q_HTTP_URI_END_OFFSET,uri_end_offset,,uint32,"Offset to the first byte which is not part of the URI, in the TCP stream. This value might be less or equal to zero when the URI actually ends on a previous packet, in which the Request-line did not terminate (HTTP/1.x\r\n"").""",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,626,Q_MPA_USER_AGENT,user_agent,,string,Software used by the client to access the web page.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,74,Q_HTTP_USER_AGENT_START_OFFSET,user_agent_start_offset,,uint32,Offset to the first User-agent byte in the TCP stream. The User-agent start is located in the current packet (the offset value is positive).,0,session,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,75,Q_HTTP_USER_AGENT_END_OFFSET,user_agent_end_offset,,int32,"Offset to the first byte which is not part of the User-agent, in the TCP stream. This value might be less or equal to zero if the User-agent actually ends on a previous packet, in which the Header-line did not terminate (\r\n"").""",0,session,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,75,Q_HTTP_USER_AGENT_END_OFFSET,user_agent_end_offset,,uint32,"Offset to the first byte which is not part of the User-agent, in the TCP stream. This value might be less or equal to zero if the User-agent actually ends on a previous packet, in which the Header-line did not terminate (\r\n"").""",0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,11,Q_HTTP_MIME_TYPE,mime_type,,string,Content type of the request or the web page.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,12,Q_HTTP_CONTENT_DISPOSITION,content_disposition,,string,Information related to the disposition of the content present on the web page.,0,session,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,13,Q_HTTP_FORWARD_ADDR,forward_addr,,ip_addr,DNS address to which the client is redirected.,0,session,0
@@ -1278,7 +1278,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),6,Q_ICA_LOGIN_INFO_UTF16,login_info_utf16,,buffer,"Login information for the given connection (host, username, network domain), in UTF-16 format.",0,session,0
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),3,Q_ICA_PRIORITY,priority,,uint8,Priority of the service.,0,session,0
 69,Q_PROTO_ICA,Thin Client,ica,Independant Computing Architecture (Citrix),4,Q_ICA_SERVICE,service,,string,Service used by the client.,0,session,0
-1103,Q_PROTO_ICAP,Web,icap,ICAP,1,Q_ICAP_X_CLIENT_IP,x_client_ip,,string,"The IP source address of the encapsulated HTTP request, when using the X-Client-IP ICAP header extension (draft-stecher-icap-subid-00).",0,session,0
+1103,Q_PROTO_ICAP,Web,icap,ICAP,10,Q_ICAP_X_CLIENT_IP,x_client_ip,,string,"The IP source address of the encapsulated HTTP request, when using the X-Client-IP ICAP header extension (draft-stecher-icap-subid-00).",0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,604,Q_MPA_SERVICE,service,,string,Current iCloud service..,0,session,0
 1126,Q_PROTO_ICLOUD,Application Service,icloud,iCloud,643,Q_MPA_REQUEST,request,,parent,Parent structure containing iCloud service metadata.,0,session,0
@@ -1606,7 +1606,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,12,Q_KRB5_TICKET_NAME,ticket_name,,string,Ticket name component.,0,session,0
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,14,Q_KRB5_TICKET_ENC_PART,ticket_enc_part,,buffer,Ticket encrypted part.,0,session,0
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,30,Q_KRB5_KDCOPTIONS,kdcoptions,,buffer,KDC options as a bitstring.,0,session,0
-97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,15,Q_KRB5_ERROR_CODE,error_code,,int32,Error code in KRB-ERROR message.,0,session,0
+97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,15,Q_KRB5_ERROR_CODE,error_code,,uint32,Error code in KRB-ERROR message.,0,session,0
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,6,Q_KRB5_REALM,realm,,string,Realm in KRB-ERROR message.,0,session,0
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,16,Q_KRB5_ERR_CREALM,err_crealm,,string,Realm in KRB-ERROR message.,0,session,0
 97,Q_PROTO_KRB5,Authentication,krb5,Kerberos,17,Q_KRB5_ERR_CNAME,err_cname,,parent,"Parent attribute, containing name-type and name of a KRB-ERROR message.",0,session,0
@@ -1789,7 +1789,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,1,Q_LIVEMAIL_MOBILE_ATTACH_FILEID,attach_fileid,,string,Automatically generated filename for file attachment.,0,session,0
-327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,519,Q_MPA_ATTACH_SIZE,attach_size,,int32,Attached file MIME size.,0,session,0
+327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
 327,Q_PROTO_LIVEMAIL_MOBILE,Webmail,livemail_mobile,Live hotmail for mobile,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
@@ -1965,7 +1965,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,517,Q_MPA_ATTACH_ID,attach_id,,uint32,Attachment identifier.,0,session,0
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,516,Q_MPA_ATTACH_FILENAME,attach_filename,,buffer,Attachment name (UTF-16).,0,session,0
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,0,session,0
-110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,519,Q_MPA_ATTACH_SIZE,attach_size,,int32,Attached file MIME size.,0,session,0
+110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
 110,Q_PROTO_MAPI,Mail,mapi,MS Exchange Message API,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,buffer,Full address of email sender (alias and email address) (UTF-16).,0,session,0
@@ -2745,14 +2745,14 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,14,Q_RTP_CODEC_INDEX,codec_index,,uint8,Number identifying the codec.,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,2,Q_RTP_LOST,lost,,uint8,Counter of lost packets (use with sum).,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,3,Q_RTP_UNSEQ,unseq,,uint32,Contains the number of miss ordered packets (use sum).,0,session,0
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,4,Q_RTP_MOS,mos,x,float,Standard voice quality indicator (Mean Opinion Score). This attribute is deprecated.,0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,4,Q_RTP_MOS,mos,x,uint32,Standard voice quality indicator (Mean Opinion Score). This attribute is deprecated.,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,5,Q_RTP_SSRC,ssrc,,uint32,Identity of the Synchronization source,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,6,Q_RTP_TIMESTAMP,timestamp,,uint32,RTP packet timestamp.,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,10,Q_RTP_SNUMBER,snumber,,uint16,Sequence number of RTP packet,0,session,0
 175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,12,Q_RTP_PAYLOAD_DATA,payload_data,,buffer,A binary buffer containing the RTP data (without header),1,session,1
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,8,Q_RTP_MOS_SESSION,mos_session,,float,Standard voice quality indicator.,0,session,0
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,9,Q_RTP_RFACTOR,rfactor,,float,"Rfactor value, following the ITU G.107 calculation method.",0,session,0
-175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,7,Q_RTP_MOS_SATELLITE,mos_satellite,x,float,Standard voice quality indicator for satellite (Mean Opinion Score). This attribute is deprecated.,0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,8,Q_RTP_MOS_SESSION,mos_session,,uint32,"Standard voice quality indicator, multiplied by 1000.",0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,9,Q_RTP_RFACTOR,rfactor,,uint32,"Rfactor value, following the ITU G.107 calculation method, multiplied par 1000.",0,session,0
+175,Q_PROTO_RTP,Audio/Video,rtp,Real Time Protocol,7,Q_RTP_MOS_SATELLITE,mos_satellite,x,uint32,Standard voice quality indicator for satellite (Mean Opinion Score). This attribute is deprecated.,0,session,0
 176,Q_PROTO_RTSP,Audio/Video,rtsp,Real Time Streaming Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 176,Q_PROTO_RTSP,Audio/Video,rtsp,Real Time Streaming Protocol,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session,0
 176,Q_PROTO_RTSP,Audio/Video,rtsp,Real Time Streaming Protocol,21,Q_RTSP_REQUEST,request,,parent,RTSP request.,0,session,0
@@ -2892,8 +2892,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,607,Q_MPA_SUBJECT,subject,,string,the subject header present in the SIP packet,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,38,Q_SIP_CALLER_DOMAIN,caller_domain,,string,Caller's domain,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,40,Q_SIP_CALLEE_DOMAIN,callee_domain,,string,Callee's domain,0,session,0
-182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,56,Q_SIP_CALLER_USER_PHONE,caller_user_phone,,int32,Caller's phone presence flag,0,session,0
-182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,57,Q_SIP_CALLEE_USER_PHONE,callee_user_phone,,int32,Callee's phone presence flag,0,session,0
+182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,56,Q_SIP_CALLER_USER_PHONE,caller_user_phone,,uint32,Caller's phone presence flag,0,session,0
+182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,57,Q_SIP_CALLEE_USER_PHONE,callee_user_phone,,uint32,Callee's phone presence flag,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,58,Q_SIP_DATE,date,,string,Contains the date and time.,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,59,Q_SIP_PROXY_AUTHORIZATION,proxy_authorization,,string,allows the client to identify itself (or its user) to a proxy that requires authentication,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,60,Q_SIP_WWW_AUTHENTICATE,www_authenticate,,string,Contains an authentication challenge.,0,session,0
@@ -3223,7 +3223,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 285,Q_PROTO_TAGGED,Web,tagged,Tagged,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 285,Q_PROTO_TAGGED,Web,tagged,Tagged,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,521,Q_MPA_CALL_DURATION,call_duration,,int32,Call duration.,0,session,0
+598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,521,Q_MPA_CALL_DURATION,call_duration,,uint32,Call duration.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,2,Q_TANGO_CALLEE_ID,callee_id,,string,Called part identifier.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,1,Q_TANGO_CALLER_ID,caller_id,,string,Calling part identifier.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session,0
