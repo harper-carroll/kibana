@@ -20,8 +20,8 @@ message DpiMsgLRproto
    }
 
    required string SessionId = 1;
-   optional uint64 EthSource = 2;  
-   optional uint64 EthDest = 3;
+   optional uint64 MacSource = 2;  
+   optional uint64 MacDest = 3;
    optional uint32 IpSource = 4;
    optional uint32 IpDest = 5;
    optional string PktPath = 6;
@@ -34,13 +34,13 @@ message DpiMsgLRproto
    optional uint32 PacketTotal = 13;
    optional uint64 TimeStart = 14;
    optional uint64 TimeUpdated = 15;
-   optional uint64 BytesServer = 16;
-   optional uint64 BytesClient = 17;
+   optional uint64 BytesDest = 16;
+   optional uint64 BytesSource = 17;
    optional Type FlowType = 18;
    optional uint64 PacketsDelta = 19;
    optional uint64 TimeDelta = 20;
-   optional uint64 BytesServerDelta = 21;
-   optional uint64 BytesClientDelta = 22;
+   optional uint64 BytesDestDelta = 21;
+   optional uint64 BytesSourceDelta = 22;
    repeated bytes CustomApplication = 23;
    optional FlowStateType FlowState = 24 [default = CLOSED_UNKNOWN];
    optional bool Captured = 25 [default = false];
