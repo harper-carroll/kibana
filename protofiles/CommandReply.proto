@@ -6,6 +6,7 @@ option java_outer_classname = "CommandReplyMsg";
 message CommandReply {
   required bool success = 1; 
   optional string result = 2; 
+  repeated string arrayResult = 3; 
 }
 
 
