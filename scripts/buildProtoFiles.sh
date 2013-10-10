@@ -63,7 +63,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/DriveInfo.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/DriveInfo.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -82,7 +82,7 @@ mv  libcommand/CommandRequest.pb.cc  libcommand/CommandRequest.pb.cpp
 mv  libcommand/CommandReply.pb.cc  libcommand/CommandReply.pb.cpp
 mv  libprocess/ProcessRequest.pb.cc  libprocess/ProcessRequest.pb.cpp
 mv  libprocess/ProcessReply.pb.cc  libprocess/ProcessReply.pb.cpp
-mv  libprocess/DriveInfo.pb.cc  libprocess/DriveInfo.pb.cpp
+mv  libcommand/DriveInfo.pb.cc  libcommand/DriveInfo.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"
