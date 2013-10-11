@@ -8,16 +8,16 @@ message DrivesInfo {
 
       message Partition {
          optional uint32 number = 1 [default = 0];
-         optional uint64 startInKB = 2 [default = 0];
-         optional uint64 endInKB = 3 [default = 0];
-         optional uint64 sizeInKB = 4 [default = 0];
+         optional uint64 startInB = 2 [default = 0];
+         optional uint64 endInB = 3 [default = 0];
+         optional uint64 sizeInB = 4 [default = 0];
          optional string type = 5;
          optional string fileSystem = 6;
          optional string flags = 7;
       }
       optional string model = 1;
       optional string device = 2;
-      optional uint64 capacityInMB = 3 [default = 0];
+      optional uint64 capacityInB = 3 [default = 0];
       repeated Partition partitions = 4;
       optional string table = 5;
 
