@@ -1614,4 +1614,17 @@ optional string chatroulette = 1612 [default = "Chatroulette is an online chat w
 optional string cryptoheaven = 1613 [default = "Secure email and online file storage service."];
 optional string mendeley = 1614 [default = "Sharing and annotating document web service. ( http://www.mendeley.com )"];
 optional string pichat = 1615 [default = "Online Chat Application ( pichat.net )."];
+optional string blackberry_update = 1616 [default = "This protocol classifies the Blackberry 10 family OS software updates."];
+optional string itv_player = 1617 [default = "Proprietary iOS application and website for VOD content (TV catch up) and live channels streaming."];
+optional string mypeople_messenger = 1618 [default = "MyPeople Messenger is a cross-platform application providing free text picture and video messaging."];
+optional string line_games = 1619 [default = "This protocol plug-in classifies the http traffic to the host linegame.com the portal of various Line games."];
+optional string chat_on = 1620 [default = "chatON is a global mobile communication service introduced by Samsung Electronics."];
+optional string line_wind_runner = 1621 [default = "Line Wind Runner is a popular asian mobile device game accessible from the Line application."];
+optional string touch = 1622 [default = "Touch is a cross-platform application providing free text picture and video messaging."];
+optional string websocket = 1623 [default = "The WebSocket Protocol as described in IETF RFC6455."];
+optional string magumagu = 1624 [default = "2013 for Kakao (aka Magu-Magu) is Korean baseball game developped by CJ E&M corp."];
+optional string lync = 1625 [default = "Microsoft Lync IM VoIP and desktop sharing services (corporate and on-line services)."];
+optional string high_entropy = 1626 [default = "High Entropy is a virtual protocol used to detect potentially encrypted payloads. Important note: the classification of this layer is effective since the 4.18.0 version of the ixEngine framework. The classification is based on two methods: entropy value computation and printable strings detection."];
+optional string saavn_music = 1627 [default = "Saavn is a streaming application providing free Indian and Bollywood music to listeners."];
+optional string maaii = 1628 [default = "Maaii is a cross-platform messaging application which allows iPhone and Android users to send and receive text messages and phone calls for free."];
 }
