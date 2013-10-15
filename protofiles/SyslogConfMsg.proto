@@ -11,7 +11,7 @@ message SyslogConf {
   optional string siemLogging = 5;
   optional string debugSiemLogging = 6;
   optional string scrubPasswords = 7;
-  optional string syslogProtocol = 9; 
+  optional string syslogProtocol = 8; 
   optional string reportEverything = 99;
 }
 
