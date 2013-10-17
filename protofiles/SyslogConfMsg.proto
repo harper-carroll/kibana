@@ -3,9 +3,16 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "SyslogConfMsg";
 
+
+enum SyslogEnumProtocol {
+   UDP = 0;
+   TCP = 1; 
+}
+
+
 message SyslogConf {
   optional string syslogEnabled = 1;
-  optional string syslogProtocol = 2;
+  optional SyslogEnumProtocol syslogProtocol  = 2 [default = TCP];
   optional string syslogLogAgentIP = 3;
   optional string syslogLogAgentPort = 4;
   optional string syslogMaxLineLength = 5;
@@ -14,4 +21,3 @@ message SyslogConf {
   optional string scrubPasswords = 8;
   optional string reportEverything = 99;
 }
-
