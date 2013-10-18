@@ -5,7 +5,7 @@ option java_outer_classname = "SyslogConfMsg";
 
 message SyslogConf {
   optional string syslogEnabled = 1;
-  optional string syslogProtocol  = 2;
+  optional string syslogTcpEnabled  = 2;
   optional string syslogLogAgentIP = 3;
   optional string syslogLogAgentPort = 4;
   optional string syslogMaxLineLength = 5;
