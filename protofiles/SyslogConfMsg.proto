@@ -5,12 +5,12 @@ option java_outer_classname = "SyslogConfMsg";
 
 message SyslogConf {
   optional string syslogEnabled = 1;
-  optional string syslogLogAgentIP = 2;
-  optional string syslogLogAgentPort = 3;
-  optional string syslogMaxLineLength = 4;
-  optional string siemLogging = 5;
-  optional string debugSiemLogging = 6;
-  optional string scrubPasswords = 7;
+  optional string syslogTcpEnabled  = 2;
+  optional string syslogLogAgentIP = 3;
+  optional string syslogLogAgentPort = 4;
+  optional string syslogMaxLineLength = 5;
+  optional string siemLogging = 6;
+  optional string debugSiemLogging = 7;
+  optional string scrubPasswords = 8;
   optional string reportEverything = 99;
 }
-
