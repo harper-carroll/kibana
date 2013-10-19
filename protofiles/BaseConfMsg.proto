@@ -40,6 +40,6 @@ message BaseConf {
   optional string dpiMaxFree = 43;
   optional string dpiMinFree = 44;
   optional string dpiFreeThreshold = 45;
-  optional string dpiRecycleThreshhold = 46;
+  optional string dpiRecycleThreshold = 46;
 }
 
