@@ -11,8 +11,9 @@ message CommandRequest {
      NETWORK_CONFIG = 3;
      NTP_CONFIG = 4;
      SHUTDOWN = 5;
-     TEST = 6;
-     COMMAND_STATUS = 7;
+     DRIVEINFO = 6;
+     TEST = 7;
+     COMMAND_STATUS = 8;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
