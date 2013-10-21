@@ -37,5 +37,9 @@ message BaseConf {
   optional string captureMemoryLimit = 39;
   optional string captureMaxPackets = 41;
   optional string captureIndividualFileLimit = 42;
+  optional string dpiMaxFree = 43;
+  optional string dpiMinFree = 44;
+  optional string dpiFreeThreshold = 45;
+  optional string dpiRecycleThreshold = 46;
 }
 
