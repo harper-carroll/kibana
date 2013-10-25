@@ -58,3 +58,4 @@ message DpiMsgLRproto
    optional bool LatestUpdate = 37 [default = true];
    optional uint64 TimePrevious = 38;
    optional bool Written = 39;
+   optional bool CaptureRemoved = 40;
