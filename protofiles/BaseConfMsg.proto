@@ -41,5 +41,6 @@ message BaseConf {
   optional string dpiMinFree = 44;
   optional string dpiFreeThreshold = 45;
   optional string dpiRecycleThreshold = 46;
+  optional string pcapRecordsToClearPerCycle = 47;
 }
 
