@@ -1,10 +1,14 @@
 package protoMsg;
+import "ConfTypeMsg.proto";
 
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ConfigDefaultsRequestMsg";
 
+// See also ConfigDefaults.proto
+// For the ConfType request config parameters
+// The CommandReply will contain the ConfigDefaults.proto with
+// parameter name, default value, max, min
 message ConfigDefaultsRequest {
-
-   repeated string requestedConfigParams = 1;
-
+   optional ConfType.Type type = 1; 
+   repeated string requestedConfigParams = 2;
 }
