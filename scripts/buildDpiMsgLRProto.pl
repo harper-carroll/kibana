@@ -74,7 +74,7 @@ while (<qosmosWorkbook>) {
       } else {
          print summaryFile "$lineValues[4],";
       }
-      print summaryFile "$lineValues[7],$lineValues[10]\n";
+      print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
    }
 }
 
