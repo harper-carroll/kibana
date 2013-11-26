@@ -46,7 +46,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 7,Q_PROTO_8021Q,Network Service,8021q,Ethernet VLAN,2,Q_8021Q_CFI,cfi,,uint8,Flag used for compatibility reason between Ethernet type network and Token Ring type network. Canonical Format Indicator is always set to zero for Ethernet switches.,0,session,0
 7,Q_PROTO_8021Q,Network Service,8021q,Ethernet VLAN,3,Q_8021Q_VLAN_ID,vlan_id,,uint16,VLAN Identifier of the frame.,0,session,0
 1438,Q_PROTO_ADC,Peer to Peer,adc,adc,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-1438,Q_PROTO_ADC,Peer to Peer,adc,adc,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,0,session,0
+1438,Q_PROTO_ADC,Peer to Peer,adc,adc,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session,1
 1438,Q_PROTO_ADC,Peer to Peer,adc,adc,621,Q_MPA_FILE_CHUNK_DATA_OFFSET,file_chunk_data_offset,,uint32,Offset of the transferred data.,0,session,0
 1438,Q_PROTO_ADC,Peer to Peer,adc,adc,619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint32,Size of the transferred piece.,0,session,0
 1438,Q_PROTO_ADC,Peer to Peer,adc,adc,618,Q_MPA_FILE_CHUNK,file_chunk,,parent,A piece of a transferred file.,0,session,0
@@ -130,23 +130,23 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1106,Q_PROTO_APPSTORE,Application Service,appstore,Apple App Store,3,Q_APPSTORE_DEVICE_TYPE,device_type,,string,"Target device (iPhone, iPod,...).",0,session,0
 1106,Q_PROTO_APPSTORE,Application Service,appstore,Apple App Store,2,Q_APPSTORE_CONNECTION_TYPE,connection_type,,string,Type of the connection.,0,session,0
 1106,Q_PROTO_APPSTORE,Application Service,appstore,Apple App Store,1,Q_APPSTORE_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,711,Q_MPA_QUERY_INDEX,query_index,,uint32,A number containing the index of the showed results,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,537,Q_MPA_ENCODING,encoding,,string,Server encoding.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,538,Q_MPA_FILE,file,,parent,Parent attribute containing metadata related to the file.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,2,Q_ARCHIVE_ACTION,action,,string,Indicates whether the file is uploaded or downloaded.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,3,Q_ARCHIVE_TITLE,title,,string,File title.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,4,Q_ARCHIVE_DESCRIPTION,description,,string,File description.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,5,Q_ARCHIVE_SUBJECT,subject,,string,File subject.,0,session,0
-564,Q_PROTO_ARCHIVE,Web,archive,Archive,6,Q_ARCHIVE_CREATOR,creator,,string,File creator.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,711,Q_MPA_QUERY_INDEX,query_index,,uint32,A number containing the index of the showed results,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,537,Q_MPA_ENCODING,encoding,,string,Server encoding.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,538,Q_MPA_FILE,file,,parent,Parent attribute containing metadata related to the file.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,2,Q_ARCHIVE_ACTION,action,,string,Indicates whether the file is uploaded or downloaded.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,3,Q_ARCHIVE_TITLE,title,,string,File title.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,4,Q_ARCHIVE_DESCRIPTION,description,,string,File description.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,5,Q_ARCHIVE_SUBJECT,subject,,string,File subject.,0,session,0
+564,Q_PROTO_ARCHIVE,Web,archive,archive,6,Q_ARCHIVE_CREATOR,creator,,string,File creator.,0,session,0
 272,Q_PROTO_ARES,Peer to Peer,ares,Ares Protocol,795,Q_MPA_PEER_INFO,peer_info,,,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t), the transport protocol ID (TCP/UDP/etc.), the listening port, and the list of protocols to by classified in case of prediction success.",0,session,0
 272,Q_PROTO_ARES,Peer to Peer,ares,Ares Protocol,704,Q_MPA_NICKNAME,nickname,,string,Contains the user identity of the Ares connection.,0,session,0
 272,Q_PROTO_ARES,Peer to Peer,ares,Ares Protocol,581,Q_MPA_QUERY,query,,string,Query sent to find a file.,0,session,0
@@ -160,36 +160,36 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 11,Q_PROTO_ARP,Network Service,arp,Adress Resolution Protocol,7,Q_ARP_SRC_PROTO,src_proto,,binary,Source IP address.,0,pkt,0
 11,Q_PROTO_ARP,Network Service,arp,Adress Resolution Protocol,8,Q_ARP_DST_HARD,dst_hard,,binary,Destination MAC address.,0,pkt,0
 11,Q_PROTO_ARP,Network Service,arp,Adress Resolution Protocol,9,Q_ARP_DST_PROTO,dst_proto,,binary,Destination IP address.,0,pkt,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,538,Q_MPA_FILE,file,,parent,Parent attribute containing metadata related to the file.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,530,Q_MPA_CONTENT,content,,buffer,Message content.,0,session,0
-586,Q_PROTO_BADONGO,Web,badongo,badongo,4,Q_BADONGO_UPLOAD_DESCRIPTION,upload_description,,string,Description of the uploaded file.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,525,Q_MPA_CHAT,chat,,parent,"Parent entry, empty, for fields belonging to the chat (message, sender, receiver, encoding).",0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,704,Q_MPA_NICKNAME,nickname,,string,"User's nickname, as seen in the ebuddy chat windows.",0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,600,Q_MPA_SENDER,sender,,string,Contains the identity of the sender of a chat session or a file transfer.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,585,Q_MPA_RECEIVER,receiver,,string,Contains the identity of the receiver for a chat message or a file transfer.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,674,Q_MPA_RECEIVER_UID,receiver_uid,,string,Unique contact ID for a receiver.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,552,Q_MPA_MESSAGE,message,,string,Contains the chat message.,1,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,528,Q_MPA_CONTACT_LOGIN,contact_login,,string,Contact login.,0,session,0
-365,Q_PROTO_BADOO,Instant Messaging,badoo,Badoo,677,Q_MPA_CONTACT_UID,contact_uid,,string,Contact ID.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
-548,Q_PROTO_BAIDU,Web,baidu,Baidu,711,Q_MPA_QUERY_INDEX,query_index,,uint32,A number containing the index of the showed results,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,538,Q_MPA_FILE,file,,parent,Parent attribute containing metadata related to the file.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,530,Q_MPA_CONTENT,content,,buffer,Message content.,0,session,0
+586,Q_PROTO_BADONGO,Web,badongo,Badongo,4,Q_BADONGO_UPLOAD_DESCRIPTION,upload_description,,string,Description of the uploaded file.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,525,Q_MPA_CHAT,chat,,parent,"Parent entry, empty, for fields belonging to the chat (message, sender, receiver, encoding).",0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,704,Q_MPA_NICKNAME,nickname,,string,"User's nickname, as seen in the ebuddy chat windows.",0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,600,Q_MPA_SENDER,sender,,string,Contains the identity of the sender of a chat session or a file transfer.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,585,Q_MPA_RECEIVER,receiver,,string,Contains the identity of the receiver for a chat message or a file transfer.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,674,Q_MPA_RECEIVER_UID,receiver_uid,,string,Unique contact ID for a receiver.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,552,Q_MPA_MESSAGE,message,,string,Contains the chat message.,1,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,528,Q_MPA_CONTACT_LOGIN,contact_login,,string,Contact login.,0,session,0
+365,Q_PROTO_BADOO,Instant Messaging,badoo,badoo,677,Q_MPA_CONTACT_UID,contact_uid,,string,Contact ID.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
+548,Q_PROTO_BAIDU,Web,baidu,baidu,711,Q_MPA_QUERY_INDEX,query_index,,uint32,A number containing the index of the showed results,0,session,0
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,1,Q_BASE_CNX_TYPE,cnx_type,,uint8,Packet transfer direction in a client/server flow.,0,pkt,0
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,2,Q_BASE_PATH,path,,path,Protocol stack of a packet.,0,session,0
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,3,Q_BASE_APPLICATION,application,,string,Name of the application to which the packet belongs.,0,session,0
@@ -229,6 +229,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,63,Q_BASE_SESSION_LEN,session_len,,uint64,Contains the total length exchanged over this session. This attribute data cannot be retreived in externalized versions.,0,session,0
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,64,Q_BASE_SPLIT,split,,ptr,"When a flow is split, address of the uapp_cnx that was associated to the current one",0,session,0
 3,Q_PROTO_BASE,Standard,base,TD virtual protocol,66,Q_BASE_SESSION_UNIDIR,session_unidir,,uint8,Extracted when unidirectional traffic is detected.,0,session,0
+3,Q_PROTO_BASE,Standard,base,TD virtual protocol,67,Q_BASE_MULTI_MATCH_PROTO_ID,multi_match_proto_id,,uint32,"When multiple pdata rules do match the same packet, the highest priority rule is classified. The protocol ids of the lesser priority rules are shown in deacreasing priority order through this protocol.",0,session,0
 268,Q_PROTO_BEBO,Web,bebo,Bebo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 268,Q_PROTO_BEBO,Web,bebo,Bebo,633,Q_MPA_IS_MOBILE_SERVICE,is_mobile_service,,uint32,Whether or not the access was made through a mobile device.,0,session,0
 268,Q_PROTO_BEBO,Web,bebo,Bebo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
@@ -356,14 +357,14 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 24,Q_PROTO_CUPS,Printer,cups,Common Unix Printer System,2,Q_CUPS_LOCATION,location,,string,Location of the Printer.,0,session,0
 24,Q_PROTO_CUPS,Printer,cups,Common Unix Printer System,3,Q_CUPS_INFORMATION,information,,string,Information on Printer.,0,session,0
 24,Q_PROTO_CUPS,Printer,cups,Common Unix Printer System,4,Q_CUPS_MODEL,model,,string,Printer model.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,535,Q_MPA_EMAIL,email,,string,"Parent entry, for fields belonging to the same email.",0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-25,Q_PROTO_DAILYMOTION,Web,dailymotion,Dailymotion,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,535,Q_MPA_EMAIL,email,,string,"Parent entry, for fields belonging to the same email.",0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+25,Q_PROTO_DAILYMOTION,Web,dailymotion,dailymotion,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
 26,Q_PROTO_DCERPC,Middleware,dcerpc,Distributed Computing Environment Remote Procedure Call,1,Q_DCERPC_SERVICE,service,,string,Service used.,0,session,0
 26,Q_PROTO_DCERPC,Middleware,dcerpc,Distributed Computing Environment Remote Procedure Call,2,Q_DCERPC_INTERFACE_UUID,interface_uuid,,string,ID of the interface.,0,session,0
 574,Q_PROTO_DEBIAN_UPDATE,Web,debian_update,Debian/Ubuntu Update,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
@@ -495,15 +496,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,15,Q_DNS_REPLY_CODE,reply_code,,string_index,Return Message,0,session,0
 32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,16,Q_DNS_RESPONSE_TIME,response_time,,timeval,Elapsed time between sending of the dns request and reception of its response.,0,session,0
 32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,17,Q_DNS_TTL,ttl,,uint32,Time (in seconds) a DNS information returned by the server will be kept in cache.,0,session,0
-248,Q_PROTO_DOUBLECLICK_ADS,Web,doubleclick_ads,Doubleclick ads,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-248,Q_PROTO_DOUBLECLICK_ADS,Web,doubleclick_ads,Doubleclick ads,3,Q_DOUBLECLICK_ADS_AD_CLIENT,ad_client,,string,Buyer of the ad.,0,session,0
-248,Q_PROTO_DOUBLECLICK_ADS,Web,doubleclick_ads,Doubleclick ads,5,Q_DOUBLECLICK_ADS_AD_PAGE,ad_page,,string,Page on which the ad is displayed.,0,session,0
-248,Q_PROTO_DOUBLECLICK_ADS,Web,doubleclick_ads,Doubleclick ads,2,Q_DOUBLECLICK_ADS_AD_URL,ad_url,,string,URL which will be displayed if the user clicks on the ad.,0,session,0
-248,Q_PROTO_DOUBLECLICK_ADS,Web,doubleclick_ads,Doubleclick ads,1,Q_DOUBLECLICK_ADS_DOUBLECLICK_AD,doubleclick_ad,,parent,Parent attribute grouping ad information.,0,session,0
-34,Q_PROTO_EBAY,Web,ebay,Ebay,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-34,Q_PROTO_EBAY,Web,ebay,Ebay,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-34,Q_PROTO_EBAY,Web,ebay,Ebay,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-34,Q_PROTO_EBAY,Web,ebay,Ebay,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+34,Q_PROTO_EBAY,Web,ebay,ebay,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+34,Q_PROTO_EBAY,Web,ebay,ebay,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+34,Q_PROTO_EBAY,Web,ebay,ebay,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+34,Q_PROTO_EBAY,Web,ebay,ebay,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
 269,Q_PROTO_EBUDDY,Instant Messaging,ebuddy,ebuddy,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 269,Q_PROTO_EBUDDY,Instant Messaging,ebuddy,ebuddy,9,Q_EBUDDY_CONTACT_IM,contact_im,,string,Instant Messaging network associated to the contact,0,session,0
 269,Q_PROTO_EBUDDY,Instant Messaging,ebuddy,ebuddy,8,Q_EBUDDY_CONTACT_MESSAGE,contact_message,,string,User's contact IM personal message.,0,session,0
@@ -625,7 +621,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
-524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,0,session,0
+524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,677,Q_MPA_CONTACT_UID,contact_uid,,string,The facebook id of a contact.,0,session,0
@@ -645,7 +641,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,741,Q_MPA_THREAD_ID,thread_id,,string,Identifies messages belonging to a series of replies back and forth pertaining to a certain message.,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,530,Q_MPA_CONTENT,content,,string,Message content.,0,session,0
+524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,748,Q_MPA_UID,uid,,string,Generic user ID.,0,session,0
@@ -683,6 +679,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 45,Q_PROTO_FTP,File Server,ftp,File Transfer Protocol,5,Q_FTP_RETURN_CODE,return_code,,uint16,Code of server's response.,0,session,0
 45,Q_PROTO_FTP,File Server,ftp,File Transfer Protocol,6,Q_FTP_RETURN_CONTENT,return_content,,string,Message of server's response.,0,session,0
 45,Q_PROTO_FTP,File Server,ftp,File Transfer Protocol,7,Q_FTP_TRANSFER_DURATION,transfer_duration,,timeval,Elapsed time (in seconds) between the begining of a transfer (ftp code 150) and the first packet signaling the end with succes of the transfer (ftp code 226),0,session,0
+45,Q_PROTO_FTP,File Server,ftp,File Transfer Protocol,9,Q_FTP_INDEX,index,,uint32,Identifier of the request and response in a FTP flow.,0,session,0
 46,Q_PROTO_FTP_DATA,File Server,ftp_data,File Transfer Protocol Data,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session,0
 46,Q_PROTO_FTP_DATA,File Server,ftp_data,File Transfer Protocol Data,530,Q_MPA_CONTENT,content,,buffer,File content,1,session,1
 48,Q_PROTO_GARP,Application Service,garp,Generic Attribute Registration Protocol,1,Q_GARP_PROTOCOL,protocol,,string_index,Application used (GVRP or GMRP).,0,pkt,0
@@ -749,43 +746,43 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
 51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
 51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,9,Q_GMAIL_SAVED,saved,,string_index,Indicates whether the draft have been saved automatically(1) or manually(2).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
-263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,gmail basic,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
+263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail basic,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
 273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,525,Q_MPA_CHAT,chat,,parent,"Parent entry, empty, for fields belonging to the chat (message, sender, receiver, encoding).",0,session,0
@@ -831,11 +828,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail mobile version,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
 280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail mobile version,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-1116,Q_PROTO_GMX,Webmail,gmx,gmx,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,0,session,0
+1116,Q_PROTO_GMX,Webmail,gmx,gmx,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
-1116,Q_PROTO_GMX,Webmail,gmx,gmx,680,Q_MPA_CONTENT_BODY,content_body,,string,Data containing body.,0,session,0
+1116,Q_PROTO_GMX,Webmail,gmx,gmx,680,Q_MPA_CONTENT_BODY,content_body,,string,Data containing body.,1,session,1
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
@@ -850,26 +847,26 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
 1116,Q_PROTO_GMX,Webmail,gmx,gmx,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,795,Q_MPA_PEER_INFO,peer_info,,,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t), the transport protocol ID (TCP/UDP/etc.), the listening port, and the list of protocols to by classified in case of prediction success.",0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,2,Q_GNUTELLA_SERVER,server,,string,Name of the server from which the file is downloaded.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,581,Q_MPA_QUERY,query,,string,Query sent to find a file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,538,Q_MPA_FILE,file,,parent,File related information.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,4,Q_GNUTELLA_FILE_ED2K,file_ed2k,,string,Hash ed2k of the downloaded file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,5,Q_GNUTELLA_FILE_SHA1,file_sha1,,string,Hash sha1 of the downloaded file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,6,Q_GNUTELLA_FILE_MD5,file_md5,,string,Hash md5 of the downloaded file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,618,Q_MPA_FILE_CHUNK,file_chunk,,parent,A piece of a transferred file.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint32,Size of the transferred piece.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,621,Q_MPA_FILE_CHUNK_DATA_OFFSET,file_chunk_data_offset,,uint32,Offset of the transferred data.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,10,Q_GNUTELLA_FILE_CHUNK_DATA,file_chunk_data,,parent,Information about downloaded data.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session,1
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,620,Q_MPA_FILE_CHUNK_NUMBER,file_chunk_number,,uint16,Number of the transferred piece.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,21,Q_GNUTELLA_PEER,peer,,parent,Parent attribute containing some Gnutella Peer connection metadata. This metadata can be used to classify Gnutella connections targetted to this machine.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,19,Q_GNUTELLA_PEER_ADDR,peer_addr,,ip_addr,Gnutella peer's IPv4 address.,0,session,0
-52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,Gnutella,20,Q_GNUTELLA_PEER_PORT,peer_port,,,Gnutella peer's listenning port number.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,795,Q_MPA_PEER_INFO,peer_info,,,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t), the transport protocol ID (TCP/UDP/etc.), the listening port, and the list of protocols to by classified in case of prediction success.",0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,2,Q_GNUTELLA_SERVER,server,,string,Name of the server from which the file is downloaded.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,581,Q_MPA_QUERY,query,,string,Query sent to find a file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,538,Q_MPA_FILE,file,,parent,File related information.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,4,Q_GNUTELLA_FILE_ED2K,file_ed2k,,string,Hash ed2k of the downloaded file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,5,Q_GNUTELLA_FILE_SHA1,file_sha1,,string,Hash sha1 of the downloaded file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,6,Q_GNUTELLA_FILE_MD5,file_md5,,string,Hash md5 of the downloaded file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,618,Q_MPA_FILE_CHUNK,file_chunk,,parent,A piece of a transferred file.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint32,Size of the transferred piece.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,621,Q_MPA_FILE_CHUNK_DATA_OFFSET,file_chunk_data_offset,,uint32,Offset of the transferred data.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,10,Q_GNUTELLA_FILE_CHUNK_DATA,file_chunk_data,,parent,Information about downloaded data.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session,1
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,620,Q_MPA_FILE_CHUNK_NUMBER,file_chunk_number,,uint16,Number of the transferred piece.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,21,Q_GNUTELLA_PEER,peer,,parent,Parent attribute containing some Gnutella Peer connection metadata. This metadata can be used to classify Gnutella connections targetted to this machine.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,19,Q_GNUTELLA_PEER_ADDR,peer_addr,,ip_addr,Gnutella peer's IPv4 address.,0,session,0
+52,Q_PROTO_GNUTELLA,Peer to Peer,gnutella,gnutella,20,Q_GNUTELLA_PEER_PORT,peer_port,,,Gnutella peer's listenning port number.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 54,Q_PROTO_GOOGLE,Web,google,Google,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
@@ -937,7 +934,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,646,Q_MPA_MEMBER_ALIAS,member_alias,,string,Member name.,0,session,0
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,645,Q_MPA_MEMBER_ENTRY,member_entry,,parent,"Parent entry, for different elements belonging to group membership.",0,session,0
-56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,4,Q_GOOGLE_GROUPS_MSGLIST_CONTENT,msglist_content,,string,Message content in a message list.,0,session,0
+56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,4,Q_GOOGLE_GROUPS_MSGLIST_CONTENT,msglist_content,,string,Message content in a message list.,1,session,1
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
 56,Q_PROTO_GOOGLE_GROUPS,Forum,google_groups,Google groups,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
@@ -1118,7 +1115,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 60,Q_PROTO_H225,Audio/Video,h225,H225,643,Q_MPA_REQUEST,request,,parent,Contains message information.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,555,Q_MPA_METHOD,method,,string,The command,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,7,Q_H225_H245_ADDR,h245_addr,,ip_addr,Address used by h245 session.,0,session,0
-60,Q_PROTO_H225,Audio/Video,h225,H225,14,Q_H225_H245_ADDR_V6,h245_addr_v6,,ip6_addr,IP address for the H245 request embedded in H225.,0,session,0
+60,Q_PROTO_H225,Audio/Video,h225,H225,14,Q_H225_H245_ADDR_V6,h245_addr_v6,,ip6_addr,IP address for the H245 request embedded in H225 (this attribute is not extracted).,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,8,Q_H225_H245_PORT,h245_port,,uint16,Port used by h245 session.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,9,Q_H225_REQUEST_CALL_ID,request_call_id,,string,Call's id in the message.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,10,Q_H225_REQUEST_CALLER,request_caller,,string,Contains the identity (or the phone number) of the initiator in the message,0,session,0
@@ -1130,11 +1127,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 60,Q_PROTO_H225,Audio/Video,h225,H225,730,Q_MPA_AUDIO_DATA,audio_data,,string,Encoding can be used in audio flow.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,731,Q_MPA_MEDIA_CONTROL_CHANNEL,media_control_channel,,parent,Contains information for a rtcp channel.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,732,Q_MPA_MEDIA_CONTROL_CHANNEL_ADDR,media_control_channel_addr,,ip_addr,Address used for a rtcp channel.,0,session,0
-60,Q_PROTO_H225,Audio/Video,h225,H225,746,Q_MPA_MEDIA_CONTROL_CHANNEL_ADDR_V6,media_control_channel_addr_v6,,ip6_addr,IPv6 address used for a rtcp channel.,0,session,0
+60,Q_PROTO_H225,Audio/Video,h225,H225,746,Q_MPA_MEDIA_CONTROL_CHANNEL_ADDR_V6,media_control_channel_addr_v6,,ip6_addr,IPv6 address used for a rtcp channel (this attribute is not extracted).,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,733,Q_MPA_MEDIA_CONTROL_CHANNEL_PORT,media_control_channel_port,,uint16,Port used for a rtcp channel.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,726,Q_MPA_MEDIA_CHANNEL,media_channel,,parent,Contains information for a rtp channel.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,727,Q_MPA_MEDIA_CHANNEL_ADDR,media_channel_addr,,ip_addr,Address used for a rtp channel.,0,session,0
-60,Q_PROTO_H225,Audio/Video,h225,H225,745,Q_MPA_MEDIA_CHANNEL_ADDR_V6,media_channel_addr_v6,,ip6_addr,IPv6 address used for a rtp channel.,0,session,0
+60,Q_PROTO_H225,Audio/Video,h225,H225,745,Q_MPA_MEDIA_CHANNEL_ADDR_V6,media_channel_addr_v6,,ip6_addr,IPv6 address used for a rtp channel (this attribute is not extracted).,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,728,Q_MPA_MEDIA_CHANNEL_PORT,media_channel_port,,uint16,Port used for a rtp channel.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,15,Q_H225_H245_CONTROL,h245_control,,parent,Parent attribute containing an H245 item.,0,session,0
 60,Q_PROTO_H225,Audio/Video,h225,H225,16,Q_H225_H245_REQUEST,h245_request,,parent,Contains message information for H245.,0,session,0
@@ -1288,7 +1285,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1103,Q_PROTO_ICAP,Web,icap,ICAP,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 1103,Q_PROTO_ICAP,Web,icap,ICAP,1,Q_ICAP_X_CLIENT_IP_RESPMOD_REQ,x_client_ip_respmod_req,,string,"The IP source address of the encapsulated HTTP request, when using the X-Client-IP ICAP header extension (draft-stecher-icap-subid-00).",0,session,0
 1103,Q_PROTO_ICAP,Web,icap,ICAP,6,Q_ICAP_REFERER_RESPMOD_REQ,referer_respmod_req,,string,The HTTP referer embedded in the ICAP RESPMOD request (see http).,0,session,0
-1103,Q_PROTO_ICAP,Web,icap,ICAP,9,Q_ICAP_CONTENT_TYPE_RESPMOD_REQ,content_type_respmod_req,,string,The HTTP content_type embedded in the ICAP RESPMOD request (see http).,0,session,0
+1103,Q_PROTO_ICAP,Web,icap,ICAP,9,Q_ICAP_CONTENT_TYPE_RESPMOD_REQ,content_type_respmod_req,,string,The HTTP content_type embedded in the http response part of the ICAP RESPMOD request (see http).,0,session,0
 1103,Q_PROTO_ICAP,Web,icap,ICAP,7,Q_ICAP_USER_AGENT_RESPMOD_REQ,user_agent_respmod_req,,string,The HTTP user_agent embedded in the ICAP RESPMOD request (see http).,0,session,0
 1103,Q_PROTO_ICAP,Web,icap,ICAP,5,Q_ICAP_HOST_RESPMOD_REQ,host_respmod_req,,string,The HTTP host embedded in the ICAP RESPMOD request (see http).,0,session,0
 1103,Q_PROTO_ICAP,Web,icap,ICAP,4,Q_ICAP_URI_RESPMOD_REQ,uri_respmod_req,,string,The HTTP uri embedded in the ICAP RESPMOD request (see http).,0,session,0
@@ -1667,6 +1664,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,15,Q_LDAP_ASSERTION_VALUE_RAW,assertion_value_raw,,buffer,Raw value of filter expression second operand.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol version currently used by the client.,0,session,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,789,Q_MPA_SERVICE_ID,service_id,,int32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition.",0,session,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,604,Q_MPA_SERVICE,service,,string,Current service identification string. This attribute is extracted only when the service changes.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,2,Q_LINE_CALL_BYTE_COUNT,call_byte_count,,uint32,The count of bytes that were exchanged during the call.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,1,Q_LINE_CALL_PKT_COUNT,call_pkt_count,,uint32,The count of data packets that were exchanged during the call.,0,session,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,521,Q_MPA_CALL_DURATION,call_duration,,uint32,Call duration.,0,session,0
@@ -1714,29 +1713,29 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn website,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,1,Q_LIVE_GROUPS_GROUP_NAME,group_name,,string,Name of the group the user has subscribed to.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,2,Q_LIVE_GROUPS_GROUP_ID,group_id,,string,Unique identifier of the group.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,645,Q_MPA_MEMBER_ENTRY,member_entry,,parent,"Parent entry, for different elements belonging to group membership.",0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,646,Q_MPA_MEMBER_ALIAS,member_alias,,string,Member name.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,647,Q_MPA_MEMBER_EMAIL,member_email,x,string,This attribute is deprecated.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live groups,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,1,Q_LIVE_GROUPS_GROUP_NAME,group_name,,string,Name of the group the user has subscribed to.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,2,Q_LIVE_GROUPS_GROUP_ID,group_id,,string,Unique identifier of the group.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,645,Q_MPA_MEMBER_ENTRY,member_entry,,parent,"Parent entry, for different elements belonging to group membership.",0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,646,Q_MPA_MEMBER_ALIAS,member_alias,,string,Member name.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,647,Q_MPA_MEMBER_EMAIL,member_email,x,string,This attribute is deprecated.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+335,Q_PROTO_LIVE_GROUPS,Forum,live_groups,Windows Live Groups,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
 262,Q_PROTO_LIVE_HOTMAIL,Webmail,live_hotmail,Windows Live Hotmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 262,Q_PROTO_LIVE_HOTMAIL,Webmail,live_hotmail,Windows Live Hotmail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 262,Q_PROTO_LIVE_HOTMAIL,Webmail,live_hotmail,Windows Live Hotmail,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
@@ -1852,57 +1851,57 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 108,Q_PROTO_LPR,Printer,lpr,Line Printer Daemon,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 108,Q_PROTO_LPR,Printer,lpr,Line Printer Daemon,1,Q_LPR_SERVER,server,,string,Name of the machine that sent a file to print.,0,session,0
 108,Q_PROTO_LPR,Printer,lpr,Line Printer Daemon,2,Q_LPR_JOB,job,,string,Name of the printed file.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,543,Q_MPA_FOLDER,folder,,string,Indicates the directory from where messages are read.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,684,Q_MPA_MSGLIST_ATTACH,msglist_attach,,uint32,Indicates if the message contains an attachment.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,682,Q_MPA_MSGLIST_IMPORTANCE,msglist_importance,,uint32,Indicates if the message has been marked by the user.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,683,Q_MPA_MSGLIST_UNREAD,msglist_unread,,uint32,Indicates if the message has been read.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,761,Q_MPA_FOLDERLIST_ITEM_NAME,folderlist_item_name,,string,Message folder name.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,762,Q_MPA_FOLDERLIST_ITEM_ID,folderlist_item_id,,string,Message folder unique identifier.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,760,Q_MPA_FOLDERLIST_ITEM,folderlist_item,,parent,Contains the metadata related to one message folder list item.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,759,Q_MPA_FOLDERLIST,folderlist,,parent,Contains the message folder list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,681,Q_MPA_IMPORTANCE,importance,,uint32,Indicates if the email has been marked by the user.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,634,Q_MPA_CONTACT,contact,,string,Complete contact.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session,0
-334,Q_PROTO_MAILRU,Webmail,mailru,mail.ru webmail,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,543,Q_MPA_FOLDER,folder,,string,Indicates the directory from where messages are read.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,684,Q_MPA_MSGLIST_ATTACH,msglist_attach,,uint32,Indicates if the message contains an attachment.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,682,Q_MPA_MSGLIST_IMPORTANCE,msglist_importance,,uint32,Indicates if the message has been marked by the user.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,683,Q_MPA_MSGLIST_UNREAD,msglist_unread,,uint32,Indicates if the message has been read.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,761,Q_MPA_FOLDERLIST_ITEM_NAME,folderlist_item_name,,string,Message folder name.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,762,Q_MPA_FOLDERLIST_ITEM_ID,folderlist_item_id,,string,Message folder unique identifier.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,760,Q_MPA_FOLDERLIST_ITEM,folderlist_item,,parent,Contains the metadata related to one message folder list item.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,759,Q_MPA_FOLDERLIST,folderlist,,parent,Contains the message folder list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,681,Q_MPA_IMPORTANCE,importance,,uint32,Indicates if the email has been marked by the user.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,634,Q_MPA_CONTACT,contact,,string,Complete contact.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session,0
+334,Q_PROTO_MAILRU,Webmail,mailru,Mail.ru Webmail,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
 246,Q_PROTO_MAKTOOB,Webmail,maktoob,Maktoob mail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 246,Q_PROTO_MAKTOOB,Webmail,maktoob,Maktoob mail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 246,Q_PROTO_MAKTOOB,Webmail,maktoob,Maktoob mail,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
@@ -2116,7 +2115,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 116,Q_PROTO_MMSE,Wap,mmse,MMS Encapsulation,25,Q_MMSE_CONTENT_PART_ID,content_part_id,,string,Message sub-part ID.,0,session,0
 116,Q_PROTO_MMSE,Wap,mmse,MMS Encapsulation,26,Q_MMSE_CONTENT_PART_FILENAME,content_part_filename,,string,Name of the file containing the current message sub-part data.,0,session,0
 116,Q_PROTO_MMSE,Wap,mmse,MMS Encapsulation,27,Q_MMSE_CONTENT_PART_DATA,content_part_data,,buffer,Message sub-part data.,0,session,0
-251,Q_PROTO_MPEGTS,Audio/Video,mpegts,Mpeg 2 Transmission,1,Q_MPEGTS_CHUNK_LEN,chunk_len,,uint32,Data length.,0,session,0
+251,Q_PROTO_MPEGTS,Audio/Video,mpegts,MPEG-TS,1,Q_MPEGTS_CHUNK_LEN,chunk_len,,uint32,Data length.,0,session,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,1,Q_MPLS_LABEL,label,,uint32,Label allowing the routing process of the packet through the various LSPs (Label-Switched Paths) crossed along the delivery path.,0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,2,Q_MPLS_EXP,exp,,uint8,Packet queuing priority (QoS).,0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,3,Q_MPLS_BOS,bos,,uint8,"Bottom Of Stack: equals to 1 if the last level of MPLS is reached, and 0 if another level of MPLS exists.",0,pkt,0
@@ -2165,12 +2164,12 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,17,Q_MSN_FILE_CHUNK_IDENTIFIER,file_chunk_identifier,,uint32,File identifier related to the current chunk.,0,session,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol versions used.,0,session,0
 121,Q_PROTO_MSN_GROUPS,Forum,msn_groups,MSN groups,1,Q_MSN_GROUPS_GROUP_NAME,group_name,,string,Name of the group the user has subscribed to.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
-122,Q_PROTO_MSN_SEARCH,Web,msn_search,Msn_search,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
+122,Q_PROTO_MSN_SEARCH,Web,msn_search,MSN Search,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
 123,Q_PROTO_MSN_VIDEO,Audio/Video,msn_video,MSN Video,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session,0
 123,Q_PROTO_MSN_VIDEO,Audio/Video,msn_video,MSN Video,1,Q_MSN_VIDEO_RECIPIENTID,recipientid,,uint32,Identification number of recipient.,0,session,0
 123,Q_PROTO_MSN_VIDEO,Audio/Video,msn_video,MSN Video,2,Q_MSN_VIDEO_SESSIONID,sessionid,,uint32,Identification number of session.,0,session,0
@@ -2212,11 +2211,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 734,Q_PROTO_NETFLIX,Audio/Video,netflix,Netflix,1,Q_NETFLIX_VIDEO,video,,parent,"Parent entry, empty, for video metadata related attributes.",0,session,0
 130,Q_PROTO_NETFLOW,Network Management,netflow,Cisco Netflow Protocol,608,Q_MPA_VERSION,version,,uint16,Protocol version.,0,session,0
 130,Q_PROTO_NETFLOW,Network Management,netflow,Cisco Netflow Protocol,1,Q_NETFLOW_COUNT,count,,uint16,Number of items in the packet.,0,pkt,0
-322,Q_PROTO_NETLOG,Web,netlog,Netlog,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-322,Q_PROTO_NETLOG,Web,netlog,Netlog,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-322,Q_PROTO_NETLOG,Web,netlog,Netlog,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-322,Q_PROTO_NETLOG,Web,netlog,Netlog,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-322,Q_PROTO_NETLOG,Web,netlog,Netlog,633,Q_MPA_IS_MOBILE_SERVICE,is_mobile_service,,uint32,Whether or not the access was made through a mobile device.,0,session,0
+322,Q_PROTO_NETLOG,Web,netlog,netlog,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+322,Q_PROTO_NETLOG,Web,netlog,netlog,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+322,Q_PROTO_NETLOG,Web,netlog,netlog,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+322,Q_PROTO_NETLOG,Web,netlog,netlog,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+322,Q_PROTO_NETLOG,Web,netlog,netlog,633,Q_MPA_IS_MOBILE_SERVICE,is_mobile_service,,uint32,Whether or not the access was made through a mobile device.,0,session,0
 131,Q_PROTO_NFS,File Server,nfs,Network File System,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 131,Q_PROTO_NFS,File Server,nfs,Network File System,11,Q_NFS_COMMAND,command,,parent,"Parent entry, for NFS command fields.",0,session,0
 131,Q_PROTO_NFS,File Server,nfs,Network File System,12,Q_NFS_FILE,file,,parent,"Parent entry, for file-related fields.",0,session,0
@@ -2263,10 +2262,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 462,Q_PROTO_ODNOKLASSNIKI,Forum,odnoklassniki,odnoklassniki,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 462,Q_PROTO_ODNOKLASSNIKI,Forum,odnoklassniki,odnoklassniki,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 462,Q_PROTO_ODNOKLASSNIKI,Forum,odnoklassniki,odnoklassniki,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-553,Q_PROTO_OOVOO,Instant Messaging,oovoo,oovoo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+553,Q_PROTO_OOVOO,Instant Messaging,oovoo,Oovoo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 570,Q_PROTO_OPENBSD_UPDATE,Web,openbsd_update,OpenBSD Updates,1,Q_OPENBSD_UPDATE_PACKAGE_NAME,package_name,,string,Software package name.,0,session,0
-336,Q_PROTO_OPENVPN,Tunneling,openvpn,OpenVPN,1,Q_OPENVPN_OPCODE,opcode,,uint8,Operation code or message type,0,session,0
-336,Q_PROTO_OPENVPN,Tunneling,openvpn,OpenVPN,2,Q_OPENVPN_SEQ,seq,,uint32,Sequence number,0,session,0
+336,Q_PROTO_OPENVPN,Tunneling,openvpn,openvpn,1,Q_OPENVPN_OPCODE,opcode,,uint8,Operation code or message type,0,session,0
+336,Q_PROTO_OPENVPN,Tunneling,openvpn,openvpn,2,Q_OPENVPN_SEQ,seq,,uint32,Sequence number,0,session,0
 578,Q_PROTO_OPERA_UPDATE,Web,opera_update,Opera Update,703,Q_MPA_NEW_VERSION,new_version,,string,New version of Opera which will be installed.,0,session,0
 578,Q_PROTO_OPERA_UPDATE,Web,opera_update,Opera Update,702,Q_MPA_CURRENT_VERSION,current_version,,string,Opera version currently installed.,0,session,0
 265,Q_PROTO_ORANGEMAIL,Webmail,orangemail,Orange webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
@@ -2505,7 +2504,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,581,Q_MPA_QUERY,query,,string,Query sent,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,3,Q_POSTGRES_ERROR,error,,string,Error message,0,session,0
 150,Q_PROTO_POSTGRES,Database,postgres,Postgres,643,Q_MPA_REQUEST,request,,parent,Structured attribute regarding to a query.,0,session,0
-331,Q_PROTO_PPLIVE,Audio/Video,pplive,PPlive,555,Q_MPA_METHOD,method,,string,Contains the method used for a PPLive Live Streaming command,0,session,0
+331,Q_PROTO_PPLIVE,Audio/Video,pplive,pplive,555,Q_MPA_METHOD,method,,string,Contains the method used for a PPLive Live Streaming command,0,session,0
 151,Q_PROTO_PPP,Tunneling,ppp,Point to Point Protocol,1,Q_PPP_PROTOCOL,protocol,,string,Higher level protocol code or name.,0,pkt,0
 152,Q_PROTO_PPPOE,Tunneling,pppoe,PPP Over Ethernet,1,Q_PPPOE_VERSION,version,,uint8,Version of the protocol.,0,pkt,0
 152,Q_PROTO_PPPOE,Tunneling,pppoe,PPP Over Ethernet,2,Q_PPPOE_TYPE,type,,uint8,Type field. Its unique valid value is 1.,0,pkt,0
@@ -2599,15 +2598,15 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 158,Q_PROTO_RADIUS,Authentication,radius,Remote Authentication Dial-In User Service,42,Q_RADIUS_AVP_SALT,avp_salt,,uint16,The salt ensures the uniqueness of the encryption key. (CLEP_DATA_UINT16),0,session,0
 158,Q_PROTO_RADIUS,Authentication,radius,Remote Authentication Dial-In User Service,43,Q_RADIUS_3GPP_SGSN_ADDRESS,3gpp_sgsn_address,,ip_addr,IP address of the SGSN,0,session,0
 158,Q_PROTO_RADIUS,Authentication,radius,Remote Authentication Dial-In User Service,44,Q_RADIUS_3GPP_SGSN_MCC_MNC,3gpp_sgsn_mcc_mnc,,uint32,MCC and MNC of the SGSN,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,1,Q_RAMBLER_DOMAIN,domain,,string,Domain name used for the login of the user.,0,session,0
-318,Q_PROTO_RAMBLER,Web,rambler,Rambler,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,1,Q_RAMBLER_DOMAIN,domain,,string,Domain name used for the login of the user.,0,session,0
+318,Q_PROTO_RAMBLER,Web,rambler,rambler,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
@@ -2657,17 +2656,17 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,1,Q_RAMBLER_WEBMAIL_DOMAIN,domain,,string,Domain name used for the email address of the user.,0,session,0
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 527,Q_PROTO_RAMBLER_WEBMAIL,Webmail,rambler_webmail,Rambler webmail,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,643,Q_MPA_REQUEST,request,,parent,Container regrouping information about rapidshare for a certain action.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,550,Q_MPA_LOGIN,login,x,string,This attribute is deprecated.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,578,Q_MPA_PASSWORD,password,x,string,This attribute is deprecated.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,1,Q_RAPIDSHARE_METHOD,method,,string,HTTP method used for this action.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,2,Q_RAPIDSHARE_EMAIL_ADDRESS,email_address,,string,User email address.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,3,Q_RAPIDSHARE_CLIENT_ID,client_id,,string,User account number.,0,session,0
-313,Q_PROTO_RAPIDSHARE,Web,rapidshare,Rapidshare,4,Q_RAPIDSHARE_DOWNLOAD_URL,download_url,,string,Downloaded file URL.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,643,Q_MPA_REQUEST,request,,parent,Container regrouping information about rapidshare for a certain action.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,550,Q_MPA_LOGIN,login,x,string,This attribute is deprecated.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,578,Q_MPA_PASSWORD,password,x,string,This attribute is deprecated.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,1,Q_RAPIDSHARE_METHOD,method,,string,HTTP method used for this action.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,2,Q_RAPIDSHARE_EMAIL_ADDRESS,email_address,,string,User email address.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,3,Q_RAPIDSHARE_CLIENT_ID,client_id,,string,User account number.,0,session,0
+313,Q_PROTO_RAPIDSHARE,Web,rapidshare,rapidshare,4,Q_RAPIDSHARE_DOWNLOAD_URL,download_url,,string,Downloaded file URL.,0,session,0
 159,Q_PROTO_RDP,Thin Client,rdp,Remote Desktop Protocol (Windows Terminal Server),617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 159,Q_PROTO_RDP,Thin Client,rdp,Remote Desktop Protocol (Windows Terminal Server),608,Q_MPA_VERSION,version,,string,RDP Version used.,0,session,0
 159,Q_PROTO_RDP,Thin Client,rdp,Remote Desktop Protocol (Windows Terminal Server),1,Q_RDP_CLIENT_BUILD,client_build,,uint32,RDP client build.,0,session,0
@@ -2970,17 +2969,18 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,672,Q_MPA_MEDIA_ATTR_TRANSPORT,media_attr_transport,,string,The transport protocol (TCP or UDP).,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,671,Q_MPA_MEDIA_ATTR_VALUE,media_attr_value,,string,Line value of the media attribute.,0,session,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,36,Q_SIP_USER_ID,user_id,,string,Client identifier used for his registering with a SIP server.,0,session,0
-323,Q_PROTO_SKYBLOG,Web,skyblog,Skyblog,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-323,Q_PROTO_SKYBLOG,Web,skyblog,Skyblog,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-323,Q_PROTO_SKYBLOG,Web,skyblog,Skyblog,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-323,Q_PROTO_SKYBLOG,Web,skyblog,Skyblog,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,608,Q_MPA_VERSION,version,,string,Skype client version.,0,session,0
-183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string. The service is computed every 5 secondes (can be tuned); This attribute is extracted only when the service changes.,0,session,0
-183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer and Audio Skype Out.",0,session,0
+323,Q_PROTO_SKYBLOG,Web,skyblog,skyblog,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+323,Q_PROTO_SKYBLOG,Web,skyblog,skyblog,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+323,Q_PROTO_SKYBLOG,Web,skyblog,skyblog,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+323,Q_PROTO_SKYBLOG,Web,skyblog,skyblog,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,608,Q_MPA_VERSION,version,,string,Skype client version.,0,session,0
+183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string. The service is computed every 5 secondes (can be tuned); This attribute is extracted only when the service changes.,0,session,0
+183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer and Audio Skype Out.",0,session,0
+183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session,0
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,581,Q_MPA_QUERY,query,,string,Query sent to find a file.,0,session,0
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,608,Q_MPA_VERSION,version,,uint32,Current version of the Soulseek client.,0,session,0
-184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,0,session,0
+184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session,1
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session,0
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session,0
 184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,2,Q_SLSK_FILE_ID,file_id,,uint64,"Unique identifier of a file, based on IP of peer and the unique token for this combination file/peer.",0,session,0
@@ -2997,6 +2997,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint32,Size of the transferred piece.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),8,Q_SMB_FILE_ID,file_id,,string,Identifier of the file affected by the command (v1:4 char; usmb_v2:32 char).,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),7,Q_SMB_FILE_ATTRIBUTES,file_attributes,,uint32,File attributes (bit field).,0,session,0
+185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),27,Q_SMB_END_OF_FILE,end_of_file,,uint64,The end of file offset value.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),9,Q_SMB_USER_ID,user_id,,uint32,User identifier (SMB usmb_v1 only).,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),10,Q_SMB_PROCESS_ID,process_id,,uint32,Identifier of the process being affected by the following command.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),11,Q_SMB_NT_STATUS,nt_status,,uint32,NT error code.,0,session,0
@@ -3009,10 +3010,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),15,Q_SMB_COMMAND_STRING,command_string,,string,Command name.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),6,Q_SMB_LOADWAY,loadway,,string,Contains the file transfer way (Upload vs Download).,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),530,Q_MPA_CONTENT,content,,buffer,File content,1,session,1
+185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),608,Q_MPA_VERSION,version,,uint32,Protocol version.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),584,Q_MPA_QUERY_TYPE,query_type,,uint8,Indicates if the message is a request (1) or a response (2).,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),14,Q_SMB_QUERY_ID,query_id,,uint64,Indexes and correlates requests and responses.,0,session,0
-185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),12,Q_SMB_KRB5_BLOB_LEN,krb5_blob_len,,uint32,KRB5 security blob data length.,0,session,0
-185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),13,Q_SMB_KRB5_BLOB,krb5_blob,,buffer,Data contained in the KRB5 security blob.,0,session,0
+185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),28,Q_SMB_KRB5_BLOB_LEN,krb5_blob_len,,uint32,KRB5 security blob data length.,0,session,0
+185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),29,Q_SMB_KRB5_BLOB,krb5_blob,,buffer,Data contained in the KRB5 security blob.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),17,Q_SMB_SEARCH_ATTRIBUTES,search_attributes,,uint32,An attribute mask used to specify the standard attributes a file MUST have in order to match the search.,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),19,Q_SMB_SEARCH_STORAGE_TYPE,search_storage_type,,uint32,Specify the search type (directory or file).,0,session,0
 185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),18,Q_SMB_SEARCH_PATTERN,search_pattern,,string,The file pattern to search for.,0,session,0
@@ -3234,11 +3236,12 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 525,Q_PROTO_T38,Network Service,t38,Group 3 facsimile communication over IP,23,Q_T38_FAX_MESSAGE_DATA,fax_message_data,,buffer,Fax signaling messages carried in the (reassembled) IFP packets,0,session,0
 525,Q_PROTO_T38,Network Service,t38,Group 3 facsimile communication over IP,24,Q_T38_FAX_MESSAGE_TYPE,fax_message_type,,string_index,Describes the fax signaling messages type,0,session,0
 525,Q_PROTO_T38,Network Service,t38,Group 3 facsimile communication over IP,25,Q_T38_FAX_MESSAGE_NUMBER,fax_message_number,,string,"Identification associated to the following FAX messages: CSI the called subscriber identification (which is equal to the callee), CIG the calling subscriber identification (which is the caller), PWD the password, SEP the selective polling, PSA the polled subaddress, TSI the transmitting subscriber identification, SUB the subaddress and SID the sender identification.",0,session,0
-285,Q_PROTO_TAGGED,Web,tagged,Tagged,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-285,Q_PROTO_TAGGED,Web,tagged,Tagged,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-285,Q_PROTO_TAGGED,Web,tagged,Tagged,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-285,Q_PROTO_TAGGED,Web,tagged,Tagged,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+285,Q_PROTO_TAGGED,Web,tagged,tagged,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+285,Q_PROTO_TAGGED,Web,tagged,tagged,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+285,Q_PROTO_TAGGED,Web,tagged,tagged,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+285,Q_PROTO_TAGGED,Web,tagged,tagged,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,797,Q_MPA_SERVICE_DURATION,service_duration,,int32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,789,Q_MPA_SERVICE_ID,service_id,,int32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,521,Q_MPA_CALL_DURATION,call_duration,,int32,Call duration.,0,session,0
@@ -3254,10 +3257,11 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,3,Q_TANGO_USER_ID,user_id,,string,Unique user identifier.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,4,Q_TANGO_DEVICE_ID,device_id,,string,User's device identifier.,0,session,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-321,Q_PROTO_TCHATCHE,Web,tchatche,Tchatche,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-321,Q_PROTO_TCHATCHE,Web,tchatche,Tchatche,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-321,Q_PROTO_TCHATCHE,Web,tchatche,Tchatche,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-321,Q_PROTO_TCHATCHE,Web,tchatche,Tchatche,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+321,Q_PROTO_TCHATCHE,Web,tchatche,tchatche,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+321,Q_PROTO_TCHATCHE,Web,tchatche,tchatche,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+321,Q_PROTO_TCHATCHE,Web,tchatche,tchatche,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+321,Q_PROTO_TCHATCHE,Web,tchatche,tchatche,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+205,Q_PROTO_TCP,Network Service,tcp,Transport Control Protocol,796,Q_MPA_STREAM,stream,,buffer,Private attribute of the classification engine.,0,pkt,0
 205,Q_PROTO_TCP,Network Service,tcp,Transport Control Protocol,605,Q_MPA_SRC_PORT,src_port,,uint16,Source port.,0,session,0
 205,Q_PROTO_TCP,Network Service,tcp,Transport Control Protocol,534,Q_MPA_DST_PORT,dst_port,,uint16,Destination port.,0,session,0
 205,Q_PROTO_TCP,Network Service,tcp,Transport Control Protocol,603,Q_MPA_SERVER_PORT,server_port,,uint16,Server port.,0,session,0
@@ -3383,6 +3387,9 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),9,Q_TNS_CLIENT_PROGRAM_NAME,client_program_name,,string,Client program name.,0,session,0
 213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),643,Q_MPA_REQUEST,request,,parent,Structured attribute regarding to a query.,0,session,0
 213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),581,Q_MPA_QUERY,query,,string,Database query.,0,session,0
+213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),10,Q_TNS_RESPONSE,response,,parent,Parent attribute containing metadata related to the server response.,0,session,0
+213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),12,Q_TNS_RESPONSE_SIZE,response_size,,uint32,Unitary size in bytes of one the PDUs returned by the server.,0,session,0
+213,Q_PROTO_TNS,Database,tns,Transparent Network Service (Oracle),11,Q_TNS_RESPONSE_TIME,response_time,,timeval,Elapsed time between sending of the dns request and reception of its response.,0,session,0
 503,Q_PROTO_TWITTER,Web,twitter,Twitter,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 503,Q_PROTO_TWITTER,Web,twitter,Twitter,5,Q_TWITTER_RELATION,relation,,string,"Relation between two users, following/followed_by, or sender/recicipent for direct messages.",0,session,0
 503,Q_PROTO_TWITTER,Web,twitter,Twitter,17,Q_TWITTER_MEDIA_URL,media_url,,string,URL of the image which is shared inside a tweet (legacy Twitter API).,0,session,0
@@ -3401,6 +3408,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 503,Q_PROTO_TWITTER,Web,twitter,Twitter,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
 215,Q_PROTO_UCP,Wap,ucp,Universal Computer Protocol,1,Q_UCP_TYPE,type,,string_index,Message type.,0,pkt,0
 215,Q_PROTO_UCP,Wap,ucp,Universal Computer Protocol,2,Q_UCP_OPERATION,operation,,string_index,Operation name.,0,pkt,0
+216,Q_PROTO_UDP,Network Service,udp,User Datagram Protocol,796,Q_MPA_STREAM,stream,,buffer,Private attribute of the classification engine.,0,pkt,0
 216,Q_PROTO_UDP,Network Service,udp,User Datagram Protocol,605,Q_MPA_SRC_PORT,src_port,,uint16,Source port.,0,session,0
 216,Q_PROTO_UDP,Network Service,udp,User Datagram Protocol,534,Q_MPA_DST_PORT,dst_port,,uint16,Destination port.,0,session,0
 216,Q_PROTO_UDP,Network Service,udp,User Datagram Protocol,603,Q_MPA_SERVER_PORT,server_port,,uint16,Server port.,0,session,0
@@ -3428,17 +3436,18 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 866,Q_PROTO_USTREAM,Web,ustream,UStream,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
 866,Q_PROTO_USTREAM,Web,ustream,UStream,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
 866,Q_PROTO_USTREAM,Web,ustream,UStream,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,"Parent attribute of : contact_email, contact_alias.",0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Contact's mail address.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Contact's alias.,0,session,0
-304,Q_PROTO_VIADEO,Web,viadeo,Viadeo,1,Q_VIADEO_GROUPE,groupe,,string,Contact's alias.,0,session,0
-597,Q_PROTO_VIBER,Audio/Video,viber,Viber,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-597,Q_PROTO_VIBER,Audio/Video,viber,Viber,542,Q_MPA_FILESIZE,filesize,,uint64,Size (byte) of the transferred file.,0,session,0
-597,Q_PROTO_VIBER,Audio/Video,viber,Viber,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session,0
-597,Q_PROTO_VIBER,Audio/Video,viber,Viber,789,Q_MPA_SERVICE_ID,service_id,,uint32,Gives the service definition as an integer.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,"Parent attribute of : contact_email, contact_alias.",0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Contact's mail address.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Contact's alias.,0,session,0
+304,Q_PROTO_VIADEO,Web,viadeo,viadeo,1,Q_VIADEO_GROUPE,groupe,,string,Contact's alias.,0,session,0
+597,Q_PROTO_VIBER,Audio/Video,viber,viber,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+597,Q_PROTO_VIBER,Audio/Video,viber,viber,542,Q_MPA_FILESIZE,filesize,,uint64,Size (byte) of the transferred file.,0,session,0
+597,Q_PROTO_VIBER,Audio/Video,viber,viber,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session,0
+597,Q_PROTO_VIBER,Audio/Video,viber,viber,789,Q_MPA_SERVICE_ID,service_id,,uint32,Gives the service definition as an integer.,0,session,0
+597,Q_PROTO_VIBER,Audio/Video,viber,viber,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session,0
 504,Q_PROTO_VKONTAKTE,Forum,vkontakte,vkontakte,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 504,Q_PROTO_VKONTAKTE,Forum,vkontakte,vkontakte,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
 504,Q_PROTO_VKONTAKTE,Forum,vkontakte,vkontakte,1,Q_VKONTAKTE_GROUP_NAME,group_name,,string,Name of the group the user has subscribed to.,0,session,0
@@ -3465,6 +3474,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
 222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
 222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+1111,Q_PROTO_WINDOWS_MARKETPLACE,Application Service,windows_marketplace,Windows Marketplace,1,Q_WINDOWS_MARKETPLACE_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session,0
 562,Q_PROTO_WINDOWS_UPDATE,Web,windows_update,Windows Update,1,Q_WINDOWS_UPDATE_PLATFORM,platform,,string,Indicating the Windows version using this update,0,session,0
 562,Q_PROTO_WINDOWS_UPDATE,Web,windows_update,Windows Update,2,Q_WINDOWS_UPDATE_KB,kb,,string,kb (Knowledge base) is a unique internal Microsoft number to identify different software and updates.,0,session,0
 223,Q_PROTO_WINMX,Peer to Peer,winmx,Winmx,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
@@ -3550,12 +3560,12 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 290,Q_PROTO_YAHOO_MAPS,Web,yahoo_maps,Yahoo Maps,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
 290,Q_PROTO_YAHOO_MAPS,Web,yahoo_maps,Yahoo Maps,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
 290,Q_PROTO_YAHOO_MAPS,Web,yahoo_maps,Yahoo Maps,1,Q_YAHOO_MAPS_LOCATION,location,,parent,Parent attribute containing information about location researched.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
-234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo_search,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,584,Q_MPA_QUERY_TYPE,query_type,,string,Sort of query sent to the search engine.,0,session,0
+234,Q_PROTO_YAHOO_SEARCH,Web,yahoo_search,Yahoo Search,537,Q_MPA_ENCODING,encoding,,string,Query encoding.,0,session,0
 523,Q_PROTO_YANDEX,Web,yandex,Yandex search engine,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 523,Q_PROTO_YANDEX,Web,yandex,Yandex search engine,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
 523,Q_PROTO_YANDEX,Web,yandex,Yandex search engine,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
@@ -3583,13 +3593,13 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
-528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,0,session,0
+528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,530,Q_MPA_CONTENT,content,,buffer,Message content.,0,session,0
+528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,530,Q_MPA_CONTENT,content,,buffer,Message content.,1,session,1
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,681,Q_MPA_IMPORTANCE,importance,,uint32,Indicates if the email has been marked by the user.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
@@ -3614,50 +3624,50 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
 528,Q_PROTO_YANDEX_WEBMAIL,Webmail,yandex_webmail,Yandex webmail,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,636,Q_MPA_CONTACT_LASTNAME,contact_lastname,,string,Contact last name.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,635,Q_MPA_CONTACT_FIRSTNAME,contact_firstname,,string,Contact first name.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,575,Q_MPA_MSGLIST_SIZE,msglist_size,,string,Message size in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,2,Q_YMAIL2_ATTACH_FILEID,attach_fileid,,string,Automatically generated filename for file attachement.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
-236,Q_PROTO_YMAIL2,Webmail,ymail2,ymail2,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,577,Q_MPA_NAME,name,,string,User's full name.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,636,Q_MPA_CONTACT_LASTNAME,contact_lastname,,string,Contact last name.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,635,Q_MPA_CONTACT_FIRSTNAME,contact_firstname,,string,Contact first name.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,575,Q_MPA_MSGLIST_SIZE,msglist_size,,string,Message size in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,2,Q_YMAIL2_ATTACH_FILEID,attach_fileid,,string,Automatically generated filename for file attachement.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
+236,Q_PROTO_YMAIL2,Webmail,ymail2,Yahoo Mail v2.0 Minty (JSON) 2011,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
 259,Q_PROTO_YMAIL_CLASSIC,Webmail,ymail_classic,Yahoo Mail classic,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 259,Q_PROTO_YMAIL_CLASSIC,Webmail,ymail_classic,Yahoo Mail classic,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
 259,Q_PROTO_YMAIL_CLASSIC,Webmail,ymail_classic,Yahoo Mail classic,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session,0
@@ -3875,72 +3885,72 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,555,Q_MPA_METHOD,method,,string_index,Contains the description of YMSG command.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,1,Q_YMSG_WEBMESSENGER_MSG_CODE,msg_code,,string,Contains the number of YMSG command.,0,session,0
 276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo messenger on web,643,Q_MPA_REQUEST,request,,parent,Contains the YMSG command.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,7,Q_YOUTUBE_VIDEO,video,,parent,"Parent entry, empty, for video metadata related attributes.",0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,1,Q_YOUTUBE_URL,url,,string,Contains the url for embedded players,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,577,Q_MPA_NAME,name,,string,Name the user.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,2,Q_YOUTUBE_DESCRIPTION,description,,string,Contains video description,1,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,3,Q_YOUTUBE_TAGS,tags,,string,Contains the tag list linked to the video,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,4,Q_YOUTUBE_VIDEOID,videoid,,string,Contains the unique identifier of the uploaded video,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,5,Q_YOUTUBE_TITLE,title,,string,Contains the video title,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,6,Q_YOUTUBE_NAMEVIEWER,nameviewer,,string,Contains the name of the user watching the video,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,555,Q_MPA_METHOD,method,,string,Contains the method used,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,763,Q_MPA_VIDEO_DURATION,video_duration,,uint32,Duration of the video in seconds.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,764,Q_MPA_VIDEO_WIDTH,video_width,,uint32,Width of the video in pixels.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,765,Q_MPA_VIDEO_HEIGHT,video_height,,uint32,Height of the video in pixels.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,766,Q_MPA_VIDEO_DATARATE,video_datarate,,uint32,Video bitrate in kilobits per second.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,767,Q_MPA_AUDIO_DATARATE,audio_datarate,,uint32,Audio bitrate in kilobits per second.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,768,Q_MPA_VIDEO_FRAMERATE,video_framerate,,uint32,Number of frames per second.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,709,Q_MPA_START_TIME,start_time,,uint32,Start date of the call.,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,769,Q_MPA_VIDEO_TOTALDURATION,video_totalduration,,uint32,Total duration of the video in seconds (not extracted).,0,session,0
-240,Q_PROTO_YOUTUBE,Web,youtube,Youtube,770,Q_MPA_TOTAL_DATARATE,total_datarate,,uint32,Sum of video and audio datarates.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
-311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,7,Q_YOUTUBE_VIDEO,video,,parent,"Parent entry, empty, for video metadata related attributes.",0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,1,Q_YOUTUBE_URL,url,,string,Contains the url for embedded players,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,577,Q_MPA_NAME,name,,string,Name the user.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,2,Q_YOUTUBE_DESCRIPTION,description,,string,Contains video description,1,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,3,Q_YOUTUBE_TAGS,tags,,string,Contains the tag list linked to the video,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,4,Q_YOUTUBE_VIDEOID,videoid,,string,Contains the unique identifier of the uploaded video,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,5,Q_YOUTUBE_TITLE,title,,string,Contains the video title,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,6,Q_YOUTUBE_NAMEVIEWER,nameviewer,,string,Contains the name of the user watching the video,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,555,Q_MPA_METHOD,method,,string,Contains the method used,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,763,Q_MPA_VIDEO_DURATION,video_duration,,uint32,Duration of the video in seconds.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,764,Q_MPA_VIDEO_WIDTH,video_width,,uint32,Width of the video in pixels.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,765,Q_MPA_VIDEO_HEIGHT,video_height,,uint32,Height of the video in pixels.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,766,Q_MPA_VIDEO_DATARATE,video_datarate,,uint32,Video bitrate in kilobits per second.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,767,Q_MPA_AUDIO_DATARATE,audio_datarate,,uint32,Audio bitrate in kilobits per second.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,768,Q_MPA_VIDEO_FRAMERATE,video_framerate,,uint32,Number of frames per second.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,709,Q_MPA_START_TIME,start_time,,uint32,Start date of the call.,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,769,Q_MPA_VIDEO_TOTALDURATION,video_totalduration,,uint32,Total duration of the video in seconds (not extracted).,0,session,0
+240,Q_PROTO_YOUTUBE,Web,youtube,youtube,770,Q_MPA_TOTAL_DATARATE,total_datarate,,uint32,Sum of video and audio datarates.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,532,Q_MPA_DATE,date,,string,Message date.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,530,Q_MPA_CONTENT,content,,string,Message content.,1,session,1
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session,1
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session,0
+311,Q_PROTO_ZIMBRA,Webmail,zimbra,zimbra,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session,0
 325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session,0
 325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session,0
 325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session,0
