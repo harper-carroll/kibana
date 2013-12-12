@@ -78,42 +78,42 @@ apple_update,Apple Update,#pkg_name,pkg_name (package name) is the name of the s
 appstore,Apple App Store,#device_type,"Target device (iPhone
 appstore,Apple App Store,#connection_type,Type of the connection.
 appstore,Apple App Store,#application_name,Name of the downloaded app.
-archive,Archive,#login,User's login string.
-archive,Archive,#password,User's password string.
-archive,Archive,#query_text,Query sent to the search engine.
-archive,Archive,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-archive,Archive,#query_type,Sort of query sent to the search engine.
-archive,Archive,#query_index,A number containing the index of the showed results
-archive,Archive,#encoding,Server encoding.
-archive,Archive,#action,Indicates whether the file is uploaded or downloaded.
-archive,Archive,#filename,Name of the transferred file.
-archive,Archive,#title,File title.
-archive,Archive,#description,File description.
-archive,Archive,#subject,File subject.
-archive,Archive,#creator,File creator.
+archive,archive,#login,User's login string.
+archive,archive,#password,User's password string.
+archive,archive,#query_text,Query sent to the search engine.
+archive,archive,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+archive,archive,#query_type,Sort of query sent to the search engine.
+archive,archive,#query_index,A number containing the index of the showed results
+archive,archive,#encoding,Server encoding.
+archive,archive,#action,Indicates whether the file is uploaded or downloaded.
+archive,archive,#filename,Name of the transferred file.
+archive,archive,#title,File title.
+archive,archive,#description,File description.
+archive,archive,#subject,File subject.
+archive,archive,#creator,File creator.
 ares,Ares Protocol,#nickname,Contains the user identity of the Ares connection.
 ares,Ares Protocol,#query,Query sent to find a file.
 ares,Ares Protocol,#file_hash,Hash of the transferred file.
-badongo,badongo,#login,User's login string.
-badongo,badongo,#password,User's password string.
-badongo,badongo,#action,Indicates the action executed by the user.
-badongo,badongo,#filename,Name of the transferred file.
-badongo,badongo,#filesize,Size (byte) of the transferred file.
-badongo,badongo,#upload_description,Description of the uploaded file.
-badoo,Badoo,#login,User's login string.
-badoo,Badoo,#password,User's password string.
-badoo,Badoo,#nickname,"User's nickname
-badoo,Badoo,#sender,Contains the identity of the sender of a chat session or a file transfer.
-badoo,Badoo,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
-badoo,Badoo,#receiver_uid,Unique contact ID for a receiver.
-badoo,Badoo,#message,Contains the chat message.
-badoo,Badoo,#contact_login,Contact login.
-badoo,Badoo,#contact_uid,Contact ID.
-baidu,Baidu,#query_text,Query sent to the search engine.
-baidu,Baidu,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-baidu,Baidu,#query_type,Sort of query sent to the search engine.
-baidu,Baidu,#encoding,Query encoding.
-baidu,Baidu,#query_index,A number containing the index of the showed results
+badongo,Badongo,#login,User's login string.
+badongo,Badongo,#password,User's password string.
+badongo,Badongo,#action,Indicates the action executed by the user.
+badongo,Badongo,#filename,Name of the transferred file.
+badongo,Badongo,#filesize,Size (byte) of the transferred file.
+badongo,Badongo,#upload_description,Description of the uploaded file.
+badoo,badoo,#login,User's login string.
+badoo,badoo,#password,User's password string.
+badoo,badoo,#nickname,"User's nickname
+badoo,badoo,#sender,Contains the identity of the sender of a chat session or a file transfer.
+badoo,badoo,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
+badoo,badoo,#receiver_uid,Unique contact ID for a receiver.
+badoo,badoo,#message,Contains the chat message.
+badoo,badoo,#contact_login,Contact login.
+badoo,badoo,#contact_uid,Contact ID.
+baidu,baidu,#query_text,Query sent to the search engine.
+baidu,baidu,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+baidu,baidu,#query_type,Sort of query sent to the search engine.
+baidu,baidu,#encoding,Query encoding.
+baidu,baidu,#query_index,A number containing the index of the showed results
 base,TD virtual protocol,#application,Name of the application to which the packet belongs.
 base,TD virtual protocol,#time,"Elapsed time since 1st January 1970
 base,TD virtual protocol,#flow_id,Unique connection ID.
@@ -127,6 +127,7 @@ base,TD virtual protocol,#declassified,"Attribute showing whether a declassifica
 base,TD virtual protocol,#application_end,Contains the latest value for the attribute application
 base,TD virtual protocol,#family_end,Contains the latest value for the attribute family
 base,TD virtual protocol,#application_id_end,Contains the latest value for the attribute application_id
+base,TD virtual protocol,#multi_match_proto_id,"When multiple pdata rules do match the same packet
 bebo,Bebo,#is_mobile_service,Whether or not the access was made through a mobile device.
 bebo,Bebo,#password,User's password string.
 bebo,Bebo,#login,User's login string.
@@ -198,11 +199,11 @@ cups,Common Unix Printer System,#printer,URI addressing the CUPS printer.
 cups,Common Unix Printer System,#location,Location of the Printer.
 cups,Common Unix Printer System,#information,Information on Printer.
 cups,Common Unix Printer System,#model,Printer model.
-dailymotion,Dailymotion,#login,User's login string.
-dailymotion,Dailymotion,#email,"Parent entry
-dailymotion,Dailymotion,#password,User's password string.
-dailymotion,Dailymotion,#query_text,Query sent to the search engine.
-dailymotion,Dailymotion,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+dailymotion,dailymotion,#login,User's login string.
+dailymotion,dailymotion,#email,"Parent entry
+dailymotion,dailymotion,#password,User's password string.
+dailymotion,dailymotion,#query_text,Query sent to the search engine.
+dailymotion,dailymotion,#query_raw,Contains the query sent to the search engine as indicated in the URL.
 dcerpc,Distributed Computing Environment Remote Procedure Call,#service,Service used.
 dcerpc,Distributed Computing Environment Remote Procedure Call,#interface_uuid,ID of the interface.
 debian_update,Debian/Ubuntu Update,#package_version,Repository packet version.
@@ -297,11 +298,8 @@ dns,Domain Name Service,#host_addr,IPV4 Host address
 dns,Domain Name Service,#reverse_addr,IP address returned to the PTR request.
 dns,Domain Name Service,#response_time,Elapsed time between sending of the dns request and reception of its response.
 dns,Domain Name Service,#ttl,Time (in seconds) a DNS information returned by the server will be kept in cache.
-doubleclick_ads,Doubleclick ads,#ad_client,Buyer of the ad.
-doubleclick_ads,Doubleclick ads,#ad_page,Page on which the ad is displayed.
-doubleclick_ads,Doubleclick ads,#ad_url,URL which will be displayed if the user clicks on the ad.
-ebay,Ebay,#query_text,Query sent to the search engine.
-ebay,Ebay,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+ebay,ebay,#query_text,Query sent to the search engine.
+ebay,ebay,#query_raw,Contains the query sent to the search engine as indicated in the URL.
 ebuddy,ebuddy,#contact_im,Instant Messaging network associated to the contact
 ebuddy,ebuddy,#contact_message,User's contact IM personal message.
 ebuddy,ebuddy,#contact_blocked,Specifies if the user has blocked this contact.
@@ -425,6 +423,7 @@ ftp,File Transfer Protocol,#offset,Indicates the start offset of the file transf
 ftp,File Transfer Protocol,#greeting_message,First line of the server banner.
 ftp,File Transfer Protocol,#return_content,Message of server's response.
 ftp,File Transfer Protocol,#transfer_duration,Elapsed time (in seconds) between the begining of a transfer (ftp code 150) and the first packet signaling the end with succes of the transfer (ftp code 226)
+ftp,File Transfer Protocol,#index,Identifier of the request and response in a FTP flow.
 giop,General Inter-ORB Protocol (Corba),#version,Current GIOP version.
 giop,General Inter-ORB Protocol (Corba),#ior_type_id,IOR object's repository id.
 giop,General Inter-ORB Protocol (Corba),#message_type,GIOP message type.
@@ -472,32 +471,32 @@ gmail,Google Mail,#current_ip_address,IP address of the logged user.
 gmail,Google Mail,#other_ip_address,IP address of the other logged user.
 gmail,Google Mail,#contact_email,Email address of a contact.
 gmail,Google Mail,#contact_alias,Alias of a contact.
-gmail_basic,gmail basic,#date,Message date.
-gmail_basic,gmail basic,#sender_alias,Name of the email sender.
-gmail_basic,gmail basic,#sender_email,Email address of the email sender.
-gmail_basic,gmail basic,#sender,Full address of email sender (alias followed by email address).
-gmail_basic,gmail basic,#msglist_date,Message date in a message list.
-gmail_basic,gmail basic,#msglist_subject,Message subject in a message list.
-gmail_basic,gmail basic,#msglist_sender,Full address of email sender (alias and email address).
-gmail_basic,gmail basic,#msglist_receiver,Full address of email receiver in a message list.
-gmail_basic,gmail basic,#msglist_msgid,Message identifier.
-gmail_basic,gmail basic,#msglist_folder,Indicates the directory from a message list.
-gmail_basic,gmail basic,#login,User's login string.
-gmail_basic,gmail basic,#contact_email,Email address of a contact.
-gmail_basic,gmail basic,#contact_alias,Alias of a contact.
-gmail_basic,gmail basic,#subject,Message subject.
-gmail_basic,gmail basic,#receiver_type,Type of the email receiver.
-gmail_basic,gmail basic,#receiver_alias,Name of email receiver (included cc and bcc receivers).
-gmail_basic,gmail basic,#receiver_email,Email address of message receiver (included cc and bcc receivers).
-gmail_basic,gmail basic,#receiver,Full address of email receiver (including cc and bcc receivers).
-gmail_basic,gmail basic,#attach_type,Content type of the sent attached file.
-gmail_basic,gmail basic,#attach_filename,Attachment name.
-gmail_basic,gmail basic,#attach_id,Attachment identifier.
-gmail_basic,gmail basic,#draft,Indicates if the email is a draft or has really been posted
-gmail_basic,gmail basic,#msg_id,Identifier of the message.
-gmail_basic,gmail basic,#action,Indicates if the message is read (Read) or composed (Compose).
-gmail_basic,gmail basic,#attach_size,Attached file MIME size.
-gmail_basic,gmail basic,#session_id,Uniquely identifies the current user session.
+gmail_basic,Gmail basic,#date,Message date.
+gmail_basic,Gmail basic,#sender_alias,Name of the email sender.
+gmail_basic,Gmail basic,#sender_email,Email address of the email sender.
+gmail_basic,Gmail basic,#sender,Full address of email sender (alias followed by email address).
+gmail_basic,Gmail basic,#msglist_date,Message date in a message list.
+gmail_basic,Gmail basic,#msglist_subject,Message subject in a message list.
+gmail_basic,Gmail basic,#msglist_sender,Full address of email sender (alias and email address).
+gmail_basic,Gmail basic,#msglist_receiver,Full address of email receiver in a message list.
+gmail_basic,Gmail basic,#msglist_msgid,Message identifier.
+gmail_basic,Gmail basic,#msglist_folder,Indicates the directory from a message list.
+gmail_basic,Gmail basic,#login,User's login string.
+gmail_basic,Gmail basic,#contact_email,Email address of a contact.
+gmail_basic,Gmail basic,#contact_alias,Alias of a contact.
+gmail_basic,Gmail basic,#subject,Message subject.
+gmail_basic,Gmail basic,#receiver_type,Type of the email receiver.
+gmail_basic,Gmail basic,#receiver_alias,Name of email receiver (included cc and bcc receivers).
+gmail_basic,Gmail basic,#receiver_email,Email address of message receiver (included cc and bcc receivers).
+gmail_basic,Gmail basic,#receiver,Full address of email receiver (including cc and bcc receivers).
+gmail_basic,Gmail basic,#attach_type,Content type of the sent attached file.
+gmail_basic,Gmail basic,#attach_filename,Attachment name.
+gmail_basic,Gmail basic,#attach_id,Attachment identifier.
+gmail_basic,Gmail basic,#draft,Indicates if the email is a draft or has really been posted
+gmail_basic,Gmail basic,#msg_id,Identifier of the message.
+gmail_basic,Gmail basic,#action,Indicates if the message is read (Read) or composed (Compose).
+gmail_basic,Gmail basic,#attach_size,Attached file MIME size.
+gmail_basic,Gmail basic,#session_id,Uniquely identifies the current user session.
 gmail_chat,Google Chat,#login,User's login string.
 gmail_chat,Google Chat,#message,Contains the chat message.
 gmail_chat,Google Chat,#sender,Contains the identity of the sender of a chat session or a file transfer.
@@ -541,17 +540,17 @@ gmx,gmx,#subject,Message subject.
 gmx,gmx,#msg_id,Identifier of the message.
 gmx,gmx,#session_id,Uniquely identifies the current user session.
 gmx,gmx,#login,User's login string.
-gnutella,Gnutella,#user_agent,Name of the software used.
-gnutella,Gnutella,#server,Name of the server from which the file is downloaded.
-gnutella,Gnutella,#query,Query sent to find a file.
-gnutella,Gnutella,#filename,Name of the transferred file.
-gnutella,Gnutella,#filesize,Size (byte) of the transferred file.
-gnutella,Gnutella,#file_ed2k,Hash ed2k of the downloaded file.
-gnutella,Gnutella,#file_sha1,Hash sha1 of the downloaded file.
-gnutella,Gnutella,#file_md5,Hash md5 of the downloaded file.
-gnutella,Gnutella,#file_chunk_len,Size of the transferred piece.
-gnutella,Gnutella,#file_chunk_data_offset,Offset of the transferred data.
-gnutella,Gnutella,#peer_addr,Gnutella peer's IPv4 address.
+gnutella,gnutella,#user_agent,Name of the software used.
+gnutella,gnutella,#server,Name of the server from which the file is downloaded.
+gnutella,gnutella,#query,Query sent to find a file.
+gnutella,gnutella,#filename,Name of the transferred file.
+gnutella,gnutella,#filesize,Size (byte) of the transferred file.
+gnutella,gnutella,#file_ed2k,Hash ed2k of the downloaded file.
+gnutella,gnutella,#file_sha1,Hash sha1 of the downloaded file.
+gnutella,gnutella,#file_md5,Hash md5 of the downloaded file.
+gnutella,gnutella,#file_chunk_len,Size of the transferred piece.
+gnutella,gnutella,#file_chunk_data_offset,Offset of the transferred data.
+gnutella,gnutella,#peer_addr,Gnutella peer's IPv4 address.
 google,Google,#login,User's login string.
 google,Google,#query_text,Query sent to the search engine.
 google,Google,#query_raw,Contains the query sent to the search engine as indicated in the URL.
@@ -824,7 +823,7 @@ ica,Independant Computing Architecture (Citrix),#login_info,"Login information f
 ica,Independant Computing Architecture (Citrix),#service,Service used by the client.
 icap,ICAP,#x_client_ip_respmod_req,"The IP source address of the encapsulated HTTP request
 icap,ICAP,#referer_respmod_req,The HTTP referer embedded in the ICAP RESPMOD request (see http).
-icap,ICAP,#content_type_respmod_req,The HTTP content_type embedded in the ICAP RESPMOD request (see http).
+icap,ICAP,#content_type_respmod_req,The HTTP content_type embedded in the http response part of the ICAP RESPMOD request (see http).
 icap,ICAP,#user_agent_respmod_req,The HTTP user_agent embedded in the ICAP RESPMOD request (see http).
 icap,ICAP,#host_respmod_req,The HTTP host embedded in the ICAP RESPMOD request (see http).
 icap,ICAP,#uri_respmod_req,The HTTP uri embedded in the ICAP RESPMOD request (see http).
@@ -1030,6 +1029,7 @@ ldap,Lighweight Directory Access Protocol,#hostname,Hostname extracted from a lo
 ldap,Lighweight Directory Access Protocol,#attribute_desc,"Filter expression first operand
 ldap,Lighweight Directory Access Protocol,#assertion_value,"Filter expression second operand
 line,Line,#proto_version,Protocol version currently used by the client.
+line,Line,#service,Current service identification string. This attribute is extracted only when the service changes.
 line,Line,#call_byte_count,The count of bytes that were exchanged during the call.
 line,Line,#call_pkt_count,The count of data packets that were exchanged during the call.
 line,Line,#call_duration,Call duration.
@@ -1066,22 +1066,22 @@ linkedin,LinkedIn website,#msglist_sender,Full address of email sender (alias an
 linkedin,LinkedIn website,#msglist_folder,Indicates the directory from a message list.
 linkedin,LinkedIn website,#msglist_msgid,Message identifier.
 linkedin,LinkedIn website,#login,User's login string.
-live_groups,Windows Live groups,#login,User's login string.
-live_groups,Windows Live groups,#group_name,Name of the group the user has subscribed to.
-live_groups,Windows Live groups,#group_id,Unique identifier of the group.
-live_groups,Windows Live groups,#name,User's full name.
-live_groups,Windows Live groups,#sender,Full address of email sender (alias followed by email address).
-live_groups,Windows Live groups,#sender_email,Email address of the email sender.
-live_groups,Windows Live groups,#sender_alias,Name of the email sender.
-live_groups,Windows Live groups,#date,Message date.
-live_groups,Windows Live groups,#subject,Message subject.
-live_groups,Windows Live groups,#action,Indicates if the message is read (Read) or composed (Compose).
-live_groups,Windows Live groups,#member_alias,Member name.
-live_groups,Windows Live groups,#member_email,This attribute is deprecated.
-live_groups,Windows Live groups,#msglist_sender_alias,Name of email sender.
-live_groups,Windows Live groups,#msglist_sender,Full address of email sender (alias and email address).
-live_groups,Windows Live groups,#msglist_subject,Message subject in a message list.
-live_groups,Windows Live groups,#session_id,Uniquely identifies the current user session.
+live_groups,Windows Live Groups,#login,User's login string.
+live_groups,Windows Live Groups,#group_name,Name of the group the user has subscribed to.
+live_groups,Windows Live Groups,#group_id,Unique identifier of the group.
+live_groups,Windows Live Groups,#name,User's full name.
+live_groups,Windows Live Groups,#sender,Full address of email sender (alias followed by email address).
+live_groups,Windows Live Groups,#sender_email,Email address of the email sender.
+live_groups,Windows Live Groups,#sender_alias,Name of the email sender.
+live_groups,Windows Live Groups,#date,Message date.
+live_groups,Windows Live Groups,#subject,Message subject.
+live_groups,Windows Live Groups,#action,Indicates if the message is read (Read) or composed (Compose).
+live_groups,Windows Live Groups,#member_alias,Member name.
+live_groups,Windows Live Groups,#member_email,This attribute is deprecated.
+live_groups,Windows Live Groups,#msglist_sender_alias,Name of email sender.
+live_groups,Windows Live Groups,#msglist_sender,Full address of email sender (alias and email address).
+live_groups,Windows Live Groups,#msglist_subject,Message subject in a message list.
+live_groups,Windows Live Groups,#session_id,Uniquely identifies the current user session.
 live_hotmail,Windows Live Hotmail,#login,User's login string.
 live_hotmail,Windows Live Hotmail,#session_id,Uniquely identifies the current user session.
 live_hotmail,Windows Live Hotmail,#name,User's full name.
@@ -1165,44 +1165,44 @@ lotusnotes,Lotus Notes,#attach_content_size,Size of a attach file part.
 lpr,Line Printer Daemon,#login,User's login string.
 lpr,Line Printer Daemon,#server,Name of the machine that sent a file to print.
 lpr,Line Printer Daemon,#job,Name of the printed file.
-mailru,mail.ru webmail,#contact_email,Email address of a contact.
-mailru,mail.ru webmail,#contact_alias,Alias of a contact.
-mailru,mail.ru webmail,#attach_size,Attached file MIME size.
-mailru,mail.ru webmail,#folder,Indicates the directory from where messages are read.
-mailru,mail.ru webmail,#sender_alias,Name of the email sender.
-mailru,mail.ru webmail,#sender_email,Email address of the email sender.
-mailru,mail.ru webmail,#sender,Full address of email sender (alias followed by email address).
-mailru,mail.ru webmail,#subject,Message subject.
-mailru,mail.ru webmail,#date,Message date.
-mailru,mail.ru webmail,#receiver_type,Type of the email receiver.
-mailru,mail.ru webmail,#receiver_alias,Name of email receiver (included cc and bcc receivers).
-mailru,mail.ru webmail,#receiver_email,Email address of message receiver (included cc and bcc receivers).
-mailru,mail.ru webmail,#receiver,Full address of email receiver (including cc and bcc receivers).
-mailru,mail.ru webmail,#msglist_attach,Indicates if the message contains an attachment.
-mailru,mail.ru webmail,#msglist_importance,Indicates if the message has been marked by the user.
-mailru,mail.ru webmail,#msglist_unread,Indicates if the message has been read.
-mailru,mail.ru webmail,#name,User's full name.
-mailru,mail.ru webmail,#msglist_date,Message date in a message list.
-mailru,mail.ru webmail,#msglist_subject,Message subject in a message list.
-mailru,mail.ru webmail,#msglist_msgid,Message identifier.
-mailru,mail.ru webmail,#msglist_receiver_email,Email address of the email receiver.
-mailru,mail.ru webmail,#msglist_sender,Full address of email sender (alias and email address).
-mailru,mail.ru webmail,#msglist_sender_alias,Name of email sender.
-mailru,mail.ru webmail,#msglist_sender_email,Address of email sender.
-mailru,mail.ru webmail,#login,User's login string.
-mailru,mail.ru webmail,#draft,Indicates if the email is a draft or has really been posted
-mailru,mail.ru webmail,#msg_id,Identifier of the message.
-mailru,mail.ru webmail,#attach_id,Attachment identifier.
-mailru,mail.ru webmail,#attach_type,Content type of the sent attached file.
-mailru,mail.ru webmail,#attach_filename,Attachment name.
-mailru,mail.ru webmail,#action,Indicates if the message is read (Read) or composed (Compose).
-mailru,mail.ru webmail,#folderlist_item_name,Message folder name.
-mailru,mail.ru webmail,#folderlist_item_id,Message folder unique identifier.
-mailru,mail.ru webmail,#importance,Indicates if the email has been marked by the user.
-mailru,mail.ru webmail,#contact,Complete contact.
-mailru,mail.ru webmail,#msglist_receiver,Full address of email receiver in a message list.
-mailru,mail.ru webmail,#msglist_receiver_alias,Name of email receiver.
-mailru,mail.ru webmail,#msglist_folder,Indicates the directory from a message list.
+mailru,Mail.ru Webmail,#contact_email,Email address of a contact.
+mailru,Mail.ru Webmail,#contact_alias,Alias of a contact.
+mailru,Mail.ru Webmail,#attach_size,Attached file MIME size.
+mailru,Mail.ru Webmail,#folder,Indicates the directory from where messages are read.
+mailru,Mail.ru Webmail,#sender_alias,Name of the email sender.
+mailru,Mail.ru Webmail,#sender_email,Email address of the email sender.
+mailru,Mail.ru Webmail,#sender,Full address of email sender (alias followed by email address).
+mailru,Mail.ru Webmail,#subject,Message subject.
+mailru,Mail.ru Webmail,#date,Message date.
+mailru,Mail.ru Webmail,#receiver_type,Type of the email receiver.
+mailru,Mail.ru Webmail,#receiver_alias,Name of email receiver (included cc and bcc receivers).
+mailru,Mail.ru Webmail,#receiver_email,Email address of message receiver (included cc and bcc receivers).
+mailru,Mail.ru Webmail,#receiver,Full address of email receiver (including cc and bcc receivers).
+mailru,Mail.ru Webmail,#msglist_attach,Indicates if the message contains an attachment.
+mailru,Mail.ru Webmail,#msglist_importance,Indicates if the message has been marked by the user.
+mailru,Mail.ru Webmail,#msglist_unread,Indicates if the message has been read.
+mailru,Mail.ru Webmail,#name,User's full name.
+mailru,Mail.ru Webmail,#msglist_date,Message date in a message list.
+mailru,Mail.ru Webmail,#msglist_subject,Message subject in a message list.
+mailru,Mail.ru Webmail,#msglist_msgid,Message identifier.
+mailru,Mail.ru Webmail,#msglist_receiver_email,Email address of the email receiver.
+mailru,Mail.ru Webmail,#msglist_sender,Full address of email sender (alias and email address).
+mailru,Mail.ru Webmail,#msglist_sender_alias,Name of email sender.
+mailru,Mail.ru Webmail,#msglist_sender_email,Address of email sender.
+mailru,Mail.ru Webmail,#login,User's login string.
+mailru,Mail.ru Webmail,#draft,Indicates if the email is a draft or has really been posted
+mailru,Mail.ru Webmail,#msg_id,Identifier of the message.
+mailru,Mail.ru Webmail,#attach_id,Attachment identifier.
+mailru,Mail.ru Webmail,#attach_type,Content type of the sent attached file.
+mailru,Mail.ru Webmail,#attach_filename,Attachment name.
+mailru,Mail.ru Webmail,#action,Indicates if the message is read (Read) or composed (Compose).
+mailru,Mail.ru Webmail,#folderlist_item_name,Message folder name.
+mailru,Mail.ru Webmail,#folderlist_item_id,Message folder unique identifier.
+mailru,Mail.ru Webmail,#importance,Indicates if the email has been marked by the user.
+mailru,Mail.ru Webmail,#contact,Complete contact.
+mailru,Mail.ru Webmail,#msglist_receiver,Full address of email receiver in a message list.
+mailru,Mail.ru Webmail,#msglist_receiver_alias,Name of email receiver.
+mailru,Mail.ru Webmail,#msglist_folder,Indicates the directory from a message list.
 maktoob,Maktoob mail,#login,User's login string.
 maktoob,Maktoob mail,#name,User's full name.
 maktoob,Maktoob mail,#msglist_sender,Full address of email sender (alias and email address).
@@ -1298,8 +1298,8 @@ mgcp,Media Gateway Control Protocol,#connection_id,Connection identifier
 mgcp,Media Gateway Control Protocol,#media_attr_type,Contains the media type (audio or video).
 mgcp,Media Gateway Control Protocol,#media_attr_encoding,The encoding of media data.
 mgcp,Media Gateway Control Protocol,#media_attr_rate,The encoding rate.
-mgcp,Media Gateway Control Protocol,#media_attr_param,.
-mgcp,Media Gateway Control Protocol,#media_attr_label,.
+mgcp,Media Gateway Control Protocol,#media_attr_param,Session attribute value.
+mgcp,Media Gateway Control Protocol,#media_attr_label,Name of the described session attribute.
 mgcp,Media Gateway Control Protocol,#media_attr_addr,The mentioned IPv4 address to be used.
 mgcp,Media Gateway Control Protocol,#media_attr_channel,The channel value.
 mgcp,Media Gateway Control Protocol,#media_attr_transport,The transport protocol (TCP or UDP).
@@ -1339,7 +1339,7 @@ mmse,MMS Encapsulation,#message_sz,Full size of message in octets.
 mmse,MMS Encapsulation,#content_part_type,Message sub-part type.
 mmse,MMS Encapsulation,#content_part_id,Message sub-part ID.
 mmse,MMS Encapsulation,#content_part_filename,Name of the file containing the current message sub-part data.
-mpegts,Mpeg 2 Transmission,#chunk_len,Data length.
+mpegts,MPEG-TS,#chunk_len,Data length.
 mpls,Multiprotocol Packet Label Switching,#label,Label allowing the routing process of the packet through the various LSPs (Label-Switched Paths) crossed along the delivery path.
 mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used in M+ Messenger. The first byte (LSB) gives the generic service definition
 mplus_messenger,M+ Messenger,#service,"M+ current service identification string. The service is computed every 5 secondes
@@ -1377,10 +1377,10 @@ msn,MSN Messenger,#file_chunk_type,Transfer type.
 msn,MSN Messenger,#file_chunk_identifier,File identifier related to the current chunk.
 msn,MSN Messenger,#proto_version,Protocol versions used.
 msn_groups,MSN groups,#group_name,Name of the group the user has subscribed to.
-msn_search,Msn_search,#query_text,Query sent to the search engine.
-msn_search,Msn_search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-msn_search,Msn_search,#query_type,Sort of query sent to the search engine.
-msn_search,Msn_search,#encoding,Query encoding.
+msn_search,MSN Search,#query_text,Query sent to the search engine.
+msn_search,MSN Search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+msn_search,MSN Search,#query_type,Sort of query sent to the search engine.
+msn_search,MSN Search,#encoding,Query encoding.
 msn_video,MSN Video,#recipientid,Identification number of recipient.
 msn_video,MSN Video,#sessionid,Identification number of session.
 msrp,The Message Session Relay Protocol (MSRP),#session_id,Uniquely identifies the current user session.
@@ -1407,9 +1407,9 @@ netflix,Netflix,#videoid,Netflix video identifier.
 netflix,Netflix,#title,Title of the movie.
 netflix,Netflix,#description,Synopsis of the movie.
 netflix,Netflix,#date,Release date of the movie.
-netlog,Netlog,#login,User's login string.
-netlog,Netlog,#password,User's password string.
-netlog,Netlog,#is_mobile_service,Whether or not the access was made through a mobile device.
+netlog,netlog,#login,User's login string.
+netlog,netlog,#password,User's password string.
+netlog,netlog,#is_mobile_service,Whether or not the access was made through a mobile device.
 nfs,Network File System,#version,Used version
 nfs,Network File System,#filename,"Accessed
 nfs,Network File System,#offset,Offset of the written/read file. Extracted on READ and WRITE procedure replies.
@@ -1438,9 +1438,9 @@ odnoklassniki,odnoklassniki,#contact_alias,Alias of a contact.
 odnoklassniki,odnoklassniki,#group_name,Name of the group the user has subscribed to.
 odnoklassniki,odnoklassniki,#password,User's password string.
 odnoklassniki,odnoklassniki,#login,User's login string.
-oovoo,oovoo,#login,User's login string.
+oovoo,Oovoo,#login,User's login string.
 openbsd_update,OpenBSD Updates,#package_name,Software package name.
-openvpn,OpenVPN,#seq,Sequence number
+openvpn,openvpn,#seq,Sequence number
 opera_update,Opera Update,#new_version,New version of Opera which will be installed.
 opera_update,Opera Update,#current_version,Opera version currently installed.
 orangemail,Orange webmail,#draft,Indicates if the email is a draft or has really been posted
@@ -1601,7 +1601,7 @@ postgres,Postgres,#server_version,Server version
 postgres,Postgres,#proto_version,Protocol version used
 postgres,Postgres,#query,Query sent
 postgres,Postgres,#error,Error message
-pplive,PPlive,#method,Contains the method used for a PPLive Live Streaming command
+pplive,pplive,#method,Contains the method used for a PPLive Live Streaming command
 ppp,Point to Point Protocol,#protocol,Higher level protocol code or name.
 pptp,Point-to-Point Tunneling Protocol,#version,Protocol version.
 pptp,Point-to-Point Tunneling Protocol,#vendor,"The type of PAC being used
@@ -1657,12 +1657,12 @@ radius,Remote Authentication Dial-In User Service,#avp_vendor_id,SMI Network Man
 radius,Remote Authentication Dial-In User Service,#avp_interface_id,IPv6 interface identifier. (CLEP_DATA_UINT64)
 radius,Remote Authentication Dial-In User Service,#3gpp_sgsn_address,IP address of the SGSN
 radius,Remote Authentication Dial-In User Service,#3gpp_sgsn_mcc_mnc,MCC and MNC of the SGSN
-rambler,Rambler,#query_text,Query sent to the search engine.
-rambler,Rambler,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-rambler,Rambler,#query_type,Sort of query sent to the search engine.
-rambler,Rambler,#login,User's login string.
-rambler,Rambler,#domain,Domain name used for the login of the user.
-rambler,Rambler,#password,User's password string.
+rambler,rambler,#query_text,Query sent to the search engine.
+rambler,rambler,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+rambler,rambler,#query_type,Sort of query sent to the search engine.
+rambler,rambler,#login,User's login string.
+rambler,rambler,#domain,Domain name used for the login of the user.
+rambler,rambler,#password,User's password string.
 rambler_webmail,Rambler webmail,#attach_type,Content type of the sent attached file.
 rambler_webmail,Rambler webmail,#date,Message date.
 rambler_webmail,Rambler webmail,#msg_id,Identifier of the message.
@@ -1698,15 +1698,15 @@ rambler_webmail,Rambler webmail,#msglist_sender_alias,Name of email sender.
 rambler_webmail,Rambler webmail,#msglist_sender,Full address of email sender (alias and email address).
 rambler_webmail,Rambler webmail,#domain,Domain name used for the email address of the user.
 rambler_webmail,Rambler webmail,#login,User's login string.
-rapidshare,Rapidshare,#action,Indicates the action executed by the user.
-rapidshare,Rapidshare,#login,This attribute is deprecated.
-rapidshare,Rapidshare,#password,This attribute is deprecated.
-rapidshare,Rapidshare,#filename,Name of the transferred file.
-rapidshare,Rapidshare,#filesize,Size (byte) of the transferred file.
-rapidshare,Rapidshare,#method,HTTP method used for this action.
-rapidshare,Rapidshare,#email_address,User email address.
-rapidshare,Rapidshare,#client_id,User account number.
-rapidshare,Rapidshare,#download_url,Downloaded file URL.
+rapidshare,rapidshare,#action,Indicates the action executed by the user.
+rapidshare,rapidshare,#login,This attribute is deprecated.
+rapidshare,rapidshare,#password,This attribute is deprecated.
+rapidshare,rapidshare,#filename,Name of the transferred file.
+rapidshare,rapidshare,#filesize,Size (byte) of the transferred file.
+rapidshare,rapidshare,#method,HTTP method used for this action.
+rapidshare,rapidshare,#email_address,User email address.
+rapidshare,rapidshare,#client_id,User account number.
+rapidshare,rapidshare,#download_url,Downloaded file URL.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#version,RDP Version used.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#client_build,RDP client build.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#desktop_width,desktop width.
@@ -1747,7 +1747,7 @@ rpc,Remote Procedure Call,#procedure,"Contains the request used by the applicati
 rpc,Remote Procedure Call,#state,Status of the command response.
 rpc,Remote Procedure Call,#xid,Identifier of the request or the reply.
 rsh,Remote Shell,#login,User's login string.
-rsh,Remote Shell,#remote_login,User login on the remote server.
+rsh,Remote Shell,#remote_login,(Deprecated) User login on the remote server.
 rsh,Remote Shell,#server,Remote server.
 rsync,Remote synchronous (file transfer),#module,Name of the group in which files are gathered.
 rsync,Remote synchronous (file transfer),#login,User's login string.
@@ -1799,8 +1799,8 @@ rtsp,Real Time Streaming Protocol,#media_attr_value,Line value of the media attr
 rtsp,Real Time Streaming Protocol,#media_attr_type,Contains the media type (audio or video).
 rtsp,Real Time Streaming Protocol,#media_attr_encoding,The encoding of media data.
 rtsp,Real Time Streaming Protocol,#media_attr_rate,The encoding rate.
-rtsp,Real Time Streaming Protocol,#media_attr_param,.
-rtsp,Real Time Streaming Protocol,#media_attr_label,.
+rtsp,Real Time Streaming Protocol,#media_attr_param,Session attribute value.
+rtsp,Real Time Streaming Protocol,#media_attr_label,Name of the described session attribute.
 rtsp,Real Time Streaming Protocol,#media_attr_addr,The mentioned IPv4 address to be used.
 rtsp,Real Time Streaming Protocol,#media_attr_channel,The channel value.
 rtsp,Real Time Streaming Protocol,#media_attr_transport,The transport protocol (TCP or UDP).
@@ -1850,6 +1850,7 @@ secondlife,Second Life,#source_type,Source type.
 secondlife,Second Life,#chat_type,Chat message type.
 sip,Session Initiation Protocol,#method,The command
 sip,Session Initiation Protocol,#uri,Contains the URI (similar to To: field)
+sip,Session Initiation Protocol,#expires,Time in seconds after which the message expires.
 sip,Session Initiation Protocol,#reply_code,Return status code.
 sip,Session Initiation Protocol,#mime_type,Data type.
 sip,Session Initiation Protocol,#user_agent,Client's software.
@@ -1903,18 +1904,19 @@ sip,Session Initiation Protocol,#media_format,Client's protocol formats availabl
 sip,Session Initiation Protocol,#media_attr_type,Contains the media type (audio or video).
 sip,Session Initiation Protocol,#media_attr_encoding,The encoding of media data.
 sip,Session Initiation Protocol,#media_attr_rate,The encoding rate.
-sip,Session Initiation Protocol,#media_attr_param,.
-sip,Session Initiation Protocol,#media_attr_label,.
+sip,Session Initiation Protocol,#media_attr_param,Session attribute value.
+sip,Session Initiation Protocol,#media_attr_label,Name of the described session attribute.
 sip,Session Initiation Protocol,#media_attr_addr,The mentioned IPv4 address to be used.
 sip,Session Initiation Protocol,#media_attr_channel,The channel value.
 sip,Session Initiation Protocol,#media_attr_transport,The transport protocol (TCP or UDP).
 sip,Session Initiation Protocol,#media_attr_value,Line value of the media attribute.
 sip,Session Initiation Protocol,#user_id,Client identifier used for his registering with a SIP server.
-skyblog,Skyblog,#login,User's login string.
-skyblog,Skyblog,#password,User's password string.
-skype,Skype,#version,Skype client version.
-skype,Skype,#service,Current service identification string. The service is computed every 5 secondes (can be tuned); This attribute is extracted only when the service changes.
-skype,Skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+skyblog,skyblog,#password,User's password string.
+skyblog,skyblog,#login,User's login string.
+skype,skype,#version,Skype client version.
+skype,skype,#service,Current service identification string. The service is computed every 5 secondes (can be tuned); This attribute is extracted only when the service changes.
+skype,skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+skype,skype,#service_duration,"4 bytes integer value indicating
 slsk,SoulSeek,#query,Query sent to find a file.
 slsk,SoulSeek,#version,Current version of the Soulseek client.
 slsk,SoulSeek,#filename,Name of the transferred file.
@@ -1927,6 +1929,7 @@ smb,Server Message Block (Windows File Server),#login,User's login string.
 smb,Server Message Block (Windows File Server),#service,The type of resource that the client intends to access.
 smb,Server Message Block (Windows File Server),#file_chunk_data_offset,Offset of the transferred data.
 smb,Server Message Block (Windows File Server),#file_chunk_len,Size of the transferred piece.
+smb,Server Message Block (Windows File Server),#end_of_file,The end of file offset value.
 smb,Server Message Block (Windows File Server),#file_attributes,File attributes (bit field).
 smb,Server Message Block (Windows File Server),#user_id,User identifier (SMB usmb_v1 only).
 smb,Server Message Block (Windows File Server),#process_id,Identifier of the process being affected by the following command.
@@ -1938,8 +1941,9 @@ smb,Server Message Block (Windows File Server),#native_os,Client's operating sys
 smb,Server Message Block (Windows File Server),#native_lan_manager,The native LAN manager type.
 smb,Server Message Block (Windows File Server),#command_string,Command name.
 smb,Server Message Block (Windows File Server),#loadway,Contains the file transfer way (Upload vs Download).
+smb,Server Message Block (Windows File Server),#version,Protocol version.
 smb,Server Message Block (Windows File Server),#query_id,Indexes and correlates requests and responses.
-smb,Server Message Block (Windows File Server),#krb5_blob_len,KRB5 security blob data length.
+smb,Server Message Block (Windows File Server),#security_blob_len,Security blob data length.
 smb,Server Message Block (Windows File Server),#search_attributes,An attribute mask used to specify the standard attributes a file MUST have in order to match the search.
 smb,Server Message Block (Windows File Server),#search_storage_type,Specify the search type (directory or file).
 smb,Server Message Block (Windows File Server),#search_pattern,The file pattern to search for.
@@ -2064,8 +2068,8 @@ syslog,Syslog,#code,Message type.
 t38,Group 3 facsimile communication over IP,#caller,Calling subscriber identification
 t38,Group 3 facsimile communication over IP,#callee,Called subscriber identification
 t38,Group 3 facsimile communication over IP,#fax_message_number,"Identification associated to the following FAX messages: CSI the called subscriber identification (which is equal to the callee)
-tagged,Tagged,#login,User's login string.
-tagged,Tagged,#password,User's password string.
+tagged,tagged,#login,User's login string.
+tagged,tagged,#password,User's password string.
 tango,Tango Video Calls,#service,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.
 tango,Tango Video Calls,#callee_id,Called part identifier.
 tango,Tango Video Calls,#caller_id,Calling part identifier.
@@ -2077,8 +2081,8 @@ tango,Tango Video Calls,#user_email,User's email address.
 tango,Tango Video Calls,#login,User's login string.
 tango,Tango Video Calls,#user_id,Unique user identifier.
 tango,Tango Video Calls,#device_id,User's device identifier.
-tchatche,Tchatche,#login,User's login string.
-tchatche,Tchatche,#password,User's password string.
+tchatche,tchatche,#login,User's login string.
+tchatche,tchatche,#password,User's password string.
 tcp,Transport Control Protocol,#loss_count,Number of lost bytes.
 tcp,Transport Control Protocol,#previous_lost,This packet follows one or more missing packets.
 tcp,Transport Control Protocol,#rtt,Network response time (syn-synack-ack process).
@@ -2149,6 +2153,8 @@ tns,Transparent Network Service (Oracle),#client_hostname,Client machine hostnam
 tns,Transparent Network Service (Oracle),#client_program_path,Client program absolute path.
 tns,Transparent Network Service (Oracle),#client_program_name,Client program name.
 tns,Transparent Network Service (Oracle),#query,Database query.
+tns,Transparent Network Service (Oracle),#response_size,Unitary size in bytes of one the PDUs returned by the server.
+tns,Transparent Network Service (Oracle),#response_time,Elapsed time between sending of the dns request and reception of its response.
 twitter,Twitter,#relation,"Relation between two users
 twitter,Twitter,#media_url,URL of the image which is shared inside a tweet (legacy Twitter API).
 twitter,Twitter,#date,Message date.
@@ -2170,14 +2176,15 @@ ustream,UStream,#password,User's password string.
 ustream,UStream,#login,User's login string.
 ustream,UStream,#query_text,Query sent to the search engine.
 ustream,UStream,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-viadeo,Viadeo,#login,User's login string.
-viadeo,Viadeo,#password,User's password string.
-viadeo,Viadeo,#contact_email,Contact's mail address.
-viadeo,Viadeo,#contact_alias,Contact's alias.
-viadeo,Viadeo,#groupe,Contact's alias.
-viber,Viber,#filesize,Size (byte) of the transferred file.
-viber,Viber,#service,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.
-viber,Viber,#service_id,Gives the service definition as an integer.
+viadeo,viadeo,#login,User's login string.
+viadeo,viadeo,#password,User's password string.
+viadeo,viadeo,#contact_email,Contact's mail address.
+viadeo,viadeo,#contact_alias,Contact's alias.
+viadeo,viadeo,#groupe,Contact's alias.
+viber,viber,#filesize,Size (byte) of the transferred file.
+viber,viber,#service,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.
+viber,viber,#service_id,Gives the service definition as an integer.
+viber,viber,#service_duration,"4 bytes integer value indicating
 vkontakte,vkontakte,#contact_email,Email address of a contact.
 vkontakte,vkontakte,#group_name,Name of the group the user has subscribed to.
 vkontakte,vkontakte,#contact_alias,Alias of a contact.
@@ -2194,6 +2201,7 @@ whatsapp,WhatsApp Messenger,#phone_number,Caller phone number.
 whatsapp,WhatsApp Messenger,#version,Program version.
 wikipedia,Wikipedia,#query_text,Query sent to the search engine.
 wikipedia,Wikipedia,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+windows_marketplace,Windows Marketplace,#application_name,Name of the downloaded app.
 windows_update,Windows Update,#platform,Indicating the Windows version using this update
 windows_update,Windows Update,#kb,kb (Knowledge base) is a unique internal Microsoft number to identify different software and updates.
 winmx,Winmx,#login,User's login string.
@@ -2250,10 +2258,10 @@ yahoo_maps,Yahoo Maps,#street,Location longitude value.
 yahoo_maps,Yahoo Maps,#longitude,Location longitude value.
 yahoo_maps,Yahoo Maps,#latitude,Location latitude value.
 yahoo_maps,Yahoo Maps,#query_text,Query sent to the search engine.
-yahoo_search,Yahoo_search,#query_text,Query sent to the search engine.
-yahoo_search,Yahoo_search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-yahoo_search,Yahoo_search,#query_type,Sort of query sent to the search engine.
-yahoo_search,Yahoo_search,#encoding,Query encoding.
+yahoo_search,Yahoo Search,#query_text,Query sent to the search engine.
+yahoo_search,Yahoo Search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+yahoo_search,Yahoo Search,#query_type,Sort of query sent to the search engine.
+yahoo_search,Yahoo Search,#encoding,Query encoding.
 yandex,Yandex search engine,#password,User's password string.
 yandex,Yandex search engine,#login,User's login string.
 yandex,Yandex search engine,#query_type,Sort of query sent to the search engine.
@@ -2294,39 +2302,39 @@ yandex_webmail,Yandex webmail,#login,User's login string.
 yandex_webmail,Yandex webmail,#contact,Complete contact.
 yandex_webmail,Yandex webmail,#contact_alias,Alias of a contact.
 yandex_webmail,Yandex webmail,#contact_email,Email address of a contact.
-ymail2,ymail2,#login,User's login string.
-ymail2,ymail2,#name,User's full name.
-ymail2,ymail2,#contact_lastname,Contact last name.
-ymail2,ymail2,#contact_firstname,Contact first name.
-ymail2,ymail2,#contact_email,Email address of a contact.
-ymail2,ymail2,#msglist_sender,Full address of email sender (alias and email address).
-ymail2,ymail2,#msglist_receiver_email,Email address of the email receiver.
-ymail2,ymail2,#msglist_sender_email,Address of email sender.
-ymail2,ymail2,#msglist_sender_alias,Name of email sender.
-ymail2,ymail2,#msglist_msgid,Message identifier.
-ymail2,ymail2,#msglist_size,Message size in a message list.
-ymail2,ymail2,#draft,Indicates if the email is a draft or has really been posted
-ymail2,ymail2,#replyto,Email address to use in a reply for this message.
-ymail2,ymail2,#subject,Message subject.
-ymail2,ymail2,#msglist_folder,Indicates the directory from a message list.
-ymail2,ymail2,#receiver_type,Type of the email receiver.
-ymail2,ymail2,#receiver,Full address of email receiver (including cc and bcc receivers).
-ymail2,ymail2,#receiver_alias,Name of email receiver (included cc and bcc receivers).
-ymail2,ymail2,#sender,Full address of email sender (alias followed by email address).
-ymail2,ymail2,#msglist_subject,Message subject in a message list.
-ymail2,ymail2,#receiver_email,Email address of message receiver (included cc and bcc receivers).
-ymail2,ymail2,#sender_email,Email address of the email sender.
-ymail2,ymail2,#sender_alias,Name of the email sender.
-ymail2,ymail2,#attach_size,Attached file MIME size.
-ymail2,ymail2,#attach_id,Attachment identifier.
-ymail2,ymail2,#attach_type,Content type of the sent attached file.
-ymail2,ymail2,#msg_id,Identifier of the message.
-ymail2,ymail2,#attach_filename,Attachment name.
-ymail2,ymail2,#attach_fileid,Automatically generated filename for file attachement.
-ymail2,ymail2,#action,Indicates if the message is read (Read) or composed (Compose).
-ymail2,ymail2,#date,Message date.
-ymail2,ymail2,#msglist_date,Message date in a message list.
-ymail2,ymail2,#session_id,Uniquely identifies the current user session.
+ymail2,Yahoo Mail v2.0,#login,User's login string.
+ymail2,Yahoo Mail v2.0,#name,User's full name.
+ymail2,Yahoo Mail v2.0,#contact_lastname,Contact last name.
+ymail2,Yahoo Mail v2.0,#contact_firstname,Contact first name.
+ymail2,Yahoo Mail v2.0,#contact_email,Email address of a contact.
+ymail2,Yahoo Mail v2.0,#msglist_sender,Full address of email sender (alias and email address).
+ymail2,Yahoo Mail v2.0,#msglist_subject,Message subject in a message list.
+ymail2,Yahoo Mail v2.0,#msglist_receiver_email,Email address of the email receiver.
+ymail2,Yahoo Mail v2.0,#msglist_sender_email,Address of email sender.
+ymail2,Yahoo Mail v2.0,#msglist_sender_alias,Name of email sender.
+ymail2,Yahoo Mail v2.0,#msglist_msgid,Message identifier.
+ymail2,Yahoo Mail v2.0,#msglist_size,Message size in a message list.
+ymail2,Yahoo Mail v2.0,#draft,Indicates if the email is a draft or has really been posted
+ymail2,Yahoo Mail v2.0,#replyto,Email address to use in a reply for this message.
+ymail2,Yahoo Mail v2.0,#msglist_folder,Indicates the directory from a message list.
+ymail2,Yahoo Mail v2.0,#receiver_type,Type of the email receiver.
+ymail2,Yahoo Mail v2.0,#receiver,Full address of email receiver (including cc and bcc receivers).
+ymail2,Yahoo Mail v2.0,#receiver_alias,Name of email receiver (included cc and bcc receivers).
+ymail2,Yahoo Mail v2.0,#sender,Full address of email sender (alias followed by email address).
+ymail2,Yahoo Mail v2.0,#subject,Message subject.
+ymail2,Yahoo Mail v2.0,#receiver_email,Email address of message receiver (included cc and bcc receivers).
+ymail2,Yahoo Mail v2.0,#sender_email,Email address of the email sender.
+ymail2,Yahoo Mail v2.0,#sender_alias,Name of the email sender.
+ymail2,Yahoo Mail v2.0,#attach_size,Attached file MIME size.
+ymail2,Yahoo Mail v2.0,#attach_id,Attachment identifier.
+ymail2,Yahoo Mail v2.0,#attach_type,Content type of the sent attached file.
+ymail2,Yahoo Mail v2.0,#msg_id,Identifier of the message.
+ymail2,Yahoo Mail v2.0,#attach_filename,Attachment name.
+ymail2,Yahoo Mail v2.0,#attach_fileid,Automatically generated filename for file attachement.
+ymail2,Yahoo Mail v2.0,#action,Indicates if the message is read (Read) or composed (Compose).
+ymail2,Yahoo Mail v2.0,#date,Message date.
+ymail2,Yahoo Mail v2.0,#msglist_date,Message date in a message list.
+ymail2,Yahoo Mail v2.0,#session_id,Uniquely identifies the current user session.
 ymail_classic,Yahoo Mail classic,#login,User's login string.
 ymail_classic,Yahoo Mail classic,#session_id,Uniquely identifies the current user session.
 ymail_classic,Yahoo Mail classic,#encoding,Page encoding
@@ -2486,57 +2494,57 @@ ymsg_webmessenger,Yahoo messenger on web,#contact_login,Contact login.
 ymsg_webmessenger,Yahoo messenger on web,#contact_name,Contact name.
 ymsg_webmessenger,Yahoo messenger on web,#service,Type of service.
 ymsg_webmessenger,Yahoo messenger on web,#msg_code,Contains the number of YMSG command.
-youtube,Youtube,#login,User's login string.
-youtube,Youtube,#password,User's password string.
-youtube,Youtube,#query_text,Query sent to the search engine.
-youtube,Youtube,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-youtube,Youtube,#url,Contains the url for embedded players
-youtube,Youtube,#name,Name the user.
-youtube,Youtube,#date,Message date.
-youtube,Youtube,#description,Contains video description
-youtube,Youtube,#tags,Contains the tag list linked to the video
-youtube,Youtube,#videoid,Contains the unique identifier of the uploaded video
-youtube,Youtube,#title,Contains the video title
-youtube,Youtube,#nameviewer,Contains the name of the user watching the video
-youtube,Youtube,#method,Contains the method used
-youtube,Youtube,#video_duration,Duration of the video in seconds.
-youtube,Youtube,#video_width,Width of the video in pixels.
-youtube,Youtube,#video_height,Height of the video in pixels.
-youtube,Youtube,#video_datarate,Video bitrate in kilobits per second.
-youtube,Youtube,#audio_datarate,Audio bitrate in kilobits per second.
-youtube,Youtube,#video_framerate,Number of frames per second.
-youtube,Youtube,#start_time,Start date of the call.
-youtube,Youtube,#video_totalduration,Total duration of the video in seconds (not extracted).
-youtube,Youtube,#total_datarate,Sum of video and audio datarates.
-zimbra,Zimbra,#login,User's login string.
-zimbra,Zimbra,#password,User's password string.
-zimbra,Zimbra,#msglist_sender,Full address of email sender (alias and email address).
-zimbra,Zimbra,#msglist_sender_alias,Name of email sender.
-zimbra,Zimbra,#msglist_sender_email,Address of email sender.
-zimbra,Zimbra,#msglist_receiver,Full address of email receiver in a message list.
-zimbra,Zimbra,#msglist_receiver_alias,Name of email receiver.
-zimbra,Zimbra,#msglist_receiver_email,Email address of the email receiver.
-zimbra,Zimbra,#msglist_subject,Message subject in a message list.
-zimbra,Zimbra,#msglist_date,Message date in a message list.
-zimbra,Zimbra,#msglist_folder,Indicates the directory from a message list.
-zimbra,Zimbra,#sender,Full address of email sender (alias followed by email address).
-zimbra,Zimbra,#sender_email,Email address of the email sender.
-zimbra,Zimbra,#sender_alias,Name of the email sender.
-zimbra,Zimbra,#receiver,Full address of email receiver (including cc and bcc receivers).
-zimbra,Zimbra,#receiver_alias,Name of email receiver (included cc and bcc receivers).
-zimbra,Zimbra,#receiver_email,Email address of message receiver (included cc and bcc receivers).
-zimbra,Zimbra,#receiver_type,Type of the email receiver.
-zimbra,Zimbra,#date,Message date.
-zimbra,Zimbra,#subject,Message subject.
-zimbra,Zimbra,#msg_id,Identifier of the message.
-zimbra,Zimbra,#attach_id,Attachment identifier.
-zimbra,Zimbra,#attach_filename,Attachment name.
-zimbra,Zimbra,#attach_type,Content type of the sent attached file.
-zimbra,Zimbra,#attach_size,Attached file MIME size.
-zimbra,Zimbra,#action,Indicates if the message is read (Read) or composed (Compose).
-zimbra,Zimbra,#draft,Indicates if the email is a draft or has really been posted
-zimbra,Zimbra,#contact_email,Email address of a contact.
-zimbra,Zimbra,#contact_alias,Alias of a contact.
+youtube,youtube,#login,User's login string.
+youtube,youtube,#password,User's password string.
+youtube,youtube,#query_text,Query sent to the search engine.
+youtube,youtube,#query_raw,Contains the query sent to the search engine as indicated in the URL.
+youtube,youtube,#url,Contains the url for embedded players
+youtube,youtube,#name,Name the user.
+youtube,youtube,#date,Message date.
+youtube,youtube,#description,Contains video description
+youtube,youtube,#tags,Contains the tag list linked to the video
+youtube,youtube,#videoid,Contains the unique identifier of the uploaded video
+youtube,youtube,#title,Contains the video title
+youtube,youtube,#nameviewer,Contains the name of the user watching the video
+youtube,youtube,#method,Contains the method used
+youtube,youtube,#video_duration,Duration of the video in seconds.
+youtube,youtube,#video_width,Width of the video in pixels.
+youtube,youtube,#video_height,Height of the video in pixels.
+youtube,youtube,#video_datarate,Video bitrate in kilobits per second.
+youtube,youtube,#audio_datarate,Audio bitrate in kilobits per second.
+youtube,youtube,#video_framerate,Number of frames per second.
+youtube,youtube,#start_time,Start date of the call.
+youtube,youtube,#video_totalduration,Total duration of the video in seconds (not extracted).
+youtube,youtube,#total_datarate,Sum of video and audio datarates.
+zimbra,zimbra,#login,User's login string.
+zimbra,zimbra,#password,User's password string.
+zimbra,zimbra,#msglist_sender,Full address of email sender (alias and email address).
+zimbra,zimbra,#msglist_sender_alias,Name of email sender.
+zimbra,zimbra,#msglist_sender_email,Address of email sender.
+zimbra,zimbra,#msglist_receiver,Full address of email receiver in a message list.
+zimbra,zimbra,#msglist_receiver_alias,Name of email receiver.
+zimbra,zimbra,#msglist_receiver_email,Email address of the email receiver.
+zimbra,zimbra,#msglist_subject,Message subject in a message list.
+zimbra,zimbra,#msglist_date,Message date in a message list.
+zimbra,zimbra,#msglist_folder,Indicates the directory from a message list.
+zimbra,zimbra,#sender,Full address of email sender (alias followed by email address).
+zimbra,zimbra,#sender_email,Email address of the email sender.
+zimbra,zimbra,#sender_alias,Name of the email sender.
+zimbra,zimbra,#receiver,Full address of email receiver (including cc and bcc receivers).
+zimbra,zimbra,#receiver_alias,Name of email receiver (included cc and bcc receivers).
+zimbra,zimbra,#receiver_email,Email address of message receiver (included cc and bcc receivers).
+zimbra,zimbra,#receiver_type,Type of the email receiver.
+zimbra,zimbra,#date,Message date.
+zimbra,zimbra,#subject,Message subject.
+zimbra,zimbra,#msg_id,Identifier of the message.
+zimbra,zimbra,#attach_id,Attachment identifier.
+zimbra,zimbra,#attach_filename,Attachment name.
+zimbra,zimbra,#attach_type,Content type of the sent attached file.
+zimbra,zimbra,#attach_size,Attached file MIME size.
+zimbra,zimbra,#action,Indicates if the message is read (Read) or composed (Compose).
+zimbra,zimbra,#draft,Indicates if the email is a draft or has really been posted
+zimbra,zimbra,#contact_email,Email address of a contact.
+zimbra,zimbra,#contact_alias,Alias of a contact.
 zimbra_standard,Zimbra Webmail Standard Version,#msglist_date,Message date in a message list.
 zimbra_standard,Zimbra Webmail Standard Version,#msglist_subject,Message subject in a message list.
 zimbra_standard,Zimbra Webmail Standard Version,#msglist_sender_alias,Name of email sender.
