@@ -6,6 +6,8 @@
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 open previousData, "$ARGV[1]" or die $!;
 open filters, "$ARGV[2]" or die $!;
+open summaryFile, '>'."$ARGV[3]" or die $!;
+seek summaryFile, 0, 0;
 
 my $exludeFilter;
 my $includeFilter;
@@ -58,7 +60,25 @@ while ( my $line = <qosmosWorkbook>) {
 seek qosmosWorkbook, 0, 0;
 #print @previousData;
 
+print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
+while (<qosmosWorkbook>) {
+   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+      @lineValues = split(/,/,$_);
+      if ($lineValues[3] eq '' ) {
+         print summaryFile "base,";
+      } else {
+         print summaryFile "$lineValues[3],";
+      }
+      if ($lineValues[4] eq '' ) {
+         print summaryFile "base,";
+      } else {
+         print summaryFile "$lineValues[4],";
+      }
+      print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
+   }
+}
 
+seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
