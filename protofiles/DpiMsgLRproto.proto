@@ -1960,7 +1960,6 @@ repeated bytes native_lan_managerQ_PROTO_SMB = 2245; // QOSMOS:Q_PROTO_SMB,Q_SMB
 repeated bytes command_stringQ_PROTO_SMB = 2246; // QOSMOS:Q_PROTO_SMB,Q_SMB_COMMAND_STRING
 repeated bytes loadwayQ_PROTO_SMB = 2247; // QOSMOS:Q_PROTO_SMB,Q_SMB_LOADWAY
 optional uint64 query_idQ_PROTO_SMB = 2248; // QOSMOS:Q_PROTO_SMB,Q_SMB_QUERY_ID
-optional uint32 krb5_blob_lenQ_PROTO_SMB = 2249; // QOSMOS:Q_PROTO_SMB,Q_SMB_KRB5_BLOB_LEN
 optional uint32 search_attributesQ_PROTO_SMB = 2250; // QOSMOS:Q_PROTO_SMB,Q_SMB_SEARCH_ATTRIBUTES
 optional uint32 search_storage_typeQ_PROTO_SMB = 2251; // QOSMOS:Q_PROTO_SMB,Q_SMB_SEARCH_STORAGE_TYPE
 repeated bytes search_patternQ_PROTO_SMB = 2252; // QOSMOS:Q_PROTO_SMB,Q_SMB_SEARCH_PATTERN
@@ -2639,4 +2638,6 @@ optional uint32 response_sizeQ_PROTO_TNS = 2926; // QOSMOS:Q_PROTO_TNS,Q_TNS_RES
 optional string response_timeQ_PROTO_TNS = 2927; // QOSMOS:Q_PROTO_TNS,Q_TNS_RESPONSE_TIME,timeval,timevalToString
 optional uint32 service_durationQ_PROTO_VIBER = 2928; // QOSMOS:Q_PROTO_VIBER,Q_MPA_SERVICE_DURATION
 repeated bytes application_nameQ_PROTO_WINDOWS_MARKETPLACE = 2929; // QOSMOS:Q_PROTO_WINDOWS_MARKETPLACE,Q_WINDOWS_MARKETPLACE_APPLICATION_NAME
+optional uint32 expiresQ_PROTO_SIP = 2930; // QOSMOS:Q_PROTO_SIP,Q_SIP_EXPIRES
+optional uint32 security_blob_lenQ_PROTO_SMB = 2931; // QOSMOS:Q_PROTO_SMB,Q_SMB_SECURITY_BLOB_LEN
 }

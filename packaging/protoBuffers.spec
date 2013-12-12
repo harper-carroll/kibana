@@ -16,6 +16,7 @@ ExclusiveArch: x86_64
 Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. Google uses Protocol Buffers for almost all of its internal RPC protocols and file formats. 
 
 %prep
+export PATH=/usr/local/probe/bin:$PATH
 cd  ~/rpmbuild/BUILD
 rm -rf protobuf-2.4.1
 tar -xjvf ~/rpmbuild/SOURCES/protobuf-2.4.1.tar.bz2
@@ -25,10 +26,12 @@ export GLOBAL_CPP_FLAGS="-fPIC"
 env CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" ./configure --prefix=/usr/local/probe
 cd ..
 %build
+export PATH=/usr/local/probe/bin:$PATH
 cd protobuf-2.4.1
 make -j8
 
 %install
+export PATH=/usr/local/probe/bin:$PATH
 cd protobuf-2.4.1
 make install prefix=$RPM_BUILD_ROOT/usr/local/probe
 
