@@ -2,7 +2,7 @@
 
 Summary: Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.
 Name: protoBuffers
-Version: 2.4.1
+Version: 2.5.0
 Release:       1%{?dist}
 Group: Applications/System
 License: http://opensource.org/licenses/BSD-3-Clause 
@@ -18,21 +18,21 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 %prep
 export PATH=/usr/local/probe/bin:$PATH
 cd  ~/rpmbuild/BUILD
-rm -rf protobuf-2.4.1
-tar -xjvf ~/rpmbuild/SOURCES/protobuf-2.4.1.tar.bz2
-cd protobuf-2.4.1
+rm -rf protobuf-%{version}
+tar -xjvf ~/rpmbuild/SOURCES/protobuf-%{version}.tar.bz2
+cd protobuf-%{version}
 chmod -R a+rX,g-w,o-w .
 export GLOBAL_CPP_FLAGS="-fPIC"
 env CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" ./configure --prefix=/usr/local/probe
 cd ..
 %build
 export PATH=/usr/local/probe/bin:$PATH
-cd protobuf-2.4.1
+cd protobuf-%{version}
 make -j8
 
 %install
 export PATH=/usr/local/probe/bin:$PATH
-cd protobuf-2.4.1
+cd protobuf-%{version}
 make install prefix=$RPM_BUILD_ROOT/usr/local/probe
 
 %post
@@ -45,4 +45,5 @@ make install prefix=$RPM_BUILD_ROOT/usr/local/probe
 %defattr(-,dpi,dpi,-)
 /usr/local/probe/lib
 /usr/local/probe/include
+/usr/local/probe/bin/protoc
 
