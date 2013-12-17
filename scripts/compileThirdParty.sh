@@ -6,7 +6,7 @@ DIST=dist
 DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
-PROTOBUFFER_VERSION=2.4.1
+PROTOBUFFER_VERSION=2.5.0
 GLOBAL_CPP_FLAGS="-fPIC"
 PATH=/usr/local/probe/bin:$PATH
 
