@@ -1,0 +1,19 @@
+package protoMsg;
+import "ConfTypeMsg.proto";
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ConfigDefaultsMsg";
+
+message ConfigDefaults {
+   message DefaultValues {
+      optional ConfType.Type type = 1; 
+      optional string configName = 2;
+      optional string defaultU64 = 3;
+      optional string maxU64 = 4;
+      optional string minU64 = 5;
+
+   }
+
+   repeated DefaultValues values = 1;
+
+}
