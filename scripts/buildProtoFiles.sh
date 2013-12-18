@@ -11,7 +11,7 @@ DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
 phpprotoc=/usr/bin/protoc-gen-php
-PROTOBUFFER_VERSION=2.4.1
+PROTOBUFFER_VERSION=2.5.0
 GLOBAL_CPP_FLAGS="-fPIC"
 
 if [ ! -f "$protoc" ]; then

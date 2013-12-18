@@ -7,7 +7,7 @@ DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
 PROTOBUFFER_VERSION=2.5.0
-GLOBAL_CPP_FLAGS="-fPIC"
+GLOBAL_CPP_FLAGS="-fPIC -L/usr/local/probe/lib -L/usr/local/probe/lib64 -Wl,-rpath -Wl,/usr/local/probe/lib64 -Wl,-rpath -Wl,/usr/local/probe/lib -Wl,-dynamic-linker -Wl,/usr/local/probe/glibc/lib/ld-linux-x86-64.so.2 -Wl,-rpath -Wl,/usr/local/probe/glibc/lib -Ofast -m64 -O3 -march=native -flto"
 PATH=/usr/local/probe/bin:$PATH
 
 rm -rf "$DISTDIR"/protobuf
