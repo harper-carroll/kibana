@@ -15,8 +15,8 @@ rm -rf "$thirdPartyDir"/protobuf-$PROTOBUFFER_VERSION
 cd "$thirdPartyDir"
 tar xvjf protobuf-$PROTOBUFFER_VERSION.tar.bz2
 cd protobuf-$PROTOBUFFER_VERSION
-env CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" ./configure --prefix="$DISTDIR"/protobuf
-make
+CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" LDFLAGS=$GLOBAL_CPP_FLAGS ./configure --prefix="$DISTDIR"/protobuf
+make -j
 make install
 
 cd "$startDir"
