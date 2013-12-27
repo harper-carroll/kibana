@@ -1,0 +1,12 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ForkerReplyMsg";
+
+message ForkerReply {
+   optional string output = 1;
+   optional uint32 pid = 2;
+   optional bool running = 3;
+   optional bool success = 4;
+}
+

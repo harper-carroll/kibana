@@ -43,7 +43,7 @@ for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` 
 done
 cd "$startDir"
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/Applications.proto
@@ -66,6 +66,8 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/DriveInfo.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaults.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaultsRequest.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerReply.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerRequest.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -87,6 +89,8 @@ mv  libprocess/ProcessReply.pb.cc  libprocess/ProcessReply.pb.cpp
 mv  libcommand/DriveInfo.pb.cc  libcommand/DriveInfo.pb.cpp
 mv  libcommand/ConfigDefaults.pb.cc  libcommand/ConfigDefaults.pb.cpp
 mv  libcommand/ConfigDefaultsRequest.pb.cc  libcommand/ConfigDefaultsRequest.pb.cpp
+mv  libfork/ForkerReply.pb.cc  libfork/ForkerReply.pb.cpp
+mv  libfork/ForkerRequest.pb.cc  libfork/ForkerRequest.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"
