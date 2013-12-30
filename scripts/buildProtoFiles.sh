@@ -10,7 +10,7 @@ DIST=dist
 DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
-phpprotoc=/usr/bin/protoc-gen-php
+phpprotoc="/usr/local/probe/bin/protoc-gen-php"
 PROTOBUFFER_VERSION=2.5.0
 GLOBAL_CPP_FLAGS="-fPIC"
 
