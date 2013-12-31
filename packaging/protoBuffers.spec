@@ -7,7 +7,7 @@ Release:       1%{?dist}
 Group: Applications/System
 License: http://opensource.org/licenses/BSD-3-Clause 
 URL: https://developers.google.com/protocol-buffers/
-Requires: dpiUser, glibc >= 2.0, kernel >= 2.6.0
+Requires: dpiUser, kernel >= 2.6.0
 Requires(post): chkconfig
 AutoReq: no
 ExclusiveArch: x86_64
@@ -22,7 +22,7 @@ rm -rf protobuf-%{version}
 tar -xjvf ~/rpmbuild/SOURCES/protobuf-%{version}.tar.bz2
 cd protobuf-%{version}
 chmod -R a+rX,g-w,o-w .
-export GLOBAL_CPP_FLAGS="-fPIC -m64 -O3 -march=native -flto -L/usr/local/probe/lib -L/usr/local/probe/lib64 -L/usr/local/probe/glibc/lib -Wl,-rpath -Wl,/usr/local/probe/lib64 -Wl,-rpath -Wl,/usr/local/probe/lib -Wl,-dynamic-linker -Wl,/usr/local/probe/glibc/lib/ld-linux-x86-64.so.2 -Wl,-rpath -Wl,/usr/local/probe/glibc/lib"
+export GLOBAL_CPP_FLAGS="-fPIC -m64 -O3 -march=native -flto -L/usr/local/probe/lib -L/usr/local/probe/lib64 -Wl,-rpath -Wl,/usr/local/probe/lib64 -Wl,-rpath -Wl,/usr/local/probe/lib "
 CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" LDFLAGS=$GLOBAL_CPP_FLAGS ./configure --prefix=/usr/local/probe
 cd ..
 %build
