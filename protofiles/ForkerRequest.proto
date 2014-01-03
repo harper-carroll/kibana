@@ -1,0 +1,13 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ForkerRequestMsg";
+
+message ForkerRequest {
+   optional string command = 1;
+   repeated string args = 2;
+   optional bool daemon = 3;
+   optional bool status = 4;
+   repeated string environment = 5;
+   optional uint32 pid = 6;
+}
