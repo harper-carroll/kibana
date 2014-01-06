@@ -6,6 +6,7 @@
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 open previousData, "$ARGV[1]" or die $!;
 open filters, "$ARGV[2]" or die $!;
+open remappingFile, "$ARGV[4]" or die $!;
 open summaryFile, '>'."$ARGV[3]" or die $!;
 seek summaryFile, 0, 0;
 
@@ -21,6 +22,16 @@ while (<filters>) {
 close filters;
 #print "Exclude Filter: $excludeFilter \n";
 #print "Include Filter: $includeFilter \n";
+
+my %renameMapping = ();
+
+while (<remappingFile>) {
+   if ( $_ =~ m/(\S+)\s+(\S+)/ ) {
+      $renameMapping{$1} = $2;
+   }
+}
+close remappingFile;
+
 
 my @ids; 
 my @previousFields; 
@@ -41,6 +52,29 @@ while (<previousData>) {
 }
 close previousData;
 
+print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
+while (<qosmosWorkbook>) {
+   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+      @lineValues = split(/,/,$_);
+      if ( !defined $renameMapping { $lineValues[7] } &&
+            !defined $renameMapping { "_$lineValues[7]" } ) {
+         die "Rename file does not account for field $lineValues[7]";
+      }
+      if ($lineValues[3] eq '' ) {
+         print summaryFile "base,";
+      } else {
+         print summaryFile "$lineValues[3],";
+      }
+      if ($lineValues[4] eq '' ) {
+         print summaryFile "base,";
+      } else {
+         print summaryFile "$lineValues[4],";
+      }
+      print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
+   }
+}
+
+seek qosmosWorkbook, 0, 0;
 #print "$callbackNames\n";
 
 while ( my $line = <qosmosWorkbook>) {
@@ -60,25 +94,6 @@ while ( my $line = <qosmosWorkbook>) {
 seek qosmosWorkbook, 0, 0;
 #print @previousData;
 
-print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
-while (<qosmosWorkbook>) {
-   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-      @lineValues = split(/,/,$_);
-      if ($lineValues[3] eq '' ) {
-         print summaryFile "base,";
-      } else {
-         print summaryFile "$lineValues[3],";
-      }
-      if ($lineValues[4] eq '' ) {
-         print summaryFile "base,";
-      } else {
-         print summaryFile "$lineValues[4],";
-      }
-      print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
-   }
-}
-
-seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
