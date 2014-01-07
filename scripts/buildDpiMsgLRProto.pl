@@ -4,79 +4,125 @@
 #
 
 open qosmosWorkbook, "$ARGV[0]" or die $!;
-open previousData, "$ARGV[1]" or die $!;
-open filters, "$ARGV[2]" or die $!;
-open remappingFile, "$ARGV[4]" or die $!;
 open summaryFile, '>'."$ARGV[3]" or die $!;
 seek summaryFile, 0, 0;
 
-my $exludeFilter;
-my $includeFilter;
-while (<filters>) {
-   if ($_ =~ m/^(?!#)!(\S+)/ ) {
-      $excludeFilter .= $1;
-   } elsif ($_ =~ m/^(?!#)(\S+)/ ) {
-      $includeFilter .= $1;
-   }
-}
-close filters;
-#print "Exclude Filter: $excludeFilter \n";
-#print "Include Filter: $includeFilter \n";
+sub ReadFilters {
+   my($filename) = @_;
 
-my %renameMapping = ();
-
-while (<remappingFile>) {
-   if ( $_ =~ m/(\S+)\s+(\S+)/ ) {
-      $renameMapping{$1} = $2;
-   }
-}
-close remappingFile;
-
-
-my @ids; 
-my @previousFields; 
-my @previousData;
-my @newFields;
-my $highest = 1;
-my $callbackNames = ",";
-while (<previousData>) {
-   if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
-      push(@ids,$3);
-      if ( $3 > $highest ) {
-         $highest = $3;
+   open filters, "$filename" or die $!;
+   my $exludeFilter;
+   my $includeFilter;
+   while (<filters>) {
+      if ($_ =~ m/^(?!#)!(\S+)/ ) {
+         $excludeFilter .= $1;
+      } elsif ($_ =~ m/^(?!#)(\S+)/ ) {
+         $includeFilter .= $1;
       }
-      $callbackNames .= "$2,";
-      push(@previousFields,$2);
-      push(@previousData,$_);
    }
-}
-close previousData;
-
-print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
-while (<qosmosWorkbook>) {
-   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-      @lineValues = split(/,/,$_);
-      if ( !defined $renameMapping { $lineValues[7] } &&
-            !defined $renameMapping { "_$lineValues[7]" } ) {
-         die "Rename file does not account for field $lineValues[7]";
-      }
-      if ($lineValues[3] eq '' ) {
-         print summaryFile "base,";
-      } else {
-         print summaryFile "$lineValues[3],";
-      }
-      if ($lineValues[4] eq '' ) {
-         print summaryFile "base,";
-      } else {
-         print summaryFile "$lineValues[4],";
-      }
-      print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
-   }
+   close filters;
+   return ($exludeFilter,$includeFilter);
 }
 
-seek qosmosWorkbook, 0, 0;
-#print "$callbackNames\n";
+sub ReadRemappingFile {
+   my($filename) = @_;
 
+   my %renameMapping = ();
+   open remappingFile, "$filename" or die $!;
+   while (<remappingFile>) {
+      if ( $_ =~ m/(\S+)\s+(\S+)/ ) {
+         $renameMapping{$1} = $2;
+      }
+   }
+   close remappingFile;
+   return %renameMapping;
+}
+
+sub ReadPreviousData {
+   my($filename) = @_;
+   
+   my $highest = 1;
+   my @ids; 
+   my $callbackNames = ",";
+   my @previousFields; 
+   my @previousData;
+
+   open previousData, "$filename" or die $!;
+   while (<previousData>) {
+      if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
+         push(@ids,$3);
+         if ( $3 > $highest ) {
+            $highest = $3;
+         }
+         $callbackNames .= "$2,";
+         push(@previousFields,$2);
+         push(@previousData,$_);
+      }
+   }
+   close previousData;
+   return ($highest, @ids, $callbackNames, @previousFields, @previousData);
+}
+
+sub CreateSummaryFile {
+
+   my($qosmosFileName,$summaryFileName,$includeFilter,$excludeFilter) = @_;
+
+   open qosmosWorkbook, "$qosmosFileName" or die $!;
+   open summaryFile, '>'."$ARGV[3]" or die $!;
+   seek summaryFile, 0, 0;
+
+   print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
+   while (<qosmosWorkbook>) {
+      if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+         my @lineValues = split(/,/,$_);
+         if ($lineValues[3] eq '' ) {
+            print summaryFile "base,";
+         } else {
+            print summaryFile "$lineValues[3],";
+         }
+         if ($lineValues[4] eq '' ) {
+            print summaryFile "base,";
+         } else {
+            print summaryFile "$lineValues[4],";
+         }
+         print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
+      }
+   }
+
+   close qosmosWorkbook;
+   close summaryFile;
+}
+
+sub CheckRenameFile {
+   my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
+
+   open qosmosWorkbook, "$qosmosFileName" or die $!;
+
+   while (<qosmosWorkbook>) {
+      if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+         my @lineValues = split(/,/,$_);
+         if ( !defined $renameMapping { $lineValues[7] } &&
+               !defined $renameMapping { "_$lineValues[7]" } ) {
+            die "Rename file does not account for field $lineValues[7]";
+         } 
+      }
+   }
+
+   close qosmosWorkbook;
+
+}
+
+$QosmosWorkBookName = $ARGV[0];
+($exludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
+(%renameMapping) = ReadRemappingFile($ARGV[4]);
+
+CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
+CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping);
+($highest, @ids, $callbackNames, @previousFields, @previousData) = ReadPreviousData($ARGV[1]);
+
+
+
+open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
    @lineValues = split(/,/,$line);
    $field = "$lineValues[7]$lineValues[1]";
