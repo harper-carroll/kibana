@@ -2,6 +2,7 @@
 #
 #
 #
+use YAML::Any qw(Dump DumpFile);
 
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 open summaryFile, '>'."$ARGV[3]" or die $!;
@@ -39,28 +40,29 @@ sub ReadRemappingFile {
 }
 
 sub ReadPreviousData {
-   my($filename) = @_;
+   my($filename) = $_[0];
+   $highest_ptr = $_[1];
+   $ids_ptr = $_[2];
+   $callbackNames_ptr = $_[3];
+   $previousFields_ptr = $_[4];
+   $previousData_ptr = $_[5];
    
-   my $highest = 1;
-   my @ids; 
-   my $callbackNames = ",";
-   my @previousFields; 
-   my @previousData;
+   $$highest_ptr = 1;
+   $$callbackNames_ptr = ",";
 
    open previousData, "$filename" or die $!;
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
-         push(@ids,$3);
-         if ( $3 > $highest ) {
-            $highest = $3;
+         push(@$ids_ptr,$3);
+         if ( $3 > $$highest_ptr ) {
+            $$highest_ptr = $3;
          }
-         $callbackNames .= "$2,";
-         push(@previousFields,$2);
-         push(@previousData,$_);
+         $$callbackNames_ptr .= "$2,";
+         push(@$previousFields_ptr,$2);
+         push(@$previousData_ptr,$_);
       }
    }
    close previousData;
-   return ($highest, @ids, $callbackNames, @previousFields, @previousData);
 }
 
 sub CreateSummaryFile {
@@ -115,12 +117,20 @@ sub CheckRenameFile {
 $QosmosWorkBookName = $ARGV[0];
 ($exludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
 (%renameMapping) = ReadRemappingFile($ARGV[4]);
+my $renameMap = $ARGV[5];
+if ($renameMap eq "" ) {
+   die "Must name a path to output rename map $ARGV[5] $renameMap" ;
+}
 
-CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping);
-($highest, @ids, $callbackNames, @previousFields, @previousData) = ReadPreviousData($ARGV[1]);
-
-
+DumpFile($renameMap,\%renameMapping);
+my $highest;
+my @ids;
+my $callbackNames;
+my @previousFields;
+my @previousData;
+ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData);
+CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
