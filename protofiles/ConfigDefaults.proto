@@ -8,10 +8,10 @@ message ConfigDefaults {
    message DefaultValues {
       optional ConfType.Type type = 1; 
       optional string configName = 2;
-      optional string defaultU64 = 3;
-      optional string maxU64 = 4;
-      optional string minU64 = 5;
-
+      optional string defaultval = 3;
+      optional string max = 4;
+      optional string min = 5;
+      optional string rangetype = 6;
    }
 
    repeated DefaultValues values = 1;
