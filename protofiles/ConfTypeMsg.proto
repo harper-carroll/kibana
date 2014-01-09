@@ -15,6 +15,7 @@ message ConfType {
      NTP = 7;
      SHUTDOWN = 8;
      Applications = 9;
+     CONFIG_DEFAULTS = 10;
   }
   enum Direction {
      RECEIVING = 0;
