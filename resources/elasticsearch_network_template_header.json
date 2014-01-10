@@ -1,0 +1,6 @@
+             "macDest" : {"type" : "string", "index" : "not_analyzed", "ignore_malformed" : true}
+          }
+       }
+    }
+   }
+}
