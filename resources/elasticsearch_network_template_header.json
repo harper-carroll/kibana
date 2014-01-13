@@ -1,6 +1,10 @@
-             "macDest" : {"type" : "string", "index" : "not_analyzed", "ignore_malformed" : true}
-          }
-       }
-    }
-   }
-}
+{
+    "network" : {
+    "template" : "network*",
+    "settings" : {
+    "index.refresh_interval" : "10s",
+     "index.cache.filter.expire" : "2m",
+     "index.cache.field.expire" : "2m"
+    },
+    "mappings" : {
+       "meta" : {
