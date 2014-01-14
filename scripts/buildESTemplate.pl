@@ -34,7 +34,7 @@ print "\"$remapping{application}\", ";
 print "\"$remapping{application_end}\", ";
 print "\"$remapping{application_id}\", ";
 print "\"$remapping{application_id_end}\", ";
-print "\"#fileId\" ";
+print "\"#file_id\" ";
 print "]\n";
 print "},\n";
 print "\"properties\" : {\n";
