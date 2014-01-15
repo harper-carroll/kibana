@@ -42,5 +42,6 @@ message BaseConf {
   optional string dpiFreeThreshold = 45;
   optional string dpiRecycleThreshold = 46;
   optional string pcapRecordsToClearPerCycle = 47;
+  optional string flowReportInterval = 48;
 }
 
