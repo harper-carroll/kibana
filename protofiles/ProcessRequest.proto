@@ -10,6 +10,8 @@ message ProcessRequest {
   optional bool stop = 4; 
   repeated string environment = 5; 
   optional string realExecString = 6;
+  optional bool getPipeStatus = 7;
+  optional string uuid = 8;
 }
 
 
