@@ -9,6 +9,8 @@ message ProcessReply {
   repeated int32 children = 3; 
   optional string result = 4; 
   optional int32 returnCode = 5;
+  optional string uuid = 6;
+  optional bool running = 7;
 }
 
 
