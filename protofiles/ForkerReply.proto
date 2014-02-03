@@ -9,5 +9,6 @@ message ForkerReply {
    optional bool running = 3;
    optional bool success = 4;
    optional string uuid = 5;
+   optional int32 returnCode = 6;
 }
 
