@@ -12,6 +12,7 @@ message ProcessRequest {
   optional string realExecString = 6;
   optional bool getPipeStatus = 7;
   optional string uuid = 8;
+  optional bool expectResponse = 9;
 }
 
 
