@@ -46,7 +46,7 @@ for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` 
 done
 cd "$startDir"
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocessclient "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/Applications.proto
@@ -64,8 +64,8 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblua  "$protoFileDir"/Rule.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libprocessclient  "$protoFileDir"/ProcessRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libprocessclient  "$protoFileDir"/ProcessReply.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessRequest.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/DriveInfo.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaults.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaultsRequest.proto
@@ -87,8 +87,8 @@ mv  libconf/ReaderRuleConf.pb.cc  libconf/ReaderRuleConf.pb.cpp
 mv  liblua/Rule.pb.cc  liblua/Rule.pb.cpp
 mv  libcommand/CommandRequest.pb.cc  libcommand/CommandRequest.pb.cpp
 mv  libcommand/CommandReply.pb.cc  libcommand/CommandReply.pb.cpp
-mv  libprocessclient/ProcessRequest.pb.cc  libprocessclient/ProcessRequest.pb.cpp
-mv  libprocessclient/ProcessReply.pb.cc  libprocessclient/ProcessReply.pb.cpp
+mv  libprocess/ProcessRequest.pb.cc  libprocess/ProcessRequest.pb.cpp
+mv  libprocess/ProcessReply.pb.cc  libprocess/ProcessReply.pb.cpp
 mv  libcommand/DriveInfo.pb.cc  libcommand/DriveInfo.pb.cpp
 mv  libcommand/ConfigDefaults.pb.cc  libcommand/ConfigDefaults.pb.cpp
 mv  libcommand/ConfigDefaultsRequest.pb.cc  libcommand/ConfigDefaultsRequest.pb.cpp
