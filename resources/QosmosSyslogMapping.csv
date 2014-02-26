@@ -1,0 +1,11 @@
+Protocol Name,New NetMon Name,Syslog Field,MPE Field,SIEM Field
+login SMB,Login,login,<login>,Origin Login
+directory SMB,Directory,object,<object>,Object
+path SMB,Path,url,<url>,URL
+domain SMB,Domain,domain,<domain>,Domain
+command_string SMB,CommandString,command,<command>,Command
+filename SMB,Filename,objectname,<objectname>,Object Name
+version SMB,Version,version,<version>,Version
+login FTP,Login,login,<login>,Origin Login
+filename FTP,Filename,objectname,<objectname>,Object Name
+method FTP,Method,command,<command>,Command
