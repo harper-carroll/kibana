@@ -7,7 +7,7 @@ Release:       1%{?dist}
 Group: Applications/System
 License: http://opensource.org/licenses/BSD-3-Clause 
 URL: https://developers.google.com/protocol-buffers/
-Requires: probelibz, kernel >= 2.6.0, probelibstdc++ >= 4.8.2
+Requires: probezlib, kernel >= 2.6.0, probelibstdc++ >= 4.8.2
 Requires(post): chkconfig
 AutoReq: no
 ExclusiveArch: x86_64
