@@ -26,10 +26,12 @@ $header = "#pragma once
 #include <unordered_map>
 typedef std::unordered_map<std::string,std::string> stringmap;\n";
 
-sub createUnorderedMap($)
+sub createUnorderedMap($$)
 {
-   my $params = shift;
-   my %paramHash = %$params;
+   my ($param1, $param2)  = (@_);
+   my %paramHash = %$param1;
+   my $outFile = $param2;
+
    my $mapStart = "static stringmap qosmosSyslogMap ({";
    my $mapEnd = "\n});\n";
    my $mapElements = "";
@@ -38,13 +40,15 @@ sub createUnorderedMap($)
    }
    chop($mapElements);
    $codeString = $header.$mapStart.$mapElements.$mapEnd;
-   open (OUTFILE, '>resources/qosmosSyslogMap.hh');
+
+   open (OUTFILE, ">$outFile");
    print OUTFILE $codeString;
    close (OUTFILE);
 }
 
 
-my $file = 'resources/QosmosSyslogMapping.csv';
+my $file = $ARGV[0];
+my $outFile = $ARGV[1];
 my @data;
 my $firstLine = 0;
 my %syslogHash;
@@ -64,5 +68,6 @@ while (<qosmosWorkbook>) {
       $syslogHash{$qosmosField} = $syslogField;
    }
 }
-createUnorderedMap(\%syslogHash);
+
+createUnorderedMap(\%syslogHash, $outFile);
 
