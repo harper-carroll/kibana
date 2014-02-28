@@ -97,8 +97,8 @@ krb5,Kerberos,#enc_data,Encrypted data (hash) sent in the AS-RQ message.
 krb5,Kerberos,#pa_data_value,PA-DATA value.
 krb5,Kerberos,#ticket_enc_part,Ticket encrypted part.
 krb5,Kerberos,#err_data,Error-related data.
-l2tp,Level 2 Tunneling Protocol,#challenge,CHAP style challenge used by a peer in order to authenticate the tunnel endpoint.
-l2tp,Level 2 Tunneling Protocol,#resp_challenge,Challenge response.
+l2tp,Layer 2 Tunneling Protocol,#challenge,CHAP style challenge used by a peer in order to authenticate the tunnel endpoint.
+l2tp,Layer 2 Tunneling Protocol,#resp_challenge,Challenge response.
 ldap,Lighweight Directory Access Protocol,#value_raw,Raw value of the LDAP element.
 ldap,Lighweight Directory Access Protocol,#assertion_value_raw,Raw value of filter expression second operand.
 live_hotmail,Windows Live Hotmail,#attach_content,Attached files' content.
@@ -132,10 +132,10 @@ msn,MSN Messenger,#inherit_parent,"Parent inheritance key
 msn,MSN Messenger,#filename_utf16,UTF-16 encoded filename.
 msn,MSN Messenger,#file_chunk_content,Content of the transferred data.
 msn_video,MSN Video,#inherit_key,"Candidate inheritance key
-nfs,Network File System,#file_handle,"Unique identifier for a file. Extracted on GETATTR
+nfs,Network File System,#file_handle,Unique identifier for a file.
 nfs,Network File System,#content,File content
 orangemail,Orange webmail,#attach_content,Attached files' content.
-ospf,Open Short Path First,#auth_data,Authentication data.
+ospf,Open Shortest Path First,#auth_data,Authentication data.
 owa,Outlook Web Access,#attach_content,Attached files' content.
 paltalk,PalTalk Protocol,#inherit_parent,"Parent inheritance key
 paltalk,PalTalk Protocol,#inherit_key,"Candidate inheritance key
@@ -191,7 +191,7 @@ t38,Group 3 facsimile communication over IP,#inherit_key,"Candidate inheritance 
 t38,Group 3 facsimile communication over IP,#ifp_data,IFP packet buffer
 t38,Group 3 facsimile communication over IP,#field_data,Fax data carried in the IFP packets
 t38,Group 3 facsimile communication over IP,#fax_message_data,Fax signaling messages carried in the (reassembled) IFP packets
-tcp,Transport Control Protocol,#stream,Private attribute of the classification engine.
+tcp,Transmission Control Protocol,#stream,Private attribute of the classification engine.
 tds,Tabular Data Stream,#rpc_proc_name,RPC TDS packet distant procedure name.
 tds,Tabular Data Stream,#rpc_parameter_name,RPC parameter name.
 tds,Tabular Data Stream,#rpc_parameter_type,RPC parameter type.
