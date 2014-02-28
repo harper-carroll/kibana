@@ -1,11 +1,11 @@
-Protocol Name,New NetMon Name,Syslog Field,MPE Field,SIEM Field
-login SMB,Login,login,<login>,Origin Login
-directory SMB,Directory,object,<object>,Object
-path SMB,Path,url,<url>,URL
-domain SMB,Domain,domain,<domain>,Domain
-command_string SMB,CommandString,command,<command>,Command
-filename SMB,Filename,objectname,<objectname>,Object Name
-version SMB,Version,version,<version>,Version
-login FTP,Login,login,<login>,Origin Login
-filename FTP,Filename,objectname,<objectname>,Object Name
-method FTP,Method,command,<command>,Command
+QosMos Field,Protocol Name,New NetMon Name,Syslog Field,MPE Field,SIEM Field
+loginQ_PROTO_SMB,login SMB,Login,login,<login>,Origin Login
+directoryQ_PROTO_SMB,directory SMB,Directory,object,<object>,Object
+pathQ_PROTO_SMB,path SMB,Path,url,<url>,URL
+domainQ_PROTO_SMB,domain SMB,Domain,domain,<domain>,Domain
+command_stringQ_PROTO_SMB,command_string SMB,CommandString,command,<command>,Command
+filenameQ_PROTO_SMB,filename SMB,Filename,objectname,<objectname>,Object Name
+versionQ_PROTO_SMB,version SMB,Version,version,<version>,Version
+loginQ_PROTO_FTP,login FTP,Login,login,<login>,Origin Login
+filenameQ_PROTO_FTP,filename FTP,Filename,objectname,<objectname>,Object Name
+methodQ_PROTO_FTP,method FTP,Method,command,<command>,Command
