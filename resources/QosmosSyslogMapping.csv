@@ -2,6 +2,7 @@ QosMos Field,Protocol Name,New NetMon Name,Syslog Field,MPE Field,SIEM Field
 loginQ_PROTO_SMB,login SMB,Login,login,<login>,Origin Login
 directoryQ_PROTO_SMB,directory SMB,Directory,object,<object>,Object
 pathQ_PROTO_SMB,path SMB,Path,url,<url>,URL
+process_idQ_PROTO_SMB,process SMB,Process,process,<process>,PROCESS
 domainQ_PROTO_SMB,domain SMB,Domain,domain,<domain>,Domain
 command_stringQ_PROTO_SMB,command_string SMB,CommandString,command,<command>,Command
 filenameQ_PROTO_SMB,filename SMB,Filename,objectname,<objectname>,Object Name
@@ -9,3 +10,18 @@ versionQ_PROTO_SMB,version SMB,Version,version,<version>,Version
 loginQ_PROTO_FTP,login FTP,Login,login,<login>,Origin Login
 filenameQ_PROTO_FTP,filename FTP,Filename,objectname,<objectname>,Object Name
 methodQ_PROTO_FTP,method FTP,Method,command,<command>,Command
+hostQ_PROTO_DNS,method DNS,Method,host,<host>,Host
+senderQ_PROTO_GMAIL,method SMTP,Method,sender,<sender>,Sender
+receiverQ_PROTO_GMAIL,method SMTP,Method,recipient,<recipient>,Recipient
+subjectQ_PROTO_GMAIL,method SMTP,Method,subject,<subject>,Subject
+session_idQ_PROTO_GMAIL,method SMTP,Session,session,<session>,Session
+loginQ_PROTO_AIM,login AIM,Login,login,<login>,Origin Login
+uri_fullQ_PROTO_HTTP,uri HTTP,URI,url,<url>,URI
+referer_serverQ_PROTO_HTTP,referer HTTP,HTTP,referer,<referer>,HTTP
+method_contentQ_PROTO_FTP,FTP,FTP,method,<command>,FTP
+senderQ_PROTO_SMTP,sender SMTP,SMTP,sender,<sender>,SMTP
+receiverQ_PROTO_SMTP,receiver SMTP,SMTP,recipient,<recipient>,SMTP
+subjectQ_PROTO_SMTP,SMTP,SMTP,subject,<subject>,SMTP
+versionQ_PROTO_HTTP,version HTTP,Version,version,<version>,Version
+application_endQ_PROTO_BASE,app,Application,process,<process>,Process
+serverQ_PROTO_HTTP,dest HTTP,HTTP,dname,<dname>,Destination Host

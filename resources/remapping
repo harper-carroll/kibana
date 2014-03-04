@@ -1,5 +1,5 @@
-VTP_mgmt_domain #VTP_mgmt_domain
-_3gpp_sgsn_address #_3gpp_sgsn_address
+VTP_mgmt_domain VTPMgmtDomain
+_3gpp_sgsn_address 3GppSgsnAddress
 _3gpp_sgsn_mcc_mnc #_3gpp_sgsn_mcc_mnc
 accept_encoding #accept_encoding
 accept_language #accept_language
@@ -949,5 +949,9 @@ x_client_ip_respmod_req #x_client_ip_respmod_req
 x_content_urn #x_content_urn
 xid #xid
 xmailer #xmailer
-yiaddr #yiaddr
-zoom #zoom
+yiaddr Yiaddr
+zoom Zoom
+method_content MethodContent
+host_start_offset HostStartOffset
+last_modified LastModified
+_3gpp_imsi 3GppImsi
