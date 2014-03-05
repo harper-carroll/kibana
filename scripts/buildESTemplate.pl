@@ -30,35 +30,35 @@ ReadProtoFile($ARGV[0],\%typeHash);
 print "\"_source\" : {\n";
 print "\"excludes\" : ";
 print "[";
-print "\"$remapping{application}\", ";
-print "\"$remapping{application_end}\", ";
-print "\"$remapping{application_id}\", ";
-print "\"$remapping{application_id_end}\", ";
-print "\"#file_id\" ";
+print "\"$remapping{Application}\", ";
+print "\"$remapping{ApplicationEnd}\", ";
+print "\"$remapping{ApplicationId}\", ";
+print "\"$remapping{ApplicationIdEnd}\", ";
+print "\"FileID\" ";
 print "]\n";
 print "},\n";
 print "\"properties\" : {\n";
-print "\"ip_source\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
-print "\"ip_dest\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
-print "\"time_start\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
-print "\"time_updated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
-print "\"time_total\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
-print "\"time_delta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
-print "\"captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
-print "\"session_id\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
-print "\"mac_source\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
+print "\"IPSource\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
+print "\"IPDest\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
+print "\"TimeStart\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
+print "\"TimeUpdated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
+print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
+print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
+print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
+print "\"SessionID\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
+print "\"MacSource\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
 
 for $app ( keys %typeHash ) {
-   if ($app eq "timestamp" || $app eq "syslog_message" ) {
+   if ($app eq "Timestamp" || $app eq "SyslogMessage" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"no\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n"
-   } elsif ($app eq "file_id" || $app eq "application" || $app eq "application_end" || $app eq "application_id" || $app eq "application_id_end" ) {
+   } elsif ($app eq "FileID" || $app eq "Application" || $app eq "ApplicationEnd" || $app eq "ApplicationID" || $app eq "ApplicationIDEnd" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"object\", \"enabled\" : false },\n"
-   } elsif ($app eq "index" || $app eq "call_id" || $app eq "version" || $app eq "device_type" ) {
+   } elsif ($app eq "index" || $app eq "CallID" || $app eq "Version" || $app eq "DeviceType" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"string\", \"index\" : \"not_analyzed\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
-   } elsif ($app eq "device_type" ) {
+   } elsif ($app eq "DeviceType" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n"
-   } elsif ($app eq "server_addr" || $app eq "client_addr" ) {
+   } elsif ($app eq "ServerAddr" || $app eq "ClientAddr" ) {
       print "\"$remapping{$app}\" : { \"type\": \"ip\", \"ignore_malformed\" : true},\n"
    } elsif ($app eq "ttl"  ) {
       print "\"$remapping{$app}\" : { \"type\" : \"long\", \"store\" : \"yes\", \"index\": \"not_analyzed\", \"ignore_malformed\" : true },\n"
@@ -66,7 +66,7 @@ for $app ( keys %typeHash ) {
       print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
    }
 }
-print "\"mac_dest\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true}\n";
+print "\"MacDest\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true}\n";
 print "}\n";
 print "}\n";
 
