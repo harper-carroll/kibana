@@ -45,7 +45,7 @@ print "\"TimeUpdated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-M
 print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
-print "\"SessionID\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
+print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"MacSource\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
 
