@@ -61,7 +61,7 @@ while (<qosmosWorkbook>) {
    $line = rtrim(ltrim(trim($_)));
    my @fields = split(/,/, $line);
    my $qosmosField = $fields[0];
-   my $syslogField = $fields[3];
+   my $syslogField = $fields[1];
 
    if (exists $syslogHash{$qosmosField}) {
       push @{$syslogHash{$qosmosField}}, $syslogField;
