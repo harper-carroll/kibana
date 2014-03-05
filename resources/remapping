@@ -885,11 +885,11 @@ transfer_id TransferID
 transfer_way TransferWay
 tsecr Tsecr
 tsval Tsval
-ttl Ttl
+ttl TTL
 tweet Tweet
 type Type
 type_string TypeString
-uid Uid
+uid UID
 unseq Unseq
 update_manager UpdateManager
 upgrade_header UpgradeHeader
@@ -906,7 +906,7 @@ uri_path_decoded URIPathDecoded
 uri_post_decoded URIPostDecoded
 uri_respmod_req URIRespmodReq
 uri_start_offset URIStartOffset
-urilast64 Urilast64
+urilast64 URILast64
 urilen URILen
 url URL
 user_agent UserAgent
