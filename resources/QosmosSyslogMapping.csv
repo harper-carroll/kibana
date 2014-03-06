@@ -435,3 +435,5 @@ versionQ_PROTO_WHATSAPP,version,<version>,Version
 platformQ_PROTO_WINDOWS_UPDATE,version,<version>,Version
 versionQ_PROTO_YMSG,version,<version>,Version
 versionQ_PROTO_YMSG_WEBMESSENGER,version,<version>,Version
+serverQ_PROTO_HTTP,dname,<dname>,Destination Host Unit Test
+application_endQ_PROTO_BASE,process,<process>,Process Unit Test
