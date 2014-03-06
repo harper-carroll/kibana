@@ -32,6 +32,7 @@ cd $startDir
 rm "$protoFileDir"/Applications.proto.orig
 rm "$protoFileDir"/DpiMsgLRproto.proto.orig
 sh "$scriptsDir"/generateApplicationsCSV.sh > "$protoFileDir"/../resources/Applications.csv
+sh "$scriptsDir"/mapQosMosToSyslog.sh 
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
