@@ -114,8 +114,28 @@ sub CheckRenameFile {
 
 }
 
+sub CreateRemappingFile {
+   my($remappingfile,$nmfieldnames) = @_;
+
+   open nmfieldnamesFile, "$nmfieldnames" or die $!;
+   open remappingFile, '>'."$remappingfile" or die $!;
+   seek remappingFile, 0, 0;
+
+   while (<nmfieldnamesFile>) {
+      if ($_ =~ m/.*Q_PROTO.*/ ) {
+         my @lineValues = split(/,/,$_);
+         print remappingFile "$lineValues[2] $lineValues[3]\n";
+      }
+   }
+
+   close nmfieldnamesFile;
+   close remappingFile;
+
+}
+
 $QosmosWorkBookName = $ARGV[0];
 ($exludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
+CreateRemappingFile($ARGV[4],$ARGV[6]);
 (%renameMapping) = ReadRemappingFile($ARGV[4]);
 my $renameMap = $ARGV[5];
 if ($renameMap eq "" ) {
