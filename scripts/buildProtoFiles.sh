@@ -22,6 +22,8 @@ if [ ! -f "$phpprotoc" ]; then
   sh "$scriptsDir"/getPhpProtobuffers.sh
 fi
 
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
+
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
 cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
 sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
@@ -47,7 +49,6 @@ for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` 
 done
 cd "$startDir"
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
 cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/Applications.proto
