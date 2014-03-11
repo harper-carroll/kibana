@@ -54,14 +54,14 @@ my $firstLine = 0;
 my %syslogHash;
 open qosmosWorkbook, "$file" or die "Can't read file '$file' [$!]\n";
 while (<qosmosWorkbook>) {
-   if ($firstLine == 0) {
+   if ($firstLine == 0 || (index($_,'Q_PROTO') == -1)) {
       $firstLine = 1;
       next;
    }
    $line = rtrim(ltrim(trim($_)));
    my @fields = split(/,/, $line);
-   my $qosmosField = $fields[0];
-   my $syslogField = $fields[1];
+   my $qosmosField = $fields[1];
+   my $syslogField = $fields[5];
 
    if (exists $syslogHash{$qosmosField}) {
       push @{$syslogHash{$qosmosField}}, $syslogField;
