@@ -19,9 +19,13 @@ open renameFile, '<', "$ARGV[1]" or die "Cannot open rename file: $!";
 my $renameStream;
 my %typeHash = ();
 my %remapping = ();
+my %uniqueNames = ();
 while (<renameFile>) {
    if ($_ =~ m/(\S+)\s+(\S+)/ ) {
-      $remapping{$1} = $2;
+      if (! exists $uniqueNames{$2} ) {
+         $remapping{$1} = $2;
+         $uniqueNames{$2} = 1;
+      }
    }
 }
 
@@ -46,7 +50,7 @@ print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
-print "\"MacSource\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
+print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
 
 for $app ( keys %typeHash ) {
@@ -63,10 +67,12 @@ for $app ( keys %typeHash ) {
    } elsif ($app eq "ttl"  ) {
       print "\"$remapping{$app}\" : { \"type\" : \"long\", \"store\" : \"yes\", \"index\": \"not_analyzed\", \"ignore_malformed\" : true },\n"
    } elsif ( keys %{ $typeHash{$app} } > 1) {
-      print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
+      if ( exists $remapping{$app} ) {
+         print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
+      }
    }
 }
-print "\"MacDest\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true}\n";
+print "\"DestMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true}\n";
 print "}\n";
 print "}\n";
 

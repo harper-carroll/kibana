@@ -1977,7 +1977,7 @@ attach_size AttachSize
 attach_transfer_encoding AttachTransferEncoding
 attach_type AttachType
 date Date
-duration Duration
+duration SessionDuration
 email_index EmailIndex
 greeting_message GreetingMsg
 index Index
