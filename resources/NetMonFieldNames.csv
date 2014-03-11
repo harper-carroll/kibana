@@ -434,7 +434,7 @@ FACEBOOK_MAIL,sender_aliasQ_PROTO_FACEBOOK_MAIL,sender_alias,SenderAlias,Sender 
 FACEBOOK_MAIL,sender_emailQ_PROTO_FACEBOOK_MAIL,sender_email,SenderEmail,Sender Email,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 FACEBOOK_MAIL,sender_uidQ_PROTO_FACEBOOK_MAIL,sender_uid,SenderUID,Sender UID,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 FACEBOOK_MAIL,session_idQ_PROTO_FACEBOOK_MAIL,session_id,SessionID,Session ID,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-FACEBOOK_MAIL,thread_idQ_PROTO_FACEBOOK_MAIL,thread_id,ThreadID,Thread ID,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+FACEBOOK_MAIL,thread_idQ_PROTO_FACEBOOK_MAIL,thread_id,ThreadNum,Thread Number,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 FACEBOOK_MAIL,uidQ_PROTO_FACEBOOK_MAIL,uid,UID,User ID,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 FACEBOOK_MAIL,actionQ_PROTO_FACEBOOK_MAIL,action,Action,Action,command,<command>,Command,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 FACEBOOK_MAIL,loginQ_PROTO_FACEBOOK_MAIL,login,Login,Login,login,<login>,Login,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

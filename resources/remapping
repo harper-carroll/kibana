@@ -393,7 +393,7 @@ sender_alias SenderAlias
 sender_email SenderEmail
 sender_uid SenderUID
 session_id SessionID
-thread_id ThreadIDDDD
+thread_id ThreadNum
 uid UID
 action Action
 login Login
