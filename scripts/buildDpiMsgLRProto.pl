@@ -46,6 +46,7 @@ sub ReadPreviousData {
    $callbackNames_ptr = $_[3];
    $previousFields_ptr = $_[4];
    $previousData_ptr = $_[5];
+   $statiField_ptr = $_[6];
    
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
@@ -61,6 +62,11 @@ sub ReadPreviousData {
          push(@$previousFields_ptr,$2);
          push(@$previousData_ptr,$_);
       }
+      if ( index($_,'Q_PROTO') == -1 && (index($_,'optional') != -1 || index($_,'repeated') != -1)) {
+         my @lineValues = split(/\s+/,$_);
+         push(@$staticField_ptr,$lineValues[3]);
+      } 
+        
    }
    close previousData;
 }
@@ -97,6 +103,7 @@ sub CreateSummaryFile {
 
 sub CheckRenameFile {
    my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
+   $statiField_ptr = $_[4];
 
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
@@ -107,6 +114,12 @@ sub CheckRenameFile {
                !defined $renameMapping { "_$lineValues[7]" } ) {
             die "Rename file does not account for field $lineValues[7]";
          } 
+      }
+   }
+   while (($key,$value) = each (%renameMapping)) {
+      my @matches =  grep { /$value/ } @$staticField_ptr;
+      if (@matches && $matches[0] eq $value ) {
+         die "Rename file tries to map to a static field $value";
       }
    }
 
@@ -142,15 +155,17 @@ if ($renameMap eq "" ) {
    die "Must name a path to output rename map $ARGV[5] $renameMap" ;
 }
 
-CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping);
-DumpFile($renameMap,\%renameMapping);
 my $highest;
 my @ids;
 my $callbackNames;
 my @previousFields;
 my @previousData;
-ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData);
+my @staticFields;
+ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields); 
 CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
+
+CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
+DumpFile($renameMap,\%renameMapping);
 
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
