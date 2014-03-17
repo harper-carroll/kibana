@@ -22,8 +22,8 @@ my %remapping = ();
 my %uniqueNames = ();
 while (<renameFile>) {
    if ($_ =~ m/(\S+)\s+(\S+)/ ) {
+      $remapping{$1} = $2;
       if (! exists $uniqueNames{$2} ) {
-         $remapping{$1} = $2;
          $uniqueNames{$2} = 1;
       }
    }
