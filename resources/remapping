@@ -404,6 +404,7 @@ thread_id ThreadNum
 uid UID
 service Service
 service_duration ServiceDuration
+service_duration_tv ServiceDurationTV
 service_id ServiceID
 current_version CurrentVersion
 new_version NewVersion
@@ -415,6 +416,8 @@ package_name PkgName
 login Login
 name Name
 password Passwd
+data_port_end_offset DataPortEndOffset
+data_port_start_offset DataPortStartOffset
 filename Filename
 filesize FileSize
 greeting_message GreetingMsg
@@ -1048,6 +1051,7 @@ call_id CallID
 call_pkt_count CallPktCount
 proto_version ProtoVersion
 service Service
+service_duration_tv ServiceDurationTV
 start_time StartTime
 user_agent UserAgent
 action Action
@@ -1896,10 +1900,14 @@ end_status EndStatus
 expires Expires
 from From
 media_attr_addr MediaAttrAddr
+media_attr_addr_end_offset MediaAttrAddrEndOffset
+media_attr_addr_start_offset MediaAttrAddrStartOffset
 media_attr_channel MediaAttrChannel
 media_attr_encoding MediaAttrEncoding
 media_attr_label MediaAttrLabel
 media_attr_param MediaAttrParam
+media_attr_port_end_offset MediaAttrPortEndOffset
+media_attr_port_start_offset MediaAttrPortStartOffset
 media_attr_rate MediaAttrRate
 media_attr_transport MediaAttrTransport
 media_attr_type MediaAttrType
@@ -1933,6 +1941,7 @@ password Passwd
 nearest_service NearestService
 service Service
 service_duration ServiceDuration
+service_duration_tv ServiceDurationTV
 service_id ServiceID
 version Version
 file_id FileID
@@ -2098,6 +2107,7 @@ device_id DeviceID
 login Login
 phone_number PhoneNum
 service Service
+service_duration_tv ServiceDurationTV
 user_email UserEmail
 user_id UserID
 login Login
@@ -2203,6 +2213,7 @@ password Passwd
 filesize FileSize
 service Service
 service_duration ServiceDuration
+service_duration_tv ServiceDurationTV
 service_id ServiceID
 account_uid AcctUID
 contact_alias ContactAlias
@@ -2591,14 +2602,3 @@ sender Sender
 sender_alias SenderAlias
 sender_email SenderEmail
 subject Subject
-service_duration_tv ServiceDurationTV
-service_duration_tv ServiceDurationTV
-service_duration_tv ServiceDurationTV
-service_duration_tv ServiceDurationTV
-service_duration_tv ServiceDurationTV
-data_port_start_offset DataPortStartOffset
-data_port_end_offset DataPortEndOffset
-media_attr_addr_start_offset MediaAttrAttrStartOffset
-media_attr_addr_end_offset MediaAttrAttrEndOffset
-media_attr_port_start_offset MediaAttrPortStartOffset
-media_attr_port_end_offset MediaAttrPortEndOffset
