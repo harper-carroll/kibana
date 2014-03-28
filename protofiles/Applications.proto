@@ -2228,4 +2228,18 @@ optional string elhourriya = 2226 [default = "Mauritanian news portal"];
 optional string lapatilla = 2227 [default = "Venezuelian news portal"];
 optional string palweather = 2228 [default = "Palestinian meteorological portal"];
 optional string armorgames_play = 2229 [default = "This signature detects requests to play games on ArmorGames.com an on-line flash-based video game site. Users can play simple video games for free."];
+optional string telegrafi = 2230 [default = "Albanian news and media portal"];
+optional string eluniverso = 2231 [default = "Ecuadorian news portal"];
+optional string kohsantepheapdaily = 2232 [default = "Cambodian news portal"];
+optional string a_dakar = 2233 [default = "Senegalese news portal"];
+optional string news_au = 2234 [default = "Australian news portal"];
+optional string air_video = 2235 [default = "Air Video can stream videos to your iPhone iPad and iPod touch."];
+optional string myjoyonline = 2236 [default = "Ghanaian news portal"];
+optional string sigmalive = 2237 [default = "Cypriot news portal"];
+optional string femina = 2238 [default = "Macedonian website specialised in women news trends gears etc"];
+optional string free = 2239 [default = "French ISP and mobile operator website."];
+optional string foxbusiness = 2240 [default = "Fox Business Network (FBN) is an American cable and satellite business news television channel that is owned by the Fox Entertainment Group division of 21st Century Fox. The network discusses business and financial news."];
+optional string vecernji = 2241 [default = "Crotaian news portal"];
+optional string free_music_download = 2242 [default = "Download play sort organize media files."];
+optional string tayyar = 2243 [default = "Lebaneese news portal"];
 }
