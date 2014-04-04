@@ -11,8 +11,8 @@ message LicenseRequest {
      DELETE = 3;
      MODIFY = 4;
   }
-  required RequestType type = 1; 
-  repeated bytes encodedLicenses = 2;
+  optional RequestType type = 1; 
+  repeated string encodedLicenses = 2;
 }
 
 

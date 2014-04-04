@@ -4,7 +4,7 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "LicenseReplyMsg";
 
 message LicenseReply {
-  repeated bytes encodedLicenses = 1;
+  repeated string encodedLicenses = 1;
 }
 
 
