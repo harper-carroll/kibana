@@ -1,0 +1,18 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "LicenseRequestMsg";
+
+message LicenseRequest {
+  enum RequestType {
+     AGGRIGATE = 0;
+     LIST = 1;
+     INSERT = 2;
+     DELETE = 3;
+     MODIFY = 4;
+  }
+  required RequestType type = 1; 
+  repeated bytes encodedLicenses = 2;
+}
+
+

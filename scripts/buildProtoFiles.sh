@@ -23,7 +23,7 @@ if [ ! -f "$phpprotoc" ]; then
   sh "$scriptsDir"/getPhpProtobuffers.sh
 fi
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense
 
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
 cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
@@ -75,6 +75,8 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaultsRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerRequest.proto
+"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseReply.proto
+"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseRequest.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -98,6 +100,8 @@ mv  libcommand/ConfigDefaults.pb.cc  libcommand/ConfigDefaults.pb.cpp
 mv  libcommand/ConfigDefaultsRequest.pb.cc  libcommand/ConfigDefaultsRequest.pb.cpp
 mv  libfork/ForkerReply.pb.cc  libfork/ForkerReply.pb.cpp
 mv  libfork/ForkerRequest.pb.cc  libfork/ForkerRequest.pb.cpp
+mv  liblicense/LicenseReply.pb.cc  liblicense/LicenseReply.pb.cpp
+mv  liblicense/LicenseRequest.pb.cc  liblicense/LicenseRequest.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"
