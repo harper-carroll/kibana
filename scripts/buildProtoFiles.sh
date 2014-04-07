@@ -77,6 +77,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseRequest.proto
+"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/License.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -102,6 +103,7 @@ mv  libfork/ForkerReply.pb.cc  libfork/ForkerReply.pb.cpp
 mv  libfork/ForkerRequest.pb.cc  libfork/ForkerRequest.pb.cpp
 mv  liblicense/LicenseReply.pb.cc  liblicense/LicenseReply.pb.cpp
 mv  liblicense/LicenseRequest.pb.cc  liblicense/LicenseRequest.pb.cpp
+mv  liblicense/License.pb.cc  liblicense/License.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"
