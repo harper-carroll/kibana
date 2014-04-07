@@ -12,7 +12,7 @@ message LicenseRequest {
      MODIFY = 4;
   }
   optional RequestType type = 1; 
-  repeated string encodedLicenses = 2;
+  repeated bytes encodedLicenses = 2;
 }
 
 
