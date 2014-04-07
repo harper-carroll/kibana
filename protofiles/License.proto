@@ -10,6 +10,7 @@ message RawLicense {
   optional int32 maxIndexesInDays = 4;
   optional int64 expireTime = 5;
   optional int32 expireDurationInDays = 6;
+  optional int64 installationTime = 7;
 }
 
 message SignedMessage {
