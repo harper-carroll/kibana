@@ -7,16 +7,12 @@ sub ReadFile {
    my $typeHash_ptr = $_[1];
 
    open previousData, "$filename" or die "cannot open $filename: $!";
-   $first = 1;
    while (<previousData>) {
-     if($first) {
-       $first = 0;
-       next;
-     }
      my ($app, $protoName, $oldName, $shortName, $longName, $syslogName) = split /,/, $_;
      $shortName=~ s/^\s+|\s+$//g;
      $longName=~ s/^\s+|\s+$//g;
      if($shortName eq "" || $longName eq "") {
+       print "fields are emtpy... short: $shortName long: $longName\n";
        next;
      }
      print $shortName.':'.$longName."\n";
