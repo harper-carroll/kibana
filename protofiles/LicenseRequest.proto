@@ -5,7 +5,7 @@ option java_outer_classname = "LicenseRequestMsg";
 
 message LicenseRequest {
   enum RequestType {
-     AGGRIGATE = 0;
+     AGGREGATE = 0;
      LIST = 1;
      INSERT = 2;
      DELETE = 3;
