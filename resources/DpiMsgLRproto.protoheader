@@ -59,3 +59,4 @@ message DpiMsgLRproto
    optional uint64 TimePrevious = 38; 
    optional bool Written = 39; 
    optional bool CaptureRemoved = 40; 
+   optional string StoragePath = 41;
