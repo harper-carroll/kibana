@@ -59,5 +59,5 @@ message DpiMsgLRproto
    optional uint64 TimePrevious = 38; 
    optional bool Written = 39; 
    optional bool CaptureRemoved = 40; 
-   optional uint64 SrcIP6 = 41;
-   optional uint64 DestIP6 = 42;
+   repeated uint32 SrcIP6 = 41;
+   repeated uint32 DestIP6 = 42;
