@@ -3,7 +3,6 @@ package networkMonitor;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "DPIMessageProtosProtos";
 
-// When any field is added to this file, make sure they get added to resources/DpiMsgLRproto.protoheader
 message DpiMsgLRproto 
 {
    enum Type {
@@ -63,6 +62,7 @@ message DpiMsgLRproto
    optional string StoragePath = 41;
    repeated uint32 SrcIP6 = 42;
    repeated uint32 DestIP6 = 43;
+   // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
 repeated bytes applicationQ_PROTO_BASE = 344; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
