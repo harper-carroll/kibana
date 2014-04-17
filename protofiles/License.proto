@@ -1,0 +1,20 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "LicenseMsg";
+
+message RawLicense {
+  optional int32 bandwidthInMbps = 1; 
+  optional int64 pcapFiles = 2;
+  optional int64 pcapStorageInMB = 3;
+  optional int32 maxIndexesInDays = 4;
+  optional int64 expireTime = 5;
+  optional int32 expireDurationInDays = 6;
+  optional int64 installationTime = 7;
+}
+
+message SignedMessage {
+  optional string signature = 1;
+  optional int32 keyID = 2;
+  optional RawLicense rawLicense = 3; 
+}
