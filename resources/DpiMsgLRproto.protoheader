@@ -60,5 +60,7 @@ message DpiMsgLRproto
    optional bool Written = 39; 
    optional bool CaptureRemoved = 40; 
    optional string StoragePath = 41;
-   repeated uint32 SrcIP6 = 41;
-   repeated uint32 DestIP6 = 42;
+   repeated uint32 SrcIP6 = 42;
+   repeated uint32 DestIP6 = 43;
+   // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
+
