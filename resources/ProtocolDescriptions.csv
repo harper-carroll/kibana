@@ -76,6 +76,7 @@ icmp6,Internet Control Message Protocol for IP6,#link_layer_raw_addr,Link-layer 
 imap,Internet Message Access Protocol version 4,#attach_content,Attached files' content.
 imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files' content.
 imap,Internet Message Access Protocol version 4,#content_entry,"Parent entry
+imap,Internet Message Access Protocol version 4,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 imp,Internet Messaging Program,#attach_content,Attached files' content.
 ip,Internet Protocol,#inherit_key,"Candidate inheritance key
 ip,Internet Protocol,#src_addr_md5,A MD5 sum on IP Source address
