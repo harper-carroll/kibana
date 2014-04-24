@@ -226,7 +226,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,58,Q_BASE_APPLICATION_END,application_end,,string,Contains the latest value for the attribute application,0,session_mod,0
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,56,Q_BASE_FAMILY_END,family_end,,string,Contains the latest value for the attribute family,0,session_mod,0
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,57,Q_BASE_APPLICATION_ID_END,application_id_end,,uint32,Contains the latest value for the attribute application_id,0,session_mod,0
-3,Q_PROTO_BASE,Standard,base,Base virtual protocol,63,Q_BASE_SESSION_LEN,session_len,,uint64,Contains the total length exchanged over this session. This attribute data cannot be retreived in externalized versions.,0,session_fix,0
+3,Q_PROTO_BASE,Standard,base,Base virtual protocol,63,Q_BASE_SESSION_LEN,session_len,,uint64,"Contains the total length exchanged, in Bytes, over this session. This attribute data cannot be retreived in externalized versions.",0,session_fix,0
+3,Q_PROTO_BASE,Standard,base,Base virtual protocol,31,Q_BASE_CREATE_TIME,create_time,,timeval,Contains the timestamp of the first packet of the flow.,0,session_fix,0
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,64,Q_BASE_SPLIT,split,,ptr,"When a flow is split, address of the uapp_cnx that was associated to the current one",0,session_mod,0
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,66,Q_BASE_SESSION_UNIDIR,session_unidir,,uint8,Extracted when unidirectional traffic is detected.,0,session_fix,0
 3,Q_PROTO_BASE,Standard,base,Base virtual protocol,67,Q_BASE_MULTI_MATCH_PROTO_ID,multi_match_proto_id,,uint32,"When multiple pdata rules do match the same packet, the highest priority rule is classified. The protocol ids of the lesser priority rules are shown in deacreasing priority order through this protocol.",0,session_mod,0
@@ -272,6 +273,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 547,Q_PROTO_BING,Web,bing,Bing.com,581,Q_MPA_QUERY,query,,parent,Contains the raw and text query sent.,0,session_mod,0
 15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,795,Q_MPA_PEER_INFO,peer_info,,,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t), the transport protocol ID (TCP/UDP/etc.), the listening port, and the list of protocols to by classified in case of prediction success.",0,session_mod,0
+15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,792,Q_MPA_SIGNALIZATION_OVERRIDE,signalization_override,,uint8,Attribute used to specify whether the current session may provide incoming flows information or not. This value overrides the proto_feature flag defined in the layer raising this event.,0,session_mod,0
+15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,790,Q_MPA_DECLASSIFY_OVERRIDE,declassify_override,,uint8,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.,0,session_mod,0
 15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,1,Q_BITTORRENT_TRACKER,tracker,,string,BitTorrent tracker URL.,0,session_mod,0
 15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,623,Q_MPA_FILE_HASH,file_hash,,binary,Hash of the transferred file.,0,session_mod,0
 15,Q_PROTO_BITTORRENT,Peer to Peer,bittorrent,BitTorrent,3,Q_BITTORRENT_FILE_HASH_RAW,file_hash_raw,,buffer,Content whose SHA1 hash is the file_hash ('info' section of the torrent file).,1,session_mod,1
@@ -649,10 +652,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,630,Q_MPA_ACCOUNT,account,,parent,User account metadata including the login and the password.,0,session_mod,0
 524,Q_PROTO_FACEBOOK_MAIL,Webmail,facebook_mail,facebook mail,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session_mod,0
 1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
-1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds.",0,session_mod,0
-1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session_mod,0
+1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the duration of it in seconds and microseconds.",0,session_mod,0
+1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds",0,session_mod,0
 1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_mod,0
-1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session_mod,0
+1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is re-evaluated every 5 seconds. This attribute is extracted only when the service changes.,0,session_mod,0
 1117,Q_PROTO_FACETIME,Audio/Video,facetime,Apple FaceTime,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
 556,Q_PROTO_FIREFOX_UPDATE,Web,firefox_update,Firefox Update,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 556,Q_PROTO_FIREFOX_UPDATE,Web,firefox_update,Firefox Update,3,Q_FIREFOX_UPDATE_PLUGIN_NEW_VERSION,plugin_new_version,,string,Plugin version after update.,0,session_mod,0
@@ -1194,15 +1197,16 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,4,Q_HTTP_REFERER,referer,,string,Source address from which the client obtained the requested URI.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,51,Q_HTTP_REFERER_PATH,referer_path,,string,Source address from which the client obtained the requested URI without query parameters.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,52,Q_HTTP_REFERER_SERVER,referer_server,,string,Contains the host or the website name of the referer.,0,session_mod,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,5,Q_HTTP_URI,uri,,string,"Normalized URL form (path + filename + parameters) of a web resource, with UNRESERVED percent-encoded characters decoding (RFC3986).",0,session_mod,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,50,Q_HTTP_URI_PATH,uri_path,,string,"Normalized URL path (path + filename) of a web resource, without query parameters. The path is normalized by decoding the UNRESERVED percent-encoded characters found in the URL (RFC3986).",0,session_mod,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,6,Q_HTTP_URI_FULL,uri_full,,string,Complete raw and encoded URL form (hostname part + path + filename + parameters) of a web resource.,1,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,5,Q_HTTP_URI,uri,,string,"Normalized URL form (path + request) of a web resource, with UNRESERVED percent-encoded characters decoding (RFC3986).",0,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,50,Q_HTTP_URI_PATH,uri_path,,string,"Normalized URL path of a web resource, without query parameters. The path is normalized by decoding the UNRESERVED percent-encoded characters found in the URL (RFC3986).",0,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,6,Q_HTTP_URI_FULL,uri_full,,string,"Complete name (scheme/authority + path + request) of a web resource, with streamed extraction.",1,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,72,Q_HTTP_URI_START_OFFSET,uri_start_offset,,uint32,Offset to the first URI byte in the TCP stream. The URI start is located in the current packet (the offset value is positive).,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,73,Q_HTTP_URI_END_OFFSET,uri_end_offset,,int32,"Offset to the first byte which is not part of the URI, in the TCP stream. This value might be less or equal to zero when the URI actually ends on a previous packet, in which the Request-line did not terminate (HTTP/1.x\r\n"").""",0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,626,Q_MPA_USER_AGENT,user_agent,,string,Software used by the client to access the web page.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,74,Q_HTTP_USER_AGENT_START_OFFSET,user_agent_start_offset,,uint32,Offset to the first User-agent byte in the TCP stream. The User-agent start is located in the current packet (the offset value is positive).,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,75,Q_HTTP_USER_AGENT_END_OFFSET,user_agent_end_offset,,int32,"Offset to the first byte which is not part of the User-agent, in the TCP stream. This value might be less or equal to zero if the User-agent actually ends on a previous packet, in which the Header-line did not terminate (\r\n"").""",0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,11,Q_HTTP_MIME_TYPE,mime_type,,string,Content type of the request or the web page.,0,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,806,Q_MPA_FILE_TYPE,file_type,,string,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,12,Q_HTTP_CONTENT_DISPOSITION,content_disposition,,string,Information related to the disposition of the content present on the web page.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,13,Q_HTTP_FORWARD_ADDR,forward_addr,,ip_addr,DNS address to which the client is redirected.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,57,Q_HTTP_FORWARD_REDLINE,forward_redline,,ip_addr,"Value of the http header x-forward-redline"", used for forwarding.""",0,session_mod,0
@@ -1248,6 +1252,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,7,Q_HTTP_URI_PARAM,uri_param,,parent,URL parameter.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,8,Q_HTTP_URI_PARAM_NAME,uri_param_name,,string,URL parameter name.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,9,Q_HTTP_URI_PARAM_VALUE,uri_param_value,,string,URL parameter value.,0,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,92,Q_HTTP_URI_RAW,uri_raw,,string,Complete name (scheme/authority + path + request) of a web resource.,0,session_mod,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,93,Q_HTTP_URI_RAW_PATH,uri_raw_path,,string,Complete name (scheme/authority + path) of a web resource without query parameters.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,47,Q_HTTP_INDEX,index,,uint32,Identifier of the request and response in a HTTP flow.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,54,Q_HTTP_RESPONSE_TS,response_ts,,timeval,Timestamp of the first packet of a HTTP response.,0,session_mod,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,53,Q_HTTP_REQUEST_TS,request_ts,,timeval,Timestamp of the first packet of a HTTP query.,0,session_mod,0
@@ -1282,10 +1288,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,786,Q_MPA_NTLM_DOMAIN,ntlm_domain,,string,"Domain"" attribute of the NTLM protocol.""",0,session_prt,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,787,Q_MPA_NTLM_USER,ntlm_user,,string,"User"" attribute of the NTLM protocol.""",0,session_prt,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,788,Q_MPA_NTLM_WORKSTATION,ntlm_workstation,,string,"Workstation"" attribute of the NTLM protocol.""",0,session_prt,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,82,Q_HTTP_URI_DECODED,uri_decoded,,string,"Normalized and decoded URL form (path + filename + parameters) of a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,83,Q_HTTP_URI_GET_DECODED,uri_get_decoded,,string,"Normalized and decoded URL form (path + filename + parameters) of an HTTP GET request to a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,84,Q_HTTP_URI_POST_DECODED,uri_post_decoded,,string,"Normalized and decoded URL form (path + filename + parameters) of an HTTP POST request to a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
-67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,85,Q_HTTP_URI_PATH_DECODED,uri_path_decoded,,string,"Normalized and decoded URL path (path + filename) of a web resource, without query parameters. The result includes ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,82,Q_HTTP_URI_DECODED,uri_decoded,,string,"Normalized and decoded URL form (path + request) of a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,83,Q_HTTP_URI_GET_DECODED,uri_get_decoded,,string,"Normalized and decoded URL form (path + request) of an HTTP GET request to a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,84,Q_HTTP_URI_POST_DECODED,uri_post_decoded,,string,"Normalized and decoded URL form (path + request) of an HTTP POST request to a web resource, including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
+67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,85,Q_HTTP_URI_PATH_DECODED,uri_path_decoded,,string,"Normalized and decoded URL path of a web resource, without query parameters. The result includes ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass).",0,session_prt,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,86,Q_HTTP_POST_VARIABLE_DECODED,post_variable_decoded,,string,"Extracts the 'name/value' metadata from each web-form CGI parameter found in a POST HTTP Request. The name and value strings are normalized including ALL percent-encoded characters full decoding (double pass process) and '+' characters decoding (single pass). The parameters are extracted from the URL of the request, and/or from the 'x-www-form-urlencoded' POST data.",0,session_prt,0
 67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,88,Q_HTTP_LAST_MODIFIED,last_modified,,string,Contains the date and time at which the origin server believes the variant was last modified.,0,session_prt,0
 750,Q_PROTO_HTTP_TUNNEL,Tunneling,http_tunnel,HTTP Tunnel,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session_mod,0
@@ -1387,11 +1393,13 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session_mod,1
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,693,Q_MPA_ATTACH_CONTENT_DECODED,attach_content_decoded,,buffer,Decoded attached files' content.,1,session_mod,1
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,678,Q_MPA_CONTENT_ENTRY,content_entry,,parent,"Parent entry, information about email content.",0,session_mod,0
+75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,806,Q_MPA_FILE_TYPE,file_type,,buffer,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.,0,session_mod,0
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,679,Q_MPA_CONTENT_HEADER,content_header,,string,Data containing headers.,1,session_mod,1
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,680,Q_MPA_CONTENT_BODY,content_body,,string,Data containing body.,1,session_mod,1
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session_mod,0
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,641,Q_MPA_LOGIN_SERVER,login_server,,string,Concatenated login and server: <login>@<server>.,0,session_mod,0
+75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,805,Q_MPA_HEADER_RAW,header_raw,,string,One IMAP header line (field and value).,0,session_mod,0
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,650,Q_MPA_RECEIVED,received,,parent,"Parent entry, for fields added by each relay",0,session_mod,0
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,651,Q_MPA_RECEIVED_FROM_NAME,received_from_name,,string,Contains the sending host name,0,session_prt,0
 75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,652,Q_MPA_RECEIVED_FROM_IP,received_from_ip,,ip_addr,Contains the IP address of the sending host name,0,session_prt,0
@@ -1490,6 +1498,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 82,Q_PROTO_IP6,Network Service,ip6,Internet Protocol V6,7,Q_IP6_DST_ADDR,dst_addr,,ip6_addr,Destination IP address.,0,session_fix,0
 82,Q_PROTO_IP6,Network Service,ip6,Internet Protocol V6,9,Q_IP6_CLIENT_ADDR,client_addr,,ip6_addr,Client IP address.,0,session_fix,0
 82,Q_PROTO_IP6,Network Service,ip6,Internet Protocol V6,8,Q_IP6_SERVER_ADDR,server_addr,,ip6_addr,Server IP address.,0,session_fix,0
+82,Q_PROTO_IP6,Network Service,ip6,Internet Protocol V6,11,Q_IP6_ADDRESS,address,,ip6_addr,This attribute is not extracted.,0,session_fix,0
 83,Q_PROTO_IPCP,Network Service,ipcp,Internet Protocol Control Protocol,1,Q_IPCP_CODE,code,,uint8,Packet type.,0,pkt,0
 83,Q_PROTO_IPCP,Network Service,ipcp,Internet Protocol Control Protocol,2,Q_IPCP_IDENTIFIER,identifier,,uint8,Decimal value allowing to match requests and replies.,0,pkt,0
 83,Q_PROTO_IPCP,Network Service,ipcp,Internet Protocol Control Protocol,3,Q_IPCP_IP_ADDR,ip_addr,,ip_addr,IP address attributed.,0,pkt,0
@@ -1684,10 +1693,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,15,Q_LDAP_ASSERTION_VALUE_RAW,assertion_value_raw,,buffer,Raw value of filter expression second operand.,0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol version currently used by the client.,0,session_mod,0
-1124,Q_PROTO_LINE,Instant Messaging,line,Line,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the length of it in seconds and microseconds.",0,session_mod,0
-1124,Q_PROTO_LINE,Instant Messaging,line,Line,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds.",0,session_mod,0
-1124,Q_PROTO_LINE,Instant Messaging,line,Line,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition.",0,session_mod,0
-1124,Q_PROTO_LINE,Instant Messaging,line,Line,604,Q_MPA_SERVICE,service,,string,Current service identification string. This attribute is extracted only when the service changes.,0,session_mod,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the duration of it in seconds and microseconds.",0,session_prt,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds.",0,session_prt,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition.",0,session_prt,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,604,Q_MPA_SERVICE,service,,string,Current service identification string. This attribute is extracted only when the service changes.,0,session_prt,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,2,Q_LINE_CALL_BYTE_COUNT,call_byte_count,,uint32,The count of bytes that were exchanged during the call.,0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,1,Q_LINE_CALL_PKT_COUNT,call_pkt_count,,uint32,The count of data packets that were exchanged during the call.,0,session_mod,0
@@ -1697,8 +1706,8 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,660,Q_MPA_CALL_ID,call_id,,string,"Call id, extracted for each call.",0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,524,Q_MPA_CALLER,caller,,string,Contains the identity (or the phone number) of the initiator of the call.,0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session_mod,0
-1124,Q_PROTO_LINE,Instant Messaging,line,Line,522,Q_MPA_CALL,call,,parent,"Parent entry, empty, for fields belonging to the call (caller, callee, etc.).",0,session_mod,0
 1124,Q_PROTO_LINE,Instant Messaging,line,Line,626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session_mod,0
+1124,Q_PROTO_LINE,Instant Messaging,line,Line,522,Q_MPA_CALL,call,,parent,"Parent entry, empty, for fields belonging to the call (caller, callee, etc.).",0,session_mod,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn.com,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn.com,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session_prt,0
 305,Q_PROTO_LINKEDIN,Forum,linkedin,LinkedIn.com,635,Q_MPA_CONTACT_FIRSTNAME,contact_firstname,,string,Contact first name.,0,session_prt,0
@@ -2143,8 +2152,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,2,Q_MPLS_EXP,exp,,uint8,Packet queuing priority (QoS).,0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,3,Q_MPLS_BOS,bos,,uint8,"Bottom Of Stack: equals to 1 if the last level of MPLS is reached, and 0 if another level of MPLS exists.",0,pkt,0
 119,Q_PROTO_MPLS,Routing,mpls,Multiprotocol Packet Label Switching,4,Q_MPLS_TTL,ttl,,uint8,Lifetime of the MPLS message.,0,pkt,0
-1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used in M+ Messenger. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_mod,0
-1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,604,Q_MPA_SERVICE,service,,string,"M+ current service identification string. The service is computed every 5 secondes, this attribute is extracted only when the service changes.",0,session_mod,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used in M+ Messenger. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_prt,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,604,Q_MPA_SERVICE,service,,string,"M+ current service identification string. The service is re-evaluated every 5 seconds, this attribute is extracted only when the service changes.",0,session_prt,0
+1455,Q_PROTO_MPLUS_MESSENGER,Instant Messaging,mplus_messenger,M+ Messenger,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session_mod,0
 120,Q_PROTO_MSN,Instant Messaging,msn,MSN Messenger,546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session_mod,0
@@ -2274,6 +2285,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session_mod,0
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,1,Q_NNTP_NEWSGROUP,newsgroup,,string,Newsgroup name.,0,session_mod,0
 134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,2,Q_NNTP_SUBJECT,subject,,string,Message subject.,0,session_mod,0
+134,Q_PROTO_NNTP,Forum,nntp,Network News Transport Protocol,805,Q_MPA_HEADER_RAW,header_raw,,string,One NNTP header line (field and value).,0,session_mod,0
 137,Q_PROTO_NTP,Network Service,ntp,Network Time Protocol,608,Q_MPA_VERSION,version,,uint8,Protocol version.,0,session_fix,0
 137,Q_PROTO_NTP,Network Service,ntp,Network Time Protocol,2,Q_NTP_SOURCE,source,,string_index,Reference of the primary source.,0,session_mod,0
 137,Q_PROTO_NTP,Network Service,ntp,Network Time Protocol,3,Q_NTP_REFERENCE_CLOCK,reference_clock,,ip_addr,Reference clock IP address.,0,session_mod,0
@@ -2499,6 +2511,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session_mod,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_prt,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session_prt,0
+147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),806,Q_MPA_FILE_TYPE,file_type,,string,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.,0,session_prt,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),659,Q_MPA_ATTACH_TRANSFER_ENCODING,attach_transfer_encoding,,string,Contains the encoding of the attached content,0,session_prt,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),515,Q_MPA_ATTACH_DISPOSITION,attach_disposition,,string,Attached file disposition,0,session_prt,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached files' content.,1,session_mod,1
@@ -2510,6 +2523,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),553,Q_MPA_MESSAGE_ID,message_id,,string,A unique identifier of the message.,0,session_mod,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session_mod,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),649,Q_MPA_CONTENT_TRANSFER_ENCODING,content_transfer_encoding,,string,Contains the encoding of the content,0,session_mod,0
+147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),805,Q_MPA_HEADER_RAW,header_raw,,string,One POP3 header line (field and value).,0,session_mod,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),650,Q_MPA_RECEIVED,received,,parent,"Parent entry, for fields added by each relay",0,session_mod,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),651,Q_MPA_RECEIVED_FROM_NAME,received_from_name,,string,Contains the sending host name,0,session_prt,0
 147,Q_PROTO_POP3,Mail,pop3,Post Office Protocol (Version 3),652,Q_MPA_RECEIVED_FROM_IP,received_from_ip,,ip_addr,Contains the IP address of the sending host name,0,session_prt,0
@@ -2943,6 +2957,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,58,Q_SIP_DATE,date,,string,Contains the date and time.,0,session_prt,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,59,Q_SIP_PROXY_AUTHORIZATION,proxy_authorization,,string,allows the client to identify itself (or its user) to a proxy that requires authentication,0,session_prt,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,60,Q_SIP_WWW_AUTHENTICATE,www_authenticate,,string,Contains an authentication challenge.,0,session_prt,0
+182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,66,Q_SIP_AUTHORIZATION_USERNAME,authorization_username,,string,User's name as specified in the Authorization SIP header.,0,session_prt,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,61,Q_SIP_ALERT_INFO,alert_info,,string,Specifies an alternative ring tone.,0,session_prt,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,62,Q_SIP_CALL_INFO,call_info,,string,Provides additional information about the caller or callee.,0,session_prt,0
 182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,63,Q_SIP_ACCEPT_LANGUAGE,accept_language,,string,Indicates the preferred languages.,0,session_prt,0
@@ -3008,7 +3023,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,608,Q_MPA_VERSION,version,,string,Skype client version.,0,session_mod,0
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
-183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string. The service is computed every 5 secondes (can be tuned); This attribute is extracted only when the service changes.,0,session_prt,0
+183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string. The service is re-evaluated every 5 seconds (can be tuned); This attribute is extracted only when the service changes.,0,session_prt,0
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer and Audio Skype Out.",0,session_prt,0
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session_prt,0
 183,Q_PROTO_SKYPE,Instant Messaging,skype,skype,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds.",0,session_prt,0
@@ -3082,6 +3097,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,4,Q_SMTP_RCPTTO,rcptto,,parent,Domain and recipient's email address (used by RCPT TO method).,0,session_mod,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,5,Q_SMTP_RECEIVER_RCPTTO,receiver_rcptto,,string,Recipient's email address (used by RCPT TO method).,0,session_prt,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,6,Q_SMTP_RECEIVER_DOMAIN,receiver_domain,,string,Domain of the recipient's email address.,0,session_prt,0
+186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,805,Q_MPA_HEADER_RAW,header_raw,,string,One SMTP header line (field and value).,0,session_mod,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session_mod,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session_prt,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session_prt,0
@@ -3103,6 +3119,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,10,Q_SMTP_DURATION,duration,,timeval,Duration of the SMTP session,0,session_mod,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session_mod,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session_prt,0
+186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,806,Q_MPA_FILE_TYPE,file_type,,string,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.,0,session_prt,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session_prt,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,515,Q_MPA_ATTACH_DISPOSITION,attach_disposition,,string,Attached file disposition,0,session_prt,0
 186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_prt,0
@@ -3229,6 +3246,7 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,13,Q_SSL_CERTIFICATE_RAW,certificate_raw,,buffer,Raw text content of the ssl certificate.,0,session_mod,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,1,Q_SSL_CERTIF_MD5,certif_md5,,binary,md5 of the certificate.,0,session_prt,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,2,Q_SSL_COMMON_NAME,common_name,,string,Domain name mentioned in the certificate.,0,session_prt,0
+199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,14,Q_SSL_ORGANIZATION_NAME,organization_name,,string,Organisation name mentioned in the certificate.,0,session_prt,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,5,Q_SSL_SERVER_NAME,server_name,,string,Domain name mentioned in Client Hello message.,0,session_fix,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,12,Q_SSL_SUPPORTED_NEXT_PROTOCOL,supported_next_protocol,,string,Supported protocol on top of SSL specified by the server in the Next Protocol Negotiation TLS extension.,0,session_fix,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,4,Q_SSL_ISSUER,issuer,,string,Certificate Authority.,0,session_prt,0
@@ -3237,6 +3255,9 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,8,Q_SSL_SERIAL_NUMBER,serial_number,,buffer,Serial number of certificate.,0,session_prt,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,9,Q_SSL_SUBJECT_ALT_NAME,subject_alt_name,,string,Identifies a list of host names which belong to the same certificate.,0,session_prt,0
 199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,11,Q_SSL_HANDSHAKE_TYPE,handshake_type,,uint8,Handshake type.,0,session_mod,0
+199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,15,Q_SSL_REQUEST,request,,parent,An SSL request.,0,session_mod,0
+199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,695,Q_MPA_INDEX,index,,uint32,Identifier of the request and response in a SSL flow.,0,session_mod,0
+199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,16,Q_SSL_REQUEST_SIZE,request_size,,uint64,Contains the total length in bytes of the request or the response (including SSL headers). This attribute is computed at the end of the request or response.,0,session_mod,0
 200,Q_PROTO_STP,Routing,stp,Spanning Tree Protocol,1,Q_STP_PROTO_ID,proto_id,,uint16,Protocol Identifier. Must be equal to 0x00.,0,pkt,0
 200,Q_PROTO_STP,Routing,stp,Spanning Tree Protocol,2,Q_STP_VERSION,version,,uint8,Protocol version.,0,pkt,0
 200,Q_PROTO_STP,Routing,stp,Spanning Tree Protocol,3,Q_STP_BPDU_TYPE,bpdu_type,,uint8,Message type.,0,pkt,0
@@ -3282,10 +3303,10 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Transferred file name.,0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,513,Q_MPA_ATTACH,attach,,parent,Parent attribute containing metadata related to an attached file exchanged between two users.,0,session_mod,0
-598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds.",0,session_mod,0
-598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds.",0,session_mod,0
+598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the duration of it in seconds and microseconds.",0,session_mod,0
+598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds.",0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_mod,0
-598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session_mod,0
+598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is re-evaluated every 5 seconds. This attribute is extracted only when the service changes.,0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,521,Q_MPA_CALL_DURATION,call_duration,,int32,Call duration.,0,session_mod,0
 598,Q_PROTO_TANGO,Audio/Video,tango,Tango Video Calls,2,Q_TANGO_CALLEE_ID,callee_id,,string,Called part identifier.,0,session_mod,0
@@ -3338,6 +3359,9 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,28,Q_TCP_SEG_BUFFERED_COUNT,seg_buffered_count,,uint32,Number of segments that have been buffered for reassembly,0,session_mod,0
 205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,29,Q_TCP_SEG_BUFFERED_SIZE,seg_buffered_size,,uint32,Sizes sum of segments that have been buffered for reassembly,0,session_mod,0
 205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,30,Q_TCP_WRONG_CRC,wrong_crc,,uint16,A flag raised when the CRC field checksum is changed from the computed one.,0,session_mod,0
+205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,60,Q_TCP_RETRANSMISSION_BYTES,retransmission_bytes,,uint32,"Current packet overlapping bytes count, extracted when out-of-order TCP sequence occurs.",0,session_mod,0
+205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,62,Q_TCP_DUP_ACK,dup_ack,,uint8,Extracted when the current packet has the ACK flag and validates a data segment that was already acknowledged.,0,session_mod,0
+205,Q_PROTO_TCP,Network Service,tcp,Transmission Control Protocol,61,Q_TCP_UNACK_SEQUENCE,unack_sequence,,uint32,Provides the difference between the maximum sequence number seen in payload packets minus the maximum ack seq number seen on the other way.,0,session_mod,0
 208,Q_PROTO_TDS,Database,tds,Tabular Data Stream,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 208,Q_PROTO_TDS,Database,tds,Tabular Data Stream,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_mod,0
 208,Q_PROTO_TDS,Database,tds,Tabular Data Stream,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session_mod,0
@@ -3509,10 +3533,14 @@ protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_
 1504,Q_PROTO_WEBSOCKET,Network Service,websocket,WebSocket,2,Q_WEBSOCKET_RAW,raw,,buffer,WebSocket frame content.,1,session_prt,0
 1504,Q_PROTO_WEBSOCKET,Network Service,websocket,WebSocket,3,Q_WEBSOCKET_OPCODE,opcode,,uint8,"Opcode"" field of WebSocket frame.""",0,session_prt,0
 1504,Q_PROTO_WEBSOCKET,Network Service,websocket,WebSocket,4,Q_WEBSOCKET_MSG,msg,,buffer,"Payload"" field of the WebSocket frame.""",1,session_prt,0
-1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,789,Q_MPA_SERVICE_ID,service_id,,uint32,Gives the generic service definition as an integer.,0,session_mod,0
-1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 5 seconds. This attribute is extracted only when the service changes.,0,session_mod,0
-1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_mod,0
-1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is computed every 500 millisecondes. This attribute is extracted only when the service changes.,0,session_mod,0
+1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
+1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,789,Q_MPA_SERVICE_ID,service_id,,uint32,Gives the generic service definition as an integer.,0,session_prt,0
+1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is re-evaluated every 5 seconds. This attribute is extracted only when the service changes.,0,session_prt,0
+1296,Q_PROTO_WECHAT,Instant Messaging,wechat,WeChat,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
+1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
+1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for File Transfer.",0,session_prt,0
+1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,604,Q_MPA_SERVICE,service,,string,Current service identification string. The service is re-evaluated every 500 milliseconds. This attribute is extracted only when the service changes.,0,session_prt,0
+1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,798,Q_MPA_SERVICE_INFO,service_info,,parent,Parent attribute for service information.,0,session_mod,0
 1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,579,Q_MPA_PHONE_NUMBER,phone_number,,string,Caller phone number.,0,session_mod,0
 1093,Q_PROTO_WHATSAPP,Instant Messaging,whatsapp,WhatsApp Messenger,608,Q_MPA_VERSION,version,,string,Program version.,0,session_mod,0
 222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia.com,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
