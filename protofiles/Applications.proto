@@ -2242,4 +2242,26 @@ optional string foxbusiness = 2240 [default = "Fox Business Network (FBN) is an 
 optional string vecernji = 2241 [default = "Crotaian news portal"];
 optional string free_music_download = 2242 [default = "Download play sort organize media files."];
 optional string tayyar = 2243 [default = "Lebaneese news portal"];
+optional string yapo = 2244 [default = "Chilian classified ads website"];
+optional string ecuavisa = 2245 [default = "Ecuadorian TV channel website"];
+optional string xendan = 2246 [default = "Iranian news portal"];
+optional string amazon_adsystem = 2247 [default = "This protocol plug-in classifies the trafic related to Amazon adsystem services."];
+optional string gameloft = 2248 [default = "Jeux pour appareils mobiles de Gameloft."];
+optional string stick_cricket = 2249 [default = "Mobile game"];
+optional string lapagina = 2250 [default = "El salvadorian news portal"];
+optional string aastocks = 2251 [default = "Chinese financial services and stock market website"];
+optional string crhoy = 2252 [default = "Coasta rican news portal"];
+optional string aparat = 2253 [default = "Iranian multimedia website"];
+optional string mozzi = 2254 [default = "International Mobile services provider"];
+optional string champion_football = 2255 [default = "Mobile game."];
+optional string digikala = 2256 [default = "Iranian electronics and tech review website"];
+optional string infinity_blade_ii = 2257 [default = "Mobile game."];
+optional string gt_racing_2 = 2258 [default = "Mobile game edited by Gameloft. Most of the traffic should be classified as gameloft."];
+optional string naver_mobile = 2259 [default = "Mobile application for Naver (Korean Search Engine)."];
+optional string aol = 2260 [default = "This protocol plug-in classifies the trafic related to the AOL portal."];
+optional string akinator = 2261 [default = "Mobile game."];
+optional string tapatalk = 2262 [default = "Mobile app which allows to browse forums."];
+optional string puzzle_and_dragon = 2263 [default = "Japanese Mobile game."];
+optional string snapchat = 2264 [default = "Snapchat is a photo/video sharing service."];
+optional string cameroon_info = 2265 [default = "Cameroonian news portal"];
 }

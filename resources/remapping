@@ -127,6 +127,7 @@ path_len PathLen
 packet_counter PktCounter
 session_packet_counter SessionPktCounter
 time Time
+create_time CreateTime
 is_mobile_service IsMobileService
 login Login
 password Passwd
@@ -745,6 +746,7 @@ password Passwd
 entropy Entropy
 virtual_addr VirtualAddr
 accept_encoding AcceptEncoding
+file_type FileType
 audio_datarate AuditDataRate
 auth_password AuthPass
 auth_username AuthUsername
@@ -805,6 +807,8 @@ total_datarate TotalDataRate
 upgrade_header UpgradeHeader
 uri URI
 uri_decoded URIDecoded
+uri_raw URIRaw
+uri_raw_path URIRawPath
 uri_end_offset URIEndOffset
 uri_full URIFull
 uri_get_decoded URIGetDecoded
@@ -893,6 +897,7 @@ server_response ServerResp
 subject Subject
 user_agent UserAgent
 xmailer Xmailer
+file_type FileType
 action Action
 attach_id AttachID
 attach_size AttachSize
@@ -1579,6 +1584,7 @@ is_mobile_service IsMobileService
 login Login
 password Passwd
 attach_disposition AttachDisposition
+file_type FileType
 attach_transfer_encoding AttachTransferEncoding
 attach_type AttachType
 date Date
@@ -1868,6 +1874,7 @@ message_type MsgType
 source_name SourceName
 source_type SourceType
 accept_language AcceptLanguage
+authorization_username AuthorizationUsername
 alert_info AlertInfo
 call_duration CallDuration
 callee Callee
@@ -1982,6 +1989,7 @@ version Version
 receiver Receiver
 sender Sender
 attach_disposition AttachDisposition
+file_type FileType
 attach_size AttachSize
 attach_transfer_encoding AttachTransferEncoding
 attach_type AttachType
@@ -2082,6 +2090,7 @@ sender_email SenderEmail
 subject Subject
 rtt RTT
 common_name CommonName
+organization_name OrganizationName
 issuer Issuer
 server_name ServerName
 subject_alt_name SubjectAltName
@@ -2113,6 +2122,8 @@ user_id UserID
 login Login
 password Passwd
 ack_number AckNumber
+unack_sequence UnackSequence
+retransmission_bytes RetransmissionBytes
 cnx_duration CnxDuration
 loss_count LossCount
 previous_lost PreviousLost
