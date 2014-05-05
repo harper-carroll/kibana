@@ -53,6 +53,7 @@ print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
+print "\"CaptureKey\" : {\"type\" : \"string\", \"index\" : \"no\", \"store\" : false, \"ignore_malformed\" : true},\n";
 
 
 for $app ( keys %typeHash ) {
