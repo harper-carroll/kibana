@@ -45,7 +45,7 @@ print "\"properties\" : {\n";
 print "\"SrcIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
 print "\"SrcIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
 print "\"DestIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
-print "\"DestIP6\"  : { \"type\": \"strin\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
+print "\"DestIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
 print "\"TimeStart\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
 print "\"TimeUpdated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
 print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
