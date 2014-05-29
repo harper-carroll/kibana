@@ -1,0 +1,25 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "LogMessageMsg";
+
+message LogMessage {
+  enum LogType {
+     NORMALIZED = 0;
+     FULL = 1;
+     INTERMEDIATE = 2;
+     DEBUG = 3;
+     SYSTEM = 4;
+     EVENT = 5;
+  }
+  enum SourceType {
+     DPIMSG = 0;
+     JSON = 1;
+     RAW = 2;
+  }
+  optional LogType outputType = 1; 
+  repeated SourceType inputType = 2;
+  repeated string inputData = 3;
+}
+
+
