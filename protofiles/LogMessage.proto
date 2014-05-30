@@ -17,9 +17,24 @@ message LogMessage {
      JSON = 1;
      RAW = 2;
   }
+  enum SystemSubtype {
+     RESTART = 0;
+     FATAL_ERROR = 1;
+     UPGRADE = 2;
+     INDEX_DELETE = 3;
+     CONFIG_CHANGE = 4;
+     ADMIN_PASSWD_CHANGE = 5;
+     USER_ADD = 6;
+     USER_DEL = 7;
+     PCAP_DOWNLOAD = 8;
+     UNKNOWN = 9;
+  }
+  
   optional LogType outputType = 1; 
   repeated SourceType inputType = 2;
   repeated string inputData = 3;
+  repeated SystemSubtype systemSubType = 4;
+  repeated string eventName = 5;
 }
 
 
