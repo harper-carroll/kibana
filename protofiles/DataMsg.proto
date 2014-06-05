@@ -5,7 +5,7 @@ option java_outer_classname = "DataMsg";
 
 message DataMsgProto {
   optional string indexName = 1;
-  optional string indexType = 2 [default = "logs"];
+  optional string indexType = 2;
   optional string indexId = 3;
   optional int32 msgSourceId = 4;
   optional string normalMsgDate = 5;
