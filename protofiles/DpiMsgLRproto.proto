@@ -62,6 +62,7 @@ message DpiMsgLRproto
    optional string StoragePath = 41;
    repeated uint32 SrcIP6 = 42;
    repeated uint32 DestIP6 = 43;
+   optional string RawData = 44;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
