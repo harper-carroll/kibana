@@ -43,6 +43,8 @@ message BaseConf {
   optional string dpiRecycleThreshold = 46;
   optional string pcapRecordsToClearPerCycle = 47;
   optional string flowReportInterval = 48;
+  optional string esIndexerQueueSize = 49;
+  optional string syslogQueue = 50;
 
   // REMEMBER to add any new parameters to the unit test at
   // Research/test/ConfBaseValidationTests.cpp : 

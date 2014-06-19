@@ -38,6 +38,7 @@ print "\"$remapping{application}\", ";
 print "\"$remapping{application_end}\", ";
 print "\"$remapping{application_id}\", ";
 print "\"$remapping{application_id_end}\", ";
+print "\"CaptureKey\", ";
 print "\"FileID\" ";
 print "]\n";
 print "},\n";
@@ -48,12 +49,14 @@ print "\"DestIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
 print "\"DestIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
 print "\"TimeStart\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
 print "\"TimeUpdated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
-print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
+print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true},\n";
+print "\"TimeEnd\" : { \"type\": \"long\", \"ignore_malformed\" : true},\n";
+print "\"TimeStartRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : \"no\" },\n";
+print "\"TimeUpdatedRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : \"no\" },\n";
 print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
-print "\"CaptureKey\" : {\"type\" : \"string\", \"index\" : \"no\", \"store\" : false, \"ignore_malformed\" : true},\n";
 
 
 for $app ( keys %typeHash ) {
