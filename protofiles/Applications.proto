@@ -2309,4 +2309,6 @@ optional string pou = 2307 [default = "Mobile game"];
 optional string subway_surfers = 2308 [default = "Mobile game"];
 optional string addthis = 2309 [default = "AddThis is a social bookmarking service that can be integrated into a website with the use of a web widget."];
 optional string amjilt = 2310 [default = "Mongolian news portal."];
+optional string doodle_jump = 2311 [default = "Mobile game developped by Lima Sky LLC"];
+optional string telegram = 2312 [default = "Telegram is an instant messaging protocol like Whatsapp."];
 }
