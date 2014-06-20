@@ -32,7 +32,7 @@ message LogMessage {
   
   optional LogType outputType = 1; 
   repeated SourceType inputType = 2;
-  repeated string inputData = 3;
+  repeated bytes inputData = 3;
   repeated SystemSubtype systemSubType = 4;
   repeated string eventName = 5;
 }
