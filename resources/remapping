@@ -1691,6 +1691,7 @@ session_timeout SessionTimeout
 start_time StartTime
 stop_time StopTime
 terminate_cause TerminateCause
+framed_ip_netmask FramedIPNetmask
 domain Domain
 login Login
 password Passwd
@@ -2127,6 +2128,7 @@ root_addr RootAddr
 root_path_cost RootPathCost
 mapped_address_ipv4 MappedAddrIpV4Stun
 xor_mapped_address_ipv4 XorMappedAddrIpV4Stun
+magic_cookie MagicCookie
 code Code
 callee Callee
 caller Caller
@@ -2563,6 +2565,7 @@ sender Sender
 service Service
 sessionid SessionID
 version Version
+conference_id ConferenceId
 audio_datarate AuditDataRate
 date Date
 description Description
