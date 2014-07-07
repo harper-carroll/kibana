@@ -1,5 +1,5 @@
 {
-    "network" : {
+    "events" : {
     "template" : "events*",
     "settings" : {
     "index.refresh_interval" : "10s",
