@@ -1,6 +1,6 @@
 {
     "network" : {
-    "template" : "network*",
+    "template" : "network_*",
     "settings" : {
     "index.refresh_interval" : "10s",
      "index.cache.filter.expire" : "2m",
