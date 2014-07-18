@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 #
-# usage: buildESTemplate.pl protofile renamefile
+# usage: buildESTemplate.pl protofile renamefile indexType
+# note: The last param above (indexType is optional), if specified, it will add the extra fields necessary for that index
 #
 sub ReadProtoFile {
    my($filename) = $_[0];
@@ -58,6 +59,10 @@ print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
+if ( $ARGV[2] eq "events" ) {
+	print "\"RuleName\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
+	print "\"RuleSeverity\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
+}
 
 for $app ( keys %typeHash ) {
    if ($app eq "Timestamp" || $app eq "SyslogMessage" ) {
