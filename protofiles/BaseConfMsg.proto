@@ -48,9 +48,9 @@ message BaseConf {
   optional string diskpacketwriterQueueSize = 51;
   optional string diskpacketwriterFeedbackQueueSize = 52;
   optional string pCapFlushInterval = 53;
-  optional string cacheOfSessionsThatAreRemoved = 54;
   optional string sizeOfPcapChunks = 55;
   optional string numberOfPcapChunks = 56;
+  optional string pCapRemovalNotifyQueue = 57;
 
 
   // REMEMBER to :
