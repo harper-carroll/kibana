@@ -2699,8 +2699,5 @@ optional uint32 sr_dlsrQ_PROTO_RTCP = 3007; // QOSMOS:Q_PROTO_RTCP,Q_RTCP_SR_DLS
 optional string mapped_address_ipv4Q_PROTO_STUN = 3008; // QOSMOS:Q_PROTO_STUN,Q_STUN_MAPPED_ADDRESS_IPV4,uint32,ip_addrToString
 optional string xor_mapped_address_ipv4Q_PROTO_STUN = 3009; // QOSMOS:Q_PROTO_STUN,Q_STUN_XOR_MAPPED_ADDRESS_IPV4,uint32,ip_addrToString
 optional string framed_ip_netmaskQ_PROTO_RADIUS = 3010; // QOSMOS:Q_PROTO_RADIUS,Q_RADIUS_FRAMED_IP_NETMASK,uint32,ip_addrToString
-optional uint32 magic_cookieQ_PROTO_STUN = 3011; // QOSMOS:Q_PROTO_STUN,Q_STUN_MAGIC_COOKIE
-repeated bytes conference_idQ_PROTO_YMSG = 3012; // QOSMOS:Q_PROTO_YMSG,Q_YMSG_CONFERENCE_ID
-repeated bytes video_typeQ_PROTO_YOUTUBE = 3013; // QOSMOS:Q_PROTO_YOUTUBE,Q_MPA_VIDEO_TYPE
 optional uint32 video_avgdatarateQ_PROTO_YOUTUBE = 3014; // QOSMOS:Q_PROTO_YOUTUBE,Q_MPA_VIDEO_AVGDATARATE
 }
