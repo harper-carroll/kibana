@@ -16,6 +16,6 @@ message ESData {
   optional uint64 normalMsgDate = 5;
   optional string normalMsgDateStr = 6;
   optional string json = 7;
-  optional RequestType type = 8;
+  optional RequestType requestType = 8;
   optional bool shouldPercolate = 9;
 }
