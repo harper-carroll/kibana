@@ -158,8 +158,6 @@ pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached f
 qq,QQ,#call_data,QQ payload containing the data of the call (audio/video)
 qq_transfer,QQ File Transfer,#content,File content
 radius,Remote Authentication Dial-In User Service,#inherit_parent,"Parent inheritance key
-radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Provides the ipv6 prefix to be configured for the user.
-radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Provides the ipv6 prefix to be delegated to the user.
 radius,Remote Authentication Dial-In User Service,#avp_prefix,Ipv6 prefix is a sequence of 0 to 16 bytes. (CLEP_DATA_BUFFER)
 rambler_webmail,Rambler webmail,#attach_content,Attached files' content.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_raw,"Client hostname
