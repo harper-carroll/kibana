@@ -4,11 +4,6 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ESDataMsg";
 
 message ESData {
-  enum RequestType {
-     INSERT = 1;
-     UPDATE = 2;
-  }
-
   optional string indexName = 1;
   optional string indexType = 2;
   optional string indexId = 3;
@@ -16,6 +11,16 @@ message ESData {
   optional uint64 normalMsgDate = 5;
   optional string normalMsgDateStr = 6;
   optional string json = 7;
-  optional RequestType requestType = 8;
-  optional bool shouldPercolate = 9;
+}
+
+message ESDataCollection {
+   enum RequestType {
+      INSERT = 1;
+      UPDATE = 2;
+   }
+  
+   optional RequestType requestType = 1;
+   optional bool shouldPercolate = 2;
+   repeated ESData message = 3;
+
 }
