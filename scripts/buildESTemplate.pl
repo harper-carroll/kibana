@@ -69,7 +69,7 @@ if ( $ARGV[2] eq "rules" ) {
 	print "\"severity\" : { \"type\" : \"string\" },\n";
 	print "\"query\" : { \"type\" : \"object\" },\n";
 	print "\"createdDate\" : { \"format\" : \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\" : \"date\" },\n";
-	print "\"lastModifiedDate\" : { \"format\" : \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\" : \"date\" }\n";
+	print "\"lastModifiedDate\" : { \"format\" : \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\" : \"date\" },\n";
 }
 
 for $app ( keys %typeHash ) {
