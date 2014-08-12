@@ -83,17 +83,17 @@ sub CreateSummaryFile {
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
-         if ($lineValues[3] eq '' ) {
-            print summaryFile "base,";
-         } else {
-            print summaryFile "$lineValues[3],";
-         }
          if ($lineValues[4] eq '' ) {
             print summaryFile "base,";
          } else {
             print summaryFile "$lineValues[4],";
          }
-         print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
+         if ($lineValues[5] eq '' ) {
+            print summaryFile "base,";
+         } else {
+            print summaryFile "$lineValues[5],";
+         }
+         print summaryFile '#'."$lineValues[8],$lineValues[11]\n";
       }
    }
 
