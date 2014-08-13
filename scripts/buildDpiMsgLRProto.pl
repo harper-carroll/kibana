@@ -51,7 +51,6 @@ sub ReadPreviousData {
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
 
-	print "File to Open: $filename\n";
    open previousData, "$filename" or die $!;
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
@@ -171,7 +170,7 @@ DumpFile($renameMap,\%renameMapping);
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
    @lineValues = split(/,/,$line);
-   $field = "$lineValues[7]$lineValues[1]";
+   $field = "$lineValues[8]$lineValues[2]";
    my $index = 0;
    foreach (@previousData) {
       if ( $_ =~ /$field/ ) {
