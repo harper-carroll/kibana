@@ -2,7 +2,7 @@
 !NA,NA|
 !Q_IP_SRC_ADDR32|
 !buffer|
-!,,,,,|
+!,\.,,,,,|
 !binary|
 !Q_IP_DST_ADDR32|
 !Q_BASE_DELAY|

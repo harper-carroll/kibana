@@ -1,5 +1,4 @@
 protocolName,longProtocolName,attributeName,attributeDescription
-proto_name,proto_longname,#attr_name,attr_desc
 base,base,#hdr64,"Contains
 base,base,#byte_val,Contains data defined by given offset parameters starting from the header of the protocol level considered.
 base,base,#frame,"Contains packet data
@@ -7,380 +6,64 @@ base,base,#parent_user_handle,User data associated to one parent session.
 base,base,#data,"Contains packet data
 base,base,#classification_match,This attribute compares the classification states of both half-sessions.
 base,base,#statemachine_anomaly,We check if we are in a final node when we cleanup the statemachine.
-0zz0,0zz0.com,#end,Indicates the end of a top level event.
-0zz0,0zz0.com,#request,Contains information which is in http request.
 3gpp_li,3GPP LI,#hi3_domain_id,3gpp_li HI3 Domain
 3gpp_li,3GPP LI,#correlation_number,GPRS correlation number
 3gpp_li,3GPP LI,#national_params,National parameters (other than country) in ASN.1 format
-8021q,802.1Q Ethernet VLAN,#priority,Packet priority.
-8021q,802.1Q Ethernet VLAN,#cfi,Flag used for compatibility reason between Ethernet type network and Token Ring type network. Canonical Format Indicator is always set to zero for Ethernet switches.
-8021q,802.1Q Ethernet VLAN,#vlan_id,VLAN Identifier of the frame.
-adc,Advanced Direct Connect,#end,Indicates the end of a top level event.
 adc,Advanced Direct Connect,#file_chunk_content,Content of the transferred data.
-adc,Advanced Direct Connect,#file_chunk,A piece of a transferred file.
-adc,Advanced Direct Connect,#file_is_compressed,Tells whether a file is compressed.
-adc,Advanced Direct Connect,#file,File related information.
-adc,Advanced Direct Connect,#command,Parent attribute denoting the start of a message of the protocol.
-adobe_update,Adobe Update Manager,#end,Indicates the end of a top level event.
-adobe_update,Adobe Update Manager,#component_list_entry,Update server's answer entry.
-adobe_update,Adobe Update Manager,#update_request,Client's component update request to the update server.
-aim,AOL Instant Messenger (formerly OSCAR),#end,Indicates the end of a top level event.
 aim,AOL Instant Messenger (formerly OSCAR),#inherit_key,"Candidate inheritance key
 aim,AOL Instant Messenger (formerly OSCAR),#inherit_parent,"Parent inheritance key
-aim,AOL Instant Messenger (formerly OSCAR),#chat,"Parent entry
-aim,AOL Instant Messenger (formerly OSCAR),#file,File related information.
-aim,AOL Instant Messenger (formerly OSCAR),#contact_entry,This attribute groups information about a contact.
 aim,AOL Instant Messenger (formerly OSCAR),#icon_data,Binary data containing a contact's icon.
-aim,AOL Instant Messenger (formerly OSCAR),#external_listening_port,External listening TCP port address of the contact.
-aim_express,AIM express,#chat,"Parent entry
-aim_express,AIM express,#end,Indicates the end of a top level event.
-aim_express,AIM express,#contact_entry,This attribute groups information about a contact.
-aim_transfer,AIM Transfer,#end,Indicates the end of a top level event.
 aim_transfer,AIM Transfer,#inherit_key,"Candidate inheritance key
-aim_transfer,AIM Transfer,#file,File related information.
 aim_transfer,AIM Transfer,#content,File content
-archive,Archive.org,#end,Indicates the end of a top level event.
-archive,Archive.org,#account,User account metadata including the login and the password.
-archive,Archive.org,#query,Contains the raw and text query sent.
-archive,Archive.org,#file,Parent attribute containing metadata related to the file.
-ares,Ares,#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
-arp,Address Resolution Protocol,#hardware,Specify the hardware type for which the request is sent. A value of 1 indicates an Ethernet address.
-arp,Address Resolution Protocol,#protocol,Protocol number encapsulated in the Ethernet frame.
-arp,Address Resolution Protocol,#hardsize,MAC address length.
-arp,Address Resolution Protocol,#protosize,Size in bytes of the logical address requested. Example: 4 for IP.
-arp,Address Resolution Protocol,#opcode,"Operation Code: Request = 1
 arp,Address Resolution Protocol,#src_hard,Source MAC address.
 arp,Address Resolution Protocol,#src_proto,Source IP address.
 arp,Address Resolution Protocol,#dst_hard,Destination MAC address.
 arp,Address Resolution Protocol,#dst_proto,Destination IP address.
-badongo,Badongo.com,#end,Indicates the end of a top level event.
-badongo,Badongo.com,#file,Parent attribute containing metadata related to the file.
-badongo,Badongo.com,#account,User account metadata including the login and the password.
 badongo,Badongo.com,#content,Message content.
-badoo,Badoo.com,#end,Indicates the end of a top level event.
-badoo,Badoo.com,#chat,"Parent entry
-badoo,Badoo.com,#account,User account metadata including the login and the password.
-badoo,Badoo.com,#contact_entry,This attribute groups information about a contact.
-baidu,Baidu.com,#end,Indicates the end of a top level event.
-baidu,Baidu.com,#query,Contains the raw and text query sent.
-base,Base virtual protocol,#cnx_type,Packet transfer direction in a client/server flow.
-base,Base virtual protocol,#path,Protocol stack of a packet.
-base,Base virtual protocol,#daytime,Current time characteristics according to the given parameter: second (s)/ minute (m)/ hour (h)/ day (D)/ month (M)/ year (Y).
-base,Base virtual protocol,#classified,"Attribute showing whether the classification process (AFC) has been completed or not for the given packet. A value of 1 indicates a complete classification
-base,Base virtual protocol,#user_handle,User data associated to this session. This attribute data cannot be retreived in externalized versions.
-base,Base virtual protocol,#peer_user_handle,User data associated to the peer half-session. This attribute data cannot be retreived in externalized versions.
-base,Base virtual protocol,#way,Way of half connection.
-base,Base virtual protocol,#protocol,"Empty parent attribute for path
 base,Base virtual protocol,#packet,Packet data.
 base,Base virtual protocol,#packet_ip,Packet data from first IP layer.
-base,Base virtual protocol,#upacket,Address where there is the packet data.
-base,Base virtual protocol,#filter_state_change,"When a filter's state changes
-base,Base virtual protocol,#filter_rule_matches,When a filter is matched.
-base,Base virtual protocol,#session_end,Triggered when the session is finished.
-base,Base virtual protocol,#end,Indicates the end of a top level event.
-base,Base virtual protocol,#user_handle_pkt,User data associated to this session containing ctb_ppacket user_handle.
 base,Base virtual protocol,#sys_pkt_header,A binary buffer container data inserted in the head of the real packet
 base,Base virtual protocol,#sys_pkt_footer,A binary buffer container data inserted in the tail of the real packet
-base,Base virtual protocol,#protocol_end,"Empty parent attribute for path_end
-base,Base virtual protocol,#path_end,Contains the latest value for the attribute path
-base,Base virtual protocol,#split,"When a flow is split
-base,Base virtual protocol,#session_unidir,Extracted when unidirectional traffic is detected.
-bebo,Bebo.com,#end,Indicates the end of a top level event.
-bebo,Bebo.com,#account,User account metadata including the login and the password.
-bgp,Border Gateway Protocol,#end,Indicates the end of a top level event.
-bgp,Border Gateway Protocol,#message_entry,Parent entry for the attributes of a BGP message
-bgp,Border Gateway Protocol,#version,Protocol version
-bgp,Border Gateway Protocol,#as,Autonomous System Identifier
-bgp,Border Gateway Protocol,#hold_time,The number of seconds proposed by the sender for the value of the Hold Timer
-bgp,Border Gateway Protocol,#error_code,This attribute indicates the type of NOTIFICATION
-bgp,Border Gateway Protocol,#error_subcode,This attribute provides more specific information about the nature of the reported error
 bgp,Border Gateway Protocol,#error_notification_data,Raw error data notification.
-bgp,Border Gateway Protocol,#path_attr_entry,Parent entry for path attributes
-bgp,Border Gateway Protocol,#path_attr_value_entry,Parent entry for path_attr_value_... attributes
 bgp,Border Gateway Protocol,#path_attr_value,Content of the attribute
-bgp,Border Gateway Protocol,#withdrawn,Parent entry for the attributes withdrawn_prefix and withdrawn_prefix_len
-bgp,Border Gateway Protocol,#withdrawn_prefix_len,This field indicates the length in bits of the IP address prefix
-bgp,Border Gateway Protocol,#nlri,Parent entry for the attributes nlri_prefix and nlri_prefix_len
-bgp,Border Gateway Protocol,#nlri_prefix_len,This field indicates the length in bits of the IP address prefix
-bgp,Border Gateway Protocol,#auth_entry,Parent entry for the attributes of the authentication
-bgp,Border Gateway Protocol,#auth_code,A code that indicates the type of authentication
 bgp,Border Gateway Protocol,#auth_message,The content of the authentication
-bgp,Border Gateway Protocol,#afi,In a route refresh packet this field is an address family identifier.
-bgp,Border Gateway Protocol,#safi,In a route refresh packet this field is a subsequent address family identifier.
-bing,Bing.com (formerly MSN Search),#end,Indicates the end of a top level event.
-bing,Bing.com (formerly MSN Search),#query,Contains the raw and text query sent.
-bittorrent,BitTorrent,#end,Indicates the end of a top level event.
-bittorrent,BitTorrent,#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
-bittorrent,BitTorrent,#signalization_override,Attribute used to specify whether the current session may provide incoming flows information or not. This value overrides the proto_feature flag defined in the layer raising this event.
-bittorrent,BitTorrent,#declassify_override,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.
 bittorrent,BitTorrent,#file_hash,Hash of the transferred file.
 bittorrent,BitTorrent,#file_hash_raw,Content whose SHA1 hash is the file_hash ('info' section of the torrent file).
 bittorrent,BitTorrent,#peer_id,Unique ID containing information about the software and the version used.
-bittorrent,BitTorrent,#file_chunk,A piece of a transferred file.
-bittorrent,BitTorrent,#canceled_chunk,A piece of a canceled file.
 bittorrent,BitTorrent,#file_chunk_content,Content of the transferred data.
-bittorrent,BitTorrent,#file,File related information.
-bittorrent,BitTorrent,#peer_share_ip6,IPv6 address used by a peer to share his files.
-bittorrent,BitTorrent,#peer_share_port,Port used by a peer to share his files.
-bmff,ISO Base Media File Format,#end,Indicates the end of a top level event.
-bmff,ISO Base Media File Format,#video,"Parent entry
-bssap,BSS Application Part,#end,Indicates the end of a top level event.
-bssap,BSS Application Part,#message,A parent attribute for each BSSAP message
-bssap,BSS Application Part,#receiver_entry,Message receiver
-bssap,BSS Application Part,#sender_entry,Message sender
-bxml,WAP Binary XML,#public_id,Public ID of the connection.
-cdp,Cisco Discovery Protocol,#version,Protocol version.
-cdp,Cisco Discovery Protocol,#ttl,"The Time-to-Live field indicates the amount of time
-cdp,Cisco Discovery Protocol,#prefix,List of network prefixes to which the sending device can forward IP packets.
 cdp,Cisco Discovery Protocol,#native_vlan,The assumed VLAN for untagged packets on the interface which sent the CDP packet.
 cdp,Cisco Discovery Protocol,#duplex,Duplex configuration of the interface which sent the CDP message.
 chap,Challenge Handshake Authentication Protocol,#challenge,Challenge sent by the peer initiating the authentication process.
 chap,Challenge Handshake Authentication Protocol,#response,Response to the challenge.
-chrome_update,Chrome Update,#end,Indicates the end of a top level event.
-chrome_update,Chrome Update,#plugin,"Parent attribute which contains the attributes plugin_id
-cotp,Connection Oriented Transfer Protocol,#tpdu_code,TPDU (Transport Protocol Data Unit) code as defined by the ITU in the X.224 recommendations.
-dailymotion,Dailymotion.com,#end,Indicates the end of a top level event.
-dailymotion,Dailymotion.com,#account,User account metadata including the login and the password.
-dailymotion,Dailymotion.com,#query,Contains the raw and text query sent.
-debian_update,Debian/Ubuntu Update,#end,Indicates the end of a top level event.
-debian_update,Debian/Ubuntu Update,#package,Debian packet.
-dhcp,Dynamic Host Configuration Protocol,#end,Indicates the end of a top level event.
 dhcp,Dynamic Host Configuration Protocol,#inherit_parent,"Parent inheritance key
-dhcp,Dynamic Host Configuration Protocol,#request,An empty parent for the other attributes. a request per dhcp packet.
-dhcp,Dynamic Host Configuration Protocol,#option,An empty parent attribute
-dhcp,Dynamic Host Configuration Protocol,#option_type,Option type
 dhcp,Dynamic Host Configuration Protocol,#option_value,Content or value of the option
-dhcp,Dynamic Host Configuration Protocol,#agent,A parent attribute for agent information
-diameter,Diameter,#end,Indicates the end of a top level event.
-diameter,Diameter,#command_flags,"Bitfield which defines some attributes of a command on one byte as follows: [RPE.....] ('R'equest/answer
-diameter,Diameter,#request,A Diameter request.
-dimp,Dynamic Internet Messaging Program,#end,Indicates the end of a top level event.
 dimp,Dynamic Internet Messaging Program,#attach_content,Attached files' content.
-dimp,Dynamic Internet Messaging Program,#receiver_entry,"Parent entry
-dimp,Dynamic Internet Messaging Program,#sender_entry,"Parent entry
-dimp,Dynamic Internet Messaging Program,#attach,"Parent entry
-dimp,Dynamic Internet Messaging Program,#email,"Parent entry
-dimp,Dynamic Internet Messaging Program,#msglist_sender_entry,Parent entry for a sender in a message list.
-dimp,Dynamic Internet Messaging Program,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-dimp,Dynamic Internet Messaging Program,#msglist_entry,"Parent entry
-directconnect,DirectConnect (NMDC),#end,Indicates the end of a top level event.
-directconnect,DirectConnect (NMDC),#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
-directconnect,DirectConnect (NMDC),#search_result,The result of a query.
-directconnect,DirectConnect (NMDC),#file_chunk,A piece of a transferred file.
 directconnect,DirectConnect (NMDC),#file_chunk_content,Content of the transferred data.
-dns,Domain Name Service,#end,Indicates the end of a top level event.
-dns,Domain Name Service,#dns_entry,"DNS entry
-dns,Domain Name Service,#dns_query,DNS query.
-dns,Domain Name Service,#host_addr6,IPV6 Host address
-dns,Domain Name Service,#reverse_addr6,IPv6 address returned to the PTR request.
-dns,Domain Name Service,#web_application_info,"Structure containing metadata for classification of known HTTP-based web applications. These metadata are based on Type A (IPv4) DNS responses returned from the server. The ul3l4_addr_t structure contains the web application protocol path
-ebay,eBay.com,#end,Indicates the end of a top level event.
-ebay,eBay.com,#query,Contains the raw and text query sent.
-ebuddy,eBuddy.com,#end,Indicates the end of a top level event.
-ebuddy,eBuddy.com,#contact_entry,This attribute groups information about a contact.
-ebuddy,eBuddy.com,#chat,"Parent entry
-ebuddy,eBuddy.com,#account,User account metadata including the login and the password.
-edonkey,Edonkey,#end,Indicates the end of a top level event.
-edonkey,Edonkey,#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
 edonkey,Edonkey,#file_hash,Hash of the transferred file.
-edonkey,Edonkey,#file_chunk,A piece of a transferred file.
 edonkey,Edonkey,#file_chunk_content,Content of the transferred data.
-eigrp,Enhanced Interior Gateway Routing Protocol,#version,Protocol version.
-eigrp,Enhanced Interior Gateway Routing Protocol,#opcodeid,Operation code.
-eth,Ethernet,#protocol,Protocol number encapsulated in the Ethernet frame.
 eth,Ethernet,#trailer,Data added to complete the Ethernet frame if required (padding bits).
-eth,Ethernet,#address,Matches a source or destination Ethernet address. To be used in a filter.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#end,Indicates the end of a top level event.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#communication_id,"Parent attribute which contains network_id
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#network_id,Network Identifier.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#microsecond_time_stamp_temp,The microSecondTimeStampTemp field may be used to contain timestamp in second and microsecond.
-facebook,Facebook.com,#end,Indicates the end of a top level event.
-facebook,Facebook.com,#application,(Deprecated) Parent for all attributes related to facebook applications.
-facebook,Facebook.com,#feed,"Parent for all attributes related to facebook feeds. Currently
-facebook,Facebook.com,#share,Parent for all attributes related to sharing.
-facebook,Facebook.com,#contact_entry,Parent for all attributes related tu user contacts.
-facebook,Facebook.com,#profile_entry,Parent for all attributes related to facebook profile.
-facebook,Facebook.com,#chat,Parent for all attributes related to instant messages.
-facebook,Facebook.com,#query,Contains the raw and text query sent.
-facebook,Facebook.com,#account,User account metadata including the login and the password.
-facebook_apps,Facebook Apps,#end,Indicates the end of a top level event.
-facebook_apps,Facebook Apps,#application,Parent for all attributes related to facebook applications.
-facebook_mail,facebook mail,#end,Indicates the end of a top level event.
 facebook_mail,facebook mail,#attach_content,Attached files' content.
-facebook_mail,facebook mail,#attach,"Parent entry
-facebook_mail,facebook mail,#contact_entry,This attribute groups information about a contact.
-facebook_mail,facebook mail,#sender_entry,"Parent entry
-facebook_mail,facebook mail,#receiver_entry,"Parent entry
-facebook_mail,facebook mail,#email,"Parent entry
-facebook_mail,facebook mail,#account,User account metadata including the login and the password.
-facetime,Apple FaceTime,#end,Indicates the end of a top level event.
-facetime,Apple FaceTime,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-firefox_update,Firefox Update,#end,Indicates the end of a top level event.
-firefox_update,Firefox Update,#plugin,Parent for all attributes related to plugins.
-friendster,Friendster.com,#end,Indicates the end of a top level event.
-friendster,Friendster.com,#account,User account metadata including the login and the password.
 ftp,File Transfer Protocol,#inherit_parent,"Parent inheritance key
-ftp,File Transfer Protocol,#end,Indicates the end of a top level event.
-ftp,File Transfer Protocol,#command,Parent attribute grouping meta data extracted from FTP protocol.
-ftp,File Transfer Protocol,#request,A FTP request.
-ftp,File Transfer Protocol,#data_port,Data connection TCP port.
-ftp,File Transfer Protocol,#return_msg,"Parent attribute
-ftp,File Transfer Protocol,#return_code,Code of server's response.
 ftp_data,File Transfer Protocol Data,#inherit_key,"Candidate inheritance key
 ftp_data,File Transfer Protocol Data,#content,File content
-giop,General Inter-ORB Protocol,#message,GIOP message parent structure.
 giop,General Inter-ORB Protocol,#object_key,Identifies the object should receive the message.
-giop,General Inter-ORB Protocol,#end,Indicates the end of a top level event.
-gmail,Google Mail,#end,Indicates the end of a top level event.
-gmail,Google Mail,#msglist_entry,"Parent entry
-gmail,Google Mail,#msglist_sender_entry,Parent entry for a sender in a message list.
-gmail,Google Mail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-gmail,Google Mail,#email,"Parent entry
-gmail,Google Mail,#sender_entry,"Parent entry
-gmail,Google Mail,#receiver_entry,"Parent entry
-gmail,Google Mail,#attach,"Parent entry
 gmail,Google Mail,#attach_content,Attached files' content.
-gmail,Google Mail,#access_info,Contains Gmail access data.
-gmail,Google Mail,#contact_entry,This attribute groups information about a contact.
-gmail_basic,Gmail basic,#end,Indicates the end of a top level event.
-gmail_basic,Gmail basic,#sender_entry,"Parent entry
-gmail_basic,Gmail basic,#msglist_sender_entry,Parent entry for a sender in a message list.
-gmail_basic,Gmail basic,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-gmail_basic,Gmail basic,#msglist_entry,"Parent entry
-gmail_basic,Gmail basic,#contact_entry,This attribute groups information about a contact.
-gmail_basic,Gmail basic,#receiver_entry,"Parent entry
 gmail_basic,Gmail basic,#attach_content,Attached files' content.
-gmail_basic,Gmail basic,#attach,"Parent entry
-gmail_basic,Gmail basic,#email,"Parent entry
-gmail_chat,Google Chat,#end,Indicates the end of a top level event.
-gmail_chat,Google Chat,#chat,"Parent entry
 gmail_chat,Google Chat,#inherit_parent,"Parent inheritance key
-gmail_mobile,Gmail Mobile,#end,Indicates the end of a top level event.
-gmail_mobile,Gmail Mobile,#msglist_sender_entry,Parent entry for a sender in a message list.
-gmail_mobile,Gmail Mobile,#msglist_entry,"Parent entry
-gmail_mobile,Gmail Mobile,#contact_entry,This attribute groups information about a contact.
 gmail_mobile,Gmail Mobile,#attach_content,Attached files' content.
-gmail_mobile,Gmail Mobile,#attach,"Parent entry
-gmail_mobile,Gmail Mobile,#receiver_entry,"Parent entry
-gmail_mobile,Gmail Mobile,#sender_entry,"Parent entry
-gmail_mobile,Gmail Mobile,#email,"Parent entry
-gmail_mobile,Gmail Mobile,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-gmx,GMX webmail,#end,Indicates the end of a top level event.
 gmx,GMX webmail,#attach_content,Attached files' content.
-gmx,GMX webmail,#attach,"Parent entry
-gmx,GMX webmail,#receiver_entry,"Parent entry
-gmx,GMX webmail,#sender_entry,"Parent entry
-gmx,GMX webmail,#email,"Parent entry
-gnutella,gnutella,#end,Indicates the end of a top level event.
-gnutella,gnutella,#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
-gnutella,gnutella,#file,File related information.
-gnutella,gnutella,#file_chunk,A piece of a transferred file.
-gnutella,gnutella,#file_chunk_data,Information about downloaded data.
 gnutella,gnutella,#file_chunk_content,Content of the transferred data.
-gnutella,gnutella,#file_chunk_number,Number of the transferred piece.
-gnutella,gnutella,#peer,Parent attribute containing some Gnutella Peer connection metadata. This metadata can be used to classify Gnutella connections targetted to this machine.
-gnutella,gnutella,#peer_port,Gnutella peer's listenning port number.
-google,Google.com,#end,Indicates the end of a top level event.
-google,Google.com,#query,Contains the raw and text query sent.
-google_ads,Google ads,#end,Indicates the end of a top level event.
-google_ads,Google ads,#google_ad,Parent attribute grouping ad information.
-google_earth,Google Earth,#end,Indicates the end of a top level event.
-google_earth,Google Earth,#search,Place researched.
-google_earth,Google Earth,#query,Contains the raw and text query sent.
-google_earth,Google Earth,#near,Location being near place researched.
-google_earth,Google Earth,#itinerary,Itinerary researched.
-google_earth,Google Earth,#start_addr,Departure point .
-google_earth,Google Earth,#end_addr,Arrival point.
-google_groups,Google groups,#end,Indicates the end of a top level event.
-google_groups,Google groups,#sender_entry,"Parent entry
-google_groups,Google groups,#email,"Parent entry
-google_groups,Google groups,#msglist_sender_entry,Parent entry for a sender in a message list.
-google_groups,Google groups,#msglist_entry,"Parent entry
-google_groups,Google groups,#receiver_entry,"Parent entry
-google_groups,Google groups,#member_entry,"Parent entry
-google_groups,Google groups,#query,Contains the raw and text query sent.
-google_maps,Google Maps,#end,Indicates the end of a top level event.
-google_maps,Google Maps,#query,Contains the raw and text query sent.
-google_maps,Google Maps,#itinerary,Itinerary researched.
-google_maps,Google Maps,#space,Parent attribut containing the geographic coordinates of the zone currently displayed by the user.
-gougou,Gougou.com,#end,Indicates the end of a top level event.
-gougou,Gougou.com,#query,Contains the raw and text query sent.
-gre,Generic Routing Encapsulation,#wrong_crc,It is a flag raised when the CRC field checksum is changed from the computed one.
-gre,Generic Routing Encapsulation,#protocol_id,Id of the upper layer protocol.
-gtp,GPRS Tunneling Protocol,#end,Indicates the end of a top level event.
 gtp,GPRS Tunneling Protocol,#inherit_key,"Candidate inheritance key
 gtp,GPRS Tunneling Protocol,#inherit_parent,"Parent inheritance key
-gtp,GPRS Tunneling Protocol,#request,A GTP message.
-gtp,GPRS Tunneling Protocol,#version,Protocol Version (0 or 1).
-gtp,GPRS Tunneling Protocol,#message_code,Message type
-gtp,GPRS Tunneling Protocol,#flow_label,"Unique ID of a GTP flow
-gtp,GPRS Tunneling Protocol,#seq,Packet sequence number.
-gtp,GPRS Tunneling Protocol,#ms_address_v6,IPv6 address assigned to the mobile station.
-gtp,GPRS Tunneling Protocol,#ms_address_v6_peer,IPv6 address assigned to the mobile station on the peer half-session.
-gtp,GPRS Tunneling Protocol,#gsn,"GSN IP address
-gtp,GPRS Tunneling Protocol,#gsn_address_v6,GSN IPv6 address.
-gtp,GPRS Tunneling Protocol,#gsn_address_v6_control,GSN Control IPv6 address.
-gtp,GPRS Tunneling Protocol,#gsn_address_v6_data,GSN DataIPv6 address.
-gtp,GPRS Tunneling Protocol,#nsapi,Network Service Access Point Identifier is used to identify a PDP context belonging to a specific MM context IP
 gtp,GPRS Tunneling Protocol,#qos_raw,This field contains quality of service data.
 gtp,GPRS Tunneling Protocol,#location_raw,Terminal location in raw binary representation.
-gtpv2,GPRS Tunneling Protocol version 2,#end,Indicates the end of a top level event.
 gtpv2,GPRS Tunneling Protocol version 2,#inherit_key,"Candidate inheritance key
 gtpv2,GPRS Tunneling Protocol version 2,#inherit_parent,"Parent inheritance key
-gtpv2,GPRS Tunneling Protocol version 2,#request,A GTP message.
-gtpv2,GPRS Tunneling Protocol version 2,#version,Protocol Version (2).
-gtpv2,GPRS Tunneling Protocol version 2,#message_code,Message type.
 gtpv2,GPRS Tunneling Protocol version 2,#message,Binary content of the message.
-gtpv2,GPRS Tunneling Protocol version 2,#eps_bearer_id,Uniquely identifies traffic flow that receives a common QoS treatment.
 gtpv2,GPRS Tunneling Protocol version 2,#guti,Globally Unique Temporary UE Identity
-gtpv2,GPRS Tunneling Protocol version 2,#ms_address_v6,IPv6 address assigned to the mobile station.
-gtpv2,GPRS Tunneling Protocol version 2,#s1u_enodeb_gtpu_address_v6,S1-U eNodeB GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s1u_sgw_gtpu_address_v6,S1-U SGW GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s5_s8_sgw_gtpu_address_v6,S5/S8 SGW GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s5_s8_pgw_gtpu_address_v6,S5/S8 PGW GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s5_s8_sgw_gtpc_address_v6,S5/S8 SGW GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s5_s8_pgw_gtpc_address_v6,S5/S8 PGW GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s11_mme_gtpc_address_v6,S11 MME GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s11_s4_sgw_gtpc_address_v6,S11/S4 SGW GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s10_mme_gtpc_address_v6,S10 MME GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s3_mme_gtpc_address_v6,S3 MME GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s3_sgsn_gtpc_address_v6,S3 SGSN GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s4_sgw_gtpu_address_v6,S4 SGW GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s4_sgsn_gtpu_address_v6,S4 SGSN GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s4_sgsn_gtpc_address_v6,S4 SGSN GTP-C interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s12_rnc_gtpu_address_v6,S12 RNC GTP-U interface IPv6 address
-gtpv2,GPRS Tunneling Protocol version 2,#s12_sgw_gtpu_address_v6,SGW RNC GTP-U interface IPv6 address
-h225,H225,#end,Indicates the end of a top level event.
 h225,H225,#inherit_parent,"Parent inheritance key
-h225,H225,#call,"Parent entry
-h225,H225,#media_attr,A multivalued attribute that contains the codec that can be used for audio transmission
-h225,H225,#request,Contains message information.
-h225,H225,#h245_addr_v6,IP address for the H245 request embedded in H225 (this attribute is not extracted).
-h225,H225,#h245_port,Port used by h245 session.
-h225,H225,#cause_code,Disconnect cause Codes.
-h225,H225,#ref_flag,The call reference flag is used to identify which end of the layer two-logical link originated a call reference.
-h225,H225,#olc,Contains information about open logical canal.
-h225,H225,#logical_channel_number,Number identifying a logical channel.
-h225,H225,#media_control_channel,Contains information for a rtcp channel.
-h225,H225,#media_control_channel_addr_v6,IPv6 address used for a rtcp channel (this attribute is not extracted).
-h225,H225,#media_control_channel_port,Port used for a rtcp channel.
-h225,H225,#media_channel,Contains information for a rtp channel.
-h225,H225,#media_channel_addr_v6,IPv6 address used for a rtp channel (this attribute is not extracted).
-h225,H225,#media_channel_port,Port used for a rtp channel.
-h225,H225,#h245_control,Parent attribute containing an H245 item.
-h225,H225,#h245_request,Contains message information for H245.
 h245,H245,#inherit_key,"Candidate inheritance key
 h245,H245,#inherit_parent,"Parent inheritance key
-h245,H245,#end,Indicates the end of a top level event.
-h245,H245,#media_attr,A multivaluated attribute that contains the codec that can be used for audio transmission
-h245,H245,#request,Contains message information.
-h245,H245,#olc,Contains information about open logical canal.
-h245,H245,#logical_channel_number,Number identifying a logical channel.
-h245,H245,#media_control_channel,Contains information for a rtcp channel.
-h245,H245,#media_control_channel_addr_v6,IPv6 address used for a rtcp channel (this attribute is no longer extracted).
-h245,H245,#media_control_channel_port,Port used for a rtcp channel.
-h245,H245,#media_channel,Contains information for a rtp channel.
-h245,H245,#media_channel_port,Port used for a rtp channel.
 h248_binary,h248 Protocol (Megaco) in binary mode,#end,Indicates the end of a top level event.
 h248_binary,h248 Protocol (Megaco) in binary mode,#transaction,Parent attribute including transaction elements
 h248_binary,h248 Protocol (Megaco) in binary mode,#from_ipv6,Source IPv6 address
@@ -389,914 +72,159 @@ h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_port,Source audio c
 h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_port,Source video connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_port,Destination audio connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_port,Destination video connection port
-h248_text,h248 Protocol (Megaco) in text mode,#end,Indicates the end of a top level event.
-h248_text,h248 Protocol (Megaco) in text mode,#transaction,Parent attribute including transaction elements
-h248_text,h248 Protocol (Megaco) in text mode,#from_ipv6,Source IPv6 address
-h248_text,h248 Protocol (Megaco) in text mode,#to_ipv6,Destination IPv6 address
-h248_text,h248 Protocol (Megaco) in text mode,#src_audio_port,Source audio connection port
-h248_text,h248 Protocol (Megaco) in text mode,#src_video_port,Source video connection port
-h248_text,h248 Protocol (Megaco) in text mode,#dst_audio_port,Destination audio connection port
-h248_text,h248 Protocol (Megaco) in text mode,#dst_video_port,Destination video connection port
-hi5,Hi5.com,#end,Indicates the end of a top level event.
 hi5,Hi5.com,#uid,Generic user ID.
-hi5,Hi5.com,#account,User account metadata including the login and the password.
-hpellc,HP Extended Local-Link Control,#dst_xsap,SAP destination address.
-hpellc,HP Extended Local-Link Control,#src_xsap,SAP source address.
-hsrp,Hot Standby Router Protocol,#priority,"This field is used to elect the active and standby routers. When comparing priorities of two different routers
-hsrp,Hot Standby Router Protocol,#group,This field identifies the standby group.
-http,HyperText Transfer Protocol,#end,Indicates the end of a top level event.
-http,HyperText Transfer Protocol,#declassify_override,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.
-http,HyperText Transfer Protocol,#nocaching_override,Attribute used to specify if it's unsafe to cache the final classification path of the current session. This value overrides the proto_feature flag defined in the layer raising this event.
-http,HyperText Transfer Protocol,#request,An HTTP request.
-http,HyperText Transfer Protocol,#host_end_offset,"Offset to the first byte which is not part of the Host HTTP header value
-http,HyperText Transfer Protocol,#uri_end_offset,"Offset to the first byte which is not part of the URI
-http,HyperText Transfer Protocol,#user_agent_end_offset,"Offset to the first byte which is not part of the User-agent
 http,HyperText Transfer Protocol,#content,Message content.
 http,HyperText Transfer Protocol,#content_raw,uncompressed HTTP content.
-http,HyperText Transfer Protocol,#header,One HTTP header line.
-http,HyperText Transfer Protocol,#is_webdav,Indicates that the protocol is WebDAV.
-http,HyperText Transfer Protocol,#file_completed,Indicates that the request or response is completed.
-http,HyperText Transfer Protocol,#mime,"Parent attribute
-http,HyperText Transfer Protocol,#part,Contains the whole uploaded data for POSTs.
-http,HyperText Transfer Protocol,#part_header,Groups part_header_name and part_header_value.
 http,HyperText Transfer Protocol,#part_content,Uploaded data.
-http,HyperText Transfer Protocol,#uri_param,URL parameter.
-http,HyperText Transfer Protocol,#header_end,Token marking end of the HTTP header.
-http,HyperText Transfer Protocol,#image,"Parent entry
-http,HyperText Transfer Protocol,#image_index_color,Use indexed colors.
-http,HyperText Transfer Protocol,#image_alpha_channel,Use an alpha channel.
-http,HyperText Transfer Protocol,#video,"Parent entry
-http,HyperText Transfer Protocol,#video_mangled,The video stream is mangled (probably encrypted).
 http_tunnel,HTTP Tunnel,#inherit_parent,"Parent inheritance key
 http_tunnel,HTTP Tunnel,#inherit_key,"Candidate inheritance key
 ica,Independant Computing Architecture (Citrix),#application_utf16,Application name used by the client in UTF-16 format.
 ica,Independant Computing Architecture (Citrix),#login_info_utf16,"Login information for the given connection (host
-ica,Independant Computing Architecture (Citrix),#priority,Priority of the service.
-icap,Internet Content Adaptation Protocol,#end,Indicates the end of a top level event.
-icap,Internet Content Adaptation Protocol,#request_respmod_req,An ICAP RESPMOD request
-icloud,iCloud (Apple),#end,Indicates the end of a top level event.
-icloud,iCloud (Apple),#request,Parent structure containing iCloud service metadata.
-icmp,Internet Control Message Protocol,#typeval,ICMP message type (as integer).
-icmp,Internet Control Message Protocol,#code,Message code.
-icmp,Internet Control Message Protocol,#seq,Sequence number of the echo packet.
-icmp,Internet Control Message Protocol,#wrong_crc,A flag raised when the CRC field checksum is changed from the computed one.
-icmp6,Internet Control Message Protocol for IP6,#end,Indicates the end of a top level event.
-icmp6,Internet Control Message Protocol for IP6,#type,ICMP message type.
-icmp6,Internet Control Message Protocol for IP6,#code,Message code.
-icmp6,Internet Control Message Protocol for IP6,#target_address,The IP address of the target of the solicitation.
-icmp6,Internet Control Message Protocol for IP6,#link_layer_addr,"The source or target link-layer address
 icmp6,Internet Control Message Protocol for IP6,#link_layer_raw_addr,Link-layer address in binary format.
-icmp6,Internet Control Message Protocol for IP6,#ndp_prefix,Prefix information for address autoconfiguration.
-icmp6,Internet Control Message Protocol for IP6,#prefix,An IP address or a prefix of an IP address.
-icmp6,Internet Control Message Protocol for IP6,#prefix_len,The number of leading bits in the Prefix that are valid.
-igmp,Internet Group Management Protocol,#end,Indicates the end of a top level event.
-igmp,Internet Group Management Protocol,#record,A parent attribute
-igmp,Internet Group Management Protocol,#record_nsources,Number of the sources in this record
-imap,Internet Message Access Protocol version 4,#end,Indicates the end of a top level event.
-imap,Internet Message Access Protocol version 4,#request,"Parent entry
-imap,Internet Message Access Protocol version 4,#email,"Parent entry
-imap,Internet Message Access Protocol version 4,#msglist_entry,"Parent entry
-imap,Internet Message Access Protocol version 4,#attach,"Parent entry
-imap,Internet Message Access Protocol version 4,#msglist_attach,Parent entry for attached file in a list of emails.
-imap,Internet Message Access Protocol version 4,#sender_entry,"Parent entry
-imap,Internet Message Access Protocol version 4,#receiver_entry,"Parent entry
-imap,Internet Message Access Protocol version 4,#msglist_sender_entry,Parent entry for a sender in a message list.
-imap,Internet Message Access Protocol version 4,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 imap,Internet Message Access Protocol version 4,#attach_content,Attached files' content.
 imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files' content.
 imap,Internet Message Access Protocol version 4,#content_entry,"Parent entry
 imap,Internet Message Access Protocol version 4,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
-imap,Internet Message Access Protocol version 4,#received,"Parent entry
-imp,Internet Messaging Program,#end,Indicates the end of a top level event.
-imp,Internet Messaging Program,#sender_entry,"Parent entry
-imp,Internet Messaging Program,#msglist_sender_entry,Parent entry for a sender in a message list.
-imp,Internet Messaging Program,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-imp,Internet Messaging Program,#msglist_entry,"Parent entry
-imp,Internet Messaging Program,#contact_entry,This attribute groups information about a contact.
-imp,Internet Messaging Program,#receiver_entry,"Parent entry
 imp,Internet Messaging Program,#attach_content,Attached files' content.
-imp,Internet Messaging Program,#attach,"Parent entry
-imp,Internet Messaging Program,#email,"Parent entry
 ip,Internet Protocol,#inherit_key,"Candidate inheritance key
-ip,Internet Protocol,#protoid,Identifier of the upper layer protocol.
-ip,Internet Protocol,#tos,Type of service of the packet.
-ip,Internet Protocol,#dscp,Differentiated Services Field Codepoints.
-ip,Internet Protocol,#src_class,Class of the source IP address.
-ip,Internet Protocol,#dst_class,Class of the destination IP address.
-ip,Internet Protocol,#defrag_len,Total length of the data contained in a defragmented packet without its IP header.
-ip,Internet Protocol,#ttl,Remaining number of router(s) this packet can pass through before being dropped.
-ip,Internet Protocol,#frag_id,Fragment identifier.
-ip,Internet Protocol,#pkt_len,"Total packet length
-ip,Internet Protocol,#address,Attribute matching a source or destination IP address. To be used in a filter.
-ip,Internet Protocol,#resolv_name,Private attribute of the classification engine.
-ip,Internet Protocol,#netaddr,Attribute matching a source or destination IP subnet. Can be used in a filter.
 ip,Internet Protocol,#src_addr_md5,A MD5 sum on IP Source address
 ip,Internet Protocol,#dst_addr_md5,A MD5 sum on IP destination address
 ip,Internet Protocol,#src_dst_addr,A binary buffer containing a concatenation of IP source address and destination address
 ip,Internet Protocol,#src_dst_sport_proto,"A binary buffer containing a concatenation of IP source address
 ip,Internet Protocol,#src_dst_dport_proto,"A binary buffer containing a concatenation of IP source address
 ip,Internet Protocol,#src_dst_sport_dport_proto,"A binary buffer containing a concatenation of IP source address
-ip,Internet Protocol,#first_fragment,A flag which is set when the current packet is fragmented and it is a first fragment
-ip,Internet Protocol,#fragment_lost,A flag indicating the lost of the previous fragment.
-ip,Internet Protocol,#ttl_too_low,A flag set when the packet ttl field is too low
-ip,Internet Protocol,#wrong_crc,A flag raised when the CRC field checksum is changed from the computed one.
-ip6,Internet Protocol V6,#version,Version of the protocol.
-ip6,Internet Protocol V6,#class,Internet traffic priority delivery value.
-ip6,Internet Protocol V6,#payload,The payload length.
-ip6,Internet Protocol V6,#protoid,Identifier of the upper layer protocol.
-ip6,Internet Protocol V6,#hop_limit,Remaining number of router(s) this packet can pass through before being dropped.
-ip6,Internet Protocol V6,#src_addr,Source IP address.
-ip6,Internet Protocol V6,#dst_addr,Destination IP address.
-ip6,Internet Protocol V6,#client_addr,Client IP address.
-ip6,Internet Protocol V6,#server_addr,Server IP address.
-ip6,Internet Protocol V6,#address,This attribute is not extracted.
-ipcp,Internet Protocol Control Protocol,#code,Packet type.
-ipcp,Internet Protocol Control Protocol,#identifier,Decimal value allowing to match requests and replies.
-ipx,Internet Protocol eXchange,#checksum,Value of the transmission control checksum.
-ipx,Internet Protocol eXchange,#pkt_size,Datagram's length.
-ipx,Internet Protocol eXchange,#tctrl,Indicates the number of routers through which the packet has passed.
-ipx,Internet Protocol eXchange,#type,Identifier of the upper layer protocol.
-ipx,Internet Protocol eXchange,#dst_socket,Destination application identifier.
-ipx,Internet Protocol eXchange,#src_socket,Source application identifier.
 irc,Internet Relay Chat,#inherit_parent,"Parent inheritance key
-irc,Internet Relay Chat,#chat,"Parent entry
-irc,Internet Relay Chat,#end,Indicates the end of a top level event.
-irc,Internet Relay Chat,#mode,Data structure containing irc channel mode information.
-irc,Internet Relay Chat,#file,File related information.
 irc_transfer,IRC File Transfer Data,#inherit_key,"Candidate inheritance key
 irc_transfer,IRC File Transfer Data,#content,File content
-isl,InterSwitch Link,#vlan,VLAN ID of the frame.
-isl,InterSwitch Link,#index,Port index of the switch on which the packet has been sent.
-isup,ISDN User Part,#end,Indicates the end of a top level event.
-isup,ISDN User Part,#message,A parent attribute for each ISUP message
-isup,ISDN User Part,#message_id,Id of the ISUP message. This attribute is deprecated.
-isup,ISDN User Part,#caller_nat,Calling party nature
-isup,ISDN User Part,#callee_nat,Called party nature
-isup,ISDN User Part,#cic,Circuit Identification Code
-isup,ISDN User Part,#cause,ISUP Cause of release
-isup,ISDN User Part,#ie_node,A parent for each ISUP information element (parameter). This attribute is deprecated.
 isup,ISDN User Part,#ie_raw,Raw value of the i.e.. This attribute is deprecated.
-isup,ISDN User Part,#ie_id,i.e. type. This attribute is deprecated.
-isup,ISDN User Part,#ie_len,i.e. length. This attribute is deprecated.
-jabber,XMPP Protocol (Jabber),#end,Indicates the end of a top level event.
 jabber,XMPP Protocol (Jabber),#inherit_parent,"Parent inheritance key
-jabber,XMPP Protocol (Jabber),#chat,"Parent entry
-jabber,XMPP Protocol (Jabber),#file,File related information.
-jabber,XMPP Protocol (Jabber),#contact_entry,This attribute groups information about a contact.
-jabber,XMPP Protocol (Jabber),#call,"Parent entry
-jabber,XMPP Protocol (Jabber),#caller_port,Port on which the caller could start the call.
-jabber,XMPP Protocol (Jabber),#callee_port,Port on which the callee could receive a call.
-jabber,XMPP Protocol (Jabber),#file_chunk,A piece of a transferred file.
 jabber,XMPP Protocol (Jabber),#file_chunk_content,Content of the transferred data.
 jabber_transfer,Jabber File Transfer,#inherit_key,"Candidate inheritance key
 jabber_transfer,Jabber File Transfer,#content,File content
-kakaotalk,KakaoTalk,#end,Indicates the end of a top level event.
 kakaotalk,KakaoTalk,#file_chunk,A piece of a transferred file.
-kakaotalk,KakaoTalk,#request,File transfer parent attribute.
-kaskus,Kaskus.co.id,#end,Indicates the end of a top level event.
-kaskus,Kaskus.co.id,#query,Contains the raw and text query sent.
-krb5,Kerberos,#end,Indicates the end of a top level event.
-krb5,Kerberos,#message,Parent attribute containing the metadata related to a Kerberos message.
 krb5,Kerberos,#enc_data,Encrypted data (hash) sent in the AS-RQ message.
-krb5,Kerberos,#pa_data,"Parent attribute
 krb5,Kerberos,#pa_data_value,PA-DATA value.
-krb5,Kerberos,#ticket,"Parent attribute
 krb5,Kerberos,#ticket_enc_part,Ticket encrypted part.
-krb5,Kerberos,#error_code,Error code in KRB-ERROR message.
-krb5,Kerberos,#err_cname,"Parent attribute
-krb5,Kerberos,#err_sname,"Parent attribute
 krb5,Kerberos,#err_data,Error-related data.
-l2tp,Layer 2 Tunneling Protocol,#tunnel_id,Identifier for the control connection.
-l2tp,Layer 2 Tunneling Protocol,#call_id,Identifier for a session within a tunnel.
-l2tp,Layer 2 Tunneling Protocol,#ass_tunnel_id,Assigned L2TP tunnel ID.
 l2tp,Layer 2 Tunneling Protocol,#challenge,CHAP style challenge used by a peer in order to authenticate the tunnel endpoint.
 l2tp,Layer 2 Tunneling Protocol,#resp_challenge,Challenge response.
-l2tp,Layer 2 Tunneling Protocol,#ass_call_id,Connection ID in the L2TP tunnel.
-laposte_webmail,La Poste Webmail,#end,Indicates the end of a top level event.
-lcp,Line Control Protocol,#code,Called function.
-lcp,Line Control Protocol,#identifier,Message identifier.
-ldap,Lighweight Directory Access Protocol,#end,Indicates the end of a top level event.
-ldap,Lighweight Directory Access Protocol,#message,A LDAP message.
-ldap,Lighweight Directory Access Protocol,#element,LDAP element in the LDAP tree.
 ldap,Lighweight Directory Access Protocol,#value_raw,Raw value of the LDAP element.
-ldap,Lighweight Directory Access Protocol,#filter_expression,Filter sub expression extracted from a CLDAP searchRequest.
 ldap,Lighweight Directory Access Protocol,#assertion_value_raw,Raw value of filter expression second operand.
-line,Line,#end,Indicates the end of a top level event.
-line,Line,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-line,Line,#call,"Parent entry
-linkedin,LinkedIn.com,#end,Indicates the end of a top level event.
-linkedin,LinkedIn.com,#contact_entry,This attribute groups information about a contact.
-linkedin,LinkedIn.com,#query,Contains the raw and text query sent.
-linkedin,LinkedIn.com,#sender_entry,"Parent entry
-linkedin,LinkedIn.com,#receiver_entry,"Parent entry
-linkedin,LinkedIn.com,#email,"Parent entry
-linkedin,LinkedIn.com,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-linkedin,LinkedIn.com,#msglist_sender_entry,Parent entry for a sender in a message list.
-linkedin,LinkedIn.com,#msglist_entry,"Parent entry
-live_groups,Windows Live Groups,#end,Indicates the end of a top level event.
-live_groups,Windows Live Groups,#email,"Parent entry
-live_groups,Windows Live Groups,#sender_entry,"Parent entry
-live_groups,Windows Live Groups,#member_entry,"Parent entry
-live_groups,Windows Live Groups,#msglist_entry,"Parent entry
-live_groups,Windows Live Groups,#msglist_sender_entry,Parent entry for a sender in a message list.
-live_hotmail,Windows Live Hotmail,#end,Indicates the end of a top level event.
-live_hotmail,Windows Live Hotmail,#msglist_entry,"Parent entry
-live_hotmail,Windows Live Hotmail,#msglist_sender_entry,Parent entry for a sender in a message list.
-live_hotmail,Windows Live Hotmail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-live_hotmail,Windows Live Hotmail,#email,"Parent entry
-live_hotmail,Windows Live Hotmail,#sender_entry,"Parent entry
-live_hotmail,Windows Live Hotmail,#receiver_entry,"Parent entry
-live_hotmail,Windows Live Hotmail,#attach,"Parent entry
 live_hotmail,Windows Live Hotmail,#attach_content,Attached files' content.
-live_hotmail,Windows Live Hotmail,#contact_entry,This attribute groups information about a contact.
-livemail_mobile,Live hotmail for mobile,#end,Indicates the end of a top level event.
-livemail_mobile,Live hotmail for mobile,#receiver_entry,"Parent entry
-livemail_mobile,Live hotmail for mobile,#sender_entry,"Parent entry
-livemail_mobile,Live hotmail for mobile,#contact_entry,This attribute groups information about a contact.
-livemail_mobile,Live hotmail for mobile,#msglist_sender_entry,Parent entry for a sender in a message list.
-livemail_mobile,Live hotmail for mobile,#msglist_entry,"Parent entry
-livemail_mobile,Live hotmail for mobile,#attach_size,Attached file MIME size.
-livemail_mobile,Live hotmail for mobile,#attach,"Parent entry
-livemail_mobile,Live hotmail for mobile,#email,"Parent entry
-llc,Logical Link Control,#dst_sap,Destination SAP address.
-llc,Logical Link Control,#src_sap,Source SAP address.
-llc,Logical Link Control,#control,Control field of the connection.
-lotusnotes,Lotus Notes,#end,Indicates the end of a top level event.
-lotusnotes,Lotus Notes,#email,"Parent entry
 lotusnotes,Lotus Notes,#content,Message content.
-lotusnotes,Lotus Notes,#header,Lotusnotes header (used for the Email service).
-lotusnotes,Lotus Notes,#sender_entry,"Parent entry
-lotusnotes,Lotus Notes,#receiver_entry,"Parent entry
-lotusnotes,Lotus Notes,#attach,"Parent entry
 lotusnotes,Lotus Notes,#attach_content,Attached files' content.
-mailru,Mail.ru Webmail,#end,Indicates the end of a top level event.
-mailru,Mail.ru Webmail,#contact_entry,This attribute groups information about a contact.
 mailru,Mail.ru Webmail,#attach_content,Attached files' content.
-mailru,Mail.ru Webmail,#sender_entry,"Parent entry
-mailru,Mail.ru Webmail,#receiver_entry,"Parent entry
-mailru,Mail.ru Webmail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-mailru,Mail.ru Webmail,#msglist_sender_entry,Parent entry for a sender in a message list.
-mailru,Mail.ru Webmail,#msglist_entry,"Parent entry
-mailru,Mail.ru Webmail,#attach,"Parent entry
-mailru,Mail.ru Webmail,#email,"Parent entry
-mailru,Mail.ru Webmail,#folderlist_item,Contains the metadata related to one message folder list item.
-mailru,Mail.ru Webmail,#folderlist,Contains the message folder list.
-maktoob,Maktoob mail,#end,Indicates the end of a top level event.
-maktoob,Maktoob mail,#msglist_entry,"Parent entry
-maktoob,Maktoob mail,#msglist_sender_entry,Parent entry for a sender in a message list.
-maktoob,Maktoob mail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-maktoob,Maktoob mail,#email,"Parent entry
-maktoob,Maktoob mail,#sender_entry,"Parent entry
-maktoob,Maktoob mail,#receiver_entry,"Parent entry
-maktoob,Maktoob mail,#attach,"Parent entry
 maktoob,Maktoob mail,#attach_content,Attached files' content.
-maktoob,Maktoob mail,#contact_entry,This attribute groups information about a contact.
-mandriva_update,Mandriva Update,#package,Information list about the debian archive
-mandriva_update,Mandriva Update,#end,Indicates the end of a top level event.
-mapi,MS Exchange Message API,#end,Indicates the end of a top level event.
-mapi,MS Exchange Message API,#email,"Parent entry
 mapi,MS Exchange Message API,#subject,Message subject (UTF-16).
 mapi,MS Exchange Message API,#content,Message content.
-mapi,MS Exchange Message API,#sender_entry,"Parent entry
 mapi,MS Exchange Message API,#sender,Contains the identity of the sender of a chat session or a file transfer (UTF-16).
 mapi,MS Exchange Message API,#sender_alias,Name of the email sender (UTF-16).
 mapi,MS Exchange Message API,#sender_email,Email address of the message sender (UTF-16).
-mapi,MS Exchange Message API,#receiver_entry,"Parent entry
 mapi,MS Exchange Message API,#receiver,Contains the identity of the receiver for a chat message or a file transfer (UTF-16).
 mapi,MS Exchange Message API,#receiver_alias,Name of email receiver (included cc and bcc receivers) (UTF-16).
 mapi,MS Exchange Message API,#receiver_email,Email address of message receiver (included cc and bcc receivers) (UTF-16).
-mapi,MS Exchange Message API,#attach,"Parent entry
 mapi,MS Exchange Message API,#attach_filename,Attachment name (UTF-16).
 mapi,MS Exchange Message API,#attach_content,Attached files' content.
-mapi,MS Exchange Message API,#attach_size,Attached file MIME size.
-mapi,MS Exchange Message API,#msglist_entry,"Parent entry
-mapi,MS Exchange Message API,#msglist_sender_entry,Parent entry for a sender in a message list.
 mapi,MS Exchange Message API,#msglist_sender,Full address of email sender (alias and email address) (UTF-16).
 mapi,MS Exchange Message API,#msglist_subject,Message subject in a message list (UTF-16).
-mapi,MS Exchange Message API,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 mapi,MS Exchange Message API,#msglist_receiver,Full address of email receiver in a message list.
 mapi,MS Exchange Message API,#msglist_receiver_email,Email address of the email receiver.
 mapi,MS Exchange Message API,#appointment_location,Appointment location.
-mapi,MS Exchange Message API,#contact_entry,This attribute groups information about a contact.
 mapi,MS Exchange Message API,#contact_email,Email address of a contact (UTF-16).
 mapi,MS Exchange Message API,#contact_alias,Alias of a contact (UTF-16).
-mashare,Ma-Share.com,#end,Indicates the end of a top level event.
-mashare,Ma-Share.com,#file,Parent attribute containing metadata related to the file.
 mashare,Ma-Share.com,#content,Message content.
-mgcp,Media Gateway Control Protocol,#end,Indicates the end of a top level event.
 mgcp,Media Gateway Control Protocol,#inherit_parent,"Parent inheritance key
-mgcp,Media Gateway Control Protocol,#info,Data corresponding to a message transfer
-mgcp,Media Gateway Control Protocol,#call,"Parent entry
-mgcp,Media Gateway Control Protocol,#stats,Regroups RTP statistics
-mgcp,Media Gateway Control Protocol,#media_desc,"Parent entry
-mgcp,Media Gateway Control Protocol,#data_port,Data port for client's protocol.
-mgcp,Media Gateway Control Protocol,#media_attr,"Parent entry
-mgcp,Media Gateway Control Protocol,#media_attr_addr_v6,The mentioned IPv6 address to be used.
-mgcp,Media Gateway Control Protocol,#media_attr_port,The transport port to be used.
-mimp,IMP mobile version,#end,Indicates the end of a top level event.
-mimp,IMP mobile version,#attach,"Parent entry
-mimp,IMP mobile version,#sender_entry,"Parent entry
-mimp,IMP mobile version,#receiver_entry,"Parent entry
-mimp,IMP mobile version,#msglist_sender_entry,Parent entry for a sender in a message list.
-mimp,IMP mobile version,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-mimp,IMP mobile version,#msglist_entry,"Parent entry
-mimp,IMP mobile version,#email,"Parent entry
-mmse,MultiMedia Messages Encapsulation,#end,Indicates the end of a top level event.
-mmse,MultiMedia Messages Encapsulation,#message_code,Message type (in integer).
 mmse,MultiMedia Messages Encapsulation,#content,The message content (headers are not included).
-mmse,MultiMedia Messages Encapsulation,#content_part,Message sub-part.
 mmse,MultiMedia Messages Encapsulation,#content_part_data,Message sub-part data.
-mpls,Multiprotocol Packet Label Switching,#exp,Packet queuing priority (QoS).
-mpls,Multiprotocol Packet Label Switching,#bos,"Bottom Of Stack: equals to 1 if the last level of MPLS is reached
-mpls,Multiprotocol Packet Label Switching,#ttl,Lifetime of the MPLS message.
-mplus_messenger,M+ Messenger,#end,Indicates the end of a top level event.
-mplus_messenger,M+ Messenger,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-msn,MSN Messenger,#end,Indicates the end of a top level event.
 msn,MSN Messenger,#inherit_key,"Candidate inheritance key
 msn,MSN Messenger,#inherit_parent,"Parent inheritance key
-msn,MSN Messenger,#chat,"Parent entry
-msn,MSN Messenger,#request,Parent attribute including a MSN method and its service.
 msn,MSN Messenger,#filename_utf16,UTF-16 encoded filename.
-msn,MSN Messenger,#file_chunk,A piece of a transferred file.
 msn,MSN Messenger,#file_chunk_content,Content of the transferred data.
-msn_search,MSN Search,#end,Indicates the end of a top level event.
-msn_search,MSN Search,#query,Contains the raw and text query sent.
 msn_video,MSN Video,#inherit_key,"Candidate inheritance key
-msrp,Message Session Relay Protocol,#end,Indicates the end of a top level event.
-msrp,Message Session Relay Protocol,#uri_entry,Parent attribute raised for each MSRP uri.
-msrp,Message Session Relay Protocol,#path_entry,Parent attribute raised in order to describe a From_path or To_path field.
-mute,Mute,#peer_info,"Structure containing a network peer classification prediction. The clep_peer_t structure (ixE 4.18.x) provides the IP v4 or v6 address (ul3l4_addr_t)
-myspace,MySpace.com,#end,Indicates the end of a top level event.
-myspace,MySpace.com,#query,Contains the raw and text query sent.
-myspace,MySpace.com,#account,User account metadata including the login and the password.
-netflix,Netflix.com,#end,Indicates the end of a top level event.
-netflix,Netflix.com,#video,"Parent entry
-netflow,Cisco Netflow,#version,Protocol version.
-netflow,Cisco Netflow,#count,Number of items in the packet.
-netlog,Netlog.com,#end,Indicates the end of a top level event.
-netlog,Netlog.com,#account,User account metadata including the login and the password.
-nfs,Network File System,#end,Indicates the end of a top level event.
-nfs,Network File System,#command,"Parent entry
-nfs,Network File System,#file,"Parent entry
 nfs,Network File System,#file_handle,Unique identifier for a file.
 nfs,Network File System,#content,File content
-niconico_douga,Nicovideo.jp (aka Nico Nico Douga),#end,Indicates the end of a top level event.
-niconico_douga,Nicovideo.jp (aka Nico Nico Douga),#query,Parent attribute gathering the attributes relative to a query.
-niconico_douga,Nicovideo.jp (aka Nico Nico Douga),#video,"Parent entry
-niconico_douga,Nicovideo.jp (aka Nico Nico Douga),#account,User account metadata including the login and the password.
-ntp,Network Time Protocol,#version,Protocol version.
-ntp,Network Time Protocol,#poll_interval,Polling interval (in seconds).
-odnoklassniki,Odnoklassniki.ru,#end,Indicates the end of a top level event.
-odnoklassniki,Odnoklassniki.ru,#contact_entry,This attribute groups information about a contact.
-odnoklassniki,Odnoklassniki.ru,#account,User account metadata including the login and the password.
-openvpn,openvpn,#opcode,Operation code or message type
-orangemail,Orange webmail,#end,Indicates the end of a top level event.
 orangemail,Orange webmail,#attach_content,Attached files' content.
-orangemail,Orange webmail,#attach,"Parent entry
-orangemail,Orange webmail,#receiver_entry,"Parent entry
-orangemail,Orange webmail,#sender_entry,"Parent entry
-orangemail,Orange webmail,#email,"Parent entry
-orangemail,Orange webmail,#msglist_sender_entry,Parent entry for a sender in a message list.
-orangemail,Orange webmail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-orangemail,Orange webmail,#msglist_entry,"Parent entry
-orangemail,Orange webmail,#contact_entry,This attribute groups information about a contact.
-ospf,Open Shortest Path First,#end,Indicates the end of a top level event.
-ospf,Open Shortest Path First,#version,Protocol version.
 ospf,Open Shortest Path First,#auth_data,Authentication data.
-ospf,Open Shortest Path First,#hello_interval,The number of seconds between this router's Hello packets.
-ospf,Open Shortest Path First,#prio,This router's Router Priority. Used in (Backup) Designated Router election.
-ospf,Open Shortest Path First,#ls_entry,A parent entry for ls attributes.
-ospf,Open Shortest Path First,#ls_age,The time in seconds since the LSA was originated.
-ospf,Open Shortest Path First,#ls_flags_v,"When set
-ospf,Open Shortest Path First,#ls_flags_e,"When set
-ospf,Open Shortest Path First,#ls_flags_b,"When set
-ospf,Open Shortest Path First,#ls_options,Content of the options field present in the LS description.
-ospf,Open Shortest Path First,#link_entry,Parent entry for link attributes.
-ospf,Open Shortest Path First,#link_type,A quick description of the router link.
-ospf,Open Shortest Path First,#interface_mtu,The MTU for this interface.
-ospf,Open Shortest Path First,#options,The optional capabilities supported by the router.
-ospf,Open Shortest Path First,#flags_i,"The Init bit. When set to 1
-ospf,Open Shortest Path First,#flags_m,"The More bit. When set to 1
-ospf,Open Shortest Path First,#flags_ms,"The Master/Slave bit. When set to 1
-ospf,Open Shortest Path First,#external_entry,Parent entry for external_fwd_addr and external_route_tag.
-owa,Outlook Web App,#end,Indicates the end of a top level event.
-owa,Outlook Web App,#msglist_sender_entry,Parent entry for a sender in a message list.
-owa,Outlook Web App,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-owa,Outlook Web App,#receiver_entry,"Parent entry
-owa,Outlook Web App,#sender_entry,"Parent entry
-owa,Outlook Web App,#contact_entry,This attribute groups information about a contact.
-owa,Outlook Web App,#msglist_entry,"Parent entry
 owa,Outlook Web App,#attach_content,Attached files' content.
-owa,Outlook Web App,#attach,"Parent entry
-owa,Outlook Web App,#email,"Parent entry
-paltalk,PalTalk,#end,Indicates the end of a top level event.
 paltalk,PalTalk,#inherit_parent,"Parent inheritance key
 paltalk,PalTalk,#inherit_key,"Candidate inheritance key
-paltalk,PalTalk,#proto_version,Protocol version used
-paltalk,PalTalk,#contact_entry,This attribute groups information about a contact.
-paltalk,PalTalk,#chat,"Parent entry
-paltalk,PalTalk,#call,"Parent entry
 paltalk_audio,Paltalk audio chat,#inherit_key,"Candidate inheritance key
-paltalk_transfer,PalTalk Transfer Protocol,#end,Indicates the end of a top level event.
 paltalk_transfer,PalTalk Transfer Protocol,#inherit_key,"Candidate inheritance key
-paltalk_transfer,PalTalk Transfer Protocol,#file,File related information.
 paltalk_transfer,PalTalk Transfer Protocol,#content,File content
 paltalk_video,Paltalk video,#inherit_key,"Candidate inheritance key
-perforce,Perforce Protocol,#end,Indicates the end of a top level event.
-perforce,Perforce Protocol,#parameter,Parent attribute containing the metadata related to a perforce parameter.
-perfspot,Perfspot.com,#end,Indicates the end of a top level event.
-perfspot,Perfspot.com,#account,User account metadata including the login and the password.
-pop3,Post Office Protocol (Version 3),#end,Indicates the end of a top level event.
-pop3,Post Office Protocol (Version 3),#email,"Parent entry
-pop3,Post Office Protocol (Version 3),#sender_entry,"Parent entry
-pop3,Post Office Protocol (Version 3),#receiver_entry,"Parent entry
-pop3,Post Office Protocol (Version 3),#request,"Parent entry
 pop3,Post Office Protocol (Version 3),#content_entry,"Parent entry
-pop3,Post Office Protocol (Version 3),#attach,"Parent entry
 pop3,Post Office Protocol (Version 3),#attach_content,Attached files' content.
 pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached files' content.
-pop3,Post Office Protocol (Version 3),#received,"Parent entry
-postgres,PostgreSQL,#end,Indicates the end of a top level event.
-postgres,PostgreSQL,#request,Structured attribute regarding to a query.
-pppoe,Point-to-Point Protocol Over Ethernet,#version,Version of the protocol.
-pppoe,Point-to-Point Protocol Over Ethernet,#type,Type field. Its unique valid value is 1.
-pppoe,Point-to-Point Protocol Over Ethernet,#code,Attribute showing the current stage of the session.
-pppoe,Point-to-Point Protocol Over Ethernet,#session_id,Uniquely identifies the current user session.
-pricerunner,PriceRunner,#end,Indicates the end of a top level event.
-pricerunner,PriceRunner,#query,Contains the raw and text query sent.
-q931,Q.931,#end,Indicates the end of a top level event.
-q931,Q.931,#call,"Parent entry
-q931,Q.931,#cause_code,Disconnect cause Codes.
-q931,Q.931,#ref_flag,The call reference flag is used to identify which end of the layer two-logical link originated a call reference.
 qq,QQ,#call_data,QQ payload containing the data of the call (audio/video)
-qq_transfer,QQ File Transfer,#end,Indicates the end of a top level event.
-qq_transfer,QQ File Transfer,#file,File related information.
 qq_transfer,QQ File Transfer,#content,File content
-qvod,QVOD Player,#end,Indicates the end of a top level event.
-qvod,QVOD Player,#peer_port,Listening TCP port of the QVOD peer.
-qvod,QVOD Player,#peer,Parent attribute containing metadata related to a QVOD peer.
-radius,Remote Authentication Dial-In User Service,#end,Indicates the end of a top level event.
 radius,Remote Authentication Dial-In User Service,#inherit_parent,"Parent inheritance key
-radius,Remote Authentication Dial-In User Service,#request,Contains information in a radius message.
-radius,Remote Authentication Dial-In User Service,#code,Radius message code.
-radius,Remote Authentication Dial-In User Service,#id,Indicates the packet identifier. It must be less than 255
-radius,Remote Authentication Dial-In User Service,#nas_ipv6,IPv6 address of the NAS originating the Access-Request.
-radius,Remote Authentication Dial-In User Service,#login_ipv6_host,Indicates the system with which to connect the user.
 radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Provides the ipv6 prefix to be configured for the user.
 radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Provides the ipv6 prefix to be delegated to the user.
-radius,Remote Authentication Dial-In User Service,#avp,An attribute-value pair. One or several avp_ attributes (e.g. avp_str) are created according to the avp_type.
-radius,Remote Authentication Dial-In User Service,#avp_type,Attribute type.
-radius,Remote Authentication Dial-In User Service,#avp_tag,The tag value depends on the tunnel used. (CLEP_DATA_UINT8)
-radius,Remote Authentication Dial-In User Service,#avp_ipv6,An IPv6 address. (CLEP_DATA_IP6_ADDR)
-radius,Remote Authentication Dial-In User Service,#avp_chap_id,CHAP identifier. (CLEP_DATA_UINT8)
 radius,Remote Authentication Dial-In User Service,#avp_prefix,Ipv6 prefix is a sequence of 0 to 16 bytes. (CLEP_DATA_BUFFER)
-radius,Remote Authentication Dial-In User Service,#avp_salt,The salt ensures the uniqueness of the encryption key. (CLEP_DATA_UINT16)
-rambler,Rambler.ru,#end,Indicates the end of a top level event.
-rambler,Rambler.ru,#query,Contains the raw and text query sent.
-rambler,Rambler.ru,#account,User account metadata including the login and the password.
-rambler_webmail,Rambler webmail,#end,Indicates the end of a top level event.
-rambler_webmail,Rambler webmail,#contact_entry,This attribute groups information about a contact.
 rambler_webmail,Rambler webmail,#attach_content,Attached files' content.
-rambler_webmail,Rambler webmail,#email,"Parent entry
-rambler_webmail,Rambler webmail,#msglist_entry,"Parent entry
-rambler_webmail,Rambler webmail,#attach,"Parent entry
-rambler_webmail,Rambler webmail,#folderlist_item,Contains the metadata related to one message folder list item.
-rambler_webmail,Rambler webmail,#folderlist,Contains the message folder list.
-rambler_webmail,Rambler webmail,#receiver_entry,"Parent entry
-rambler_webmail,Rambler webmail,#sender_entry,"Parent entry
-rambler_webmail,Rambler webmail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-rambler_webmail,Rambler webmail,#msglist_sender_entry,Parent entry for a sender in a message list.
-rambler_webmail,Rambler webmail,#account,User account metadata including the login and the password.
-rapidshare,RapidShare.com,#end,Indicates the end of a top level event.
-rapidshare,RapidShare.com,#request,Container regrouping information about rapidshare for a certain action.
-rdp,Remote Desktop Protocol (Windows Terminal Server),#end,Indicates the end of a top level event.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_raw,"Client hostname
 rdp,Remote Desktop Protocol (Windows Terminal Server),#domain_raw,"Client domain
 rdp,Remote Desktop Protocol (Windows Terminal Server),#username_raw,"Client login
-rdp,Remote Desktop Protocol (Windows Terminal Server),#channel,Communication channel.
 rdt,Real Data Transport,#inherit_key,"Candidate inheritance key
-redhat_update,RedHat Update,#kernel,"Parent attribute of kernel_name
-redhat_update,RedHat Update,#package,"Parent attribute of package_name
-redhat_update,RedHat Update,#end,Indicates the end of a top level event.
-rip2,Routing Information Protocol V2,#end,Indicates the end of a top level event.
-rip2,Routing Information Protocol V2,#ip_entry,A parent attribute.
-rip2,Routing Information Protocol V2,#addr_family,The family of the address which is present in the packet.
-rip2,Routing Information Protocol V2,#route_tag,"The Route Tag provides a method of separating internal"" RIP routes (routes for networks within the RIP routing domain) from ""external"" RIP routes."""
-rip2,Routing Information Protocol V2,#auth_type,Type of the used authentication.
-rtcp,Real Time Control Protocol,#end,Indicates the end of a top level event.
 rtcp,Real Time Control Protocol,#inherit_key,"Candidate inheritance key
-rtcp,Real Time Control Protocol,#receiver_report,Reception report that contains all fields concerning quality and metrics
-rtcp,Real Time Control Protocol,#rr_rptblock,Receiver report block that contains all reception related fields
-rtcp,Real Time Control Protocol,#rr_fcnlost,The fraction of RTP data packets from source lost since the previous RR packet
-rtcp,Real Time Control Protocol,#sender_report,The report concerning the sending side
-rtcp,Real Time Control Protocol,#sr_sender_info,The record that contains all information about a given sender
-rtcp,Real Time Control Protocol,#sr_rptblock,The record containing fields about the sending side quality and metrics
-rtcp,Real Time Control Protocol,#sr_fcnlost,The fraction of RTP data packets from source lost since the previous SR packet
-rtmp,Real Time Messaging Protocol,#end,Indicates the end of a top level event.
-rtmp,Real Time Messaging Protocol,#stream,Parent attribute containing the metadata related to a particular audio/video stream.
-rtmp,Real Time Messaging Protocol,#live_stream_indicator,Indication reported by the server that the playout is live content
-rtp,Real Time Protocol,#end,Indicates the end of a top level event.
 rtp,Real Time Protocol,#inherit_key,"Candidate inheritance key
 rtp,Real Time Protocol,#inherit_parent,"Parent inheritance key
-rtp,Real Time Protocol,#codec,Contains information about the codec used.
-rtp,Real Time Protocol,#codec_index,Number identifying the codec.
-rtp,Real Time Protocol,#lost,Counter of lost packets (use with sum).
-rtp,Real Time Protocol,#snumber,Sequence number of RTP packet
 rtp,Real Time Protocol,#payload_data,A binary buffer containing the RTP data (without header)
-rtsp,Real Time Streaming Protocol,#end,Indicates the end of a top level event.
 rtsp,Real Time Streaming Protocol,#inherit_parent,"Parent inheritance key
-rtsp,Real Time Streaming Protocol,#request,RTSP request.
-rtsp,Real Time Streaming Protocol,#rtp_client_port,RTP's client port.
-rtsp,Real Time Streaming Protocol,#rtcp_client_port,RTCP's client port.
-rtsp,Real Time Streaming Protocol,#rtp_server_port,RTP's server port.
-rtsp,Real Time Streaming Protocol,#rtcp_server_port,RTCP's server port.
-rtsp,Real Time Streaming Protocol,#rdt_server_port,UDP's server port.
-rtsp,Real Time Streaming Protocol,#rdt_client_port,UDP's client port.
 rtsp,Real Time Streaming Protocol,#urimd5,md5 of the uri.
-rtsp,Real Time Streaming Protocol,#header,"One RTSP header line
 rtsp,Real Time Streaming Protocol,#content,Contains the data in a HTTP response.
-rtsp,Real Time Streaming Protocol,#media_attr,A multivalued attribute that contains the different codecs values that can be used for audio/video transmission
-rtsp,Real Time Streaming Protocol,#media_attr_addr_v6,The mentioned IPv6 address to be used.
-rtsp,Real Time Streaming Protocol,#media_attr_port,The transport port to be used.
-rtsp,Real Time Streaming Protocol,#media_desc,"Parent entry
-rtsp,Real Time Streaming Protocol,#data_port,Data port for client's protocol.
-s1ap,S1 Application Protocol,#end,Indicates the end of a top level event.
-s1ap,S1 Application Protocol,#ep,Contains Elementary Procedure attributes.
-s1ap,S1 Application Protocol,#ep_code,Elementary Procedure identifier.
 s1ap,S1 Application Protocol,#ep_value_raw,Elementary Procedure raw value.
-s1ap,S1 Application Protocol,#ep_ie,Contains Information Element attributes.
-s1ap,S1 Application Protocol,#ep_ie_code,Information Element identifier.
 s1ap,S1 Application Protocol,#ep_ie_value_raw,Information Element raw value.
-s1ap,S1 Application Protocol,#ep_ie_rab,Contains E-RAB attributes.
-s1ap,S1 Application Protocol,#ep_ie_rab_id,E-UTRAN Radio Access Bearer (E-RAB ID).
-s1ap,S1 Application Protocol,#ep_ie_rab_addr6,Transport Layer Address (IPv6).
-sccp,Skinny Client Control Protocol,#end,Indicates the end of a top level event.
 sccp,Skinny Client Control Protocol,#inherit_parent,"Parent inheritance key
-sccp,Skinny Client Control Protocol,#call,"Parent entry
-sccp,Skinny Client Control Protocol,#stats,Regroups connection statistics
-sctp,Stream Control Transmission Protocol,#end,Indicates the end of a top level event.
-sctp,Stream Control Transmission Protocol,#src_port,Source port.
-sctp,Stream Control Transmission Protocol,#dst_port,Destination port.
-sctp,Stream Control Transmission Protocol,#chunk,A parent attribute representing a chunk entity.
-sctp,Stream Control Transmission Protocol,#chunk_type,Containing the type of the chunk.
-sctp,Stream Control Transmission Protocol,#chunk_data,Parent containing attributes relative to chunk data.
-sctp,Stream Control Transmission Protocol,#chunk_data_stream_id,An identifier indicating the stream to which the chunk belongs.
-sctp,Stream Control Transmission Protocol,#chunk_data_stream_seq,An identifier indicating the sequence number of the chunk data.
-secondlife,SecondLife.com,#end,Indicates the end of a top level event.
-secondlife,SecondLife.com,#chat,Chat message information.
 secondlife,SecondLife.com,#login_id,Id of virtual character.
-secondlife,SecondLife.com,#source,Information about the source of chat message.
 secondlife,SecondLife.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
 secondlife,SecondLife.com,#source_id,Source Id.
 secondlife,SecondLife.com,#session_id,Uniquely identifies the current user session.
-sip,Session Initiation Protocol,#end,Indicates the end of a top level event.
 sip,Session Initiation Protocol,#inherit_key,"Candidate inheritance key
 sip,Session Initiation Protocol,#inherit_parent,"Parent inheritance key
-sip,Session Initiation Protocol,#request,SIP request.
-sip,Session Initiation Protocol,#caller_user_phone,Caller's phone presence flag
-sip,Session Initiation Protocol,#callee_user_phone,Callee's phone presence flag
-sip,Session Initiation Protocol,#call,"Parent entry
 sip,Session Initiation Protocol,#from_tag,A globally unique id of the caller.
 sip,Session Initiation Protocol,#to_tag,A globally unique id of the callee.
-sip,Session Initiation Protocol,#caller_addr_v6,IPv6 address which could be used by the initiator of the call.
-sip,Session Initiation Protocol,#callee_addr_v6,IPv6 address which could be used by the called party.
-sip,Session Initiation Protocol,#caller_port,Port which could be used by the caller.
-sip,Session Initiation Protocol,#callee_port,Port which could be used by the callee.
-sip,Session Initiation Protocol,#connection_info,Contains connection information.
-sip,Session Initiation Protocol,#connection_info_addr_v6,Connection IPv6 address.
-sip,Session Initiation Protocol,#media_desc,"Parent entry
-sip,Session Initiation Protocol,#data_port,Data port for client's protocol.
-sip,Session Initiation Protocol,#media_attr,"Parent entry
-sip,Session Initiation Protocol,#media_attr_addr_v6,The mentioned IPv6 address to be used.
-sip,Session Initiation Protocol,#media_attr_port,The transport port to be used.
-skyblog,skyblog,#end,Indicates the end of a top level event.
-skyblog,skyblog,#account,User account metadata including the login and the password.
-skype,skype,#end,Indicates the end of a top level event.
-skype,skype,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-slsk,SoulSeek,#end,Indicates the end of a top level event.
 slsk,SoulSeek,#file_chunk_content,Content of the transferred data.
-slsk,SoulSeek,#file,File related information.
-slsk,SoulSeek,#account,User account metadata including the login and the password.
-smb,Server Message Block (Windows File Server),#end,Indicates the end of a top level event.
-smb,Server Message Block (Windows File Server),#request,Parent attribute containing the metadata related to a given request/answer.
 smb,Server Message Block (Windows File Server),#service_data,Data associated with the resource that the client intends to access.
-smb,Server Message Block (Windows File Server),#command,Command number use.
 smb,Server Message Block (Windows File Server),#content,File content
-smb,Server Message Block (Windows File Server),#query_type,Indicates if the message is a request (1) or a response (2).
 smb,Server Message Block (Windows File Server),#security_blob,Data contained in the security blob.
-smb,Server Message Block (Windows File Server),#information_level,"This field contains an information level code
-smb,Server Message Block (Windows File Server),#dialect_index,Index of the selected SMB Protocol version.
-smb,Server Message Block (Windows File Server),#dialect_name,The version name of the SMB Protocol.
-smb,Server Message Block (Windows File Server),#file,File related information.
-smpp,Short message peer-to-peer protocol,#end,Indicates the end of a top level event.
-smpp,Short message peer-to-peer protocol,#message,Parent attribute containing SMS information.
 smpp,Short message peer-to-peer protocol,#content,Content of the Short Message.
-smtp,Simple Mail Transfer Protocol,#end,Indicates the end of a top level event.
-smtp,Simple Mail Transfer Protocol,#email,"Parent entry
-smtp,Simple Mail Transfer Protocol,#sender_entry,"Parent entry
-smtp,Simple Mail Transfer Protocol,#mailfrom,Contains the domain and the sender's email
-smtp,Simple Mail Transfer Protocol,#rcptto,Domain and recipient's email address (used by RCPT TO method).
-smtp,Simple Mail Transfer Protocol,#receiver_entry,"Parent entry
-smtp,Simple Mail Transfer Protocol,#request,"Parent entry
-smtp,Simple Mail Transfer Protocol,#attach,"Parent entry
 smtp,Simple Mail Transfer Protocol,#attach_content,Attached files' content.
 smtp,Simple Mail Transfer Protocol,#attach_content_decoded,Decoded attached files' content.
 smtp,Simple Mail Transfer Protocol,#content_entry,"Parent entry
-smtp,Simple Mail Transfer Protocol,#received,"Parent entry
-snap,Sub-Network Access Protocol,#snap_type,Identifier of the encapsulated protocol.
-snmp,Simple Network Management Protocol,#end,Indicates the end of a top level event.
-snmp,Simple Network Management Protocol,#request,Contains the requests attributes
-snmp,Simple Network Management Protocol,#variable,OID Parent.
 snmp,Simple Network Management Protocol,#value_raw,OID raw Value
-socks4,SOCKet Secure v4,#remote_port,Remote TCP port.
-socks5,SOCKet Secure v5,#remote_port,Remote TCP port.
-spdy,SPDY,#end,Indicates the end of a top level event.
-spdy,SPDY,#frame_type,Frame type.
-spdy,SPDY,#flags,Flags
-spdy,SPDY,#control_frame,Parent attribute for control frame elements.
-spdy,SPDY,#version,Version number.
-spdy,SPDY,#control_type,Control frame type.
-spdy,SPDY,#syn_stream,Parent attribute for elements of stream synchronization frames.
-spdy,SPDY,#associated_stream_id,Identifier for a stream which this stream is associated to.
-spdy,SPDY,#priority,A stream priority is represented as an integer. 0 represents the highest priority and 7 represents the lowest priority.
-spdy,SPDY,#slot,An 8 bit unsigned integer specifying the index in the server's CREDENTIAL vector of the client certificate to be used for this request.
-spdy,SPDY,#rst_stream,Parent attribute for elements of stream reset frames.
-spdy,SPDY,#header,Parent attribute for a name/value pair.
-spdy,SPDY,#data_frame,Parent attribute for elements of a data frame.
 spdy,SPDY,#content,Message content.
-spid,Statistical Protocol IDentification,#end,Indicates the end of a top level event.
-spid,Statistical Protocol IDentification,#result,Parent attribute containing SPID classification results.
-squirrelmail,SquirrelMail,#end,Indicates the end of a top level event.
-squirrelmail,SquirrelMail,#contact_entry,This attribute groups information about a contact.
-squirrelmail,SquirrelMail,#msglist_sender_entry,Parent entry for a sender in a message list.
-squirrelmail,SquirrelMail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-squirrelmail,SquirrelMail,#msglist_entry,"Parent entry
-squirrelmail,SquirrelMail,#sender_entry,"Parent entry
-squirrelmail,SquirrelMail,#receiver_entry,"Parent entry
 squirrelmail,SquirrelMail,#attach_content,Attached files' content.
-squirrelmail,SquirrelMail,#attach,"Parent entry
-squirrelmail,SquirrelMail,#email,"Parent entry
-ssl,Secure Socket Layer,#end,Indicates the end of a top level event.
-ssl,Secure Socket Layer,#declassify_override,Attribute used to specify whether the current session path maybe be declassified or not. This value overrides the proto_feature flag defined in the layer raising this event.
 ssl,Secure Socket Layer,#session_id,Uniquely identifies the current user session.
-ssl,Secure Socket Layer,#certificate,Parent attribute for the common_name and the MD5 hash of the certificate
 ssl,Secure Socket Layer,#certificate_raw,Raw text content of the ssl certificate.
 ssl,Secure Socket Layer,#certif_md5,md5 of the certificate.
 ssl,Secure Socket Layer,#serial_number,Serial number of certificate.
-ssl,Secure Socket Layer,#handshake_type,Handshake type.
-ssl,Secure Socket Layer,#request,An SSL request.
-ssl,Secure Socket Layer,#cipher_suite_id,Id of the cipher suite handled by the server.
-stp,Spanning Tree Protocol,#proto_id,Protocol Identifier. Must be equal to 0x00.
-stp,Spanning Tree Protocol,#version,Protocol version.
-stp,Spanning Tree Protocol,#bpdu_type,Message type.
-stp,Spanning Tree Protocol,#bpdu_flags,Message flags.
-stp,Spanning Tree Protocol,#root_id,Root Bridge Identifier.
-stp,Spanning Tree Protocol,#bridge_id,Bridge Identifier.
-stp,Spanning Tree Protocol,#port_id,Bridge port identifier.
-stp,Spanning Tree Protocol,#message_age,Time elapsed since generation of the message by the Root Bridge.
-stp,Spanning Tree Protocol,#max_age,Period of validity for a message.
-stp,Spanning Tree Protocol,#hello_time,Time interval between messages.
-stp,Spanning Tree Protocol,#forward_delay,Timeout value for port states transfers.
-stun,Session Traversal Utilities for NAT,#end,Indicates the end of a top level event.
-stun,Session Traversal Utilities for NAT,#message,set of attributes for a given stun message
-stun,Session Traversal Utilities for NAT,#mapped_address_ipv6,IP v6 address to be mapped.
-stun,Session Traversal Utilities for NAT,#port,port to be mapped.
-stun,Session Traversal Utilities for NAT,#xor_mapped_address_ipv6,IP v6 address to be mapped (deobfuscated version).
-stun,Session Traversal Utilities for NAT,#xor_port,port to be mapped (deobfuscated version).
-t38,T.38,#end,Indicates the end of a top level event.
 t38,T.38,#inherit_key,"Candidate inheritance key
-t38,T.38,#message,Parent attribute including T.38 message elements
-t38,T.38,#udptl_sequence_number,UDPTL sequence number
-t38,T.38,#tpkt,Parent attribute including TPKT protocol elements
-t38,T.38,#tpkt_vrsn,Version of the TPKT protocol
-t38,T.38,#tpkt_packet_length,Total length of TPKT packet
-t38,T.38,#ifp,Parent attribute including IFP packet elements
 t38,T.38,#ifp_data,IFP packet buffer
-t38,T.38,#data_field,Parent attribute including data field type and content
 t38,T.38,#field_data,Fax data carried in the IFP packets
-t38,T.38,#fax,Parent attribute including calling and called subscriber
-t38,T.38,#fax_message,Parent attribute including fax signaling message elements
 t38,T.38,#fax_message_data,Fax signaling messages carried in the (reassembled) IFP packets
-tagged,Tagged.com,#end,Indicates the end of a top level event.
-tagged,Tagged.com,#account,User account metadata including the login and the password.
-tango,Tango Video Calls,#end,Indicates the end of a top level event.
-tango,Tango Video Calls,#attach,Parent attribute containing metadata related to an attached file exchanged between two users.
-tango,Tango Video Calls,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-tango,Tango Video Calls,#call_duration,Call duration.
-tango,Tango Video Calls,#call,"Parent entry
-tango,Tango Video Calls,#account,User account metadata including the login and the password.
-tchatche,tchatche,#end,Indicates the end of a top level event.
-tchatche,tchatche,#account,User account metadata including the login and the password.
 tcp,Transmission Control Protocol,#stream,Private attribute of the classification engine.
-tcp,Transmission Control Protocol,#src_port,Source port.
-tcp,Transmission Control Protocol,#dst_port,Destination port.
-tcp,Transmission Control Protocol,#server_port,Server port.
-tcp,Transmission Control Protocol,#client_port,Client port.
-tcp,Transmission Control Protocol,#src_port_range,"Range of source port number
-tcp,Transmission Control Protocol,#dst_port_range,"Range of destination port number
-tcp,Transmission Control Protocol,#client_port_range,"Range of client port number
-tcp,Transmission Control Protocol,#server_port_range,"Range of server port number
-tcp,Transmission Control Protocol,#port,Validates a source or destination port. To be used in a filter.
-tcp,Transmission Control Protocol,#unseq,Set to 1 if the packet is in a bad order.
-tcp,Transmission Control Protocol,#mss,Maximum Segment Size.
-tcp,Transmission Control Protocol,#window,Congestion window size.
-tcp,Transmission Control Protocol,#sack,"Equal to 1 if the Selective Ack"" technique is used."""
-tcp,Transmission Control Protocol,#tstamp,Equal to 1 if timestamps are used.
-tcp,Transmission Control Protocol,#unseq_amont,Indicates if unsequencing of the packet took place before passing through the probe.
-tcp,Transmission Control Protocol,#unseq_aval,Indicates if unsequencing of the packet took place after passing through the probe.
-tcp,Transmission Control Protocol,#flag_fin,"Indicates if FIN flag is present in this packet
-tcp,Transmission Control Protocol,#flag_reset,"Indicates if RESET flag is present in this packet
-tcp,Transmission Control Protocol,#flag_syn,"Indicates if SYN flag is present in this packet
-tcp,Transmission Control Protocol,#flag_synack,"Indicates if SYN and ACK flags are present in this packet
-tcp,Transmission Control Protocol,#wrong_crc,A flag raised when the CRC field checksum is changed from the computed one.
-tcp,Transmission Control Protocol,#dup_ack,Extracted when the current packet has the ACK flag and validates a data segment that was already acknowledged.
-tds,Tabular Data Stream,#end,Indicates the end of a top level event.
-tds,Tabular Data Stream,#request,Structured attribute regarding to a query.
 tds,Tabular Data Stream,#rpc_proc_name,RPC TDS packet distant procedure name.
-tds,Tabular Data Stream,#rpc_parameter_entry,Structure containing the data related to a RPC call parameter.
 tds,Tabular Data Stream,#rpc_parameter_name,RPC parameter name.
 tds,Tabular Data Stream,#rpc_parameter_type,RPC parameter type.
 tds,Tabular Data Stream,#rpc_parameter_value,RPC parameter value.
-teamspeak,Teamspeak v2,#end,Indicates the end of a top level event.
-teamspeak,Teamspeak v2,#channel_entry,Parent to channel attributes
-teamspeak,Teamspeak v2,#contact_entry,This attribute groups information about a contact.
-teamspeak,Teamspeak v2,#chat,"Parent entry
-teamspeak,Teamspeak v2,#server,Parent attribute
-teamspeak,Teamspeak v2,#client,Parent attribute
-teamspeak,Teamspeak v2,#session,Parent attribute
-teamspeak,Teamspeak v2,#account,User account metadata including the login and the password.
-telnet,Telnet,#end,Indicates the end of a top level event.
-telnet,Telnet,#account,User account metadata including the login and the password.
-teredo,Teredo protocol,#end,Indicates the end of a top level event.
-teredo,Teredo protocol,#port,Mapped UDP port used by Teredo
-teredo,Teredo protocol,#origin_indication,Identification data from a client attempting to set up a Teredo connection
-teredo,Teredo protocol,#origin_port,UDP port used by Teredo as visible in the Origin Indication
-teredo,Teredo protocol,#authentication,Authentication data exchanged between client and server
-tftp,Trivial File Transfer Protocol,#end,Indicates the end of a top level event.
-tftp,Trivial File Transfer Protocol,#request,Structured attribute regarding to a packet.
-tftp,Trivial File Transfer Protocol,#file,File related information.
-tftp,Trivial File Transfer Protocol,#block_number,Contains the block number of the data packet.
 tftp,Trivial File Transfer Protocol,#content,File content
-tns,Transparent Network Service (Oracle),#end,Indicates the end of a top level event.
-tns,Transparent Network Service (Oracle),#version,Version number of Oracle server.
-tns,Transparent Network Service (Oracle),#server_port,Database server listening port.
-tns,Transparent Network Service (Oracle),#request,Structured attribute regarding to a query.
-tns,Transparent Network Service (Oracle),#response,Parent attribute containing metadata related to the server response.
-twitter,Twitter.com,#end,Indicates the end of a top level event.
-twitter,Twitter.com,#result,Parent of attributes appearing in the result of a query.
-twitter,Twitter.com,#param,Parent attribute containing request parameters.
-twitter,Twitter.com,#request,Parent attribute containing all the metadata related to a request.
 udp,User Datagram Protocol,#stream,Private attribute of the classification engine.
-udp,User Datagram Protocol,#src_port,Source port.
-udp,User Datagram Protocol,#dst_port,Destination port.
-udp,User Datagram Protocol,#server_port,Server port.
-udp,User Datagram Protocol,#client_port,Client port.
-udp,User Datagram Protocol,#src_port_range,"Range of source port
-udp,User Datagram Protocol,#dst_port_range,"Range of destination port
-udp,User Datagram Protocol,#client_port_range,"Range of client port
-udp,User Datagram Protocol,#server_port_range,"Range of server port
-udp,User Datagram Protocol,#src_port16,Source port (16 bits).
-udp,User Datagram Protocol,#dst_port16,Destination Port (16 bits).
-udp,User Datagram Protocol,#port,Validates a source port or destination port. To be used in a filter.
-udp,User Datagram Protocol,#wrong_crc,A flag raised when the CRC field checksum is changed from the computed one.
-unknown,Unknown virtual protocol,#end,Indicates the end of a top level event.
 unknown,Unknown virtual protocol,#session_buffer,Payload received from the beginning of the session.
-unknown,Unknown virtual protocol,#maybe_protocol,Parent attribute.
-ustream,UStream,#end,Indicates the end of a top level event.
-ustream,UStream,#account,User account metadata including the login and the password.
-ustream,UStream,#query,Contains the raw and text query sent.
-viadeo,Viadeo.com,#end,Indicates the end of a top level event.
-viadeo,Viadeo.com,#contact_entry,"Parent attribute of : contact_email
-viber,viber,#end,Indicates the end of a top level event.
-viber,viber,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-vkontakte,Vk.com (Vkontakte),#end,Indicates the end of a top level event.
-vkontakte,Vk.com (Vkontakte),#contact_entry,This attribute groups information about a contact.
-vkontakte,Vk.com (Vkontakte),#account,User account metadata including the login and the password.
-websocket,WebSocket,#end,Indicates the end of a top level event.
-websocket,WebSocket,#wsframe,"Parent attribute
 websocket,WebSocket,#raw,WebSocket frame content.
-websocket,WebSocket,#opcode,"Opcode"" field of WebSocket frame."""
 websocket,WebSocket,#msg,"Payload"" field of the WebSocket frame."""
-wechat,WeChat,#end,Indicates the end of a top level event.
-wechat,WeChat,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-whatsapp,WhatsApp Messenger,#end,Indicates the end of a top level event.
-whatsapp,WhatsApp Messenger,#service_info,"Parent entry for service information metadata. The service type is resolved by a statistical method (behavior analysis)
-wikipedia,Wikipedia.com,#end,Indicates the end of a top level event.
-wikipedia,Wikipedia.com,#query,Contains the raw and text query sent.
-winmx,Winmx,#end,Indicates the end of a top level event.
-winmx,Winmx,#file,File related information.
-winmx,Winmx,#file_chunk,A piece of a transferred file.
 winmx,Winmx,#file_chunk_content,Content of the transferred data.
-wsp,Wireless Session Protocol,#end,Indicates the end of a top level event.
-wsp,Wireless Session Protocol,#request,"Empty parent attribute
-wsp,Wireless Session Protocol,#tid,Packet Identifier. (WSP over UDP).
-wsp,Wireless Session Protocol,#pdu_code,Message code.
-wsp,Wireless Session Protocol,#mime,"Parent attribute
-wsp,Wireless Session Protocol,#reply_status_code,Reply status code.
-wtp,Wireless Transaction Protocol,#end,Indicates the end of a top level event.
-wtp,Wireless Transaction Protocol,#pdu,"Empty parent attribute
-wtp,Wireless Transaction Protocol,#pdu_code,Message code.
-wtp,Wireless Transaction Protocol,#tid,Packet Identifier.
-wtp,Wireless Transaction Protocol,#retransmission,Indicates if the packet is being retransmitted.
-wtp,Wireless Transaction Protocol,#seq_number,A sequence number used in segmentation and reassembly.
-wtp,Wireless Transaction Protocol,#missing_pkts,Indicate the missing packets.
-yahoo_groups,Yahoo groups,#end,Indicates the end of a top level event.
-yahoo_groups,Yahoo groups,#query,Contains the raw and text query sent.
-yahoo_groups,Yahoo groups,#email,"Parent entry
-yahoo_groups,Yahoo groups,#sender_entry,"Parent entry
-yahoo_maps,Yahoo Maps,#end,Indicates the end of a top level event.
-yahoo_maps,Yahoo Maps,#query,Contains the raw and text query sent.
-yahoo_maps,Yahoo Maps,#location,Parent attribute containing information about location researched.
-yahoo_search,Yahoo Search,#end,Indicates the end of a top level event.
-yahoo_search,Yahoo Search,#query,Contains the raw and text query sent.
-yandex,Yandex.ru,#end,Indicates the end of a top level event.
-yandex,Yandex.ru,#account,User account metadata including the login and the password.
-yandex,Yandex.ru,#query,Contains the raw and text query sent.
-yandex_webmail,Yandex webmail,#end,Indicates the end of a top level event.
-yandex_webmail,Yandex webmail,#folderlist_item,Contains the metadata related to one message folder list item.
-yandex_webmail,Yandex webmail,#folderlist,Contains the message folder list.
-yandex_webmail,Yandex webmail,#receiver_entry,"Parent entry
-yandex_webmail,Yandex webmail,#sender_entry,"Parent entry
-yandex_webmail,Yandex webmail,#thumbnail,Indicates whether this attachment is an image thumbnail(1) or not(0).
 yandex_webmail,Yandex webmail,#attach_content,Attached files' content.
-yandex_webmail,Yandex webmail,#attach,"Parent entry
 yandex_webmail,Yandex webmail,#content,Message content.
-yandex_webmail,Yandex webmail,#email,"Parent entry
-yandex_webmail,Yandex webmail,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-yandex_webmail,Yandex webmail,#msglist_sender_entry,Parent entry for a sender in a message list.
-yandex_webmail,Yandex webmail,#msglist_entry,"Parent entry
-yandex_webmail,Yandex webmail,#account,User account metadata including the login and the password.
-yandex_webmail,Yandex webmail,#contact_entry,This attribute groups information about a contact.
-ymail2,Yahoo Mail v.2.0,#end,Indicates the end of a top level event.
-ymail2,Yahoo Mail v.2.0,#contact_entry,This attribute groups information about a contact.
-ymail2,Yahoo Mail v.2.0,#receiver_entry,"Parent entry
-ymail2,Yahoo Mail v.2.0,#sender_entry,"Parent entry
-ymail2,Yahoo Mail v.2.0,#msglist_entry,"Parent entry
-ymail2,Yahoo Mail v.2.0,#msglist_sender_entry,Parent entry for a sender in a message list.
-ymail2,Yahoo Mail v.2.0,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 ymail2,Yahoo Mail v.2.0,#attach_content,Attached files' content.
-ymail2,Yahoo Mail v.2.0,#attach,"Parent entry
-ymail2,Yahoo Mail v.2.0,#email,"Parent entry
-ymail_classic,Yahoo Mail classic,#end,Indicates the end of a top level event.
-ymail_classic,Yahoo Mail classic,#msglist_entry,"Parent entry
-ymail_classic,Yahoo Mail classic,#msglist_sender_entry,Parent entry for a sender in a message list.
-ymail_classic,Yahoo Mail classic,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-ymail_classic,Yahoo Mail classic,#email,"Parent entry
-ymail_classic,Yahoo Mail classic,#sender_entry,"Parent entry
-ymail_classic,Yahoo Mail classic,#receiver_entry,"Parent entry
-ymail_classic,Yahoo Mail classic,#attach,"Parent entry
 ymail_classic,Yahoo Mail classic,#attach_content,Attached files' content.
-ymail_classic,Yahoo Mail classic,#contact_entry,This attribute groups information about a contact.
-ymail_mobile_new,Yahoo webmail for mobile,#end,Indicates the end of a top level event.
 ymail_mobile_new,Yahoo webmail for mobile,#attach_content,Attached files' content.
-ymail_mobile_new,Yahoo webmail for mobile,#attach,"Parent entry
-ymail_mobile_new,Yahoo webmail for mobile,#receiver_entry,"Parent entry
-ymail_mobile_new,Yahoo webmail for mobile,#sender_entry,"Parent entry
-ymail_mobile_new,Yahoo webmail for mobile,#email,"Parent entry
-ymail_mobile_new,Yahoo webmail for mobile,#msglist_sender_entry,Parent entry for a sender in a message list.
-ymail_mobile_new,Yahoo webmail for mobile,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-ymail_mobile_new,Yahoo webmail for mobile,#msglist_entry,"Parent entry
-ymail_mobile_new,Yahoo webmail for mobile,#contact_entry,This attribute groups information about a contact.
-ymsg,Yahoo Messenger,#end,Indicates the end of a top level event.
 ymsg,Yahoo Messenger,#inherit_key,"Candidate inheritance key
 ymsg,Yahoo Messenger,#inherit_parent,"Parent inheritance key
-ymsg,Yahoo Messenger,#chat,"Parent entry
-ymsg,Yahoo Messenger,#request,Parent attribute including a YMSG method and its service.
-ymsg,Yahoo Messenger,#msg_code,Contains the number of YMSG command.
-ymsg,Yahoo Messenger,#file,File related information.
-ymsg,Yahoo Messenger,#channel_entry,Parent to channel attributes
 ymsg_conf,Yahoo Messenger conference service,#inherit_key,"Candidate inheritance key
 ymsg_conf,Yahoo Messenger conference service,#inherit_parent,"Parent inheritance key
-ymsg_transfer,Yahoo Messenger Transfer Protocol,#end,Indicates the end of a top level event.
 ymsg_transfer,Yahoo Messenger Transfer Protocol,#inherit_key,"Candidate inheritance key
-ymsg_transfer,Yahoo Messenger Transfer Protocol,#file,File related information.
 ymsg_transfer,Yahoo Messenger Transfer Protocol,#content,File content
 ymsg_video,Yahoo Messenger Video,#inherit_key,"Candidate inheritance key
-ymsg_webmessenger,Yahoo Webmessenger,#end,Indicates the end of a top level event.
-ymsg_webmessenger,Yahoo Webmessenger,#chat,"Parent entry
-ymsg_webmessenger,Yahoo Webmessenger,#contact_entry,This attribute groups information about a contact.
-ymsg_webmessenger,Yahoo Webmessenger,#request,Contains the YMSG command.
-youtube,Youtube.com,#end,Indicates the end of a top level event.
-youtube,Youtube.com,#account,User account metadata including the login and the password.
-youtube,Youtube.com,#query,Contains the raw and text query sent.
-youtube,Youtube.com,#video,"Parent entry
-zimbra,Zimbra.com,#end,Indicates the end of a top level event.
-zimbra,Zimbra.com,#msglist_entry,"Parent entry
-zimbra,Zimbra.com,#msglist_sender_entry,Parent entry for a sender in a message list.
-zimbra,Zimbra.com,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-zimbra,Zimbra.com,#email,"Parent entry
-zimbra,Zimbra.com,#sender_entry,"Parent entry
-zimbra,Zimbra.com,#receiver_entry,"Parent entry
-zimbra,Zimbra.com,#attach,"Parent entry
 zimbra,Zimbra.com,#attach_content,Attached files' content.
-zimbra,Zimbra.com,#contact_entry,This attribute groups information about a contact.
-zimbra_standard,Zimbra Webmail Standard Version,#end,Indicates the end of a top level event.
-zimbra_standard,Zimbra Webmail Standard Version,#msglist_sender_entry,Parent entry for a sender in a message list.
-zimbra_standard,Zimbra Webmail Standard Version,#msglist_receiver_entry,Parent entry for a receiver in a message list.
-zimbra_standard,Zimbra Webmail Standard Version,#msglist_entry,"Parent entry
-zimbra_standard,Zimbra Webmail Standard Version,#sender_entry,"Parent entry
-zimbra_standard,Zimbra Webmail Standard Version,#receiver_entry,"Parent entry
-zimbra_standard,Zimbra Webmail Standard Version,#attach,"Parent entry
-zimbra_standard,Zimbra Webmail Standard Version,#email,"Parent entry
 zimbra_standard,Zimbra Webmail Standard Version,#attach_content,Attached files' content.
-zimbra_standard,Zimbra Webmail Standard Version,#contact_entry,This attribute groups information about a contact.

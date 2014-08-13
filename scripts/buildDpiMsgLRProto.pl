@@ -51,6 +51,7 @@ sub ReadPreviousData {
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
 
+	print "File to Open: $filename\n";
    open previousData, "$filename" or die $!;
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
@@ -110,11 +111,11 @@ sub CheckRenameFile {
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
-         if ( !defined $renameMapping { $lineValues[7] } &&
-               !defined $renameMapping { "_$lineValues[7]" } ) {
-            die "Rename file does not account for field $lineValues[7]";
+         if ( !defined $renameMapping { $lineValues[8] } &&
+               !defined $renameMapping { "_$lineValues[8]" } ) {
+            die "Rename file does not account for field $lineValues[8]";
          } 
-      }
+      } 
    }
    while (($key,$value) = each (%renameMapping)) {
       my @matches =  grep { /$value/ } @$staticField_ptr;
@@ -188,34 +189,34 @@ seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
-     $field = "$lineValues[7]$lineValues[1]";
+     $field = "$lineValues[8]$lineValues[2]";
      if ( $field =~ /^[0-9]/ ) {
-        $field = "_$lineValues[7]$lineValues[1]";
+        $field = "_$lineValues[8]$lineValues[2]";
      }
      if ($callbackNames !~ /,$field,/ ) {
         $requirement = "optional";
         $highest += 1;
-        $type = $lineValues[9];
+        $type = $lineValues[10];
         $optionalStuff = "";
-        if ($lineValues[9] =~ /timeval/ ) {
+        if ($lineValues[10] =~ /timeval/ ) {
            $type = "string";
            $optionalStuff = ",timeval,timevalToString";
-        } elsif ( $lineValues[9] =~ /ip_addr/ ) {
+        } elsif ( $lineValues[10] =~ /ip_addr/ ) {
            $type = "string";
            $optionalStuff = ",uint32,ip_addrToString";
-        } elsif ( $lineValues[9] =~ /mac_addr/ ) {
+        } elsif ( $lineValues[10] =~ /mac_addr/ ) {
            $type = "string";
            $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
-        } elsif ($lineValues[9] eq "" ) {
+        } elsif ($lineValues[10] eq "" ) {
            print "MALFORMED FILE!!!!";
-           print "0:$lineValues[0],1:$lineValues[1],2:$lineValues[2],3:lineValues[3],4:$lineValues[4],5:$lineValues[5],6:$lineValues[6],7:$lineValues[7],8:$lineValues[8],9:$lineValues[9]";
+           print "0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]";
            exit(1);
-        } elsif ( $lineValues[9] =~ /string/ ) {
+        } elsif ( $lineValues[10] =~ /string/ ) {
            $type = "bytes";
            $requirement = "repeated";
         }
 
-        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
+        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }
   } 
 }
