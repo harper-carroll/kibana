@@ -1232,6 +1232,12 @@ sender Sender
 sender_alias SenderAlias
 sender_email SenderEmail
 subject Subject
+file_id FileId
+msg_receiver MsgReceiver
+msg Msg
+conference_id ConferenceId
+im_action IMAction
+user User
 action Action
 attach_id AttachID
 attach_size AttachSize
