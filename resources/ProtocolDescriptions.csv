@@ -177,7 +177,7 @@ s1ap,S1 Application Protocol,#ep_value_raw,Elementary Procedure raw value.
 s1ap,S1 Application Protocol,#ep_ie_value_raw,Information Element raw value.
 sccp,Skinny Client Control Protocol,#inherit_parent,"Parent inheritance key
 secondlife,SecondLife.com,#login_id,Id of virtual character.
-secondlife,SecondLife.com,#sender,Sender Id.
+secondlife,SecondLife.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
 secondlife,SecondLife.com,#source_id,Source Id.
 secondlife,SecondLife.com,#session_id,Uniquely identifies the current user session.
 sip,Session Initiation Protocol,#inherit_key,"Candidate inheritance key
