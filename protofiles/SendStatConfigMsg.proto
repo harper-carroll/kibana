@@ -7,5 +7,5 @@ message SendStatConfig {
    optional string statsDestinationQueue = 1;
    optional string statsAggregatorDestinationQueue = 2;
    optional string statsAccumulatorDestinationQueue = 3;
-   optional int64 reportInterval = 4;
+   optional int64 reportIntervalMs = 4;
 }
