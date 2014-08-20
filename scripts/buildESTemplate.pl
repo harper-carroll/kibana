@@ -43,8 +43,8 @@ print "\"CaptureKey\", ";
 print "\"FileID\" ";
 print "]\n";
 print "},\n";
-print "\"properties\" : {\n";
-print "\"SrcIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
+print "\"properties\" : {\n"; 
+print "\"SrcIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n"; 
 print "\"SrcIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
 print "\"DestIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
 print "\"DestIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
@@ -62,6 +62,14 @@ print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"igno
 if ( $ARGV[2] eq "events" ) {
 	print "\"RuleName\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
 	print "\"RuleSeverity\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
+}
+
+if ( $ARGV[2] eq "rules" ) {
+	print "\"enabled\" : { \"type\" : \"boolean\" },\n";
+	print "\"severity\" : { \"type\" : \"string\" },\n";
+	print "\"query\" : { \"type\" : \"object\" },\n";
+	print "\"createdDate\" : { \"format\" : \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\" : \"date\" },\n";
+	print "\"lastModifiedDate\" : { \"format\" : \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\" : \"date\" },\n";
 }
 
 for $app ( keys %typeHash ) {
