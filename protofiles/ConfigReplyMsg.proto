@@ -2,7 +2,6 @@ package protoMsg;
 
 option java_package = "com.logrhythm.config.elements";
 option java_outer_classname = "ConfigReplyMsg";
-import "ConfigMsg.proto";
 
 message ConfigReply {
    enum ReplyType {
@@ -12,5 +11,5 @@ message ConfigReply {
 
    optional ReplyType replyType = 1;
    optional string errorMessage = 2;
-   optional bytes configBytes = 3;
+   optional bytes configMessageBytes = 3;
 }
