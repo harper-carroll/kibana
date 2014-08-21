@@ -1,0 +1,14 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.config.elements";
+option java_outer_classname = "ConfigRequestMsg";
+
+message ConfigRequest {
+   enum RequestType {
+      READ = 0;
+      UPDATE = 1;
+   }
+
+   optional RequestType requestType = 1;
+   optional bytes configMessageBytes = 2;
+}
