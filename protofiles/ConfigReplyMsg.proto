@@ -1,0 +1,15 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.config.elements";
+option java_outer_classname = "ConfigReplyMsg";
+
+message ConfigReply {
+   enum ReplyType {
+      SUCCESS = 0;
+      ERROR = 1;
+   }
+
+   optional ReplyType replyType = 1;
+   optional string errorMessage = 2;
+   optional bytes configMessageBytes = 3;
+}
