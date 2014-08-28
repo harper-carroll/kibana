@@ -1,0 +1,12 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.config.elements";
+option java_outer_classname = "ConfigTypeMsg";
+
+enum ConfigType {
+   // Intentional use of CamelCase; enum literals are
+   // matched up with a YAML and ProtoMessage of the
+   // same name (e.g. SendStatConfig.yaml, SendStatConfigMessage).
+   ConfigServerConfig = 0;
+   SendStatConfig = 1;
+}
