@@ -55,6 +55,7 @@ sender Sender
 service Service
 user_agent UserAgent
 user_email UserEmail
+message_raw MessageRaw
 version Version
 chat_id ChatID
 chat_type ChatType
@@ -296,6 +297,7 @@ qdcount QDCount
 query Query
 response_time ResponseTime
 reverse_addr ReverseAddr
+section_type SectionType
 transaction_id TransactionID
 ttl TTL
 query_raw QueryRaw
@@ -407,6 +409,7 @@ service Service
 service_duration ServiceDuration
 service_duration_tv ServiceDurationTV
 service_id ServiceID
+service_stats ServiceStats
 current_version CurrentVersion
 new_version NewVersion
 plugin_name PluginName
@@ -839,6 +842,12 @@ video_width VidWidth
 wap_profile WAPProfile
 x_content_urn XContentUrn
 uri_unicode_normalized UriUnicodeNormalized
+packet_type PacketType
+trunk_timestamp TrunkTimestamp
+trunk_call_data TrunkCallData
+trunk_call_data_offset TrunkCallDataOffset
+subclass_name SubclassName
+element_name ElementName
 application App
 login_info LoginInfo
 service Service
@@ -2135,6 +2144,7 @@ root_path_cost RootPathCost
 mapped_address_ipv4 MappedAddrIpV4Stun
 xor_mapped_address_ipv4 XorMappedAddrIpV4Stun
 magic_cookie MagicCookie
+remote_address_ipv4 RemoteAddressIPV4
 code Code
 callee Callee
 caller Caller
@@ -2174,6 +2184,7 @@ hostname Hostname
 language Language
 library Library
 login Login
+login_encrypted LoginEncrypted
 password Passwd
 query Query
 server Server
