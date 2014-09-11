@@ -5,7 +5,7 @@ option java_outer_classname = "LicenseMsg";
 
 message RawLicense {
   optional int32 bandwidthInMbps = 1; 
-  optional int64 pcapFiles = 2;
+  optional int64 pcapFileSize = 2;
   optional int64 pcapStorageInMB = 3;
   optional int32 maxIndexesInDays = 4;
   optional int64 expireTime = 5;
