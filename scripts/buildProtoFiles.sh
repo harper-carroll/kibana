@@ -19,10 +19,6 @@ if [ ! -f "$protoc" ]; then
   sh "$scriptsDir"/compileThirdParty.sh
 fi
 
-if [ ! -f "$phpprotoc" ]; then
-  sh "$scriptsDir"/getPhpProtobuffers.sh
-fi
-
 mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense "$cppSrcDir"/libmessages
 
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
