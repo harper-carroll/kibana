@@ -20,7 +20,8 @@ if [ ! -f "$protoc" ]; then
 fi
 
 if [ ! -f "$phpprotoc" ]; then
-  sh "$scriptsDir"/getPhpProtobuffers.sh
+  echo "$phpprotoc not found... should be installed from thirdparty bootstrap."
+  exit 1
 fi
 
 mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense "$cppSrcDir"/libmessages
