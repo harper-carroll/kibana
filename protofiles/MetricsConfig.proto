@@ -8,9 +8,11 @@ message MetricsConfig {
    repeated string statsQueue = 1;
    repeated string statsAggregationQueue = 2;
    repeated string statsAccumulatorQueue = 3;
-   optional string statsDBClusterName = 4;
-   optional string statsDBUrl = 5;
-   optional PortRange statsRollupPortRange = 6;
+   optional string statsAggregateDispatchQueue = 4;
+   optional string statsDBClusterName = 5;
+   optional string statsDBUrl = 6;
+   optional string statsRollupHost = 7;
+   optional PortRange statsRollupPortRange = 8;
    
    message ContinuouslyReportedStat {
       optional string key = 1;
@@ -19,5 +21,5 @@ message MetricsConfig {
       optional int64 statCount = 4;
    }
 
-   repeated ContinuouslyReportedStat continuouslyReportedStat = 7;
+   repeated ContinuouslyReportedStat continuouslyReportedStat = 9;
 }
