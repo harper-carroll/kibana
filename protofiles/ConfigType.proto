@@ -9,4 +9,5 @@ enum ConfigType {
    // same name (e.g. SendStatConfig.yaml, SendStatConfigMessage).
    ConfigServerConfig = 0;
    SendStatConfig = 1;
+   MetricsConfig = 2;
 }
