@@ -182,6 +182,8 @@ msisdn_sender MSISDNSender
 timestamp Timestamp
 validity_period ValidityPeriod
 version Version
+bssid Bssid
+bssid_64 Bssid_64
 address Addr
 device_id DeviceID
 platform Platform
@@ -1830,6 +1832,7 @@ sr_jitter SRJitter
 sr_lsr SRLsr
 sr_dlsr SRDLsr
 app_name AppName
+encryption Encryption
 page_url PageURL
 start_time StartTime
 stop_time StopTime

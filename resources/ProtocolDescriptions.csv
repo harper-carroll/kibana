@@ -37,22 +37,22 @@ chap,Challenge Handshake Authentication Protocol,#challenge,Challenge sent by th
 chap,Challenge Handshake Authentication Protocol,#response,Response to the challenge.
 dhcp,Dynamic Host Configuration Protocol,#inherit_parent,"Parent inheritance key
 dhcp,Dynamic Host Configuration Protocol,#option_value,Content or value of the option
-dimp,Dynamic Internet Messaging Program,#attach_content,Attached files' content.
+dimp,Dynamic Internet Messaging Program,#attach_content,Attached file content.
 directconnect,DirectConnect (NMDC),#file_chunk_content,Content of the transferred data.
 edonkey,Edonkey,#file_hash,Hash of the transferred file.
 edonkey,Edonkey,#file_chunk_content,Content of the transferred data.
 eth,Ethernet,#trailer,Data added to complete the Ethernet frame if required (padding bits).
-facebook_mail,facebook mail,#attach_content,Attached files' content.
+facebook_mail,facebook mail,#attach_content,Attached file content.
 ftp,File Transfer Protocol,#inherit_parent,"Parent inheritance key
 ftp_data,File Transfer Protocol Data,#inherit_key,"Candidate inheritance key
 ftp_data,File Transfer Protocol Data,#content,File content
 giop,General Inter-ORB Protocol,#object_key,Identifies the object should receive the message.
-gmail,Google Mail,#attach_content,Attached files' content.
-gmail_basic,Gmail basic,#attach_content,Attached files' content.
+gmail,Google Mail,#attach_content,Attached file content.
+gmail_basic,Gmail Basic,#attach_content,Attached file content.
 gmail_chat,Google Chat,#inherit_parent,"Parent inheritance key
-gmail_mobile,Gmail Mobile,#attach_content,Attached files' content.
-gmx,GMX webmail,#attach_content,Attached files' content.
-gnutella,gnutella,#file_chunk_content,Content of the transferred data.
+gmail_mobile,Gmail Mobile,#attach_content,Attached file content.
+gmx,GMX webmail,#attach_content,Attached file content.
+gnutella,Gnutella,#file_chunk_content,Content of the transferred data.
 gtp,GPRS Tunneling Protocol,#inherit_key,"Candidate inheritance key
 gtp,GPRS Tunneling Protocol,#inherit_parent,"Parent inheritance key
 gtp,GPRS Tunneling Protocol,#qos_raw,This field contains quality of service data.
@@ -72,20 +72,19 @@ h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_port,Source audio c
 h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_port,Source video connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_port,Destination audio connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_port,Destination video connection port
-hi5,Hi5.com,#uid,Generic user ID.
 http,HyperText Transfer Protocol,#content,Message content.
 http,HyperText Transfer Protocol,#content_raw,uncompressed HTTP content.
-http,HyperText Transfer Protocol,#part_content,Uploaded data.
+http,HyperText Transfer Protocol,#part_content,"Uploaded data. Extracted only if content-type is multipart""."""
 http_tunnel,HTTP Tunnel,#inherit_parent,"Parent inheritance key
 http_tunnel,HTTP Tunnel,#inherit_key,"Candidate inheritance key
+iax,Inter Asterisk eXchange,#element_value,"Value of the information coming from a packet of type Full"" whose message_id is ""IAX""."""
 ica,Independant Computing Architecture (Citrix),#application_utf16,Application name used by the client in UTF-16 format.
 ica,Independant Computing Architecture (Citrix),#login_info_utf16,"Login information for the given connection (host
 icmp6,Internet Control Message Protocol for IP6,#link_layer_raw_addr,Link-layer address in binary format.
-imap,Internet Message Access Protocol version 4,#attach_content,Attached files' content.
-imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files' content.
+imap,Internet Message Access Protocol version 4,#attach_content,Attached file content.
+imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files content.
 imap,Internet Message Access Protocol version 4,#content_entry,"Parent entry
-imap,Internet Message Access Protocol version 4,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
-imp,Internet Messaging Program,#attach_content,Attached files' content.
+imp,Internet Messaging Program,#attach_content,Attached file content.
 ip,Internet Protocol,#inherit_key,"Candidate inheritance key
 ip,Internet Protocol,#src_addr_md5,A MD5 sum on IP Source address
 ip,Internet Protocol,#dst_addr_md5,A MD5 sum on IP destination address
@@ -110,11 +109,11 @@ l2tp,Layer 2 Tunneling Protocol,#challenge,CHAP style challenge used by a peer i
 l2tp,Layer 2 Tunneling Protocol,#resp_challenge,Challenge response.
 ldap,Lighweight Directory Access Protocol,#value_raw,Raw value of the LDAP element.
 ldap,Lighweight Directory Access Protocol,#assertion_value_raw,Raw value of filter expression second operand.
-live_hotmail,Windows Live Hotmail,#attach_content,Attached files' content.
+live_hotmail,Windows Live Hotmail,#attach_content,Attached file content.
 lotusnotes,Lotus Notes,#content,Message content.
-lotusnotes,Lotus Notes,#attach_content,Attached files' content.
-mailru,Mail.ru Webmail,#attach_content,Attached files' content.
-maktoob,Maktoob mail,#attach_content,Attached files' content.
+lotusnotes,Lotus Notes,#attach_content,Attached file content.
+mailru,Mail.ru Webmail,#attach_content,Attached file content.
+maktoob,Maktoob mail,#attach_content,Attached file content.
 mapi,MS Exchange Message API,#subject,Message subject (UTF-16).
 mapi,MS Exchange Message API,#content,Message content.
 mapi,MS Exchange Message API,#sender,Contains the identity of the sender of a chat session or a file transfer (UTF-16).
@@ -124,7 +123,7 @@ mapi,MS Exchange Message API,#receiver,Contains the identity of the receiver for
 mapi,MS Exchange Message API,#receiver_alias,Name of email receiver (included cc and bcc receivers) (UTF-16).
 mapi,MS Exchange Message API,#receiver_email,Email address of message receiver (included cc and bcc receivers) (UTF-16).
 mapi,MS Exchange Message API,#attach_filename,Attachment name (UTF-16).
-mapi,MS Exchange Message API,#attach_content,Attached files' content.
+mapi,MS Exchange Message API,#attach_content,Attached file content.
 mapi,MS Exchange Message API,#msglist_sender,Full address of email sender (alias and email address) (UTF-16).
 mapi,MS Exchange Message API,#msglist_subject,Message subject in a message list (UTF-16).
 mapi,MS Exchange Message API,#msglist_receiver,Full address of email receiver in a message list.
@@ -143,9 +142,10 @@ msn,MSN Messenger,#file_chunk_content,Content of the transferred data.
 msn_video,MSN Video,#inherit_key,"Candidate inheritance key
 nfs,Network File System,#file_handle,Unique identifier for a file.
 nfs,Network File System,#content,File content
-orangemail,Orange webmail,#attach_content,Attached files' content.
+nntp,Network News Transport Protocol,#attach_content,Attached file content.
+orangemail,Orange webmail,#attach_content,Attached file content.
 ospf,Open Shortest Path First,#auth_data,Authentication data.
-owa,Outlook Web App,#attach_content,Attached files' content.
+owa,Outlook Web App,#attach_content,Attached file content.
 paltalk,PalTalk,#inherit_parent,"Parent inheritance key
 paltalk,PalTalk,#inherit_key,"Candidate inheritance key
 paltalk_audio,Paltalk audio chat,#inherit_key,"Candidate inheritance key
@@ -153,15 +153,15 @@ paltalk_transfer,PalTalk Transfer Protocol,#inherit_key,"Candidate inheritance k
 paltalk_transfer,PalTalk Transfer Protocol,#content,File content
 paltalk_video,Paltalk video,#inherit_key,"Candidate inheritance key
 pop3,Post Office Protocol (Version 3),#content_entry,"Parent entry
-pop3,Post Office Protocol (Version 3),#attach_content,Attached files' content.
-pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached files' content.
+pop3,Post Office Protocol (Version 3),#attach_content,Attached file content.
+pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached files content.
 qq,QQ,#call_data,QQ payload containing the data of the call (audio/video)
 qq_transfer,QQ File Transfer,#content,File content
 radius,Remote Authentication Dial-In User Service,#inherit_parent,"Parent inheritance key
-radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Provides the ipv6 prefix to be configured for the user.
-radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Provides the ipv6 prefix to be delegated to the user.
+radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Framed-IPv6-Prefix (an attribute defined in RFC3162). Provides the IPv6 prefix to be configured for the user.
+radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Delegated-IPv6-Prefix (an attribute defined in RFC4818). Provides the IPv6 prefix to be delegated to the user.
 radius,Remote Authentication Dial-In User Service,#avp_prefix,Ipv6 prefix is a sequence of 0 to 16 bytes. (CLEP_DATA_BUFFER)
-rambler_webmail,Rambler webmail,#attach_content,Attached files' content.
+rambler_webmail,Rambler webmail,#attach_content,Attached file content.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_raw,"Client hostname
 rdp,Remote Desktop Protocol (Windows Terminal Server),#domain_raw,"Client domain
 rdp,Remote Desktop Protocol (Windows Terminal Server),#username_raw,"Client login
@@ -188,13 +188,14 @@ slsk,SoulSeek,#file_chunk_content,Content of the transferred data.
 smb,Server Message Block (Windows File Server),#service_data,Data associated with the resource that the client intends to access.
 smb,Server Message Block (Windows File Server),#content,File content
 smb,Server Message Block (Windows File Server),#security_blob,Data contained in the security blob.
+smb,Server Message Block (Windows File Server),#krb5_blob,Data contained in the KRB5 security blob.
 smpp,Short message peer-to-peer protocol,#content,Content of the Short Message.
-smtp,Simple Mail Transfer Protocol,#attach_content,Attached files' content.
-smtp,Simple Mail Transfer Protocol,#attach_content_decoded,Decoded attached files' content.
+smtp,Simple Mail Transfer Protocol,#attach_content,Attached file content.
+smtp,Simple Mail Transfer Protocol,#attach_content_decoded,Decoded attached files content.
 smtp,Simple Mail Transfer Protocol,#content_entry,"Parent entry
 snmp,Simple Network Management Protocol,#value_raw,OID raw Value
 spdy,SPDY,#content,Message content.
-squirrelmail,SquirrelMail,#attach_content,Attached files' content.
+squirrelmail,SquirrelMail,#attach_content,Attached file content.
 ssl,Secure Socket Layer,#session_id,Uniquely identifies the current user session.
 ssl,Secure Socket Layer,#certificate_raw,Raw text content of the ssl certificate.
 ssl,Secure Socket Layer,#certif_md5,md5 of the certificate.
@@ -214,11 +215,11 @@ unknown,Unknown virtual protocol,#session_buffer,Payload received from the begin
 websocket,WebSocket,#raw,WebSocket frame content.
 websocket,WebSocket,#msg,"Payload"" field of the WebSocket frame."""
 winmx,Winmx,#file_chunk_content,Content of the transferred data.
-yandex_webmail,Yandex webmail,#attach_content,Attached files' content.
+yandex_webmail,Yandex webmail,#attach_content,Attached file content.
 yandex_webmail,Yandex webmail,#content,Message content.
-ymail2,Yahoo Mail v.2.0,#attach_content,Attached files' content.
-ymail_classic,Yahoo Mail classic,#attach_content,Attached files' content.
-ymail_mobile_new,Yahoo webmail for mobile,#attach_content,Attached files' content.
+ymail2,Yahoo Mail v.2.0,#attach_content,Attached file content.
+ymail_classic,Yahoo Mail classic,#attach_content,Attached file content.
+ymail_mobile_new,Yahoo webmail for mobile,#attach_content,Attached file content.
 ymsg,Yahoo Messenger,#inherit_key,"Candidate inheritance key
 ymsg,Yahoo Messenger,#inherit_parent,"Parent inheritance key
 ymsg_conf,Yahoo Messenger conference service,#inherit_key,"Candidate inheritance key
@@ -226,5 +227,5 @@ ymsg_conf,Yahoo Messenger conference service,#inherit_parent,"Parent inheritance
 ymsg_transfer,Yahoo Messenger Transfer Protocol,#inherit_key,"Candidate inheritance key
 ymsg_transfer,Yahoo Messenger Transfer Protocol,#content,File content
 ymsg_video,Yahoo Messenger Video,#inherit_key,"Candidate inheritance key
-zimbra,Zimbra.com,#attach_content,Attached files' content.
-zimbra_standard,Zimbra Webmail Standard Version,#attach_content,Attached files' content.
+zimbra,Zimbra.com,#attach_content,Attached file content.
+zimbra_standard,Zimbra Webmail Standard Version,#attach_content,Attached file content.
