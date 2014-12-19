@@ -1,0 +1,16 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ESSearchHitsMsg";
+
+message ESSearchHits {
+
+   message Hit {
+
+      optional string json = 1;
+   }
+
+   optional int64 totalHits = 1;
+   repeated Hit hits = 2; 
+
+}
