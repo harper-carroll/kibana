@@ -5,13 +5,20 @@ option java_outer_classname = "ESSearchHitsMsg";
 
 message ESSearchHits {
 
+   enum ResponseType {
+      SUCCESS = 0;
+      TIMEOUT = 1;
+      ERROR = 2;
+   }
+
    message Hit {
 
       optional string json = 1;
    }
 
-   optional bool timedOut = 1;
-   optional int64 totalHits = 2;
-   repeated Hit hits = 3; 
+   optional ResponseType responseType = 1;
+   optional string errorMessage = 2;
+   optional int64 totalHits = 3;
+   repeated Hit hits = 4; 
 
 }
