@@ -10,4 +10,5 @@ enum ConfigType {
    ConfigServerConfig = 0;
    SendStatConfig = 1;
    MetricsConfig = 2;
+   LinkConfig = 3;
 }

@@ -1,0 +1,12 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "LinkConfigMsg";
+
+message LinkConfig {
+   optional int64 webHeartbeatIntervalMs = 1;
+   optional string searchInputQueue = 2;
+   optional string searchRequestForwardingQueue = 3;
+   optional string searchResultForwardingQueue = 4;
+   optional string taskUpdateQueue = 5;
+}
