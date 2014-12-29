@@ -1,0 +1,24 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ESSearchResultMsg";
+
+message ESSearchResult {
+
+   enum ResultType {
+      SUCCESS = 0;
+      TIMEOUT = 1;
+      ERROR = 2;
+   }
+
+   message Hit {
+
+      optional string json = 1;
+   }
+
+   optional ResultType resultType = 1;
+   optional string errorMessage = 2;
+   optional int64 totalHits = 3;
+   repeated Hit hits = 4; 
+
+}
