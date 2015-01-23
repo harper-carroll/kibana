@@ -4,15 +4,6 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "HermesRequestMsg";
 
 message HermesRequest {
-  enum TimeSpanType {
-    FIVE_SECONDS = 0;
-    ONE_MINUTE = 1;
-    FIVE_MINUTES = 2;
-    ONE_HOUR = 3;
-    ONE_DAY = 4;
-  }
-
-  optional TimeSpanType type = 1 [default = FIVE_SECONDS];
-  optional uint32 beginTimeSeconds = 2;
-  optional uint32 endTimeSeconds = 3;
+  optional uint32 beginTimeSeconds = 1;
+  optional uint32 endTimeSeconds = 2;
 }
