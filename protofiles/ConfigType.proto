@@ -12,4 +12,5 @@ enum ConfigType {
    MetricsConfig = 2;
    LinkConfig = 3;
    HermesConfig = 4;
+   CassandraConfig = 5;
 }
