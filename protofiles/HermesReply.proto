@@ -7,5 +7,5 @@ message HermesReply {
   optional uint32 buckets = 1;
   optional uint32 beginTimeSeconds = 2;
   optional uint32 endTimeSeconds = 3;
-  optional string json = 4;
+  repeated uint32 numberOfHits = 4;
 }
