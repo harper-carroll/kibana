@@ -4,8 +4,12 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "HermesReplyMsg";
 
 message HermesReply {
-  optional uint32 buckets = 1;
-  optional uint32 beginTimeSeconds = 2;
-  optional uint32 endTimeSeconds = 3;
-  repeated uint32 numberOfHits = 4;
+  message Pair {
+      optional string key = 1;
+      optional Pair value = 2;
+  }
+
+  optional uint32 beginTimeSeconds = 1;
+  optional uint32 endTimeSeconds = 2;
+  repeated Pair pairs = 3;
 }
