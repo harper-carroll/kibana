@@ -11,5 +11,5 @@ message HermesReply {
 
   optional uint32 beginTimeSeconds = 1;
   optional uint32 endTimeSeconds = 2;
-  repeated Pair pairs = 3;
+  repeated Pair pair = 3;
 }
