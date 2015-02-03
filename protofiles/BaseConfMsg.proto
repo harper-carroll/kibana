@@ -30,7 +30,7 @@ message BaseConf {
   optional string enableIntermediateFlows = 34;
   optional string enablePacketCapture = 35;
 //  optional string captureLocation = 36;
-  optional string captureFileLimit = 37;
+  //optional string captureFileLimit = 37;
   optional string captureSizeLimit = 38;
   optional string captureMemoryLimit = 39;
   optional string captureMaxPackets = 41;
