@@ -13,4 +13,6 @@ enum ConfigType {
    LinkConfig = 3;
    HermesConfig = 4;
    CassandraConfig = 5;
+   ElasticSearchClientConfig = 6;
+   DispatchConfig = 7;
 }

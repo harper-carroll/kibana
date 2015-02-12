@@ -1,0 +1,8 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ElasticSearchClientConfigMsg";
+
+message ElasticSearchClientConfig {
+   optional string elasticsearchClusterName = 1;
+}
