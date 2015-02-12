@@ -19,6 +19,7 @@ message ESSearchResult {
    optional ResultType resultType = 1;
    optional string errorMessage = 2;
    optional int64 totalHits = 3;
-   repeated Hit hits = 4; 
+   repeated Hit hits = 4;
+   optional string nextPageToken = 5; 
 
 }
