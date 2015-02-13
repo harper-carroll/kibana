@@ -135,6 +135,7 @@ mashare,Ma-Share.com,#content,Message content.
 mgcp,Media Gateway Control Protocol,#inherit_parent,"Parent inheritance key
 mmse,MultiMedia Messages Encapsulation,#content,The message content (headers are not included).
 mmse,MultiMedia Messages Encapsulation,#content_part_data,Message sub-part data.
+mount,Mount,#filehandle,file handle metadata uncoded
 msn,MSN Messenger,#inherit_key,"Candidate inheritance key
 msn,MSN Messenger,#inherit_parent,"Parent inheritance key
 msn,MSN Messenger,#filename_utf16,UTF-16 encoded filename.
@@ -211,7 +212,7 @@ tds,Tabular Data Stream,#rpc_parameter_type,RPC parameter type.
 tds,Tabular Data Stream,#rpc_parameter_value,RPC parameter value.
 tftp,Trivial File Transfer Protocol,#content,File content
 udp,User Datagram Protocol,#stream,Private attribute of the classification engine.
-unknown,Unknown virtual protocol,#session_buffer,Payload received from the beginning of the session.
+unknown,Unknown virtual protocol,#session_buffer,"Payload received from the beginning of the session
 websocket,WebSocket,#raw,WebSocket frame content.
 websocket,WebSocket,#msg,"Payload"" field of the WebSocket frame."""
 winmx,Winmx,#file_chunk_content,Content of the transferred data.

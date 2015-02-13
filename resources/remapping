@@ -74,6 +74,9 @@ login Login
 major_version MajorVersion
 minor_version MinorVersion
 response_time ResponseTime
+exchange_type ExchangeType
+routing_key RoutingKey
+correlation_id CorrelationId
 pkg_name PkgName
 application_name AppName
 connection_type ConnectionType
@@ -844,6 +847,12 @@ video_width VidWidth
 wap_profile WAPProfile
 x_content_urn XContentUrn
 uri_unicode_normalized UriUnicodeNormalized
+content_language ContentLanguage
+pragma Pragma
+cache_control CacheControl
+age Age
+etag Etag
+set_cookie SetCookie
 packet_type PacketType
 trunk_timestamp TrunkTimestamp
 trunk_call_data TrunkCallData
@@ -1205,6 +1214,7 @@ version Version
 job Job
 login Login
 server Server
+hl7_message_raw HL7MessageRaw
 action Action
 attach_id AttachID
 attach_size AttachSize
@@ -1386,6 +1396,12 @@ sender Sender
 subject Subject
 tid TID
 version Version
+flavor Flavor
+flavors Flavors
+length_fhandle LengthFHandle
+status Status
+path_value PathValue
+path_length PathLength
 chunk_len ChunkLen
 label Label
 service Service
@@ -2318,6 +2334,8 @@ user_agent UserAgent
 called_addr CalledAddr
 calling_addr CallingAddr
 pkt_type PktType
+supplementary_service SupplementaryService
+auid Auid
 client_ip ClientIP
 server_ip ServerIP
 server_status ServerStatus
