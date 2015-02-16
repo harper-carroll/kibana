@@ -40,6 +40,7 @@ message DispatchConfig {
       optional string dataHandler = 4;
       optional int32 dataBufferLimit = 5;
       optional int32 percolateAttemptLimit = 6;
+      optional string syslogQueue = 7;
    }
 
    repeated IndexerConfig indexerConf = 1;

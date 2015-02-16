@@ -6,13 +6,15 @@ option java_outer_classname = "ConfigTypeMsg";
 enum ConfigType {
    // Intentional use of CamelCase; enum literals are
    // matched up with a YAML and ProtoMessage of the
-   // same name (e.g. SendStatConfig.yaml, SendStatConfigMessage).
+   // same name (e.g. ConfigServerConfig.yaml, ConfigServerConfigMessage).
    ConfigServerConfig = 0;
-   SendStatConfig = 1;
+   MetricsClientConfig = 1;
    MetricsConfig = 2;
    LinkConfig = 3;
    HermesConfig = 4;
    CassandraConfig = 5;
    ElasticSearchClientConfig = 6;
    DispatchConfig = 7;
+   DispatchClientConfig = 8;
+   PlaybackConfig = 9;
 }
