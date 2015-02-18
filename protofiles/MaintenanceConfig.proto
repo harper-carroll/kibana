@@ -1,0 +1,12 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "MaintenanceConfigMsg";
+import "IndexManagerConfig.proto";
+
+message MaintenanceConfig {
+
+   optional bool runPcapStatReporter = 1;
+   optional IndexManagerConfig indexManagerConf = 2;
+
+}
