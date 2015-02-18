@@ -9,8 +9,6 @@ message MetricsConfig {
    repeated string statsAggregationQueue = 2;
    repeated string statsAccumulatorQueue = 3;
    optional string statsAggregateDispatchQueue = 4;
-   optional string statsDBClusterName = 5;
-   optional string statsDBUrl = 6;
    optional string statsRollupHost = 7;
    optional PortRange statsRollupPortRange = 8;
    
