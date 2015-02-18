@@ -17,4 +17,5 @@ enum ConfigType {
    DispatchConfig = 7;
    DispatchClientConfig = 8;
    PlaybackConfig = 9;
+   MaintenanceConfig = 10;
 }
