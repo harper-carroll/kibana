@@ -18,4 +18,6 @@ enum ConfigType {
    DispatchClientConfig = 8;
    PlaybackConfig = 9;
    MaintenanceConfig = 10;
+   ColumboConfig = 11;
+   CarpenterConfig = 12;
 }
