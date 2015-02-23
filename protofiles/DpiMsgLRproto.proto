@@ -59,7 +59,7 @@ message DpiMsgLRproto
    optional uint64 TimePrevious = 38; 
    optional bool Written = 39; 
    optional bool CaptureRemoved = 40; 
-   optional string StoragePath = 41;
+   // optional string StoragePath = 41;
    repeated uint32 SrcIP6 = 42;
    repeated uint32 DestIP6 = 43;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
