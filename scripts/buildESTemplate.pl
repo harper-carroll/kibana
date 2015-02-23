@@ -6,7 +6,7 @@
 sub ReadProtoFile {
    my($filename) = $_[0];
    $typeHash_ptr = $_[1];
-   
+
    open previousData, "$filename" or die "cannot open $filename: $!";
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+(\w+)\s+(\w+)Q_PROTO.*;/) {
@@ -43,8 +43,8 @@ print "\"CaptureKey\", ";
 print "\"FileID\" ";
 print "]\n";
 print "},\n";
-print "\"properties\" : {\n"; 
-print "\"SrcIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n"; 
+print "\"properties\" : {\n";
+print "\"SrcIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
 print "\"SrcIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";
 print "\"DestIP\"  : { \"type\": \"ip\", \"ignore_malformed\" : true },\n";
 print "\"DestIP6\"  : { \"type\": \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n";

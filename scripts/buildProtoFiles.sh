@@ -31,13 +31,13 @@ cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
 sh "$scriptsDir"/buildDpiMsgLRProto.sh > "$protoFileDir"/DpiMsgLRproto.proto
 sh "$scriptsDir"/buildApplicationsProto.sh > "$protoFileDir"/Applications.proto
 cd "$scriptsDir"/..
-sh "$scriptsDir"/buildESTemplate.sh 
+sh "$scriptsDir"/buildESTemplate.sh
 sh "$scriptsDir"/buildUIFieldMap.sh
 cd $startDir
 rm "$protoFileDir"/Applications.proto.orig
 rm "$protoFileDir"/DpiMsgLRproto.proto.orig
 sh "$scriptsDir"/generateApplicationsCSV.sh > "$protoFileDir"/../resources/Applications.csv
-sh "$scriptsDir"/mapQosMosToSyslog.sh 
+sh "$scriptsDir"/mapQosMosToSyslog.sh
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
@@ -47,7 +47,7 @@ cd "$javaSrcDir"
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
-for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do 
+for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
 "$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/$file
 done
 cd "$startDir"
@@ -113,7 +113,7 @@ cd "$startDir"
 
 mkdir -p "$phpSrcDir"
 cd "$phpSrcDir"
-for file in `ls "$protoFileDir" ` ; do 
+for file in `ls "$protoFileDir" ` ; do
 "$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/$file
 done
 cd "$startDir"

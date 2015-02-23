@@ -47,7 +47,7 @@ sub ReadPreviousData {
    $previousFields_ptr = $_[4];
    $previousData_ptr = $_[5];
    $statiField_ptr = $_[6];
-   
+
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
 
@@ -65,8 +65,8 @@ sub ReadPreviousData {
       if ( index($_,'Q_PROTO') == -1 && (index($_,'optional') != -1 || index($_,'repeated') != -1)) {
          my @lineValues = split(/\s+/,$_);
          push(@$staticField_ptr,$lineValues[3]);
-      } 
-        
+      }
+
    }
    close previousData;
 }
@@ -113,8 +113,8 @@ sub CheckRenameFile {
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
             die "Rename file does not account for field $lineValues[8]";
-         } 
-      } 
+         }
+      }
    }
    while (($key,$value) = each (%renameMapping)) {
       my @matches =  grep { /$value/ } @$staticField_ptr;
@@ -161,7 +161,7 @@ my $callbackNames;
 my @previousFields;
 my @previousData;
 my @staticFields;
-ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields); 
+ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields);
 CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
@@ -177,7 +177,7 @@ while ( my $line = <qosmosWorkbook>) {
          print $_;
          splice(@previousData, $index, 1);
          break;
-      }   
+      }
       $index += 1;
    }
 }
@@ -217,6 +217,6 @@ while (<qosmosWorkbook>) {
 
         print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }
-  } 
+  }
 }
 
