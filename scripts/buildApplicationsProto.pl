@@ -44,10 +44,10 @@ close previousData;
 
 while ( my $line = <qosmosWorkbook>) {
    @lineValues = split(/,/,$line);
-   $field = "$lineValues[2]";
+   $field = "$lineValues[3]";
    if ($field) {
      push(@newFields,$field);
-     $newComments{$field} = $lineValues[5];
+     $newComments{$field} = $lineValues[6];
      $newComments{$field} =~ s/\"//g;
    }
 }

@@ -55,6 +55,7 @@ sender Sender
 service Service
 user_agent UserAgent
 user_email UserEmail
+message_raw MessageRaw
 version Version
 chat_id ChatID
 chat_type ChatType
@@ -296,6 +297,7 @@ qdcount QDCount
 query Query
 response_time ResponseTime
 reverse_addr ReverseAddr
+section_type SectionType
 transaction_id TransactionID
 ttl TTL
 query_raw QueryRaw
@@ -407,6 +409,7 @@ service Service
 service_duration ServiceDuration
 service_duration_tv ServiceDurationTV
 service_id ServiceID
+service_stats ServiceStats
 current_version CurrentVersion
 new_version NewVersion
 plugin_name PluginName
@@ -739,6 +742,12 @@ media_channel_addr MediaChannelAddr
 media_control_channel_addr MediaControlChannelAddr
 method Method
 context_id ContextID
+from_ip FromIP
+to_ip ToIP
+src_audio_connection SrcAudioConnection
+src_video_connection SrcVideoConnection
+dst_audio_connection DestAudioConnection
+dst_video_connection DestVideoConnection
 is_mobile_service IsMobileService
 login Login
 nickname Nickname
@@ -832,6 +841,13 @@ video_type VidType
 video_width VidWidth
 wap_profile WAPProfile
 x_content_urn XContentUrn
+uri_unicode_normalized UriUnicodeNormalized
+packet_type PacketType
+trunk_timestamp TrunkTimestamp
+trunk_call_data TrunkCallData
+trunk_call_data_offset TrunkCallDataOffset
+subclass_name SubclassName
+element_name ElementName
 application App
 login_info LoginInfo
 service Service
@@ -1047,6 +1063,7 @@ payload_is_crypted PayloadIsCrypted
 seal_algo SealAlgo
 type Type
 value_string ValueString
+level LDAPLevel
 call_byte_count CallByteCount
 call_duration CallDuration
 callee Callee
@@ -1224,6 +1241,12 @@ sender Sender
 sender_alias SenderAlias
 sender_email SenderEmail
 subject Subject
+file_id FileId
+msg_receiver MsgReceiver
+msg Msg
+conference_id ConferenceId
+im_action IMAction
+user User
 action Action
 attach_id AttachID
 attach_size AttachSize
@@ -1418,6 +1441,7 @@ query_text QueryText
 base Base
 login Login
 query Query
+myvideo MyVideo
 query Query
 service Service
 callee Callee
@@ -1682,6 +1706,7 @@ session_timeout SessionTimeout
 start_time StartTime
 stop_time StopTime
 terminate_cause TerminateCause
+framed_ip_netmask FramedIPNetmask
 domain Domain
 login Login
 password Passwd
@@ -1788,6 +1813,22 @@ rr_jitter RrJitter
 rr_ssrc_id RrSsrcID
 ssrc SSrc
 tool Tool
+rr_pkt_sender_ssrc RRPktSenderSsrc
+rr_highestseqnum RRHighestSeqNum
+rr_lsr RRLSR
+rr_dlsr RRDLSR
+sr_pkt_sender_ssrc SRPktSenderSsrc
+sr_ntp_ts_msw SRNtpTsMSW
+sr_ntp_ts_lsw SRNtpTsLSW
+sr_rtp_ts SRRtpTs
+sr_pkt_count SRPktCount
+sr_octet_count SROctetCount
+sr_ssrc_id SRSrcID
+sr_cumlost SRCumLost
+sr_highestseqnum SRHighestSeqNum
+sr_jitter SRJitter
+sr_lsr SRLsr
+sr_dlsr SRDLsr
 app_name AppName
 page_url PageURL
 start_time StartTime
@@ -2100,6 +2141,10 @@ validity_not_before ValidityNotBefore
 bridge_addr BridgeAddr
 root_addr RootAddr
 root_path_cost RootPathCost
+mapped_address_ipv4 MappedAddrIpV4Stun
+xor_mapped_address_ipv4 XorMappedAddrIpV4Stun
+magic_cookie MagicCookie
+remote_address_ipv4 RemoteAddressIPV4
 code Code
 callee Callee
 caller Caller
@@ -2139,6 +2184,7 @@ hostname Hostname
 language Language
 library Library
 login Login
+login_encrypted LoginEncrypted
 password Passwd
 query Query
 server Server
@@ -2536,6 +2582,7 @@ sender Sender
 service Service
 sessionid SessionID
 version Version
+conference_id ConferenceId
 audio_datarate AuditDataRate
 date Date
 description Description

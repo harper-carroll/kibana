@@ -20,10 +20,11 @@ if [ ! -f "$protoc" ]; then
 fi
 
 if [ ! -f "$phpprotoc" ]; then
-  sh "$scriptsDir"/getPhpProtobuffers.sh
+  echo "$phpprotoc not found... should be installed from thirdparty bootstrap."
+  exit 1
 fi
 
-mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense
+mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense "$cppSrcDir"/libmessages
 
 cp "$protoFileDir"/DpiMsgLRproto.proto "$protoFileDir"/DpiMsgLRproto.proto.orig
 cp "$protoFileDir"/Applications.proto "$protoFileDir"/Applications.proto.orig
@@ -78,6 +79,9 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseReply.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseRequest.proto
 "$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/License.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libmessages  "$protoFileDir"/LogMessage.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libmessages  "$protoFileDir"/ESDataMsg.proto
+"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/PcapDownloadMsg.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -104,6 +108,9 @@ mv  libfork/ForkerRequest.pb.cc  libfork/ForkerRequest.pb.cpp
 mv  liblicense/LicenseReply.pb.cc  liblicense/LicenseReply.pb.cpp
 mv  liblicense/LicenseRequest.pb.cc  liblicense/LicenseRequest.pb.cpp
 mv  liblicense/License.pb.cc  liblicense/License.pb.cpp
+mv  libmessages/LogMessage.pb.cc  libmessages/LogMessage.pb.cpp
+mv  libmessages/ESDataMsg.pb.cc  libmessages/ESDataMsg.pb.cpp
+mv  libcommand/PcapDownloadMsg.pb.cc  libcommand/PcapDownloadMsg.pb.cpp
 cd "$startDir"
 
 mkdir -p "$phpSrcDir"

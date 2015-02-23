@@ -32,7 +32,7 @@ message BaseConf {
   optional string enableIntermediateFlows = 34;
   optional string enablePacketCapture = 35;
 //  optional string captureLocation = 36;
-  optional string captureFileLimit = 37;
+  //optional string captureFileLimit = 37;
   optional string captureSizeLimit = 38;
   optional string captureMemoryLimit = 39;
   optional string captureMaxPackets = 41;
@@ -43,8 +43,19 @@ message BaseConf {
   optional string dpiRecycleThreshold = 46;
   optional string pcapRecordsToClearPerCycle = 47;
   optional string flowReportInterval = 48;
+  optional string esIndexerQueueSize = 49;
+  optional string syslogQueue = 50;
+  optional string diskpacketwriterQueueSize = 51;
+  optional string diskpacketwriterFeedbackQueueSize = 52;
+  optional string pCapFlushInterval = 53;
+  optional string sizeOfPcapChunks = 55;
+  optional string numberOfPcapChunks = 56;
+  optional string pCapRemovalNotifyQueue = 57;
 
-  // REMEMBER to add any new parameters to the unit test at
+
+  // REMEMBER to :
+  // 1. Add Default validation for ANY new parameter you add above
+  // 2. add any new parameters to the unit test at
   // Research/test/ConfBaseValidationTests.cpp : 
   //                    ValidateAllFieldsSetInvalidOnXLowerBound
   //                    ValidateAllFieldsSetInvalidOnXUpperBound

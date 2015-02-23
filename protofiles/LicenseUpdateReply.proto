@@ -1,0 +1,9 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "LicenseUpdateReplyMsg";
+
+message LicenseUpdateReply {
+  optional bool success = 1;
+  optional string message = 2;
+}

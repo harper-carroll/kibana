@@ -12,6 +12,7 @@ message ConfigDefaults {
       optional string max = 4;
       optional string min = 5;
       optional string rangetype = 6;
+      optional bool writeEnabled = 7 [default = true];
    }
 
    repeated DefaultValues values = 1;

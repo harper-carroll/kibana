@@ -83,17 +83,17 @@ sub CreateSummaryFile {
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
-         if ($lineValues[3] eq '' ) {
-            print summaryFile "base,";
-         } else {
-            print summaryFile "$lineValues[3],";
-         }
          if ($lineValues[4] eq '' ) {
             print summaryFile "base,";
          } else {
             print summaryFile "$lineValues[4],";
          }
-         print summaryFile '#'."$lineValues[7],$lineValues[10]\n";
+         if ($lineValues[5] eq '' ) {
+            print summaryFile "base,";
+         } else {
+            print summaryFile "$lineValues[5],";
+         }
+         print summaryFile '#'."$lineValues[8],$lineValues[11]\n";
       }
    }
 
@@ -105,22 +105,36 @@ sub CheckRenameFile {
    my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
    $statiField_ptr = $_[4];
 
+   my $filename = 'MissingAttributesReport.txt';
+   open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
+   print $missAttrFile "remapping file - missing attributes\n";
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
+   $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
-         if ( !defined $renameMapping { $lineValues[7] } &&
-               !defined $renameMapping { "_$lineValues[7]" } ) {
-            die "Rename file does not account for field $lineValues[7]";
+         if ( !defined $renameMapping { $lineValues[8] } &&
+               !defined $renameMapping { "_$lineValues[8]" } ) {
+#           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
+#           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
+#           NetMonFieldNames.csv file to complete the Protobuffer compilation.
+            print $missAttrFile "Attribute: $lineValues[8] for ($lineValues[2], $lineValues[5], $lineValues[7])\n";
+            $mapGood = 0;
          } 
-      }
+      } 
    }
-   while (($key,$value) = each (%renameMapping)) {
-      my @matches =  grep { /$value/ } @$staticField_ptr;
-      if (@matches && $matches[0] eq $value ) {
-         die "Rename file tries to map to a static field $value";
+   close $missAttrFile;
+
+   if ($mapGood) {
+      while (($key,$value) = each (%renameMapping)) {
+         my @matches =  grep { /$value/ } @$staticField_ptr;
+         if (@matches && $matches[0] eq $value ) {
+            die "Rename file tries to map to a static field $value";
+         }
       }
+   } else {
+      die "**** BUILD FAILED ****\nNetMonFieldNames.csv needs to be updated by labs.\nSee $filename for list of missing attributes.\n";
    }
 
    close qosmosWorkbook;
@@ -170,7 +184,7 @@ DumpFile($renameMap,\%renameMapping);
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
    @lineValues = split(/,/,$line);
-   $field = "$lineValues[7]$lineValues[1]";
+   $field = "$lineValues[8]$lineValues[2]";
    my $index = 0;
    foreach (@previousData) {
       if ( $_ =~ /$field/ ) {
@@ -188,34 +202,34 @@ seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
      @lineValues = split(/,/,$_);
-     $field = "$lineValues[7]$lineValues[1]";
+     $field = "$lineValues[8]$lineValues[2]";
      if ( $field =~ /^[0-9]/ ) {
-        $field = "_$lineValues[7]$lineValues[1]";
+        $field = "_$lineValues[8]$lineValues[2]";
      }
      if ($callbackNames !~ /,$field,/ ) {
         $requirement = "optional";
         $highest += 1;
-        $type = $lineValues[9];
+        $type = $lineValues[10];
         $optionalStuff = "";
-        if ($lineValues[9] =~ /timeval/ ) {
+        if ($lineValues[10] =~ /timeval/ ) {
            $type = "string";
            $optionalStuff = ",timeval,timevalToString";
-        } elsif ( $lineValues[9] =~ /ip_addr/ ) {
+        } elsif ( $lineValues[10] =~ /ip_addr/ ) {
            $type = "string";
            $optionalStuff = ",uint32,ip_addrToString";
-        } elsif ( $lineValues[9] =~ /mac_addr/ ) {
+        } elsif ( $lineValues[10] =~ /mac_addr/ ) {
            $type = "string";
            $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
-        } elsif ($lineValues[9] eq "" ) {
+        } elsif ($lineValues[10] eq "" ) {
            print "MALFORMED FILE!!!!";
-           print "0:$lineValues[0],1:$lineValues[1],2:$lineValues[2],3:lineValues[3],4:$lineValues[4],5:$lineValues[5],6:$lineValues[6],7:$lineValues[7],8:$lineValues[8],9:$lineValues[9]";
+           print "0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]";
            exit(1);
-        } elsif ( $lineValues[9] =~ /string/ ) {
+        } elsif ( $lineValues[10] =~ /string/ ) {
            $type = "bytes";
            $requirement = "repeated";
         }
 
-        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[1],$lineValues[6]$optionalStuff\n";
+        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }
   } 
 }

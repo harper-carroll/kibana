@@ -1,6 +1,6 @@
 {
-    "network" : {
-    "template" : "network_*",
+    "events" : {
+    "template" : "events*",
     "settings" : {
     "index.refresh_interval" : "10s",
      "index.cache.filter.expire" : "2m",

@@ -62,5 +62,8 @@ message DpiMsgLRproto
    // optional string StoragePath = 41;
    repeated uint32 SrcIP6 = 42;
    repeated uint32 DestIP6 = 43;
+   optional string NormalizedSyslogData = 44;
+   optional uint64 TimeEnd = 45;
+   optional bool HeaderWritten = 46;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 

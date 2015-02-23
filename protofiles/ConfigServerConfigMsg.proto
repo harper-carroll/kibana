@@ -1,0 +1,11 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigServerConfigMsg";
+
+message ConfigServerConfig {
+   repeated string configRequestQueue = 1;
+   optional string frontEndRelayQueue = 2;
+   optional string backEndHandlerQueue = 3;
+   optional int32 maxSimultaneousRequests = 4;
+}

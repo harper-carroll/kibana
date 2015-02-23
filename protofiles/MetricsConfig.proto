@@ -1,0 +1,23 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "MetricsConfigMsg";
+import "PortRange.proto";
+
+message MetricsConfig {
+   repeated string statsQueue = 1;
+   repeated string statsAggregationQueue = 2;
+   repeated string statsAccumulatorQueue = 3;
+   optional string statsAggregateDispatchQueue = 4;
+   optional string statsRollupHost = 7;
+   optional PortRange statsRollupPortRange = 8;
+   
+   message ContinuouslyReportedStat {
+      optional string key = 1;
+      optional string indexName = 2;
+      optional int64 sum = 3;
+      optional int64 statCount = 4;
+   }
+
+   repeated ContinuouslyReportedStat continuouslyReportedStat = 9;
+}

@@ -15,7 +15,9 @@ message CommandRequest {
      TEST = 7;
      COMMAND_STATUS = 8;
      CONFIG_REQUEST = 9;
-     PCAP_FILE_PATH = 10;
+     PCAP_RECONSTRUCTION = 10;
+     LICENSE = 11;
+     MACHINE_ID = 12;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;

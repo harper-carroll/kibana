@@ -5,7 +5,7 @@ option java_outer_classname = "LicenseMsg";
 
 message RawLicense {
   optional int32 bandwidthInMbps = 1; 
-  optional int64 pcapFiles = 2;
+  optional int64 pcapFileSize = 2;
   optional int64 pcapStorageInMB = 3;
   optional int32 maxIndexesInDays = 4;
   optional int64 expireTime = 5;
@@ -16,5 +16,11 @@ message RawLicense {
 message SignedMessage {
   optional string signature = 1;
   optional int32 keyID = 2;
-  optional RawLicense rawLicense = 3; 
+  optional RawLicense rawLicense = 3;
+  enum LicenseType {
+    WAITING = 0;
+    NETWORKMONITOR = 1;
+    ENTERPRISE = 2;
+  }
+  optional LicenseType licenseType = 4; 
 }

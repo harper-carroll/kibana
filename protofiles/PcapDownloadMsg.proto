@@ -1,0 +1,18 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "PcapDownloadMsg";
+
+message BulkPcapDownload {
+
+	message PcapDownload {
+		optional string sessionId = 1;
+		optional int64 timeStart = 2;
+		optional int64 timeUpdated = 3;
+		optional int64 totalPackets = 4;
+		optional int64 totalBytes = 5;
+	}
+
+	repeated PcapDownload pcapDownloads = 1;
+}
+

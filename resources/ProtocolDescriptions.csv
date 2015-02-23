@@ -64,6 +64,14 @@ gtpv2,GPRS Tunneling Protocol version 2,#guti,Globally Unique Temporary UE Ident
 h225,H225,#inherit_parent,"Parent inheritance key
 h245,H245,#inherit_key,"Candidate inheritance key
 h245,H245,#inherit_parent,"Parent inheritance key
+h248_binary,h248 Protocol (Megaco) in binary mode,#end,Indicates the end of a top level event.
+h248_binary,h248 Protocol (Megaco) in binary mode,#transaction,Parent attribute including transaction elements
+h248_binary,h248 Protocol (Megaco) in binary mode,#from_ipv6,Source IPv6 address
+h248_binary,h248 Protocol (Megaco) in binary mode,#to_ipv6,Destination IPv6 address
+h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_port,Source audio connection port
+h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_port,Source video connection port
+h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_port,Destination audio connection port
+h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_port,Destination video connection port
 hi5,Hi5.com,#uid,Generic user ID.
 http,HyperText Transfer Protocol,#content,Message content.
 http,HyperText Transfer Protocol,#content_raw,uncompressed HTTP content.
@@ -150,6 +158,8 @@ pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached f
 qq,QQ,#call_data,QQ payload containing the data of the call (audio/video)
 qq_transfer,QQ File Transfer,#content,File content
 radius,Remote Authentication Dial-In User Service,#inherit_parent,"Parent inheritance key
+radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Provides the ipv6 prefix to be configured for the user.
+radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Provides the ipv6 prefix to be delegated to the user.
 radius,Remote Authentication Dial-In User Service,#avp_prefix,Ipv6 prefix is a sequence of 0 to 16 bytes. (CLEP_DATA_BUFFER)
 rambler_webmail,Rambler webmail,#attach_content,Attached files' content.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_raw,"Client hostname
@@ -167,7 +177,7 @@ s1ap,S1 Application Protocol,#ep_value_raw,Elementary Procedure raw value.
 s1ap,S1 Application Protocol,#ep_ie_value_raw,Information Element raw value.
 sccp,Skinny Client Control Protocol,#inherit_parent,"Parent inheritance key
 secondlife,SecondLife.com,#login_id,Id of virtual character.
-secondlife,SecondLife.com,#sender,Sender Id.
+secondlife,SecondLife.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
 secondlife,SecondLife.com,#source_id,Source Id.
 secondlife,SecondLife.com,#session_id,Uniquely identifies the current user session.
 sip,Session Initiation Protocol,#inherit_key,"Candidate inheritance key

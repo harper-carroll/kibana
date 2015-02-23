@@ -1,10 +1,10 @@
 {
-    "network" : {
-    "template" : "network_*",
+    "networkrules" : {
+    "template" : "networkrules",
     "settings" : {
     "index.refresh_interval" : "10s",
      "index.cache.filter.expire" : "2m",
      "index.cache.field.expire" : "2m"
     },
     "mappings" : {
-       "meta" : {
+       "rule" : {
