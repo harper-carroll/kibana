@@ -105,22 +105,36 @@ sub CheckRenameFile {
    my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
    $statiField_ptr = $_[4];
 
+   my $filename = 'MissingAttributesReport.txt';
+   open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
+   print $missAttrFile "remapping file - missing attributes\n";
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
+   $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
-            die "Rename file does not account for field $lineValues[8]";
+#           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
+#           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
+#           NetMonFieldNames.csv file to complete the Protobuffer compilation.
+            print $missAttrFile "Attribute: $lineValues[8] for ($lineValues[2], $lineValues[5], $lineValues[7])\n";
+            $mapGood = 0;
          } 
       } 
    }
-   while (($key,$value) = each (%renameMapping)) {
-      my @matches =  grep { /$value/ } @$staticField_ptr;
-      if (@matches && $matches[0] eq $value ) {
-         die "Rename file tries to map to a static field $value";
+   close $missAttrFile;
+
+   if ($mapGood) {
+      while (($key,$value) = each (%renameMapping)) {
+         my @matches =  grep { /$value/ } @$staticField_ptr;
+         if (@matches && $matches[0] eq $value ) {
+            die "Rename file tries to map to a static field $value";
+         }
       }
+   } else {
+      die "**** BUILD FAILED ****\nNetMonFieldNames.csv needs to be updated by labs.\nSee $filename for list of missing attributes.\n";
    }
 
    close qosmosWorkbook;
