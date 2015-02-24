@@ -1,0 +1,342 @@
+package com.logrhythm.justonemorething.query;
+option java_outer_classname = "Query";
+
+/*
+InvestigatorConfiguration : SavedQuery
+
+Saved Query
+  . QueryFilter:MsgFilter
+    . FieldFilters:FieldFilter[]
+      . FieldFilterValues:FieldFilterValue[]
+        . MatchType:MatchTypeEnum
+
+*/
+message ObjectSecurity {
+  optional int32 objectId = 1;
+  optional int32 objectType = 2;
+  optional int32 readPermissions = 3;
+  optional int32 writePermissions = 4;
+  optional int32 entityId = 5;
+  optional int32 ownerId = 6;
+  optional bool canEdit = 7;
+  optional bool canDelete = 8;
+  optional string entityName = 9;
+  optional string ownerName = 10;
+  optional bool isSystemObject = 11;
+}
+
+enum CreatedViaEnum {
+  LegacyConsole = 0;
+  WebConsole = 1;
+}
+
+enum SearchTypeEnum {
+  EventManager = 0;
+  LogManager = 1;
+  LogMart = 2;
+}
+
+message Search {
+
+  message DateCriteria {
+    optional string dateMin = 1;
+    optional string dateMax = 2;
+    optional int32 lastIntervalValue = 3;
+    optional string lastIntervalUnit = 4;
+  }
+
+  optional string name = 1;
+  optional string description = 2;
+  optional int32 maxMsgsToQuery = 3;
+  optional int32 logCacheSize = 4;
+  optional int32 aggregateLogCacheSize = 5;
+  optional bool queryRawLog = 6;
+  optional bool queryEventManager = 7;
+  optional bool useDefaultLogManagers = 8;
+  optional string dateCreated = 9;
+  optional string dateSaved = 10;
+  optional string dateUsed = 11;
+  optional bool includeDiagnosticEvents = 12;
+//  optional SearchTypeEnum searchType = 13;
+  optional int32 searchId = 14;
+  optional int32 refreshRate = 15;
+  optional bool isRealTime = 16;
+  optional bool enableIntelligentIndexing = 17;   // Either get rid of this field or add all 3 required field
+                                                  // THis is not required by the C# json deserializer
+                                                  // In clsUserTailSession.vb: Expiration (flag), ExpirationDate
+  optional int32 queryTimeout = 18;
+
+  // This can be: LegacyConsole = 0; and WebConsole = 1; from InvestigatorConfiguration
+//  optional CreatedViaEnum createdVia = 19;                 // Created via (is this front-end junk)?
+
+  optional DateCriteria dateCriteria = 20;
+  optional MsgFilter queryFilter = 21;
+  optional ObjectSecurity objectSecurity = 22;
+
+  // Not sure if this is required AT ALL, was pulled from ben's
+  // tests where the data was being mocked
+  repeated string queryLogSourceLists = 23;
+  repeated int32 logManagerIds = 24;
+  repeated string queryLogSources = 25;
+
+  optional string taskId = 26;
+}
+
+// Maybe call this Filter or match legacy MsgFilter
+message MsgFilter {
+  optional FilterGrouped filterGroup = 1;
+  optional MsgFilterType msgFilterType = 2;
+}
+
+// This should be call MsgFilterType
+// These are from InvestigatorConfiguration
+enum MsgFilterType {
+  FlatLegacy = 1;
+  Grouped = 2;       // TODO: confirm with Phil or Brad.  This may be the wrong name.
+}
+
+
+enum FilterModes {
+  FilterIn = 0;
+  FilterOut = 1;
+}
+
+enum FilterOperators {
+  And = 0;
+  Or = 1;
+}
+
+// clsMsgFilter.MatchTypeEnum
+enum MatchTypes {
+  Value = 0;
+  SQLPattern = 1;
+  Regex = 2;
+}
+
+
+/**
+ * LC (2/19/2015)
+ * This is called FilterGrouped (instead of FilterGroup) because ProtoBuffers uses
+ * C++ enum symantics and so a class and enum value can't have the same name.  Because,
+ * so much mapping code is written against the FilterItemType.FilterGroup, I've favored
+ * changing the name of this message.  Additionally, I've attempted to closely match
+ * the C# enums and class names, so it made more since to have all the FieldFilterTypeEnum
+ * names match C# than to have 1 exception, since the code that uses the name of this
+ * message is minimal and trivial to update.
+ */
+message FilterGrouped {
+
+  enum FilterItemTypes {
+    Filter = 0;
+    Group = 1;
+    PolyList = 2;
+  }
+
+  required FilterItemTypes filterItemType = 1;
+  optional FilterOperators filterGroupOperator  = 2;
+  optional FilterModes filterMode = 3;
+  repeated FilterValue values = 4;
+  repeated FilterGrouped filterItems  = 5;
+  required FieldFilterTypeEnum filterType = 6;
+}
+
+enum FieldFilterTypeEnum {
+  MediatorMsgID = 0;
+  MARCMsgID = 1;
+  Direction = 2;
+  Priority = 3;
+  NormalMsgDateRange = 4;
+  NormalMsgDateTimeOfDay = 5;
+  Entity = 6;
+  MsgSource = 7;
+  MsgSourceHost = 8;
+  MsgSourceType = 9;
+  MsgClass = 10;
+  CommonEvent = 11;
+  MPERule = 12;
+  KnownHost = 13;
+  KnownSHost = 14;
+  KnownDHost = 15;
+  KnownService = 16;
+  IP = 17;
+  SIP = 18;
+  DIP = 19;
+  IPRange = 20;
+  SIPRange = 21;
+  DIPRange = 22;
+  HostName = 23;
+  SHostName = 24;
+  DHostName = 25;
+  SPort = 26;
+  DPort = 27;
+  Protocol = 28;
+  Login = 29;
+  Account = 30;
+  Sender = 31;
+  Recipient = 32;
+  Subject = 33;
+  Object = 34;
+  Message = 35;
+  AlertStatus = 36;
+  VendorMsgID = 37;
+  Group = 38;
+  Domain = 39;
+  Session = 40;
+  Process = 41;
+  URL = 42;
+  User = 43;
+  Address = 44;
+  Port = 45;
+  SPortRange = 46;
+  DPortRange = 47;
+  PortRange = 48;
+  SNetwork = 49;
+  DNetwork = 50;
+  Network = 51;
+  IDMGroupForLogin = 52;
+  IDMGroupForAccount = 53;
+  IDMGroupForUser = 54;
+  BytesIn = 58;
+  BytesOut = 59;
+  ItemsIn = 60;
+  ItemsOut = 61;
+  Duration = 62;
+  Quantity = 63;
+  Amount = 64;
+  Rate = 65;
+  Size = 66;
+  SLocation = 85;
+  DLocation = 86;
+  Location = 87;
+  SEntity = 91;
+  DEntity = 92;
+  SZone = 93;
+  DZone = 94;
+  BytesInOut = 95;
+  ItemsInOut = 96;
+  Application = 97;
+  Host = 98;
+  SHost = 99;
+  DHost = 100;
+  SEntityOrDEntity = 101;
+  SZoneOrDZone = 102;
+  SMAC = 103;
+  DMAC = 104;
+  SNATIP = 105;
+  DNATIP = 106;
+  SInterface = 107;
+  DInterface = 108;
+  PID = 109;
+  Severity = 110;
+  Version = 111;
+  Command = 112;
+  ObjectName = 113;
+  SNATPort = 114;
+  DNATPort = 115;
+  SNATIPRange = 124;
+  DNATIPRange = 125;
+  NATIP = 126;
+  NATIPRange = 127;
+  SNATPortRange = 128;
+  DNATPortRange = 129;
+  NATPort = 130;
+  NATPortRange = 131;
+  MAC = 132;
+  Interface = 133;
+  RootEntity = 136;
+  FilterGroup = 1000;
+  PolyListItem = 1001;
+}
+
+message FilterValue {
+
+  message Int16Value {
+    required int32 value = 1;
+    required FieldFilterTypeEnum filterType = 2;
+  }
+
+  message Int32Value {
+    required int32 value = 1;
+    required FieldFilterTypeEnum filterType = 2;
+  }
+
+  message IPAddressValue {
+    required string value = 1;
+    required FieldFilterTypeEnum filterType = 2;
+  }
+
+  message NullValue {
+    required FieldFilterTypeEnum filterType = 2;
+  }
+
+  message StringValue {
+    required string value = 1;
+    required FieldFilterTypeEnum filterType = 2;
+    optional MatchTypes matchType = 3;
+  }
+
+  message IPAddressRangeValue {
+    required string start = 1;
+    required string end = 2;
+    required FieldFilterTypeEnum filterType = 3;
+  }
+
+  message PortRangeValue {
+    required int32 start = 1;
+    required int32 end = 2;
+    required FieldFilterTypeEnum filterType = 3;
+  }
+
+  message QuantityValue {
+    required string operator = 1;
+    required int32 value1 = 2;
+    optional int32 value2 = 3;
+    required FieldFilterTypeEnum filterType = 4;
+  }
+
+  message ListReferenceValue {
+
+    enum Lists {
+      Application = 0;
+      Classification = 1;
+      CommonEvent = 2;
+      Host = 3;
+      Location = 4;
+      MsgSource = 5;
+      MsgSourceType = 6;
+      MPERule = 7;
+      Network = 8;
+      User = 9;
+      GeneralValue = 10;
+      Entity = 11;
+      RootEntity = 12;
+      IP = 13;
+      IPRange = 14;
+    }
+
+    message ListItem {
+      optional Lists listType = 1;
+      optional int32 listId = 2;
+      optional string guid = 3;
+      optional string name = 4;
+    }
+
+    required FieldFilterTypeEnum filterType = 1;
+    optional ListItem listItem = 2;
+  }
+
+  message Value {
+    optional Int16Value int16Value = 1;
+    optional Int32Value int32Value = 2;
+    optional StringValue stringValue = 3;
+    optional IPAddressValue ipAddressValue = 4;
+    optional IPAddressRangeValue ipAddressRangeValue = 5;
+    optional PortRangeValue portRangeValue = 6;
+    optional QuantityValue quantityValue = 7;
+    optional ListReferenceValue listReferenceValue = 8;
+    optional NullValue nullValue = 9;
+  }
+  optional Value value = 1;
+}
+
+
