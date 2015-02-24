@@ -20,4 +20,5 @@ enum ConfigType {
    MaintenanceConfig = 10;
    ColumboConfig = 11;
    CarpenterConfig = 12;
+   InfluxConfig = 13;
 }
