@@ -20,8 +20,8 @@ close filters;
 #print "Exclude Filter: $excludeFilter \n";
 #print "Include Filter: $includeFilter \n";
 
-my @ids; 
-my @previousFields; 
+my @ids;
+my @previousFields;
 my %previousLines = ();
 my @newFields;
 my %newComments = ();

@@ -1,0 +1,9 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "HermesConfigMsg";
+
+message HermesConfig {
+   repeated string pollStatsQueue = 1;
+   optional string pollStatsWorkerQueue = 2;
+}

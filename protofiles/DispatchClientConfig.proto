@@ -1,0 +1,10 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "DispatchClientConfigMsg";
+
+message DispatchClientConfig {
+   
+   optional string dataInsertQueue = 1;
+   optional string bulkDataInsertQueue = 2;
+}

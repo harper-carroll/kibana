@@ -7,6 +7,7 @@ message ESData {
    enum RequestType {
       INSERT = 1;
       UPDATE = 2;
+      DELETE = 3;
    }
    optional string indexName = 1;
    optional string indexType = 2;
