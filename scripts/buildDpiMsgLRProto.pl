@@ -224,7 +224,7 @@ while (<qosmosWorkbook>) {
            print "MALFORMED FILE!!!!";
            print "0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]";
            exit(1);
-        } elsif ( $lineValues[10] =~ /string/ ) {
+        } elsif ( $lineValues[10] =~ /string/ or $lineValues[10] =~ /buffer/ ) {
            $type = "bytes";
            $requirement = "repeated";
         }
