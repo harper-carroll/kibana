@@ -227,7 +227,10 @@ while (<qosmosWorkbook>) {
         } elsif ( $lineValues[10] =~ /string/ or $lineValues[10] =~ /buffer/ ) {
            $type = "bytes";
            $requirement = "repeated";
-        }
+        } elsif ( $lineValues[10] =~ /buffer/ ) {
+           $type = "bytes";
+           $requirement = "repeated";
+		 }
 
         print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }

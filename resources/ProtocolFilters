@@ -1,7 +1,6 @@
 !string_|
 !NA,NA|
 !Q_IP_SRC_ADDR32|
-!buffer|
 !,\.,,,,,|
 !binary|
 !Q_IP_DST_ADDR32|
@@ -21,5 +20,6 @@ string|
 uint32|
 uint64|
 timeval|
+buffer|
 ,ip_addr,|
 ,mac_addr,
