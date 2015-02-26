@@ -23,6 +23,7 @@ command_code CommandCode
 command_type CommandType
 file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
+file_chunk_content FileChunkContent
 file_hash FileHash
 filename Filename
 filesize FileSize
@@ -47,6 +48,7 @@ file_receiver FileReceiver
 file_sender FileSender
 filesize FileSize
 icon_buddy IconBuddy
+icon_data IconData
 internal_ip_address InternalIPAddr
 login Login
 message Msg
@@ -128,6 +130,8 @@ family_end FamilyEnd
 flow_id FlowID
 multi_match_proto_id MultiMatchProtoID
 path_len PathLen
+packet Packet
+packet_ip PacketIP
 packet_counter PktCounter
 session_packet_counter SessionPktCounter
 time Time
@@ -153,9 +157,11 @@ classification_type ClassificationType
 client_version ClientVersion
 file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
-file_chunk_number FileChunkNum
+file_chunk_content FileChunkContent
+file_hash_raw FileHashRaw
 file_completed FileCompleted
 file_downloaded FileDownloaded
+file_incomplete FileIncomplete
 file_incomplete FileIncomplete
 file_left FileLeft
 filename Filename
@@ -257,6 +263,7 @@ result_code ResultCode
 session_id SessionID
 terminate_cause TerminateCause
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -281,6 +288,7 @@ sender Sender
 sender_alias SenderAlias
 sender_email SenderEmail
 subject Subject
+file_chunk_content FileChunkContent
 file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
 file_compression_type FileCompressionType
@@ -324,6 +332,7 @@ nickname Nickname
 password Passwd
 receiver Receiver
 sender Sender
+file_chunk_content FileChunkContent
 file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
 file_compression_type FileCompressionType
@@ -389,6 +398,7 @@ uid UID
 application_action AppAction
 application_name AppName
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -441,11 +451,13 @@ return_content ReturnContent
 transfer_duration TransferDuration
 ior_type_id IORTypeID
 message_type MsgType
+object_key ObjectKey
 request_id RequestID
 request_operation RequestOperation
 version Version
 action Action
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact_alias ContactAlias
@@ -488,6 +500,7 @@ thumbnail Thumbnail
 version Version
 action Action
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact_alias ContactAlias
@@ -520,6 +533,7 @@ receiver Receiver
 sender Sender
 action Action
 attach_id AttachID
+attach_content AttachContent
 contact_alias ContactAlias
 contact_email ContactEmail
 contact_uid ContactUID
@@ -543,6 +557,7 @@ sender_email SenderEmail
 session_id SessionID
 subject Subject
 attach_id AttachID
+attach_content AttachContent
 attach_filename Filename
 login Login
 msg_id MsgID
@@ -555,6 +570,7 @@ sender_alias SenderAlias
 sender_email SenderEmail
 session_id SessionID
 subject Subject
+file_chunk_content FileChunkContent
 file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
 file_ed2k FileED2K
@@ -798,6 +814,7 @@ mime_type_sub MIMETypeSub
 ntlm_domain NTLMDomain
 ntlm_user NTLMUser
 ntlm_workstation NTLMWorkstation
+part_content PartContent
 part_filename PartFilename
 part_header_name PartHeaderName
 part_header_value PartHeaderValue
@@ -853,6 +870,7 @@ cache_control CacheControl
 age Age
 etag Etag
 set_cookie SetCookie
+element_value ElementValue
 packet_type PacketType
 trunk_timestamp TrunkTimestamp
 trunk_call_data TrunkCallData
@@ -860,7 +878,9 @@ trunk_call_data_offset TrunkCallDataOffset
 subclass_name SubclassName
 element_name ElementName
 application App
+application_utf16 AppUTF16
 login_info LoginInfo
+login_info_utf16 LoginInfoUTF16
 service Service
 code_respmod_req CodeRespmodReq
 content_type_respmod_req ContentTypeRespmodReq
@@ -881,6 +901,7 @@ server_port ServerPort
 address Addr
 record_maddress RecordMAddr
 version Version
+attach_content AttachContent
 attach_mime_type AttachMIMEType
 attach_transfer_encoding AttachTransferEncoding
 date Date
@@ -958,6 +979,8 @@ client_addr ClientAddr
 client_addr32 ClientAddr32
 client_net ClientNet
 dst_net DstNet
+fragment_buffered_count FragmentBufferedCount
+fragment_buffered_size FragmentBufferedSize
 fragment_lost_size FragmentLostSize
 server_addr ServerAddr
 server_addr32 ServerAddr32
@@ -996,6 +1019,7 @@ caller Caller
 call_id CallID
 call_setup CallSetup
 dest_point_code DestPointCode
+ie_raw IERaw
 message_name MsgName
 message_ts MsgTS
 message_way MsgWay
@@ -1014,6 +1038,7 @@ contact_name ContactName
 contact_status ContactStatus
 encoding Encoding
 end_status EndStatus
+file_chunk_content FileChunkContent
 file_chunk_len FileChunkLen
 file_chunk_number FileChunkNum
 file_chunk_sid FileChunkSID
@@ -1033,6 +1058,7 @@ user_agent UserAgent
 version Version
 new_version NewVersion
 type Type
+file_chunk FileChunk
 filename Filename
 login Login
 mime_type MIMEType
@@ -1051,11 +1077,13 @@ err_realm ErrRealm
 err_sname_name ErrSnameName
 err_sname_type ErrSnameType
 err_text ErrText
+kdcoptions KdcOptions
 login Login
 pa_data_type PADataType
 realm Realm
 server Server
 service Service
+ticket_enc_part TicketEncPark
 ticket_name TicketName
 ticket_name_type TicketNameType
 hostname Hostname
@@ -1063,6 +1091,7 @@ vendor_name VendorName
 login Login
 session_id SessionID
 assertion_value AssertionValue
+assertion_value_raw AssertionValueRaw
 attribute_desc AttributeDesc
 contains_sasl ContainsSASL
 hostname Hostname
@@ -1073,6 +1102,7 @@ number Number
 payload_is_crypted PayloadIsCrypted
 seal_algo SealAlgo
 type Type
+value_raw ValueRaw
 value_string ValueString
 level LDAPLevel
 call_byte_count CallByteCount
@@ -1131,6 +1161,7 @@ sender_email SenderEmail
 session_id SessionID
 subject Subject
 action Action
+action_content ActionContent
 attach_fileid AttachFileID
 attach_id AttachID
 attach_size AttachSize
@@ -1189,6 +1220,7 @@ sender_email SenderEmail
 session_id SessionID
 subject Subject
 attach_compress AttachCompress
+attach_content AttachContent
 attach_content_seq AttachContentSeq
 attach_content_size AttachContentSize
 attach_id AttachID
@@ -1216,6 +1248,7 @@ login Login
 server Server
 hl7_message_raw HL7MessageRaw
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -1260,6 +1293,7 @@ conference_id ConferenceId
 im_action IMAction
 user User
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -1297,7 +1331,9 @@ package_distrib PkgDistrib
 package_name PkgName
 package_version PkgVersion
 action Action
+appointment_location AppointmentLocation
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 date Date
 domain Domain
@@ -1382,6 +1418,7 @@ sender_email SenderEmail
 subject Subject
 filename Filename
 content_location ContentLocation
+content_part_data ContentPartData
 content_part_filename ContentPartFilename
 content_part_id ContentPartID
 content_part_type ContentPartType
@@ -1396,6 +1433,7 @@ sender Sender
 subject Subject
 tid TID
 version Version
+filehandle Filehandle
 flavor Flavor
 flavors Flavors
 length_fhandle LengthFHandle
@@ -1423,6 +1461,7 @@ file_chunk_len FileChunkLen
 file_chunk_type FileChunkType
 file_identifier FileIdentifier
 filename Filename
+filename_utf16 FilenameUTF16
 file_receiver FileReceiver
 file_sender FileSender
 filesize FileSize
@@ -1492,6 +1531,7 @@ tag Tag
 title Title
 video_duration VidDuration
 videoid VidID
+attach_content AttachContent
 login Login
 newsgroup Newsgroup
 password Passwd
@@ -1508,6 +1548,7 @@ seq Seq
 current_version CurrentVersion
 new_version NewVersion
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 contact_alias ContactAlias
@@ -1556,6 +1597,7 @@ neighbor Neighbor
 netmask Netmask
 router_id RouterID
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -1625,6 +1667,8 @@ parameter_value ParamValue
 is_mobile_service IsMobileService
 login Login
 password Passwd
+attach_content AttachContent
+attach_content_decoded AttachContentDecoded
 attach_disposition AttachDisposition
 file_type FileType
 attach_transfer_encoding AttachTransferEncoding
@@ -1679,6 +1723,7 @@ caller Caller
 display Display
 session_duration SessionDuration
 setup_delay SetupDelay
+call_data CallData
 call_duration CallDuration
 callee Callee
 caller Caller
@@ -1706,12 +1751,17 @@ avp_int AvpInt
 avp_int64 AvpInt64
 avp_interface_id AvpInterfaceID
 avp_ipv4 AvpIPv4
+avp_prefix AvpPrefix
+avp_str AvpStr
+avp_text AvpText
 avp_vendor_id AvpVendorID
 callback_number CallbackNumber
 called_station_id CalledStationID
 calling_station_id CallingStationID
+delegated_ipv6_prefix DelegatedIPV6Prefix
 framed_ip FramedIP
 framed_ipv6_pool FramedIPV6Pool
+framed_ipv6_prefix FramedIPV6Prefix
 framed_ipv6_route FramedIPV6Route
 idle_timeout IdleTimeout
 login Login
@@ -1725,6 +1775,7 @@ start_time StartTime
 stop_time StopTime
 terminate_cause TerminateCause
 framed_ip_netmask FramedIPNetmask
+attach_content AttachContent
 domain Domain
 login Login
 password Passwd
@@ -1899,9 +1950,12 @@ ep_ie_name EPIEName
 ep_ie_rab EPIERAB
 ep_ie_rab_addr EPIERABAddr
 ep_ie_rab_teid EPIERABTEID
+ep_ie_value_raw EPIEVALUERAW
+ep_value_raw EPValueRaw
 ep_ie_tai EPIETAE
 ep_mme_ue_id EPMMEUEID
 ep_name EPName
+ep_value_raw EPValueRaw
 is_smartphone IsSmartphone
 call_duration CallDuration
 callee Callee
@@ -1966,6 +2020,7 @@ date Date
 end_status EndStatus
 expires Expires
 from From
+from_tag FromTag
 media_attr_addr MediaAttrAddr
 media_attr_addr_end_offset MediaAttrAddrEndOffset
 media_attr_addr_start_offset MediaAttrAddrStartOffset
@@ -1998,6 +2053,7 @@ start_time StartTime
 subject Subject
 time_before_spk TimeBeforeSpk
 to To
+to_tag ToTag
 uri URI
 user_agent UserAgent
 user_id UserID
@@ -2012,6 +2068,7 @@ service_duration_tv ServiceDurationTV
 service_id ServiceID
 version Version
 file_id FileID
+file_chunk_content FileChunkContent
 filename Filename
 filesize FileSize
 login Login
@@ -2031,6 +2088,7 @@ file_chunk_data_offset FileChunkDataOffset
 file_chunk_len FileChunkLen
 filename Filename
 filesize FileSize
+krb5_blob KRB5Blob
 loadway Loadway
 login Login
 native_lan_manager NativeLANManager
@@ -2040,6 +2098,8 @@ path Path
 process_id ProcessID
 query_id QueryID
 search_attributes SearchAttribs
+security_blob SecurityBlob
+service_data ServiceData
 search_pattern SearchPtrn
 search_storage_type SearchStorageType
 security_blob_len SecurityBlobLen
@@ -2050,6 +2110,8 @@ receiver Receiver
 sender Sender
 attach_disposition AttachDisposition
 file_type FileType
+attach_content AttachContent
+attach_content_decoded AttachContentDecoded
 attach_size AttachSize
 attach_transfer_encoding AttachTransferEncoding
 attach_type AttachType
@@ -2098,6 +2160,7 @@ name Name
 oid OID
 request_id RequestID
 value_len ValueLen
+value_raw ValueRaw
 value_type ValueType
 caller_id CallerID
 login Login
@@ -2108,6 +2171,7 @@ password Passwd
 remote_addr RemoteAddr
 remote_addr RemoteAddr
 remote_name RemoteName
+content Content
 header_count HeaderCount
 header_name HeaderName
 header_value HeaderValue
@@ -2117,6 +2181,7 @@ stream_id StreamID
 divergence Divergence
 found_protocol FoundProtocol
 action Action
+attach_content AttachContent
 attach_id AttachID
 attach_size AttachSize
 attach_type AttachType
@@ -2149,9 +2214,11 @@ sender_alias SenderAlias
 sender_email SenderEmail
 subject Subject
 rtt RTT
+certificate_raw CertificateRaw
 common_name CommonName
 organization_name OrganizationName
 issuer Issuer
+serial_number SerialNumber
 server_name ServerName
 subject_alt_name SubjectAltName
 supported_next_protocol SupportedNextProto
@@ -2167,7 +2234,10 @@ remote_address_ipv4 RemoteAddressIPV4
 code Code
 callee Callee
 caller Caller
+fax_message_data FaxMsgData
 fax_message_number FaxMsgNum
+field_data FieldData
+ifp_data IFPData
 login Login
 password Passwd
 call_duration CallDuration
@@ -2193,8 +2263,11 @@ loss_count LossCount
 previous_lost PreviousLost
 rtt RTT
 rtt_app RTTApp
+seg_buffered_count SegBufferedCount
+seg_buffered_size SegBufferedSize
 seq_number SeqNum
 start_time StartTime
+sream Stream
 tsecr Tsecr
 tsval Tsval
 application App
@@ -2206,6 +2279,10 @@ login Login
 login_encrypted LoginEncrypted
 password Passwd
 query Query
+rpc_proc_name RPCProcName
+rpc_parameter_name RPCParameterName
+rpc_parameter_type RPCParameterType
+rpc_parameter_value RPCParameterValue
 server Server
 channel Channel
 channel_action ChannelAction
@@ -2274,9 +2351,11 @@ tweet Tweet
 user_id UserID
 cnx_duration CnxDuration
 start_time StartTime
+stream Stream
 maybe_application MaybeApplication
 maybe_application_id MaybeApplicationID
 maybe_family MaybeFamily
+session_buffer SessionBuffer
 login Login
 password Passwd
 query_raw QueryRaw
@@ -2301,6 +2380,7 @@ name Name
 password Passwd
 service Service
 service_id ServiceID
+raw Raw
 phone_number PhoneNum
 service Service
 service_id ServiceID
@@ -2311,6 +2391,7 @@ application_name AppName
 kb KB
 platform Platform
 file_chunk_data_offset FileChunkDataOffset
+file_chunk_content FileChunkContent
 file_chunk_len FileChunkLen
 filename Filename
 filesize FileSize
@@ -2377,6 +2458,7 @@ query_text QueryText
 query_type QueryType
 action Action
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact Contact
@@ -2413,6 +2495,7 @@ subject Subject
 action Action
 attach_fileid AttachFileID
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact Contact
@@ -2479,6 +2562,7 @@ session_id SessionID
 subject Subject
 action Action
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact Contact
@@ -2512,6 +2596,7 @@ subject Subject
 action Action
 attach_fileid AttachFileID
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact_email ContactEmail
@@ -2628,6 +2713,7 @@ video_totalduration VidTotalDuration
 video_width VidWidth
 action Action
 attach_id AttachID
+attach_content AttachContent
 attach_size AttachSize
 attach_type AttachType
 contact_alias ContactAlias
