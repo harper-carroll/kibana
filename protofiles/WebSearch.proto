@@ -288,7 +288,34 @@ message FilterValue {
   }
 
   message QuantityValue {
-    required string operator = 1;
+
+    enum Operator {
+      Equal = 1;
+      NotEqual = 2;
+      LessThan = 3;
+      GreaterThan = 4;
+      GreaterThanOrEqual = 5;
+      LessThanOrEqual = 6;
+
+      // SQL Comparison operator placeholders
+      // https://msdn.microsoft.com/en-us/library/ms188074.aspx
+      NotLessThan = 7;
+      NotGreaterThan = 8;
+
+      // Strange Fish shaped operators as found in the legacy console.
+      // Included here to acheive parity with the first release of
+      // the Web Console.
+      InRangeExclusive = 9;     // >< so between (a,b).
+      InRangeInclusive = 10;    // >=<= so everything not in the range [a,b].
+      NotInRangeExclusive = 11; // <> so not in (a,b)
+      NotInRangeInclusive = 12; // <=>= so not in [a,b]
+
+      // Skipping the exclusive range version of the above only becuase they
+      // are not present in the Web Code, and may never actually surfase,
+      // though ExclusiveInnerRange and ExclusiveOuterRange are logical sets.
+    }
+
+    required Operator operator = 1;
     required int32 value1 = 2;
     optional int32 value2 = 3;
     required FieldFilterTypeEnum filterType = 4;
