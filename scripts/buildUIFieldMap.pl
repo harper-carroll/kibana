@@ -17,7 +17,7 @@ sub ReadFile {
      }
      print $shortName.':'.$longName."\n";
      $$typeHash_ptr{$shortName}=$longName;
-     
+
    }
    close previousData;
 }

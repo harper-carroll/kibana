@@ -47,7 +47,7 @@ sub ReadPreviousData {
    $previousFields_ptr = $_[4];
    $previousData_ptr = $_[5];
    $statiField_ptr = $_[6];
-   
+
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
 
@@ -65,8 +65,8 @@ sub ReadPreviousData {
       if ( index($_,'Q_PROTO') == -1 && (index($_,'optional') != -1 || index($_,'repeated') != -1)) {
          my @lineValues = split(/\s+/,$_);
          push(@$staticField_ptr,$lineValues[3]);
-      } 
-        
+      }
+
    }
    close previousData;
 }
@@ -105,22 +105,36 @@ sub CheckRenameFile {
    my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
    $statiField_ptr = $_[4];
 
+   my $filename = 'MissingAttributesReport.txt';
+   open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
+   print $missAttrFile "remapping file - missing attributes\n";
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
+   $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
          my @lineValues = split(/,/,$_);
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
-            die "Rename file does not account for field $lineValues[8]";
+#           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
+#           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
+#           NetMonFieldNames.csv file to complete the Protobuffer compilation.
+            print $missAttrFile "Attribute: $lineValues[8] for ($lineValues[2], $lineValues[5], $lineValues[7])\n";
+            $mapGood = 0;
          } 
       } 
    }
-   while (($key,$value) = each (%renameMapping)) {
-      my @matches =  grep { /$value/ } @$staticField_ptr;
-      if (@matches && $matches[0] eq $value ) {
-         die "Rename file tries to map to a static field $value";
+   close $missAttrFile;
+
+   if ($mapGood) {
+      while (($key,$value) = each (%renameMapping)) {
+         my @matches =  grep { /$value/ } @$staticField_ptr;
+         if (@matches && $matches[0] eq $value ) {
+            die "Rename file tries to map to a static field $value";
+         }
       }
+   } else {
+      die "**** BUILD FAILED ****\nNetMonFieldNames.csv needs to be updated by labs.\nSee $filename for list of missing attributes.\n";
    }
 
    close qosmosWorkbook;
@@ -161,7 +175,7 @@ my $callbackNames;
 my @previousFields;
 my @previousData;
 my @staticFields;
-ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields); 
+ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields);
 CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
@@ -177,7 +191,7 @@ while ( my $line = <qosmosWorkbook>) {
          print $_;
          splice(@previousData, $index, 1);
          break;
-      }   
+      }
       $index += 1;
    }
 }
@@ -217,6 +231,6 @@ while (<qosmosWorkbook>) {
 
         print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }
-  } 
+  }
 }
 
