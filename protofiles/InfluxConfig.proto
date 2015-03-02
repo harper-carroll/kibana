@@ -6,6 +6,8 @@ option java_outer_classname = "InfluxConfigMsg";
 message InfluxConfig {
    optional string hostname = 1;
    optional string database = 2;
-   optional string username = 3;
-   optional string password = 4;
+   optional string adminUsername = 3;
+   optional string adminPassword = 4;
+   optional string dbUsername = 5;
+   optional string dbPassword = 6;
 }
