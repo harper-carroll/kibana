@@ -4,6 +4,7 @@ option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "HermesRequestMsg";
 
 message HermesRequest {
-  optional int32 beginTimeSeconds = 1;
-  optional int32 endTimeSeconds = 2;
+  optional string indexName = 1;
+  optional int32 beginTimeSeconds = 2;
+  optional int32 endTimeSeconds = 3;
 }
