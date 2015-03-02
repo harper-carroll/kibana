@@ -15,7 +15,6 @@ message HermesReply {
       optional ValueTuple tupleValue = 3;
    }
 
-   optional int32 beginTimeSeconds = 1;
-   optional int32 endTimeSeconds = 2;
-   repeated Stat stat = 3;
+   optional string uuid = 1;
+   repeated Stat stat = 2;
 }
