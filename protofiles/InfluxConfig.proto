@@ -5,9 +5,10 @@ option java_outer_classname = "InfluxConfigMsg";
 
 message InfluxConfig {
    optional string hostname = 1;
-   optional string database = 2;
-   optional string adminUsername = 3;
-   optional string adminPassword = 4;
-   optional string dbUsername = 5;
-   optional string dbPassword = 6;
+   optional int32 port = 2;
+   optional string database = 3;
+   optional string adminUsername = 4;
+   optional string adminPassword = 5;
+   optional string dbUsername = 6;
+   optional string dbPassword = 7;
 }
