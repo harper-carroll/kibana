@@ -21,13 +21,8 @@ if [ ! -d "$goSrc" ]; then
    cd $startDir
 fi
 
-
 cd $goSrc
-#protoc --gogo_out=/Users/ben.aldrich/go/src/ -I=/Users/ben.aldrich/go/src/:/Users/ben.aldrich/go/src/github.com/gogo/protobuf/protobuf/ --proto_path=/Users/ben.aldrich/go/src/github.schq.secious.com/Ben-Aldrich/goforkyourself/fork/ /Users/ben.aldrich/go/src/github.schq.secious.com/Ben-Aldrich/goforkyourself/fork/*.proto
-# the build below will generate java code with single methods > 64k, to fix this
-# we would have to enable option optimize_for = CODE_SIZE
-#"$protoc" -I="$protoFileDir" --gogo_out=. "$protoFileDir"/DpiMsgLRproto.proto
-for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
-  protoc -I="$protoFileDir":"$GOPATH"/src/github.com/gogo/protobuf/protobuf/ --gogo_out=. "$protoFileDir"/$file
+for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications | grep -v BaseConfMsg` ; do
+  protoc -I="$protoFileDir":"$GOPATH"/src/:/usr/local/include:/usr/include --gogo_out=. "$protoFileDir"/$file 
 done
 cd "$startDir"

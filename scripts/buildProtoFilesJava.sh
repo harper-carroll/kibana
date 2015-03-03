@@ -16,15 +16,23 @@ if [ ! -f "$protoc" ]; then
   sh "$scriptsDir"/compileThirdParty.sh
 fi
 
+
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
+gogoBaseDir="$thirdPartyDir"/github.com/gogo/
+if [ ! -d "$gogoBaseDir/protobuf" ]; then
+  mkdir -p "$gogoBaseDir"
+  cd "$gogoBaseDir"
+  git clone https://github.com/gogo/protobuf.git
+  cd "$startDir"
+fi
 
 mkdir -p "$javaSrcDir"
 cd "$javaSrcDir"
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/BaseConfMsg.proto
+#"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/BaseConfMsg.proto
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
 for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
-  "$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/$file
+  protoc -I="$protoFileDir":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. "$protoFileDir"/$file
 done
 cd "$startDir"
