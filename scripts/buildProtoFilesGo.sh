@@ -9,8 +9,7 @@ goLR=$GOPATH/src/github.schq.secious.com/Logrhythm
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
-
-go get github.com/gogo/protobuf/proto
+go get github.com/LogRhythm/protobuf/proto
 go get github.com/gogo/protobuf/protoc-gen-gogo
 go get github.com/gogo/protobuf/gogoproto
 

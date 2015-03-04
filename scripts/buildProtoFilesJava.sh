@@ -22,7 +22,7 @@ gogoBaseDir="$thirdPartyDir"/github.com/gogo/
 if [ ! -d "$gogoBaseDir/protobuf" ]; then
   mkdir -p "$gogoBaseDir"
   cd "$gogoBaseDir"
-  git clone https://github.com/gogo/protobuf.git
+  git clone https://github.com/LogRhythm/protobuf.git
   cd "$startDir"
 fi
 
