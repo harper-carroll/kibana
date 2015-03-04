@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "CommandReplyMsg";
 
+import "GoProtoDefaults.proto";
+
 message CommandReply {
   required bool success = 1; 
   optional string result = 2; 

@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "LinkConfigMsg";
 
+import "GoProtoDefaults.proto";
+
 message LinkConfig {
    optional int64 webHeartbeatIntervalMs = 1;
    optional string searchInputQueue = 2;

@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "LogMessageMsg";
 
+import "GoProtoDefaults.proto";
+
 message LogMessage {
   enum LogType {
      NORMALIZED = 0;

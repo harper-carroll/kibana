@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "LicenseUpdateMsg";
 
+import "GoProtoDefaults.proto";
+
 message LicenseUpdate {
   enum LicenseType {
     UNLICENSED = 1;
