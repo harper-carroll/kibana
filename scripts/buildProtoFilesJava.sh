@@ -33,6 +33,6 @@ cd "$javaSrcDir"
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
 for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
-  protoc -I="$protoFileDir":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. "$protoFileDir"/$file
+  "$protoc" -I="$protoFileDir":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. "$protoFileDir"/$file
 done
 cd "$startDir"
