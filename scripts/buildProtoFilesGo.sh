@@ -20,9 +20,8 @@ if [ ! -d "$goSrc" ]; then
    git clone git@github.schq.secious.com:Logrhythm/GoMessaging.git
    cd $startDir
 fi
-
+rm "$goSrc"/*.proto
+cp `ls "$protoFileDir"/* | grep -v Config | grep -v ESData | grep -v RuleConf | grep -v DpiMsgLRproto | grep -v Applications | grep -v BaseConfMsg `  "$goSrc"/
 cd $goSrc
-for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications | grep -v BaseConfMsg` ; do
-  protoc -I="$protoFileDir":"$GOPATH"/src/:/usr/local/include:/usr/include --gogo_out=. "$protoFileDir"/$file 
-done
+protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc/ --gogo_out=$GOPATH/src/ $goSrc/*.proto
 cd "$startDir"
