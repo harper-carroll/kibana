@@ -14,5 +14,6 @@ message ConfigRequest {
 
    optional RequestType requestType = 1;
    optional ConfigType configType = 2;
-   optional bytes serializedConfigMessage = 3;
+   optional string overrideExtension = 3;
+   optional bytes serializedConfigMessage = 4;
 }
