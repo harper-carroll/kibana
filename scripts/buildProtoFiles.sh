@@ -14,7 +14,6 @@ protoc="$protoInstallDir"/bin/protoc
 phpprotoc="/usr/local/probe/bin/protoc-gen-php"
 PROTOBUFFER_VERSION=2.5.0
 GLOBAL_CPP_FLAGS="-fPIC"
-protoc=/usr/local/bin/protoc
 
 gogoBaseDir="$thirdPartyDir"/github.com/gogo/
 if [ ! -d "$gogoBaseDir/protobuf" ]; then
