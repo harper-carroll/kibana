@@ -30,7 +30,7 @@ fi
 
 if [ ! -f "$phpprotoc" ]; then
   echo "$phpprotoc not found... should be installed from thirdparty bootstrap."
-  #exit 1
+  exit 1
 fi
 
 mkdir -p "$cppSrcDir"/liblrdpi "$cppSrcDir"/libstats "$cppSrcDir"/libconf $cppSrcDir/libcommand "$cppSrcDir"/libprocess "$cppSrcDir"/liblua "$cppSrcDir"/libtools "$cppSrcDir"/libfork "$cppSrcDir"/liblicense "$cppSrcDir"/libmessages
