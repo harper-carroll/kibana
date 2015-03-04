@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "HermesConfigMsg";
 
+import "GoProtoDefaults.proto";
+
 message HermesConfig {
    repeated string pollStatsQueue = 1;
    optional string pollStatsWorkerQueue = 2;
