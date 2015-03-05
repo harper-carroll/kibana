@@ -4,6 +4,8 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "ConfigReplyMsg";
 import "ConfigType.proto";
 
+import "GoProtoDefaults.proto";
+
 message ConfigReply {
    enum ReplyType {
       SUCCESS = 0;

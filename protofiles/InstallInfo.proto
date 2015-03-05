@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "InstallInfoMsg";
 
+import "GoProtoDefaults.proto";
+
 message InstallInfo {
   optional uint64 installTime = 1;
   optional uint64 lastCheckedTime = 2;

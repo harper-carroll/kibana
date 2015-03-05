@@ -3,6 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ESDataMsg";
 
+import "GoProtoDefaults.proto";
+
 message ESData {
    enum RequestType {
       INSERT = 1;
