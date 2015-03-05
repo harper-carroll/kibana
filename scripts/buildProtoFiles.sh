@@ -15,6 +15,14 @@ phpprotoc="/usr/local/probe/bin/protoc-gen-php"
 PROTOBUFFER_VERSION=2.5.0
 GLOBAL_CPP_FLAGS="-fPIC"
 
+gogoBaseDir="$thirdPartyDir"/github.com/gogo/
+if [ ! -d "$gogoBaseDir/protobuf" ]; then
+  mkdir -p "$gogoBaseDir"
+  cd "$gogoBaseDir"
+  git clone https://github.com/LogRhythm/protobuf.git
+  cd "$startDir"
+fi
+
 if [ ! -f "$protoc" ]; then
   sh "$scriptsDir"/compileThirdParty.sh
 fi
@@ -43,45 +51,45 @@ export LD_LIBRARY_PATH="$protoInstallDir"/lib
 
 mkdir -p "$javaSrcDir"
 cd "$javaSrcDir"
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/BaseConfMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include:$thirdPartyDir::$DISTDIR/protobuf/include:/usr/include --java_out=. "$protoFileDir"/BaseConfMsg.proto
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
-#"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
+#"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include:$thirdPartyDir::$DISTDIR/protobuf/include:/usr/include --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
 for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
-"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/$file
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --java_out=. "$protoFileDir"/$file
 done
 cd "$startDir"
 
 cd "$cppSrcDir"
-"$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/DpiMsgLRproto.proto
-"$protoc" -I="$protoFileDir" --cpp_out=liblrdpi  "$protoFileDir"/Applications.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libstats  "$protoFileDir"/StatsMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/BaseConfMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/QosmosConfMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ConfTypeMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NetInterfaceMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/NtpMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/RestartMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ShutdownMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/VersionMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/SyslogConfMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libconf  "$protoFileDir"/ReaderRuleConf.proto
-"$protoc" -I="$protoFileDir" --cpp_out=liblua  "$protoFileDir"/Rule.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/CommandReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libprocess  "$protoFileDir"/ProcessReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/DriveInfo.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaults.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/ConfigDefaultsRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libfork  "$protoFileDir"/ForkerRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseReply.proto
-"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/LicenseRequest.proto
-"$protoc" -I="$protoFileDir" --cpp_out=liblicense  "$protoFileDir"/License.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libmessages  "$protoFileDir"/LogMessage.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libmessages  "$protoFileDir"/ESDataMsg.proto
-"$protoc" -I="$protoFileDir" --cpp_out=libcommand  "$protoFileDir"/PcapDownloadMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblrdpi "$protoFileDir"/DpiMsgLRproto.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblrdpi "$protoFileDir"/Applications.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libstats "$protoFileDir"/StatsMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/BaseConfMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/QosmosConfMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/ConfTypeMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/NetInterfaceMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/NtpMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/RestartMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/ShutdownMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/VersionMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/SyslogConfMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libconf "$protoFileDir"/ReaderRuleConf.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblua "$protoFileDir"/Rule.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/CommandRequest.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/CommandReply.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libprocess "$protoFileDir"/ProcessRequest.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libprocess "$protoFileDir"/ProcessReply.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/DriveInfo.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/ConfigDefaults.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/ConfigDefaultsRequest.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libfork "$protoFileDir"/ForkerReply.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libfork "$protoFileDir"/ForkerRequest.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblicense "$protoFileDir"/LicenseReply.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblicense "$protoFileDir"/LicenseRequest.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblicense "$protoFileDir"/License.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libmessages "$protoFileDir"/LogMessage.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libmessages "$protoFileDir"/ESDataMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/PcapDownloadMsg.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
 mv  libstats/StatsMsg.pb.cc  libstats/StatsMsg.pb.cpp
@@ -115,7 +123,7 @@ cd "$startDir"
 
 mkdir -p "$phpSrcDir"
 cd "$phpSrcDir"
-for file in `ls "$protoFileDir" ` ; do
-"$phpprotoc" -i "$protoFileDir" -o . --protoc="$protoc" "$protoFileDir"/$file
+for file in `ls "$protoFileDir"` ; do
+  "$phpprotoc" -o . --protoc="$protoc -I "$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include" "$protoFileDir"/$file
 done
 cd "$startDir"

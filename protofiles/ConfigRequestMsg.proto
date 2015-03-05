@@ -4,6 +4,22 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "ConfigRequestMsg";
 import "ConfigType.proto";
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+//go options that improve code generation
+option (gogoproto.gostring_all) = true;
+option (gogoproto.equal_all) = true;
+option (gogoproto.verbose_equal_all) = true;
+option (gogoproto.goproto_stringer_all) = false;
+option (gogoproto.stringer_all) =  true;
+option (gogoproto.populate_all) = true;
+option (gogoproto.testgen_all) = true;
+option (gogoproto.benchgen_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.sizer_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+
+
 message ConfigRequest {
    enum RequestType {
       READ = 0;
