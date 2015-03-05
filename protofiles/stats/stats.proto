@@ -21,7 +21,7 @@ option (gogoproto.unmarshaler_all) = true;
 message Counter {
   required string name = 1;
   optional int64 value = 2;
-  optional uint64 time = 3;
+  optional int64 time = 3;
   optional int32 sampleRate = 4;
 }
 
@@ -29,6 +29,7 @@ message Sample {
   required string name = 1;
   optional int64 value = 2;
   optional int32 sampleRate = 3;
+  optional int64 time = 4;
 }
 
 message Measure {
@@ -37,6 +38,7 @@ message Measure {
   optional int64 value = 3;
   optional int64 max = 4;
   optional int32 sampleRate = 5;
+  optional int64 time = 4;
 }
 
 message Stats {
