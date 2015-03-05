@@ -8,6 +8,8 @@ enum NetInterfaceMethod {
    STATICIP = 1; 
 }
 
+import "GoProtoDefaults.proto";
+
 message NetInterface {
    optional string interface = 1 [default = "eth0"];
    optional NetInterfaceMethod method = 2 [default = DHCP];

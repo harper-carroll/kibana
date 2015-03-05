@@ -8,6 +8,8 @@ option java_outer_classname = "ConfigDefaultsRequestMsg";
 // For the ConfType request config parameters
 // The CommandReply will contain the ConfigDefaults.proto with
 // parameter name, default value, max, min
+import "GoProtoDefaults.proto";
+
 message ConfigDefaultsRequest {
    optional ConfType.Type type = 1; 
    repeated string requestedConfigParams = 2;

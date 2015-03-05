@@ -4,6 +4,8 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "MaintenanceConfigMsg";
 import "IndexManagerConfig.proto";
 
+import "GoProtoDefaults.proto";
+
 message MaintenanceConfig {
 
    optional bool runPcapStatReporter = 1;
