@@ -7,7 +7,10 @@ import "GoProtoDefaults.proto";
 
 message InfluxConfig {
    optional string hostname = 1;
-   optional string database = 2;
-   optional string username = 3;
-   optional string password = 4;
+   optional int32 port = 2;
+   optional string database = 3;
+   optional string adminUsername = 4;
+   optional string adminPassword = 5;
+   optional string dbUsername = 6;
+   optional string dbPassword = 7;
 }
