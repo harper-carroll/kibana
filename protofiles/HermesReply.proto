@@ -3,7 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "HermesReplyMsg";
 
-import "GoProtoDefaults.proto";
+
+
 
 message HermesReply {
    message ValueTuple {
@@ -17,7 +18,6 @@ message HermesReply {
       optional ValueTuple tupleValue = 3;
    }
 
-   optional int32 beginTimeSeconds = 1;
-   optional int32 endTimeSeconds = 2;
-   repeated Stat stat = 3;
+   optional string uuid = 1;
+   repeated Stat stat = 2;
 }

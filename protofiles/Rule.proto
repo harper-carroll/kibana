@@ -3,7 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "RuleConfMsg";
 
-import "GoProtoDefaults.proto";
+
+
 
 message RuleConf {
 
