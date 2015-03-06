@@ -25,7 +25,7 @@ message Measure {
   optional int64 value = 3;
   optional int64 max = 4;
   optional int32 sampleRate = 5;
-  optional int64 time = 4;
+  optional int64 time = 6;
 }
 
 message Stats {

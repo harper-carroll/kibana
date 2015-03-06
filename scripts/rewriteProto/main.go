@@ -7,26 +7,11 @@ import (
 	"regexp"
 	// "io"
 	"os"
+	"strings"
 )
 
-var PackageLine = regexp.MustCompile(`^package\s.*;`)
-
-var GogoProtoImport = `import "github.com/gogo/protobuf/gogoproto/gogo.proto";
-//go options that improve code generation
-option (gogoproto.gostring_all) = true;
-option (gogoproto.equal_all) = true;
-option (gogoproto.verbose_equal_all) = true;
-option (gogoproto.goproto_stringer_all) = false;
-option (gogoproto.stringer_all) =  true;
-option (gogoproto.populate_all) = true;
-option (gogoproto.testgen_all) = true;
-option (gogoproto.benchgen_all) = true;
-option (gogoproto.marshaler_all) = true;
-option (gogoproto.sizer_all) = true;
-option (gogoproto.unmarshaler_all) = true;
-`
-
-func CopyFileWithNewImport(source string, dest string) (err error) {
+func CopyFileWithNewImport(source string, dest string, conf Conf) (err error) {
+	packageLine := regexp.MustCompile(conf.Regex)
 	sourcefile, err := os.Open(source)
 	if err != nil {
 		return err
@@ -48,15 +33,15 @@ func CopyFileWithNewImport(source string, dest string) (err error) {
 	for scanner.Scan() {
 		// destfile.WriteString(scanner.Text())
 		fmt.Fprintln(writer, scanner.Text())
-		if PackageLine.MatchString(scanner.Text()) {
-			writer.WriteString(GogoProtoImport)
+		if packageLine.MatchString(scanner.Text()) {
+			writer.WriteString(conf.Text)
 		}
 	}
 
 	return err
 }
 
-func CopyDir(source string, dest string) (err error) {
+func CopyDir(source string, dest string, conf Conf) (err error) {
 
 	// get properties of source dir
 	sourceinfo, err := os.Stat(source)
@@ -75,6 +60,7 @@ func CopyDir(source string, dest string) (err error) {
 
 	objects, err := directory.Readdir(-1)
 
+loop:
 	for _, obj := range objects {
 
 		sourcefilepointer := source + "/" + obj.Name()
@@ -83,13 +69,19 @@ func CopyDir(source string, dest string) (err error) {
 
 		if obj.IsDir() {
 			// create sub-directories - recursively
-			err = CopyDir(sourcefilepointer, destinationfilepointer)
+			err = CopyDir(sourcefilepointer, destinationfilepointer, conf)
 			if err != nil {
 				fmt.Println(err)
 			}
 		} else {
+			for _, exclude := range conf.Exclude {
+				if strings.Contains(sourcefilepointer, exclude) {
+					fmt.Println("Excluding: ", sourcefilepointer)
+					continue loop
+				}
+			}
 			// perform copy
-			err = CopyFileWithNewImport(sourcefilepointer, destinationfilepointer)
+			err = CopyFileWithNewImport(sourcefilepointer, destinationfilepointer, conf)
 			if err != nil {
 				fmt.Println(err)
 			}
@@ -99,9 +91,17 @@ func CopyDir(source string, dest string) (err error) {
 	return
 }
 
+var confPath = flag.String("conf", "../scripts/RewriteProto/c.yml", "../scripts/RewriteProto/c.yml")
+
 func main() {
 	flag.Parse() // get the source and destination directory
-
+	fmt.Println(*confPath)
+	conf, err := GetConf(*confPath)
+	if nil != err {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println(conf)
 	source_dir := flag.Arg(0) // get the source directory from 1st argument
 
 	dest_dir := flag.Arg(1) // get the destination directory from the 2nd argument
@@ -134,7 +134,7 @@ func main() {
 
 	_, err = os.Open(dest_dir)
 
-	err = CopyDir(source_dir, dest_dir)
+	err = CopyDir(source_dir, dest_dir, conf)
 	if err != nil {
 		fmt.Println(err)
 	} else {
