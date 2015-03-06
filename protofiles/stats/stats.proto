@@ -1,0 +1,38 @@
+package stats;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "CounterMsg";
+
+
+
+message Counter {
+  required string name = 1;
+  optional int64 value = 2;
+  optional int64 time = 3;
+  optional int32 sampleRate = 4;
+}
+
+message Sample {
+  required string name = 1;
+  optional int64 value = 2;
+  optional int32 sampleRate = 3;
+  optional int64 time = 4;
+}
+
+message Measure {
+  required string name = 1;
+  optional int64 min = 2;
+  optional int64 value = 3;
+  optional int64 max = 4;
+  optional int32 sampleRate = 5;
+  optional int64 time = 4;
+}
+
+message Stats {
+  required string service = 1;
+  optional string host = 2;
+  optional string region = 3;
+  repeated Counter counters = 4;
+  repeated Measure measures = 5;
+  repeated Sample Samples = 6;
+}

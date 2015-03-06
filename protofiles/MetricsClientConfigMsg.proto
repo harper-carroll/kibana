@@ -3,7 +3,8 @@ package protoMsg;
 option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "MetricsClientConfigMsg";
 
-import "GoProtoDefaults.proto";
+
+
 
 message MetricsClientConfig {
    optional string statsDestinationQueue = 1;
