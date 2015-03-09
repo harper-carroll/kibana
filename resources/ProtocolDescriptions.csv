@@ -3,40 +3,63 @@ base,base,#hdr64,"Contains
 base,base,#byte_val,Contains data defined by given offset parameters starting from the header of the protocol level considered.
 base,base,#frame,"Contains packet data
 base,base,#parent_user_handle,User data associated to one parent session.
+base,base,#data,"Contains packet data
 base,base,#classification_match,This attribute compares the classification states of both half-sessions.
 base,base,#statemachine_anomaly,We check if we are in a final node when we cleanup the statemachine.
 3gpp_li,3GPP LI,#hi3_domain_id,3gpp_li HI3 Domain
 3gpp_li,3GPP LI,#correlation_number,GPRS correlation number
 3gpp_li,3GPP LI,#national_params,National parameters (other than country) in ASN.1 format
+adc,Advanced Direct Connect,#file_chunk_content,Content of the transferred data.
 aim,AOL Instant Messenger (formerly OSCAR),#inherit_key,"Candidate inheritance key
 aim,AOL Instant Messenger (formerly OSCAR),#inherit_parent,"Parent inheritance key
+aim,AOL Instant Messenger (formerly OSCAR),#icon_data,Binary data containing a contact's icon.
 aim_transfer,AIM Transfer,#inherit_key,"Candidate inheritance key
+aim_transfer,AIM Transfer,#content,File content
 arp,Address Resolution Protocol,#src_hard,Source MAC address.
 arp,Address Resolution Protocol,#src_proto,Source IP address.
 arp,Address Resolution Protocol,#dst_hard,Destination MAC address.
 arp,Address Resolution Protocol,#dst_proto,Destination IP address.
+badongo,Badongo.com,#content,Message content.
+base,Base virtual protocol,#packet,Packet data.
+base,Base virtual protocol,#packet_ip,Packet data from first IP layer.
+base,Base virtual protocol,#sys_pkt_header,A binary buffer container data inserted in the head of the real packet
+base,Base virtual protocol,#sys_pkt_footer,A binary buffer container data inserted in the tail of the real packet
 bgp,Border Gateway Protocol,#error_notification_data,Raw error data notification.
 bgp,Border Gateway Protocol,#path_attr_value,Content of the attribute
 bgp,Border Gateway Protocol,#auth_message,The content of the authentication
 bittorrent,BitTorrent,#file_hash,Hash of the transferred file.
+bittorrent,BitTorrent,#file_hash_raw,Content whose SHA1 hash is the file_hash ('info' section of the torrent file).
 bittorrent,BitTorrent,#peer_id,Unique ID containing information about the software and the version used.
+bittorrent,BitTorrent,#file_chunk_content,Content of the transferred data.
 cdp,Cisco Discovery Protocol,#native_vlan,The assumed VLAN for untagged packets on the interface which sent the CDP packet.
 cdp,Cisco Discovery Protocol,#duplex,Duplex configuration of the interface which sent the CDP message.
 chap,Challenge Handshake Authentication Protocol,#challenge,Challenge sent by the peer initiating the authentication process.
 chap,Challenge Handshake Authentication Protocol,#response,Response to the challenge.
 dhcp,Dynamic Host Configuration Protocol,#inherit_parent,"Parent inheritance key
 dhcp,Dynamic Host Configuration Protocol,#option_value,Content or value of the option
+dimp,Dynamic Internet Messaging Program,#attach_content,Attached file content.
+directconnect,DirectConnect (NMDC),#file_chunk_content,Content of the transferred data.
 edonkey,Edonkey,#file_hash,Hash of the transferred file.
+edonkey,Edonkey,#file_chunk_content,Content of the transferred data.
 eth,Ethernet,#trailer,Data added to complete the Ethernet frame if required (padding bits).
+facebook_mail,facebook mail,#attach_content,Attached file content.
 ftp,File Transfer Protocol,#inherit_parent,"Parent inheritance key
 ftp_data,File Transfer Protocol Data,#inherit_key,"Candidate inheritance key
+ftp_data,File Transfer Protocol Data,#content,File content
+giop,General Inter-ORB Protocol,#object_key,Identifies the object should receive the message.
+gmail,Google Mail,#attach_content,Attached file content.
+gmail_basic,Gmail Basic,#attach_content,Attached file content.
 gmail_chat,Google Chat,#inherit_parent,"Parent inheritance key
+gmail_mobile,Gmail Mobile,#attach_content,Attached file content.
+gmx,GMX webmail,#attach_content,Attached file content.
+gnutella,Gnutella,#file_chunk_content,Content of the transferred data.
 gtp,GPRS Tunneling Protocol,#inherit_key,"Candidate inheritance key
 gtp,GPRS Tunneling Protocol,#inherit_parent,"Parent inheritance key
 gtp,GPRS Tunneling Protocol,#qos_raw,This field contains quality of service data.
 gtp,GPRS Tunneling Protocol,#location_raw,Terminal location in raw binary representation.
 gtpv2,GPRS Tunneling Protocol version 2,#inherit_key,"Candidate inheritance key
 gtpv2,GPRS Tunneling Protocol version 2,#inherit_parent,"Parent inheritance key
+gtpv2,GPRS Tunneling Protocol version 2,#message,Binary content of the message.
 gtpv2,GPRS Tunneling Protocol version 2,#guti,Globally Unique Temporary UE Identity
 h225,H225,#inherit_parent,"Parent inheritance key
 h245,H245,#inherit_key,"Candidate inheritance key
@@ -49,34 +72,97 @@ h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_port,Source audio c
 h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_port,Source video connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_port,Destination audio connection port
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_port,Destination video connection port
+http,HyperText Transfer Protocol,#content,Message content.
+http,HyperText Transfer Protocol,#content_raw,uncompressed HTTP content.
+http,HyperText Transfer Protocol,#part_content,"Uploaded data. Extracted only if content-type is multipart""."""
 http_tunnel,HTTP Tunnel,#inherit_parent,"Parent inheritance key
 http_tunnel,HTTP Tunnel,#inherit_key,"Candidate inheritance key
+iax,Inter Asterisk eXchange,#element_value,"Value of the information coming from a packet of type Full"" whose message_id is ""IAX""."""
+ica,Independant Computing Architecture (Citrix),#application_utf16,Application name used by the client in UTF-16 format.
+ica,Independant Computing Architecture (Citrix),#login_info_utf16,"Login information for the given connection (host
+icmp6,Internet Control Message Protocol for IP6,#link_layer_raw_addr,Link-layer address in binary format.
+imap,Internet Message Access Protocol version 4,#attach_content,Attached file content.
+imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files content.
 imap,Internet Message Access Protocol version 4,#content_entry,"Parent entry
+imp,Internet Messaging Program,#attach_content,Attached file content.
 ip,Internet Protocol,#inherit_key,"Candidate inheritance key
 ip,Internet Protocol,#src_addr_md5,A MD5 sum on IP Source address
 ip,Internet Protocol,#dst_addr_md5,A MD5 sum on IP destination address
+ip,Internet Protocol,#src_dst_addr,A binary buffer containing a concatenation of IP source address and destination address
+ip,Internet Protocol,#src_dst_sport_proto,"A binary buffer containing a concatenation of IP source address
+ip,Internet Protocol,#src_dst_dport_proto,"A binary buffer containing a concatenation of IP source address
+ip,Internet Protocol,#src_dst_sport_dport_proto,"A binary buffer containing a concatenation of IP source address
 irc,Internet Relay Chat,#inherit_parent,"Parent inheritance key
 irc_transfer,IRC File Transfer Data,#inherit_key,"Candidate inheritance key
+irc_transfer,IRC File Transfer Data,#content,File content
+isup,ISDN User Part,#ie_raw,Raw value of the i.e.. This attribute is deprecated.
 jabber,XMPP Protocol (Jabber),#inherit_parent,"Parent inheritance key
+jabber,XMPP Protocol (Jabber),#file_chunk_content,Content of the transferred data.
 jabber_transfer,Jabber File Transfer,#inherit_key,"Candidate inheritance key
+jabber_transfer,Jabber File Transfer,#content,File content
+kakaotalk,KakaoTalk,#file_chunk,A piece of a transferred file.
 krb5,Kerberos,#enc_data,Encrypted data (hash) sent in the AS-RQ message.
 krb5,Kerberos,#pa_data_value,PA-DATA value.
+krb5,Kerberos,#ticket_enc_part,Ticket encrypted part.
 krb5,Kerberos,#err_data,Error-related data.
 l2tp,Layer 2 Tunneling Protocol,#challenge,CHAP style challenge used by a peer in order to authenticate the tunnel endpoint.
 l2tp,Layer 2 Tunneling Protocol,#resp_challenge,Challenge response.
+ldap,Lighweight Directory Access Protocol,#value_raw,Raw value of the LDAP element.
+ldap,Lighweight Directory Access Protocol,#assertion_value_raw,Raw value of filter expression second operand.
+live_hotmail,Windows Live Hotmail,#attach_content,Attached file content.
+lotusnotes,Lotus Notes,#content,Message content.
+lotusnotes,Lotus Notes,#attach_content,Attached file content.
+mailru,Mail.ru Webmail,#attach_content,Attached file content.
+maktoob,Maktoob mail,#attach_content,Attached file content.
+mapi,MS Exchange Message API,#subject,Message subject (UTF-16).
+mapi,MS Exchange Message API,#content,Message content.
+mapi,MS Exchange Message API,#sender,Contains the identity of the sender of a chat session or a file transfer (UTF-16).
+mapi,MS Exchange Message API,#sender_alias,Name of the email sender (UTF-16).
+mapi,MS Exchange Message API,#sender_email,Email address of the message sender (UTF-16).
+mapi,MS Exchange Message API,#receiver,Contains the identity of the receiver for a chat message or a file transfer (UTF-16).
+mapi,MS Exchange Message API,#receiver_alias,Name of email receiver (included cc and bcc receivers) (UTF-16).
+mapi,MS Exchange Message API,#receiver_email,Email address of message receiver (included cc and bcc receivers) (UTF-16).
+mapi,MS Exchange Message API,#attach_filename,Attachment name (UTF-16).
+mapi,MS Exchange Message API,#attach_content,Attached file content.
+mapi,MS Exchange Message API,#msglist_sender,Full address of email sender (alias and email address) (UTF-16).
+mapi,MS Exchange Message API,#msglist_subject,Message subject in a message list (UTF-16).
+mapi,MS Exchange Message API,#msglist_receiver,Full address of email receiver in a message list.
+mapi,MS Exchange Message API,#msglist_receiver_email,Email address of the email receiver.
+mapi,MS Exchange Message API,#appointment_location,Appointment location.
+mapi,MS Exchange Message API,#contact_email,Email address of a contact (UTF-16).
+mapi,MS Exchange Message API,#contact_alias,Alias of a contact (UTF-16).
+mashare,Ma-Share.com,#content,Message content.
 mgcp,Media Gateway Control Protocol,#inherit_parent,"Parent inheritance key
+mmse,MultiMedia Messages Encapsulation,#content,The message content (headers are not included).
+mmse,MultiMedia Messages Encapsulation,#content_part_data,Message sub-part data.
+mount,Mount,#filehandle,file handle metadata uncoded
 msn,MSN Messenger,#inherit_key,"Candidate inheritance key
 msn,MSN Messenger,#inherit_parent,"Parent inheritance key
+msn,MSN Messenger,#filename_utf16,UTF-16 encoded filename.
+msn,MSN Messenger,#file_chunk_content,Content of the transferred data.
 msn_video,MSN Video,#inherit_key,"Candidate inheritance key
 nfs,Network File System,#file_handle,Unique identifier for a file.
+nfs,Network File System,#content,File content
+nntp,Network News Transport Protocol,#attach_content,Attached file content.
+orangemail,Orange webmail,#attach_content,Attached file content.
 ospf,Open Shortest Path First,#auth_data,Authentication data.
+owa,Outlook Web App,#attach_content,Attached file content.
 paltalk,PalTalk,#inherit_parent,"Parent inheritance key
 paltalk,PalTalk,#inherit_key,"Candidate inheritance key
 paltalk_audio,Paltalk audio chat,#inherit_key,"Candidate inheritance key
 paltalk_transfer,PalTalk Transfer Protocol,#inherit_key,"Candidate inheritance key
+paltalk_transfer,PalTalk Transfer Protocol,#content,File content
 paltalk_video,Paltalk video,#inherit_key,"Candidate inheritance key
 pop3,Post Office Protocol (Version 3),#content_entry,"Parent entry
+pop3,Post Office Protocol (Version 3),#attach_content,Attached file content.
+pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached files content.
+qq,QQ,#call_data,QQ payload containing the data of the call (audio/video)
+qq_transfer,QQ File Transfer,#content,File content
 radius,Remote Authentication Dial-In User Service,#inherit_parent,"Parent inheritance key
+radius,Remote Authentication Dial-In User Service,#framed_ipv6_prefix,Framed-IPv6-Prefix (an attribute defined in RFC3162). Provides the IPv6 prefix to be configured for the user.
+radius,Remote Authentication Dial-In User Service,#delegated_ipv6_prefix,Delegated-IPv6-Prefix (an attribute defined in RFC4818). Provides the IPv6 prefix to be delegated to the user.
+radius,Remote Authentication Dial-In User Service,#avp_prefix,Ipv6 prefix is a sequence of 0 to 16 bytes. (CLEP_DATA_BUFFER)
+rambler_webmail,Rambler webmail,#attach_content,Attached file content.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_raw,"Client hostname
 rdp,Remote Desktop Protocol (Windows Terminal Server),#domain_raw,"Client domain
 rdp,Remote Desktop Protocol (Windows Terminal Server),#username_raw,"Client login
@@ -84,8 +170,12 @@ rdt,Real Data Transport,#inherit_key,"Candidate inheritance key
 rtcp,Real Time Control Protocol,#inherit_key,"Candidate inheritance key
 rtp,Real Time Protocol,#inherit_key,"Candidate inheritance key
 rtp,Real Time Protocol,#inherit_parent,"Parent inheritance key
+rtp,Real Time Protocol,#payload_data,A binary buffer containing the RTP data (without header)
 rtsp,Real Time Streaming Protocol,#inherit_parent,"Parent inheritance key
 rtsp,Real Time Streaming Protocol,#urimd5,md5 of the uri.
+rtsp,Real Time Streaming Protocol,#content,Contains the data in a HTTP response.
+s1ap,S1 Application Protocol,#ep_value_raw,Elementary Procedure raw value.
+s1ap,S1 Application Protocol,#ep_ie_value_raw,Information Element raw value.
 sccp,Skinny Client Control Protocol,#inherit_parent,"Parent inheritance key
 secondlife,SecondLife.com,#login_id,Id of virtual character.
 secondlife,SecondLife.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
@@ -93,12 +183,50 @@ secondlife,SecondLife.com,#source_id,Source Id.
 secondlife,SecondLife.com,#session_id,Uniquely identifies the current user session.
 sip,Session Initiation Protocol,#inherit_key,"Candidate inheritance key
 sip,Session Initiation Protocol,#inherit_parent,"Parent inheritance key
+sip,Session Initiation Protocol,#from_tag,A globally unique id of the caller.
+sip,Session Initiation Protocol,#to_tag,A globally unique id of the callee.
+slsk,SoulSeek,#file_chunk_content,Content of the transferred data.
+smb,Server Message Block (Windows File Server),#service_data,Data associated with the resource that the client intends to access.
+smb,Server Message Block (Windows File Server),#content,File content
+smb,Server Message Block (Windows File Server),#security_blob,Data contained in the security blob.
+smb,Server Message Block (Windows File Server),#krb5_blob,Data contained in the KRB5 security blob.
+smpp,Short message peer-to-peer protocol,#content,Content of the Short Message.
+smtp,Simple Mail Transfer Protocol,#attach_content,Attached file content.
+smtp,Simple Mail Transfer Protocol,#attach_content_decoded,Decoded attached files content.
 smtp,Simple Mail Transfer Protocol,#content_entry,"Parent entry
+snmp,Simple Network Management Protocol,#value_raw,OID raw Value
+spdy,SPDY,#content,Message content.
+squirrelmail,SquirrelMail,#attach_content,Attached file content.
+ssl,Secure Socket Layer,#session_id,Uniquely identifies the current user session.
+ssl,Secure Socket Layer,#certificate_raw,Raw text content of the ssl certificate.
 ssl,Secure Socket Layer,#certif_md5,md5 of the certificate.
+ssl,Secure Socket Layer,#serial_number,Serial number of certificate.
 t38,T.38,#inherit_key,"Candidate inheritance key
+t38,T.38,#ifp_data,IFP packet buffer
+t38,T.38,#field_data,Fax data carried in the IFP packets
+t38,T.38,#fax_message_data,Fax signaling messages carried in the (reassembled) IFP packets
+tcp,Transmission Control Protocol,#stream,Private attribute of the classification engine.
+tds,Tabular Data Stream,#rpc_proc_name,RPC TDS packet distant procedure name.
+tds,Tabular Data Stream,#rpc_parameter_name,RPC parameter name.
+tds,Tabular Data Stream,#rpc_parameter_type,RPC parameter type.
+tds,Tabular Data Stream,#rpc_parameter_value,RPC parameter value.
+tftp,Trivial File Transfer Protocol,#content,File content
+udp,User Datagram Protocol,#stream,Private attribute of the classification engine.
+unknown,Unknown virtual protocol,#session_buffer,"Payload received from the beginning of the session
+websocket,WebSocket,#raw,WebSocket frame content.
+websocket,WebSocket,#msg,"Payload"" field of the WebSocket frame."""
+winmx,Winmx,#file_chunk_content,Content of the transferred data.
+yandex_webmail,Yandex webmail,#attach_content,Attached file content.
+yandex_webmail,Yandex webmail,#content,Message content.
+ymail2,Yahoo Mail v.2.0,#attach_content,Attached file content.
+ymail_classic,Yahoo Mail classic,#attach_content,Attached file content.
+ymail_mobile_new,Yahoo webmail for mobile,#attach_content,Attached file content.
 ymsg,Yahoo Messenger,#inherit_key,"Candidate inheritance key
 ymsg,Yahoo Messenger,#inherit_parent,"Parent inheritance key
 ymsg_conf,Yahoo Messenger conference service,#inherit_key,"Candidate inheritance key
 ymsg_conf,Yahoo Messenger conference service,#inherit_parent,"Parent inheritance key
 ymsg_transfer,Yahoo Messenger Transfer Protocol,#inherit_key,"Candidate inheritance key
+ymsg_transfer,Yahoo Messenger Transfer Protocol,#content,File content
 ymsg_video,Yahoo Messenger Video,#inherit_key,"Candidate inheritance key
+zimbra,Zimbra.com,#attach_content,Attached file content.
+zimbra_standard,Zimbra Webmail Standard Version,#attach_content,Attached file content.
