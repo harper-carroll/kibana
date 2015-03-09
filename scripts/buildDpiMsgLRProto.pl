@@ -230,6 +230,6 @@ while (<qosmosWorkbook>) {
         }
         print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
      }
-  }
+  } 
 }
 
