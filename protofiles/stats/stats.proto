@@ -7,14 +7,14 @@ option java_outer_classname = "CounterMsg";
 
 message Counter {
   required string name = 1;
-  optional int64 value = 2;
+  optional double value = 2;
   optional int64 time = 3;
   optional int32 sampleRate = 4;
 }
 
 message Sample {
   required string name = 1;
-  optional int64 value = 2;
+  optional double value = 2;
   optional int32 sampleRate = 3;
   optional int64 time = 4;
 }
@@ -22,10 +22,10 @@ message Sample {
 message Measure {
   required string name = 1;
   optional int64 min = 2;
-  optional int64 value = 3;
+  optional double value = 3;
   optional int64 max = 4;
   optional int32 sampleRate = 5;
-  optional int64 time = 4;
+  optional int64 time = 6;
 }
 
 message Stats {
