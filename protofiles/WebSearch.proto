@@ -1,6 +1,46 @@
 package com.logrhythm.justonemorething.query;
 option java_outer_classname = "Query";
 
+enum CreatedViaEnum {
+  LegacyConsole = 0;
+  WebConsole = 1;
+}
+
+enum SearchTypeEnum {
+  EventManager = 0;
+  LogManager = 1;
+  LogMart = 2;
+}
+
+message DateCriteria {
+  optional string dateMin = 1;
+  optional string dateMax = 2;
+  optional int32 lastIntervalValue = 3;
+  optional string lastIntervalUnit = 4;
+}
+
+message WebSearch {
+  optional Search search = 1;
+  optional SearchTask task = 2;
+}
+
+message SearchTask {
+  optional string longResults = 1;                // Defaulted ""
+  optional int32 notificationStatus = 2;
+  optional string taskStarted = 3;                // Date
+  optional string shortResults = 4;               // Defaulted ""
+  optional DateCriteria dateCriteria = 5;
+  optional string userName = 6;
+  optional int32 userId = 7;                      // Stop gap default of -100
+  optional string dateUpdated = 8;
+  optional string dateCreated = 9;
+  optional int32 webSearchId = 10;                 // Stop gap default of 3
+  optional string taskName = 11;
+  optional int32 taskStatus = 12;
+  optional string taskTerminated = 13;
+  optional string taskId = 14;                    // GUID
+}
+
 /*
 InvestigatorConfiguration : SavedQuery
 
@@ -25,25 +65,7 @@ message ObjectSecurity {
   optional bool isSystemObject = 11;
 }
 
-enum CreatedViaEnum {
-  LegacyConsole = 0;
-  WebConsole = 1;
-}
-
-enum SearchTypeEnum {
-  EventManager = 0;
-  LogManager = 1;
-  LogMart = 2;
-}
-
 message Search {
-
-  message DateCriteria {
-    optional string dateMin = 1;
-    optional string dateMax = 2;
-    optional int32 lastIntervalValue = 3;
-    optional string lastIntervalUnit = 4;
-  }
 
   optional string name = 1;
   optional string description = 2;
@@ -57,17 +79,17 @@ message Search {
   optional string dateSaved = 10;
   optional string dateUsed = 11;
   optional bool includeDiagnosticEvents = 12;
-//  optional SearchTypeEnum searchType = 13;
+  optional SearchTypeEnum searchType = 13;
   optional int32 searchId = 14;
   optional int32 refreshRate = 15;
   optional bool isRealTime = 16;
   optional bool enableIntelligentIndexing = 17;   // Either get rid of this field or add all 3 required field
-                                                  // THis is not required by the C# json deserializer
-                                                  // In clsUserTailSession.vb: Expiration (flag), ExpirationDate
+  // THis is not required by the C# json deserializer
+  // In clsUserTailSession.vb: Expiration (flag), ExpirationDate
   optional int32 queryTimeout = 18;
 
   // This can be: LegacyConsole = 0; and WebConsole = 1; from InvestigatorConfiguration
-//  optional CreatedViaEnum createdVia = 19;                 // Created via (is this front-end junk)?
+  optional CreatedViaEnum createdVia = 19;     // Created via (is this front-end junk)?
 
   optional DateCriteria dateCriteria = 20;
   optional MsgFilter queryFilter = 21;
