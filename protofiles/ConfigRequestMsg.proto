@@ -4,7 +4,8 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "ConfigRequestMsg";
 import "ConfigType.proto";
 
-import "GoProtoDefaults.proto";
+
+
 
 message ConfigRequest {
    enum RequestType {
@@ -14,6 +15,6 @@ message ConfigRequest {
 
    optional RequestType requestType = 1;
    optional ConfigType configType = 2;
-   optional string overrideExtension = 3;
+   optional string override = 3;
    optional bytes serializedConfigMessage = 4;
 }
