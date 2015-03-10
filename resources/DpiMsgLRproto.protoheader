@@ -64,5 +64,6 @@ message DpiMsgLRproto
    optional string NormalizedSyslogData = 43;
    optional uint64 TimeEnd = 44;
    optional bool HeaderWritten = 45;
+   optional bool TCPSessionEstablished = 46;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
