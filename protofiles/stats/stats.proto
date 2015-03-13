@@ -28,7 +28,7 @@ message Measure {
   optional int64 time = 6;
 }
 
-message Stats {
+message Clipboard {
   required string service = 1;
   optional string host = 2;
   optional string region = 3;
