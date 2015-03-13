@@ -5,3 +5,4 @@ php
 thirdParty/dist
 thirdParty/protobuf-2.4.1/
 source
+.idea/
