@@ -21,15 +21,15 @@ message Sample {
 
 message Measure {
   required string name = 1;
-  optional int64 min = 2;
+  optional int64 minimum = 2;
   optional double value = 3;
-  optional int64 max = 4;
+  optional int64 maximum = 4;
   optional int32 sampleRate = 5;
   optional int64 time = 6;
 }
 
 message Clipboard {
-  required string service = 1;
+  required string serviceName = 1;
   optional string host = 2;
   optional string region = 3;
   repeated Counter counters = 4;
