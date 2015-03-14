@@ -1,0 +1,14 @@
+package clipboard;
+
+option java_package = "com.logrhythm.nm.message.clipboard";
+option java_outer_classname = "MeasureMsg";
+
+message Measure {
+  required string name = 1;
+  optional int64 min = 2;
+  optional double value = 3;
+  optional int64 max = 4;
+  optional int32 sampleRate = 5;
+  optional int64 time = 6;
+}
+
