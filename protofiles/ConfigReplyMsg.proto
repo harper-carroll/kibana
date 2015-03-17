@@ -16,6 +16,5 @@ message ConfigReply {
    optional ReplyType replyType = 1;
    optional string errorMessage = 2;
    optional ConfigType configType = 3;
-   optional string overrideExtension = 4;
-   optional bytes serializedConfigMessage = 5;
+   optional bytes serializedConfigMessage = 4;
 }
