@@ -7,5 +7,5 @@ option java_outer_classname = "EventManagerClientConfigMsg";
 
 
 message EventManagerClientConfig {
-   optional string eventManagerHostAddress = 1;
+   optional string eventManagerHost = 1;
 }
