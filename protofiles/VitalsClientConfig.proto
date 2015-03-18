@@ -1,8 +1,8 @@
 package protoMsg;
 
 option java_package = "com.logrhythm.configelements";
-option java_outer_classname = "VitalsConfigMsg";
+option java_outer_classname = "VitalsClientConfigMsg";
 
-message VitalsConfig {
+message VitalsClientConfig {
    optional string insertInputQueue = 1;
 }
