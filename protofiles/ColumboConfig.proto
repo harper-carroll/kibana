@@ -1,12 +1,11 @@
 package protoMsg;
 
 option java_package = "com.logrhythm.configelements";
-option java_outer_classname = "ColumboConfigMsg";
+option java_outer_classname = "ColumboClientConfigMsg";
 
 
 
 
-message ColumboConfig {
+message ColumboClientConfig {
    optional string requestQueue = 1;
-   optional int32 resendTranslationTableIntervalInMS = 2;
 }
