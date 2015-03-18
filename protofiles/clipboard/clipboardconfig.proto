@@ -6,8 +6,9 @@ option java_outer_classname = "ClipboardConfigMsg";
 message ClipboardConfig {
   optional string host = 1;
   optional string region = 2;
-  optional string vitalsUri = 3;
-  optional string inputQueue = 4;
-  optional string outputQueue = 5;
-  optional int64 millisecondsToAccumulate = 6;
+  optional string service = 3;
+  optional string vitalsUri = 4;
+  optional string inputQueue = 5;
+  optional string outputQueue = 6;
+  optional int64 millisecondsToAccumulate = 7;
 }
