@@ -8,8 +8,6 @@ option java_outer_classname = "LinkConfigMsg";
 
 message LinkConfig {
    optional int64 webHeartbeatIntervalMs = 1;
-   optional string searchInputQueue = 2;
-   optional string searchRequestForwardingQueue = 3;
-   optional string searchResultForwardingQueue = 4;
-   optional string taskUpdateQueue = 5;
+   optional int32 searchInputPort = 2;
+   optional int32 searchResultForwardingPort = 3;
 }
