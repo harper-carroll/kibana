@@ -23,4 +23,5 @@ enum ConfigType {
    InfluxConfig = 13;
    EventManagerClientConfig = 14;
    ColumboClientConfig = 15;
+   VitalsClientConfig = 16;
 }
