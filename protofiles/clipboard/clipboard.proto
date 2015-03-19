@@ -1,0 +1,17 @@
+package clipboard;
+
+option java_package = "com.logrhythm.nm.message.clipboard";
+option java_outer_classname = "ClipboardMsg";
+
+import "counter.proto";
+import "measure.proto";
+import "sample.proto";
+
+message Clipboard {
+  required string service = 1;
+  optional string host = 2;
+  optional string region = 3;
+  repeated Counter counters = 4;
+  repeated Measure measures = 5;
+  repeated Sample samples = 6;
+}

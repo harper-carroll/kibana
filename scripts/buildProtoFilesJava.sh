@@ -32,7 +32,12 @@ cd "$javaSrcDir"
 # the build below will generate java code with single methods > 64k, to fix this
 # we would have to enable option optimize_for = CODE_SIZE
 #"$protoc" -I="$protoFileDir" --java_out=. "$protoFileDir"/DpiMsgLRproto.proto
-for file in `ls "$protoFileDir" | grep -v DpiMsgLRproto | grep -v Applications` ; do
+for file in `ls -p "$protoFileDir" | grep -v / | grep -v DpiMsgLRproto | grep -v Applications` ; do
   "$protoc" -I="$protoFileDir":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. "$protoFileDir"/$file
+done
+for directory in `find "$protoFileDir" -type d -mindepth 1 -maxdepth 1` ; do
+    for file in `ls "$directory"/*.proto`; do
+        "$protoc" -I="$directory":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. $file
+    done
 done
 cd "$startDir"
