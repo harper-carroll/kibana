@@ -5,4 +5,5 @@ option java_outer_classname = "VitalsClientConfigMsg";
 
 message VitalsClientConfig {
    optional string insertInputQueue = 1;
+   optional string accumulatorQueue = 2;
 }
