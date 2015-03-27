@@ -7,7 +7,7 @@ message VitalsClientConfig {
    optional string host = 1;
    optional string region = 2;
    optional string service = 3;
-   optional string insertInputQueue = 4;
+   optional string pulseQueue = 4;
    optional string accumulatorQueue = 5;
-   optional int64 defaultSecsToAccumulate = 6;
+   optional int32 defaultSecsToAccumulate = 6;
 }
