@@ -6,6 +6,6 @@ option java_outer_classname = "SampleMsg";
 message Sample {
   required string name = 1;
   optional double value = 2;
-  optional int32 sampleRate = 3;
+  //optional int32 sampleRate = 3; no longer used
   optional int64 time = 4;
 }
