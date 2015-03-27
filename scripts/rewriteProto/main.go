@@ -91,7 +91,7 @@ loop:
 	return
 }
 
-var confPath = flag.String("conf", "../scripts/RewriteProto/c.yml", "../scripts/RewriteProto/c.yml")
+var confPath = flag.String("conf", "../scripts/rewriteProto/c.yml", "../scripts/rewriteProto/c.yml")
 
 func main() {
 	flag.Parse() // get the source and destination directory
