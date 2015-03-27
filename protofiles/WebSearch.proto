@@ -102,6 +102,7 @@ message Search {
   repeated string queryLogSources = 25;
 
   optional string taskId = 26;
+  optional int32 restrictedUserId = 27;
 }
 
 // Maybe call this Filter or match legacy MsgFilter

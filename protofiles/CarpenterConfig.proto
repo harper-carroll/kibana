@@ -8,7 +8,6 @@ option java_outer_classname = "CarpenterConfigMsg";
 
 message CarpenterConfig {
    optional int32 minutesToRest = 1;
-   optional string remoteDB = 2;
    optional string listTable = 3;
    optional string listTableIDColumn = 4;
    optional string listTableItemColumn = 5;
