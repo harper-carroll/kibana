@@ -25,6 +25,8 @@ sub ReadFilters {
    return ($exludeFilter,$includeFilter);
 }
 
+# Create an associative mapping between the pairs of values read from the filename passed
+# to the function.
 sub ReadRemappingFile {
    my($filename) = @_;
 
@@ -46,7 +48,8 @@ sub ReadPreviousData {
    $callbackNames_ptr = $_[3];
    $previousFields_ptr = $_[4];
    $previousData_ptr = $_[5];
-   $statiField_ptr = $_[6];
+   # $statiField_ptr = $_[6]; - this line seems to have a typo (missing 'c')
+   $staticField_ptr = $_[6];
 
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
@@ -71,9 +74,12 @@ sub ReadPreviousData {
    close previousData;
 }
 
+# Create a file with the set of protocols and attributes supported by the protobundle.
 sub CreateSummaryFile {
 
-   my($qosmosFileName,$summaryFileName,$includeFilter,$excludeFilter) = @_;
+   # Switch the order of parameters for excludeFilter and includeFilter. The call has the 
+   # order reversed: See "CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);"
+   my($qosmosFileName,$summaryFileName,$excludeFilter,$includeFilter) = @_;
 
    open qosmosWorkbook, "$qosmosFileName" or die $!;
    open summaryFile, '>'."$ARGV[3]" or die $!;
@@ -101,9 +107,16 @@ sub CreateSummaryFile {
    close summaryFile;
 }
 
+sub upperCamelCase {
+	join '', map ucfirst, split '_', $_[0];
+}
+
+# Read through the resources/Qosmos_Protobook.csv file. Ensure that all values use in the 
+# protofile have rename mappings.
 sub CheckRenameFile {
    my($qosmosFileName,$includeFilter,$excludeFilter,%renameMapping) = @_;
-   $statiField_ptr = $_[4];
+   # $staticField_ptr = $_[4]; - this line seems to have a typo (missing 'c')
+   $staticField_ptr = $_[4];
 
    my $filename = 'MissingAttributesReport.txt';
    open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
@@ -119,7 +132,13 @@ sub CheckRenameFile {
 #           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
 #           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
 #           NetMonFieldNames.csv file to complete the Protobuffer compilation.
-            print $missAttrFile "Attribute: $lineValues[8] for ($lineValues[2], $lineValues[5], $lineValues[7])\n";
+				$proto = $lineValues[2];
+				$proto =~ s/Q_PROTO_//; 
+				$removedUnderscore = upperCamelCase($lineValues[8]);
+				$removedSpaces = $removedUnderscore;
+				my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;
+				$scal = join(" ", @split);
+            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,1st Review,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
             $mapGood = 0;
          } 
       } 
@@ -130,7 +149,7 @@ sub CheckRenameFile {
       while (($key,$value) = each (%renameMapping)) {
          my @matches =  grep { /$value/ } @$staticField_ptr;
          if (@matches && $matches[0] eq $value ) {
-            die "Rename file tries to map to a static field $value";
+            die "Rename file tries to map to a static field $value, $matches[0]";
          }
       }
    } else {
@@ -141,12 +160,14 @@ sub CheckRenameFile {
 
 }
 
+# Using the NetMonFieldNames.csv provided by Labs, create a remapping file from the values in the 
+# second and third columns for any row containing the Q_PROTO prefix.
 sub CreateRemappingFile {
    my($remappingfile,$nmfieldnames) = @_;
 
    open nmfieldnamesFile, "$nmfieldnames" or die $!;
-   open remappingFile, '>'."$remappingfile" or die $!;
-   seek remappingFile, 0, 0;
+   open remappingFile, '>'."$remappingfile" or die $!; # Open $remappingFile for writing
+   seek remappingFile, 0, 0; # Set file handle position to beginning of file
 
    while (<nmfieldnamesFile>) {
       if ($_ =~ m/.*Q_PROTO.*/ ) {
@@ -160,15 +181,26 @@ sub CreateRemappingFile {
 
 }
 
+# ================== main starts here ================== 
+# QosmosWorkBookName = resources/Qosmos_Protobook.csv 
 $QosmosWorkBookName = $ARGV[0];
+
+# Load a set of regex strings from resources/ProtocolFilters
 ($exludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
+
+# Update the remapping file using, 4 = resources/remapping, 6 = resources/NetMonFieldNames.csv
 CreateRemappingFile($ARGV[4],$ARGV[6]);
+
+# Get the new mapping of names to use
 (%renameMapping) = ReadRemappingFile($ARGV[4]);
-my $renameMap = $ARGV[5];
+my $renameMap = $ARGV[5]; # 5 = resource/remapping.yaml
 if ($renameMap eq "" ) {
    die "Must name a path to output rename map $ARGV[5] $renameMap" ;
 }
 
+# Get a record of what was in the protofile for the previous protobundle using protofiles/DpiMsgLRproto.proto.orig.
+# With each release of a new protobundle, it is important to keep the same association between each protofile
+# enumeration value and Qosmos attribute.
 my $highest;
 my @ids;
 my $callbackNames;
@@ -176,11 +208,18 @@ my @previousFields;
 my @previousData;
 my @staticFields;
 ReadPreviousData($ARGV[1],\$highest, \@ids, \$callbackNames, \@previousFields, \@previousData, \@staticFields);
+
+# Write out the set of protocols and attributes supported by the protobundle (3 = resources/ProtocolDescriptions.csv).
+# This output file should be provided to Labs and marketing.
 CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
+# Check to make sure every field in the resources/Qosmos_Protobook.csv has a remapping assigned to it.
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
+
+# Create a yaml file with the rename mapping
 DumpFile($renameMap,\%renameMapping);
 
+# Open resources/Qosmos_Protobook.csv and save the previously supported attributes
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
    @lineValues = split(/,/,$line);
@@ -188,9 +227,9 @@ while ( my $line = <qosmosWorkbook>) {
    my $index = 0;
    foreach (@previousData) {
       if ( $_ =~ /$field/ ) {
-         print $_;
+         print $_; # Protobuffer output; retain the previous enum value assignments
          splice(@previousData, $index, 1);
-         break;
+         # break; - Not sure what is intended here. "break" is not part of the perl language.
       }
       $index += 1;
    }
