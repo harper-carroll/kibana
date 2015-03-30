@@ -160,7 +160,7 @@ message FilterGrouped {
   optional FilterModes filterMode = 3;
   repeated FilterValue values = 4;
   repeated FilterGrouped filterItems  = 5;
-  required FieldFilterTypeEnum filterType = 6;
+  optional FieldFilterTypeEnum filterType = 6;
 }
 
 enum FieldFilterTypeEnum {
@@ -347,21 +347,21 @@ message FilterValue {
   message ListReferenceValue {
 
     enum Lists {
-      Application = 0;
-      Classification = 1;
-      CommonEvent = 2;
-      Host = 3;
-      Location = 4;
-      MsgSource = 5;
-      MsgSourceType = 6;
-      MPERule = 7;
-      Network = 8;
-      User = 9;
-      GeneralValue = 10;
-      Entity = 11;
-      RootEntity = 12;
-      IP = 13;
-      IPRange = 14;
+      Application = 1;
+      Classification = 2;
+      CommonEvent = 3;
+      Host = 4;
+      Location = 5;
+      MsgSource = 6;
+      MsgSourceType = 7;
+      MPERule = 8;
+      Network = 9;
+      User = 10;
+      GeneralValue = 11;
+      Entity = 12;
+      RootEntity = 13;
+      IP = 14;
+      IPRange = 15;
     }
 
     message ListItem {
