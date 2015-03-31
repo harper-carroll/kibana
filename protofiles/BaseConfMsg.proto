@@ -26,8 +26,6 @@ message BaseConf {
   optional string statsAccumulatorQueue = 23;
   optional string sendStatsQueue = 24;
   optional string qosmosExpirePerCallback = 25;
-  optional string qosmosTCPReAssemblyEnabled = 26;
-  optional string qosmosIPDefragmentationEnabled = 27;
   optional string dbClusterName = 30;
   optional string dbUrl = 31;
   optional string statsAggregationQueue = 32;
