@@ -10,4 +10,5 @@ message ColumboConfig {
    optional string requestQueue = 1;
    optional int32 resendTranslationTableIntervalInMS = 2;
    optional string requestBackend = 3;
+   optional int32 searchThreadpoolSize = 4;
 }
