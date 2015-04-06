@@ -8,4 +8,5 @@ option java_outer_classname = "ElasticSearchClientConfigMsg";
 
 message ElasticSearchClientConfig {
    optional string elasticsearchClusterName = 1;
+   optional string elasticsearchNodeIp = 2;
 }
