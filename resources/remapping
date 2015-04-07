@@ -860,6 +860,7 @@ video_brand VideBrand
 video_framerate VidFrameRate
 video_height VidHeight
 video_type VidType
+video_url VideoUrl
 video_width VidWidth
 wap_profile WAPProfile
 x_content_urn XContentUrn
