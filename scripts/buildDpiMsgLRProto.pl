@@ -73,8 +73,8 @@ sub ReadPreviousData {
          push(@$previousFields_ptr,$3);
          # Remove the // from the beginning of the string. The // will be re-added later if the
          # attribute is still on the blacklist
-         my $removeCommentLine = substr $_, 2;
-         push(@$previousData_ptr,$removeCommentLine);
+         my $removeCommentFromLine = substr $_, 2;
+         push(@$previousData_ptr,$removeCommentFromLine);
       }
       if ( index($_,'Q_PROTO') == -1 && (index($_,'optional') != -1 || index($_,'repeated') != -1)) {
          my @lineValues = split(/\s+/,$_);
@@ -240,9 +240,10 @@ CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping
 DumpFile($renameMap,\%renameMapping);
 
 # Create a temporary file at /tmp/buildDpiMsgLRProto2.$BASHPID. This is a scratch file used
-# to sort the contents of the DPI message by enum ID.
-open(my $dpiMsgProtoGuts, '>', $ARGV[7]) or die "Could not open file '$filename' $!";
-seek $dpiMsgProtoGuts, 0, 0; # Set file handle position to beginning of file
+# to sort the body contents of the DPI message by enum ID. A header and footer are added around
+# the body contents.
+open(my $dpiMsgProtoBody, '>', $ARGV[7]) or die "Could not open file '$filename' $!";
+seek $dpiMsgProtoBody, 0, 0; # Set file handle position to beginning of file
 
 # Open resources/Qosmos_Protobook.csv and save the previously supported attributes
 open qosmosWorkbook, "$ARGV[0]" or die $!;
@@ -252,10 +253,10 @@ while ( my $line = <qosmosWorkbook>) {
    my $index = 0;
    foreach (@previousData) {
       if ( $_ =~ /$field/ ) {
-         if ($_ =~ /$excludeFilter/ ) {
-            print $dpiMsgProtoGuts "\/\/$_"; # Protobuffer output; comment out this blacklisted item.
+         if ($_ =~ /$excludeFilter/) {
+            print $dpiMsgProtoBody "\/\/$_"; # Protobuffer output; comment out this blacklisted item.
          } else {
-            print $dpiMsgProtoGuts $_; # Protobuffer output; retain the previous enum value assignments
+            print $dpiMsgProtoBody $_; # Protobuffer output; retain the previous enum value assignments
          }
          splice(@previousData, $index, 1);
       }
@@ -267,7 +268,9 @@ seek qosmosWorkbook, 0, 0;
 #print @previousData;
 
 while (<qosmosWorkbook>) {
-   if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+   # Include all attributes matching the includeFilter, but exclude the 19 attributes at the beginning 
+   # of the Qosmos_Protobook.
+   if ($_ =~ m/$includeFilter/ && $_ !~ ",\.,,,,," ) {
       @lineValues = split(/,/,$_);
       $field = "$lineValues[8]$lineValues[2]";
       if ( $field =~ /^[0-9]/ ) {
@@ -295,9 +298,15 @@ while (<qosmosWorkbook>) {
             $type = "bytes";
             $requirement = "repeated";
          }
-         print $dpiMsgProtoGuts "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
+         if ($_ !~ /$excludeFilter/ ) {
+            # Protobuffer output; add new attribute.
+            print $dpiMsgProtoBody "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
+         } else {
+            # Protobuffer output. Add new attribute, but commented out since it is blacklisted
+            print $dpiMsgProtoBody "//$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
+         }
       }
-   } 
+   }
 }
 
-close $dpiMsgProtoGuts;
+close $dpiMsgProtoBody;
