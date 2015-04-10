@@ -12,13 +12,6 @@ protocolName,longProtocolName,attributeName,attributeDescription
 0zz0,0zz0.com,#name,Name the user.
 0zz0,0zz0.com,#name_invited,Name of the user to whom the invitation has been sent.
 0zz0,0zz0.com,#download_url,Link of the downloaded file.
-3gpp_li,3GPP LI,#version,Version
-3gpp_li,3GPP LI,#liid,Lawful Interception Identifier
-3gpp_li,3GPP LI,#timestamp,Timestamp
-3gpp_li,3GPP LI,#sequence_number,Sequence number
-3gpp_li,3GPP LI,#t_pdu_direction,T-PDU direction
-3gpp_li,3GPP LI,#country_code,Country code according to ISO 3166-1
-3gpp_li,3GPP LI,#ice_type,Intercepting Control Element type
 adc,Advanced Direct Connect,#file_chunk_data_offset,Offset of the transferred data.
 adc,Advanced Direct Connect,#file_chunk_len,Size of the transferred piece.
 adc,Advanced Direct Connect,#file_hash,Hash of the transferred file.
@@ -124,8 +117,6 @@ base,Base virtual protocol,#family,Family to which the uppermost protocol of the
 base,Base virtual protocol,#application_id,Unique ID of application to which the packet belongs.
 base,Base virtual protocol,#path_len,Contains the number of protocols in the packet protocol stack (path).
 base,Base virtual protocol,#packet_counter,Number of packets received.
-base,Base virtual protocol,#session_packet_counter,Number of packets received. This attribute data cannot be retreived in externalized versions.
-base,Base virtual protocol,#dev,Name of the device used to establish the connection for an interface. This attribute data cannot be retreived in externalized versions.
 base,Base virtual protocol,#declassified,"Attribute showing whether a declassification is happened in a packet
 base,Base virtual protocol,#application_end,Contains the latest value for the attribute application
 base,Base virtual protocol,#family_end,Contains the latest value for the attribute family
@@ -187,12 +178,6 @@ bssap,BSS Application Part,#msisdn_sender,Mobile Subscriber Integrated Services 
 bxml,WAP Binary XML,#version,Protocol version.
 capwap,Control And Provisioning of Wireless Access Points,#bssid,EUI-48 MAC address of the radio receiving the packet.
 capwap,Control And Provisioning of Wireless Access Points,#bssid_64,EUI-64 MAC address of the radio receiving the packet.
-cdp,Cisco Discovery Protocol,#device_id,Unique ID of the sending device.
-cdp,Cisco Discovery Protocol,#address,List of network addresses assigned to the interface on which the CDP message was sent.
-cdp,Cisco Discovery Protocol,#port_id,Unique port ID on which the CDP message was sent.
-cdp,Cisco Discovery Protocol,#software_version,Version of the Cisco IOS running on the sending device.
-cdp,Cisco Discovery Protocol,#platform,Name of the platform of the sending device.
-cdp,Cisco Discovery Protocol,#VTP_mgmt_domain,VTP management domain name-string to which the sending device belongs.
 chap,Challenge Handshake Authentication Protocol,#challenge_name,Hostname of the peer initiating the authentication process.
 chap,Challenge Handshake Authentication Protocol,#response_name,Hostname of the peer responding to challenge.
 chap,Challenge Handshake Authentication Protocol,#message_type,Type of message sent.
@@ -336,20 +321,7 @@ edonkey,Edonkey,#file_is_compressed,Tells whether a file is compressed.
 edonkey,Edonkey,#file_chunk_len,Size of the transferred piece.
 edonkey,Edonkey,#file_chunk_data_offset,Offset of the transferred data.
 eigrp,Enhanced Interior Gateway Routing Protocol,#as_number,The Autonomous System identifier.
-eth,Ethernet,#dst_net,Destination MAC address.
-eth,Ethernet,#src_net,Source MAC address.
-eth,Ethernet,#ignore_encapsulations,"Ignoring a MPLS
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#liid,Lawful Interception Identifier
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#authorization_country_code,Country code which has the authorization
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#operator_id,Operator Identifier.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#network_element_id,Network element identifier.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#etsi_671_nei,Network element identifier.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#communication_id_number,Communication Identifier Number.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#delivery_country_code,Delivery Country Code.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#sequence_number,Sequence number.
 etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#second,The field contains the timestamp in seconds.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#microsecond,The field contains the timestamp in microseconds.
-etsi_li,ETSI Lawful Interception TS 10 232-1 V2.1.1,#time_stamp_qualifier,The timeStampQualifier field may be used to indicate what time the timestamp represents.
 facebook,Facebook,#message,Instant message content.
 facebook,Facebook,#is_mobile_service,Whether or not the access was made through a mobile device.
 facebook,Facebook,#application_action,(Deprecated) Indicates the action executed by the user.
@@ -977,18 +949,8 @@ imp,Internet Messaging Program,#login,User's login string.
 imp,Internet Messaging Program,#session_id,Uniquely identifies the current user session.
 imp,Internet Messaging Program,#login_server,Concatenated login and server: <login>@<server>.
 imp,Internet Messaging Program,#version,IMP version deployed.
-ip,Internet Protocol,#src_net,"Source network address
-ip,Internet Protocol,#dst_net,"Destination network address
-ip,Internet Protocol,#client_net,"Client subnet address
-ip,Internet Protocol,#server_net,"Server subnet address
-ip,Internet Protocol,#client_addr,Client IP address.
-ip,Internet Protocol,#server_addr,Server IP address.
-ip,Internet Protocol,#server_addr32,Server IP address (32 bits).
-ip,Internet Protocol,#client_addr32,Client IP address (32 bits).
-ip,Internet Protocol,#fragment_lost_size,Length of the last lost fragment.
 ip,Internet Protocol,#fragment_buffered_count,Number of segments that have been buffered for defragmentation
 ip,Internet Protocol,#fragment_buffered_size,Sizes sum of segments that have been buffered for defragmentation
-ip6,Internet Protocol V6,#label,Used for specifying special router handling from source to destination(s) for a sequence of packets.
 ipcp,Internet Protocol Control Protocol,#ip_addr,IP address attributed.
 ipcp,Internet Protocol Control Protocol,#mobile_ip_addr,"Mobile IP"" address attributed."""
 ipcp,Internet Protocol Control Protocol,#dns_ip_addr,IP address of the primary DNS server.
@@ -1215,7 +1177,6 @@ livemail_mobile,Live hotmail for mobile,#msg_id,Identifier of the message.
 livemail_mobile,Live hotmail for mobile,#date,Message date.
 livemail_mobile,Live hotmail for mobile,#subject,Message subject.
 livemail_mobile,Live hotmail for mobile,#action,Indicates if the message is read (Read) or composed (Compose).
-llp,LLP,#hl7_message_raw,Attribute containing all the metadata related to a hl7 message carried by LLP.
 lotusnotes,Lotus Notes,#login,User's login string.
 lotusnotes,Lotus Notes,#organization,Organization.
 lotusnotes,Lotus Notes,#service,Current service identification string.
@@ -1431,50 +1392,9 @@ mount,Mount,#status,Information status on the request process.
 mount,Mount,#path_value,Value of the data path string.
 mount,Mount,#path_length,Length of the data path string.
 mpegts,MPEG-Transport Stream,#chunk_len,Data length.
-mpls,Multiprotocol Packet Label Switching,#label,Label allowing the routing process of the packet through the various LSPs (Label-Switched Paths) crossed along the delivery path.
 mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 mplus_messenger,M+ Messenger,#service,Current service identification string.
 mplus_messenger,M+ Messenger,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
-msn,MSN Messenger,#login,User's login string.
-msn,MSN Messenger,#sender,Contains the identity of the sender of a chat session or a file transfer.
-msn,MSN Messenger,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
-msn,MSN Messenger,#message,Contains the chat message.
-msn,MSN Messenger,#message_len,Contains the length of the chat message.
-msn,MSN Messenger,#encoding,Message encoding.
-msn,MSN Messenger,#caller,Contains the identity (or the phone number) of the initiator of the call.
-msn,MSN Messenger,#callee,Contains the identity (or the phone number) of the called party for a call.
-msn,MSN Messenger,#call_id,"Call id
-msn,MSN Messenger,#service,Current service identification string.
-msn,MSN Messenger,#method,Contains the MSN command.
-msn,MSN Messenger,#file_sender,Contains the identity of the sender of a file transfer.
-msn,MSN Messenger,#file_receiver,Contains the identity of the receiver for a file transfer.
-msn,MSN Messenger,#file_identifier,File identifier.
-msn,MSN Messenger,#filename,Name of the transferred file.
-msn,MSN Messenger,#filesize,Size (byte) of the transferred file.
-msn,MSN Messenger,#ip_local,Local IP address.
-msn,MSN Messenger,#profile,Information about the user.
-msn,MSN Messenger,#group,Information about group.
-msn,MSN Messenger,#contact,Information about a member of the contact list.
-msn,MSN Messenger,#client_nickname,Nickname used by the user.
-msn,MSN Messenger,#contact_nickname,Nickname used by a member of the contact list.
-msn,MSN Messenger,#contact_id,Identification number of member changing status.
-msn,MSN Messenger,#contact_status,Contact status.
-msn,MSN Messenger,#contact_login,Contact login.
-msn,MSN Messenger,#uid,The client ID number is the sum of several values specifying client's options.
-msn,MSN Messenger,#client_status,Status of connected user.
-msn,MSN Messenger,#online_principal,Message signaling change of status of member of contact list.
-msn,MSN Messenger,#file_chunk_len,Size of the transferred piece.
-msn,MSN Messenger,#file_chunk_data_offset,Offset of the transferred data.
-msn,MSN Messenger,#file_chunk_type,Transfer type.
-msn,MSN Messenger,#file_chunk_identifier,File identifier related to the current chunk.
-msn,MSN Messenger,#proto_version,Protocol versions used.
-msn_groups,MSN groups,#group_name,Name of the group the user has subscribed to.
-msn_search,MSN Search,#query_text,Query sent to the search engine.
-msn_search,MSN Search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-msn_search,MSN Search,#query_type,Sort of query sent to the search engine.
-msn_search,MSN Search,#encoding,Query encoding.
-msn_video,MSN Video,#recipientid,Identification number of recipient.
-msn_video,MSN Video,#sessionid,Identification number of session.
 msrp,Message Session Relay Protocol,#session_id,Uniquely identifies the current user session.
 msrp,Message Session Relay Protocol,#authority,Authority part of an MSRP uri
 msrp,Message Session Relay Protocol,#uri,MSRP uri
@@ -2221,20 +2141,8 @@ tango,Tango Video Calls,#user_id,Unique user identifier.
 tango,Tango Video Calls,#device_id,User's device identifier.
 tchatche,Tchatche,#login,User's login string.
 tchatche,Tchatche,#password,User's password string.
-tcp,Transmission Control Protocol,#loss_count,Number of lost bytes.
-tcp,Transmission Control Protocol,#previous_lost,This packet follows one or more missing packets.
-tcp,Transmission Control Protocol,#rtt,Network response time (syn-synack-ack process).
-tcp,Transmission Control Protocol,#rtt_app,"Application response time of the server
-tcp,Transmission Control Protocol,#cnx_duration,Elapsed time (in seconds) between the SYN packet and the first FIN or RST packet.
-tcp,Transmission Control Protocol,#start_time,Start time of this TCP session.
-tcp,Transmission Control Protocol,#seq_number,The sequence number of the TCP packet.
-tcp,Transmission Control Protocol,#ack_number,The acknowledgement number.
-tcp,Transmission Control Protocol,#tsval,Timestamp value.
-tcp,Transmission Control Protocol,#tsecr,Timestamp echo reply value.
 tcp,Transmission Control Protocol,#seg_buffered_count,Number of segments that have been buffered for reassembly
 tcp,Transmission Control Protocol,#seg_buffered_size,Sizes sum of segments that have been buffered for reassembly
-tcp,Transmission Control Protocol,#retransmission_bytes,"Current packet overlapping bytes count
-tcp,Transmission Control Protocol,#unack_sequence,Provides the difference between the maximum sequence number seen in payload packets minus the maximum ack seq number seen on the other way.
 tds,Tabular Data Stream,#login,User's login string.
 tds,Tabular Data Stream,#password,User's password string.
 tds,Tabular Data Stream,#hostname,Name of workstation communicating with the SQL server.
@@ -2310,8 +2218,6 @@ twitter,Twitter.com,#param_user_id,User id used as request parameter.
 twitter,Twitter.com,#action,Indicates the action executed by the user.
 twitter,Twitter.com,#login,User's login string.
 twitter,Twitter.com,#session_id,Uniquely identifies the current user session.
-udp,User Datagram Protocol,#cnx_duration,Connection duration.
-udp,User Datagram Protocol,#start_time,Timestamp of the connection start time.
 unknown,Unknown virtual protocol,#maybe_application_id,Possible application's ID for this flow.
 unknown,Unknown virtual protocol,#maybe_application,Possible application's name for this flow.
 unknown,Unknown virtual protocol,#maybe_family,Protocol family of a possible application for this flow.
