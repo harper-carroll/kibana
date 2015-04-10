@@ -750,6 +750,16 @@ h245,H245,#media_attr_encoding,The encoding of media data.
 h245,H245,#method,The command
 h245,H245,#media_control_channel_addr,Address used for a rtcp channel.
 h245,H245,#media_channel_addr,Address used for a rtp channel.
+h248_binary,h248 Protocol (Megaco) in binary mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer
+h248_binary,h248 Protocol (Megaco) in binary mode,#call_id,"Call id
+h248_binary,h248 Protocol (Megaco) in binary mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request
+h248_binary,h248 Protocol (Megaco) in binary mode,#from_ip,Source IPv4 address
+h248_binary,h248 Protocol (Megaco) in binary mode,#to_ip,Destination IPv4 address
+h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_connection,Source audio connection type
+h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_connection,Source video connection type
+h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_connection,Destination audio connection type
+h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_connection,Destination video connection type
+h248_binary,h248 Protocol (Megaco) in binary mode,#response_code,"Return code
 h248_text,h248 Protocol (Megaco) in text mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer
 h248_text,h248 Protocol (Megaco) in text mode,#call_id,"Call id
 h248_text,h248 Protocol (Megaco) in text mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request
@@ -851,6 +861,7 @@ http,HyperText Transfer Protocol,#video_avgdatarate,Average video bitrate in kil
 http,HyperText Transfer Protocol,#audio_datarate,Audio bitrate in kilobits per second.
 http,HyperText Transfer Protocol,#video_framerate,Number of frames per second.
 http,HyperText Transfer Protocol,#start_time,Start date of the call.
+http,HyperText Transfer Protocol,#video_url,URL of the binary video file referenced by the current metadata.
 http,HyperText Transfer Protocol,#total_datarate,Sum of video and audio datarates.
 http,HyperText Transfer Protocol,#ntlm_domain,"Domain"" attribute of the NTLM protocol."""
 http,HyperText Transfer Protocol,#ntlm_user,"User"" attribute of the NTLM protocol."""
@@ -975,6 +986,8 @@ ip,Internet Protocol,#server_addr,Server IP address.
 ip,Internet Protocol,#server_addr32,Server IP address (32 bits).
 ip,Internet Protocol,#client_addr32,Client IP address (32 bits).
 ip,Internet Protocol,#fragment_lost_size,Length of the last lost fragment.
+ip,Internet Protocol,#fragment_buffered_count,Number of segments that have been buffered for defragmentation
+ip,Internet Protocol,#fragment_buffered_size,Sizes sum of segments that have been buffered for defragmentation
 ip6,Internet Protocol V6,#label,Used for specifying special router handling from source to destination(s) for a sequence of packets.
 ipcp,Internet Protocol Control Protocol,#ip_addr,IP address attributed.
 ipcp,Internet Protocol Control Protocol,#mobile_ip_addr,"Mobile IP"" address attributed."""
@@ -2218,6 +2231,8 @@ tcp,Transmission Control Protocol,#seq_number,The sequence number of the TCP pac
 tcp,Transmission Control Protocol,#ack_number,The acknowledgement number.
 tcp,Transmission Control Protocol,#tsval,Timestamp value.
 tcp,Transmission Control Protocol,#tsecr,Timestamp echo reply value.
+tcp,Transmission Control Protocol,#seg_buffered_count,Number of segments that have been buffered for reassembly
+tcp,Transmission Control Protocol,#seg_buffered_size,Sizes sum of segments that have been buffered for reassembly
 tcp,Transmission Control Protocol,#retransmission_bytes,"Current packet overlapping bytes count
 tcp,Transmission Control Protocol,#unack_sequence,Provides the difference between the maximum sequence number seen in payload packets minus the maximum ack seq number seen on the other way.
 tds,Tabular Data Stream,#login,User's login string.
