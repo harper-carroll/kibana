@@ -47,7 +47,7 @@ while ( my $line = <qosmosWorkbook>) {
    $field = "$lineValues[3]";
    if ($field) {
      push(@newFields,$field);
-     $newComments{$field} = $lineValues[6];
+     $newComments{$field} = $lineValues[7];
      $newComments{$field} =~ s/\"//g;
    }
 }
