@@ -307,6 +307,7 @@ dns,Domain Name Service,#reverse_addr,IP address returned to the PTR request.
 dns,Domain Name Service,#response_time,Elapsed time between sending of the dns request and reception of its response.
 dns,Domain Name Service,#ttl,Time (in seconds) a DNS information returned by the server will be kept in cache.
 dns,Domain Name Service,#section_type,Type of section for each DNS answer.
+dns,Domain Name Service,#flags,Flags.
 ebay,eBay.com,#query_text,Query sent to the search engine.
 ebay,eBay.com,#query_raw,Contains the query sent to the search engine as indicated in the URL.
 ebuddy,eBuddy.com,#contact_im,Instant Messaging network associated to the contact
@@ -413,7 +414,7 @@ facebook_mail,facebook mail,#uid,Generic user ID.
 facebook_mail,facebook mail,#login,User's login string.
 facebook_mail,facebook mail,#session_id,Uniquely identifies the current user session.
 facetime,Apple FaceTime,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-facetime,Apple FaceTime,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+facetime,Apple FaceTime,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 facetime,Apple FaceTime,#service,Current service identification string.
 facetime,Apple FaceTime,#service_duration,"4 bytes integer value indicating
 facetime,Apple FaceTime,#service_duration_tv,"Timeval structure indicating
@@ -1088,7 +1089,7 @@ ldap,Lighweight Directory Access Protocol,#hostname,Hostname extracted from a lo
 ldap,Lighweight Directory Access Protocol,#attribute_desc,"Filter expression first operand
 ldap,Lighweight Directory Access Protocol,#assertion_value,"Filter expression second operand
 line,Line,#proto_version,Protocol version currently used by the client.
-line,Line,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+line,Line,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 line,Line,#service,Current service identification string.
 line,Line,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 line,Line,#service_duration,"4 bytes integer value indicating
@@ -1421,7 +1422,7 @@ mpegts,MPEG-Transport Stream,#chunk_len,Data length.
 mpls,Multiprotocol Packet Label Switching,#label,Label allowing the routing process of the packet through the various LSPs (Label-Switched Paths) crossed along the delivery path.
 mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 mplus_messenger,M+ Messenger,#service,Current service identification string.
-mplus_messenger,M+ Messenger,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+mplus_messenger,M+ Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 msn,MSN Messenger,#login,User's login string.
 msn,MSN Messenger,#sender,Contains the identity of the sender of a chat session or a file transfer.
 msn,MSN Messenger,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
@@ -2020,7 +2021,7 @@ sip,Session Initiation Protocol,#user_id,Client identifier used for his register
 skyblog,Skyblog,#password,User's password string.
 skyblog,Skyblog,#login,User's login string.
 skype,Skype,#version,Skype client version.
-skype,Skype,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+skype,Skype,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 skype,Skype,#service,Current service identification string.
 skype,Skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 skype,Skype,#service_duration,"4 bytes integer value indicating
@@ -2128,6 +2129,7 @@ socks5,SOCKet Secure v5,#remote_addr,Remote IP address.
 socks5,SOCKet Secure v5,#remote_name,Fully qualified remote domain name.
 spdy,SPDY,#stream_id,Stream identifier.
 spdy,SPDY,#length,Length of the message starting at the offset of this field.
+spdy,SPDY,#associated_stream_id,Identifier for a stream which this stream is associated to.
 spdy,SPDY,#status_code,An indicator for why the stream is being terminated.
 spdy,SPDY,#header_count,The number of repeating name/value pairs following this field
 spdy,SPDY,#header_name,"Header name
@@ -2194,7 +2196,7 @@ tango,Tango Video Calls,#attach_filename,Transferred file name.
 tango,Tango Video Calls,#service_duration_tv,"Timeval structure indicating
 tango,Tango Video Calls,#service_duration,"4 bytes integer value indicating
 tango,Tango Video Calls,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-tango,Tango Video Calls,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+tango,Tango Video Calls,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 tango,Tango Video Calls,#service,Current service identification string.
 tango,Tango Video Calls,#callee_id,Called part identifier.
 tango,Tango Video Calls,#caller_id,Calling part identifier.
@@ -2295,6 +2297,9 @@ twitter,Twitter.com,#param_user_id,User id used as request parameter.
 twitter,Twitter.com,#action,Indicates the action executed by the user.
 twitter,Twitter.com,#login,User's login string.
 twitter,Twitter.com,#session_id,Uniquely identifies the current user session.
+twoo,Twoo.com,#login,User's login string.
+twoo,Twoo.com,#password,User's password string.
+twoo,Twoo.com,#is_mobile_service,Whether or not the access was made through a mobile device.
 udp,User Datagram Protocol,#cnx_duration,Connection duration.
 udp,User Datagram Protocol,#start_time,Timestamp of the connection start time.
 unknown,Unknown virtual protocol,#maybe_application_id,Possible application's ID for this flow.
@@ -2324,10 +2329,10 @@ vkontakte,Vk.com (Vkontakte),#name,User's full name.
 vkontakte,Vk.com (Vkontakte),#login,User's login string.
 wechat,WeChat,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 wechat,WeChat,#service,Current service identification string.
-wechat,WeChat,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+wechat,WeChat,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 whatsapp,WhatsApp Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
 whatsapp,WhatsApp Messenger,#service,Current service identification string.
-whatsapp,WhatsApp Messenger,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
+whatsapp,WhatsApp Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
 whatsapp,WhatsApp Messenger,#phone_number,Caller phone number.
 whatsapp,WhatsApp Messenger,#version,Program version.
 wikipedia,Wikipedia.com,#query_text,Query sent to the search engine.

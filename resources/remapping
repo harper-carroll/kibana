@@ -2171,6 +2171,7 @@ password Passwd
 remote_addr RemoteAddr
 remote_addr RemoteAddr
 remote_name RemoteName
+associated_stream_id AssociatedStreamId
 content Content
 header_count HeaderCount
 header_name HeaderName
