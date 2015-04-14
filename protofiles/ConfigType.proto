@@ -21,7 +21,7 @@ enum ConfigType {
    ColumboConfig = 11;
    CarpenterConfig = 12;
    InfluxConfig = 13;
-   EventManagerClientConfig = 14;
+   // EventManagerClientConfig = 14; Depreciated
    ColumboClientConfig = 15;
    VitalsClientConfig = 16;
 }

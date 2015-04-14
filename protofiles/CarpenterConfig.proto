@@ -52,4 +52,5 @@ message CarpenterConfig {
    optional string zoneTableItemColumn = 44;
    optional string dbUsername = 45;
    optional string dbPassword = 46;
+   optional string emdbHost = 47;
 }
