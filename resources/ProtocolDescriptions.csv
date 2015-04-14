@@ -874,27 +874,36 @@ ident,Identification Protocol,#client_port,TCP client's port
 igmp,Internet Group Management Protocol,#version,Protocol version.
 igmp,Internet Group Management Protocol,#address,Multicast address.
 igmp,Internet Group Management Protocol,#record_maddress,The multicast address in this record
+imap,Internet Message Access Protocol version 4,#request,"Parent entry
 imap,Internet Message Access Protocol version 4,#index,Identifier of the request and response in a flow.
 imap,Internet Message Access Protocol version 4,#method,Command sent by the client
 imap,Internet Message Access Protocol version 4,#server_response,The return code of the server
+imap,Internet Message Access Protocol version 4,#email,"Parent entry
 imap,Internet Message Access Protocol version 4,#email_index,Index of the request which the email is attached to.
+imap,Internet Message Access Protocol version 4,#msglist_entry,"Parent entry
+imap,Internet Message Access Protocol version 4,#attach,"Parent entry
+imap,Internet Message Access Protocol version 4,#msglist_attach,Parent entry for attached file in a list of emails.
 imap,Internet Message Access Protocol version 4,#login,User's login string.
 imap,Internet Message Access Protocol version 4,#password,User's password string.
 imap,Internet Message Access Protocol version 4,#message_id,A unique identifier of the message.
 imap,Internet Message Access Protocol version 4,#subject,Message subject.
 imap,Internet Message Access Protocol version 4,#date,Message date.
+imap,Internet Message Access Protocol version 4,#sender_entry,"Parent entry
 imap,Internet Message Access Protocol version 4,#sender,Full address of email sender (alias followed by email address).
 imap,Internet Message Access Protocol version 4,#sender_email,Email address of the email sender.
 imap,Internet Message Access Protocol version 4,#sender_alias,Name of the email sender.
+imap,Internet Message Access Protocol version 4,#receiver_entry,"Parent entry
 imap,Internet Message Access Protocol version 4,#receiver,Full address of email receiver (including cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_type,Type of the email receiver.
 imap,Internet Message Access Protocol version 4,#msglist_subject,Message subject in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_date,Message date in a message list.
+imap,Internet Message Access Protocol version 4,#msglist_sender_entry,Parent entry for a sender in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_sender,Full address of email sender (alias and email address).
 imap,Internet Message Access Protocol version 4,#msglist_sender_alias,Name of email sender.
 imap,Internet Message Access Protocol version 4,#msglist_sender_email,Address of email sender.
+imap,Internet Message Access Protocol version 4,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_receiver,Full address of email receiver in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_receiver_alias,Name of email receiver.
 imap,Internet Message Access Protocol version 4,#msglist_receiver_email,Email address of the email receiver.
@@ -911,6 +920,7 @@ imap,Internet Message Access Protocol version 4,#file_type,Received or sent file
 imap,Internet Message Access Protocol version 4,#replyto,Email address to use in a reply for this message.
 imap,Internet Message Access Protocol version 4,#login_server,Concatenated login and server: <login>@<server>.
 imap,Internet Message Access Protocol version 4,#header_raw,One IMAP header line (field and value).
+imap,Internet Message Access Protocol version 4,#received,"Parent entry
 imap,Internet Message Access Protocol version 4,#received_from_name,Contains the sending host name
 imap,Internet Message Access Protocol version 4,#received_from_ip,Contains the IP address of the sending host name
 imap,Internet Message Access Protocol version 4,#received_by_name,Contains the receiving host name
@@ -1507,26 +1517,34 @@ ospf,Open Shortest Path First,#external_fwd_addr,Data traffic for the advertised
 ospf,Open Shortest Path First,#external_route_tag,A 32-bit field attached to each external route.
 owa,Outlook Web App,#msglist_sender,Full address of email sender (alias and email address).
 owa,Outlook Web App,#msglist_receiver_alias,Name of email receiver.
+owa,Outlook Web App,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 owa,Outlook Web App,#contact_email,Email address of a contact.
 owa,Outlook Web App,#contact_alias,Alias of a contact.
+owa,Outlook Web App,#contact_entry,This attribute groups information about a contact.
 owa,Outlook Web App,#draft,Indicates if the email is a draft or has really been posted
 owa,Outlook Web App,#receiver,Full address of email receiver (including cc and bcc receivers).
 owa,Outlook Web App,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 owa,Outlook Web App,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 owa,Outlook Web App,#receiver_type,Type of the email receiver.
+owa,Outlook Web App,#receiver_entry,"Parent entry
 owa,Outlook Web App,#date,Message date.
 owa,Outlook Web App,#sender,Full address of email sender (alias followed by email address).
 owa,Outlook Web App,#sender_email,Email address of the email sender.
 owa,Outlook Web App,#sender_alias,Name of the email sender.
+owa,Outlook Web App,#sender_entry,"Parent entry
 owa,Outlook Web App,#msg_id,Identifier of the message.
 owa,Outlook Web App,#subject,Message subject.
 owa,Outlook Web App,#action,Indicates if the message is read (Read) or composed (Compose).
 owa,Outlook Web App,#attach_filename,Attachment name.
 owa,Outlook Web App,#msglist_date,Message date in a message list.
 owa,Outlook Web App,#msglist_sender_alias,Name of email sender.
+owa,Outlook Web App,#msglist_sender_entry,Parent entry for a sender in a message list.
 owa,Outlook Web App,#msglist_subject,Message subject in a message list.
 owa,Outlook Web App,#msglist_msgid,Message identifier.
+owa,Outlook Web App,#msglist_entry,"Parent entry
 owa,Outlook Web App,#attach_type,Content type of the sent attached file.
+owa,Outlook Web App,#attach,"Parent entry
+owa,Outlook Web App,#email,"Parent entry
 owa,Outlook Web App,#msglist_folder,Indicates the directory from a message list.
 owa,Outlook Web App,#folder,Indicates the directory from where messages are read.
 owa,Outlook Web App,#attach_id,Attachment identifier.
@@ -1576,10 +1594,13 @@ perfspot,Perfspot.com,#is_mobile_service,Whether or not the access was made thro
 perfspot,Perfspot.com,#password,User's password string.
 perfspot,Perfspot.com,#login,User's login string.
 pop3,Post Office Protocol (Version 3),#login,User's login string.
+pop3,Post Office Protocol (Version 3),#email,"Parent entry
 pop3,Post Office Protocol (Version 3),#password,User's password string.
+pop3,Post Office Protocol (Version 3),#sender_entry,"Parent entry
 pop3,Post Office Protocol (Version 3),#sender,Full address of email sender (alias followed by email address).
 pop3,Post Office Protocol (Version 3),#sender_email,Email address of the email sender.
 pop3,Post Office Protocol (Version 3),#sender_alias,Name of the email sender.
+pop3,Post Office Protocol (Version 3),#receiver_entry,"Parent entry
 pop3,Post Office Protocol (Version 3),#receiver,Full address of email receiver (including cc and bcc receivers).
 pop3,Post Office Protocol (Version 3),#receiver_email,Email address of message receiver (included cc and bcc receivers).
 pop3,Post Office Protocol (Version 3),#receiver_alias,Name of email receiver (included cc and bcc receivers).
@@ -1587,10 +1608,12 @@ pop3,Post Office Protocol (Version 3),#receiver_type,Type of the email receiver.
 pop3,Post Office Protocol (Version 3),#subject,Message subject.
 pop3,Post Office Protocol (Version 3),#date,Message date.
 pop3,Post Office Protocol (Version 3),#mime_type,Content type of received email body.
+pop3,Post Office Protocol (Version 3),#request,"Parent entry
 pop3,Post Office Protocol (Version 3),#index,Identifier of the request and response in a flow.
 pop3,Post Office Protocol (Version 3),#email_index,Index of the request which the email is attached to.
 pop3,Post Office Protocol (Version 3),#method,Command sent by the client
 pop3,Post Office Protocol (Version 3),#server_response,The return code of the server
+pop3,Post Office Protocol (Version 3),#attach,"Parent entry
 pop3,Post Office Protocol (Version 3),#attach_filename,Attachment name.
 pop3,Post Office Protocol (Version 3),#attach_type,Content type of the sent attached file.
 pop3,Post Office Protocol (Version 3),#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
@@ -1603,6 +1626,7 @@ pop3,Post Office Protocol (Version 3),#xmailer,Contains the user_agent of the us
 pop3,Post Office Protocol (Version 3),#message_id,A unique identifier of the message.
 pop3,Post Office Protocol (Version 3),#user_agent,Name of the software used.
 pop3,Post Office Protocol (Version 3),#header_raw,One POP3 header line (field and value).
+pop3,Post Office Protocol (Version 3),#received,"Parent entry
 pop3,Post Office Protocol (Version 3),#received_from_name,Contains the sending host name
 pop3,Post Office Protocol (Version 3),#received_from_ip,Contains the IP address of the sending host name
 pop3,Post Office Protocol (Version 3),#received_by_name,Contains the receiving host name
@@ -1998,18 +2022,24 @@ smpp,Short message peer-to-peer protocol,#sender,Sender's address.
 smpp,Short message peer-to-peer protocol,#receiver,Receiver's address.
 smtp,Simple Mail Transfer Protocol,#login,User's login string.
 smtp,Simple Mail Transfer Protocol,#password,User's password string.
+smtp,Simple Mail Transfer Protocol,#email,"Parent entry
+smtp,Simple Mail Transfer Protocol,#sender_entry,"Parent entry
 smtp,Simple Mail Transfer Protocol,#sender,Full address of email sender (alias followed by email address).
 smtp,Simple Mail Transfer Protocol,#sender_alias,Name of the email sender.
 smtp,Simple Mail Transfer Protocol,#sender_email,Email address of the email sender.
+smtp,Simple Mail Transfer Protocol,#mailfrom,Contains the domain and the sender's email
 smtp,Simple Mail Transfer Protocol,#sender_mailfrom,Sender's email address (used by MAIL FROM method).
 smtp,Simple Mail Transfer Protocol,#sender_domain,Domain of the sender's email address.
+smtp,Simple Mail Transfer Protocol,#rcptto,Domain and recipient's email address (used by RCPT TO method).
 smtp,Simple Mail Transfer Protocol,#receiver_rcptto,Recipient's email address (used by RCPT TO method).
 smtp,Simple Mail Transfer Protocol,#receiver_domain,Domain of the recipient's email address.
 smtp,Simple Mail Transfer Protocol,#header_raw,One SMTP header line (field and value).
+smtp,Simple Mail Transfer Protocol,#receiver_entry,"Parent entry
 smtp,Simple Mail Transfer Protocol,#receiver,Full address of email receiver (including cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_type,Type of the email receiver.
+smtp,Simple Mail Transfer Protocol,#request,"Parent entry
 smtp,Simple Mail Transfer Protocol,#index,Identifier of the request and response in a flow.
 smtp,Simple Mail Transfer Protocol,#email_index,Index of the request which the email is attached to.
 smtp,Simple Mail Transfer Protocol,#method,Command sent by the client
@@ -2023,6 +2053,7 @@ smtp,Simple Mail Transfer Protocol,#user_agent,Name of the software used.
 smtp,Simple Mail Transfer Protocol,#start_time,Starting time of SMTP session
 smtp,Simple Mail Transfer Protocol,#stop_time,Ending time of SMTP session
 smtp,Simple Mail Transfer Protocol,#duration,Duration of the SMTP session
+smtp,Simple Mail Transfer Protocol,#attach,"Parent entry
 smtp,Simple Mail Transfer Protocol,#attach_type,Content type of the sent attached file.
 smtp,Simple Mail Transfer Protocol,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 smtp,Simple Mail Transfer Protocol,#attach_size,Attached file MIME size.
@@ -2033,6 +2064,7 @@ smtp,Simple Mail Transfer Protocol,#server,Contains the name of the used smtp se
 smtp,Simple Mail Transfer Protocol,#server_agent,The software name used by the email server
 smtp,Simple Mail Transfer Protocol,#greeting_message,Contains the greeting message of the server when connection is established
 smtp,Simple Mail Transfer Protocol,#replyto,Email address to use in a reply for this message.
+smtp,Simple Mail Transfer Protocol,#received,"Parent entry
 smtp,Simple Mail Transfer Protocol,#received_from_name,Contains the sending host name
 smtp,Simple Mail Transfer Protocol,#received_from_ip,Contains the IP address of the sending host name
 smtp,Simple Mail Transfer Protocol,#received_by_name,Contains the receiving host name
