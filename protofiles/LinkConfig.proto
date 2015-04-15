@@ -11,4 +11,5 @@ message LinkConfig {
    optional int32 webUIBrokerPort = 2;
    optional int32 webUIIndexerPort = 3;
    optional string frontEndToSearchQueue = 4;
+   optional string webUIBrokerHost = 5;
 }
