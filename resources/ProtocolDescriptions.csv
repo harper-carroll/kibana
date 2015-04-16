@@ -18,15 +18,15 @@ adc,Advanced Direct Connect,#file_hash,Hash of the transferred file.
 adc,Advanced Direct Connect,#filesize,Size (byte) of the transferred file.
 adc,Advanced Direct Connect,#filename,Name of the transferred file.
 adc,Advanced Direct Connect,#client_version,Name and version of the client used by the peer.
-adc,Advanced Direct Connect,#peer_hash,"Hash of the user ID
+adc,Advanced Direct Connect,#peer_hash,"Hash of the user ID, used to communicate with the hub and the other clients."
 adc,Advanced Direct Connect,#peer_id,User id assigned by the hub to the client and notified through a SID command.
 adc,Advanced Direct Connect,#query,Query sent to find a file.
-adc,Advanced Direct Connect,#command_code,"Message action
+adc,Advanced Direct Connect,#command_code,"Message action, as extracted from the three letters following the message type."
 adc,Advanced Direct Connect,#command_type,Command type extracted from the first character of the message.
 adobe_update,Adobe Update Manager,#component_list_name,Name of a piece of Adobe software we have a new version for.
-adobe_update,Adobe Update Manager,#component_list_desc,"Short component update description
-adobe_update,Adobe Update Manager,#component_list_version,"Last component version available."""
-adobe_update,Adobe Update Manager,#component_list_url,"Component update download link."""
+adobe_update,Adobe Update Manager,#component_list_desc,"Short component update description, including version number."
+adobe_update,Adobe Update Manager,#component_list_version,Last component version available.
+adobe_update,Adobe Update Manager,#component_list_url,Component update download link.
 adobe_update,Adobe Update Manager,#update_manager,Adobe Update Manager version and identifier.
 adobe_update,Adobe Update Manager,#product_name,User's request for a product update.
 adobe_update,Adobe Update Manager,#action,Indicates the action executed by the user.
@@ -71,7 +71,7 @@ amqp,Advance Message Queuing Protocol,#routing_key,Virtual address used to route
 amqp,Advance Message Queuing Protocol,#correlation_id,Identifier used to correlate the application.
 amqp,Advance Message Queuing Protocol,#replyto,Addresse of the reply queue.
 apple_update,Apple Update,#pkg_name,pkg_name (package name) is the name of the software being updated.
-appstore,Apple App Store,#device_type,"Target device (iPhone
+appstore,Apple App Store,#device_type,"Target device (iPhone, iPod,...)."
 appstore,Apple App Store,#connection_type,Type of the connection.
 appstore,Apple App Store,#application_name,Name of the downloaded app.
 archive,Archive.org,#login,User's login string.
@@ -98,7 +98,7 @@ badongo,Badongo.com,#filesize,Size (byte) of the transferred file.
 badongo,Badongo.com,#upload_description,Description of the uploaded file.
 badoo,Badoo.com,#login,User's login string.
 badoo,Badoo.com,#password,User's password string.
-badoo,Badoo.com,#nickname,"User's nickname
+badoo,Badoo.com,#nickname,"User's nickname, as seen in the ebuddy chat windows."
 badoo,Badoo.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
 badoo,Badoo.com,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
 badoo,Badoo.com,#receiver_uid,Unique contact ID for a receiver.
@@ -111,18 +111,18 @@ baidu,Baidu.com,#query_type,Sort of query sent to the search engine.
 baidu,Baidu.com,#encoding,Query encoding.
 baidu,Baidu.com,#query_index,A number containing the index of the showed results
 base,Base virtual protocol,#application,Name of the application to which the packet belongs.
-base,Base virtual protocol,#time,"Elapsed time since 1st January 1970
+base,Base virtual protocol,#time,"Elapsed time since 1st January 1970, displayed in seconds/ minutes/ hours/ days according to the value of the given parameter."
 base,Base virtual protocol,#flow_id,Unique connection ID.
 base,Base virtual protocol,#family,Family to which the uppermost protocol of the protocol stack belongs to.
 base,Base virtual protocol,#application_id,Unique ID of application to which the packet belongs.
 base,Base virtual protocol,#path_len,Contains the number of protocols in the packet protocol stack (path).
 base,Base virtual protocol,#packet_counter,Number of packets received.
-base,Base virtual protocol,#declassified,"Attribute showing whether a declassification is happened in a packet
+base,Base virtual protocol,#declassified,"Attribute showing whether a declassification is happened in a packet, the raised value is the protocol id."
 base,Base virtual protocol,#application_end,Contains the latest value for the attribute application
 base,Base virtual protocol,#family_end,Contains the latest value for the attribute family
 base,Base virtual protocol,#application_id_end,Contains the latest value for the attribute application_id
 base,Base virtual protocol,#create_time,Contains the timestamp of the first packet of the flow.
-base,Base virtual protocol,#multi_match_proto_id,"When multiple pdata rules do match the same packet
+base,Base virtual protocol,#multi_match_proto_id,"When multiple pdata rules do match the same packet, the highest priority rule is classified. The protocol ids of the lesser priority rules are shown in deacreasing priority order through this protocol."
 bebo,Bebo.com,#is_mobile_service,Whether or not the access was made through a mobile device.
 bebo,Bebo.com,#password,User's password string.
 bebo,Bebo.com,#login,User's login string.
@@ -147,7 +147,7 @@ bittorrent,BitTorrent,#file_chunk_number,Number of the transferred piece.
 bittorrent,BitTorrent,#file_chunk_len,Size of the transferred piece.
 bittorrent,BitTorrent,#file_chunk_data_offset,Offset of the transferred data.
 bittorrent,BitTorrent,#torrent_filename,Name of the torrent file.
-bittorrent,BitTorrent,#piece_length,"Chunk size
+bittorrent,BitTorrent,#piece_length,"Chunk size, for the specified file."
 bittorrent,BitTorrent,#filename,Name of the transferred file.
 bittorrent,BitTorrent,#filesize,Size (byte) of the transferred file.
 bittorrent,BitTorrent,#peer_share_ip,IP address used by a peer to share his files.
@@ -158,7 +158,7 @@ bittorrent,BitTorrent,#file_downloaded,Downloaded file.
 bittorrent,BitTorrent,#file_incomplete,Incomplete file.
 bittorrent,BitTorrent,#file_left,Left file.
 bittorrent,BitTorrent,#file_uploaded,Uploaded file.
-bittorrent,BitTorrent,#classification_type,"How the protocol has been classified. Always returns Deterministic"" if the port list has not been set."""
+bittorrent,BitTorrent,#classification_type,How the protocol has been classified. Always returns Deterministic
 bmff,ISO Base Media File Format,#video_type,File format.
 bmff,ISO Base Media File Format,#video_brand,Normalized video format specification identifier.
 bmff,ISO Base Media File Format,#video_uuid,Universally unique identifier.
@@ -191,7 +191,7 @@ cups,Common Unix Printer System,#location,Location of the Printer.
 cups,Common Unix Printer System,#information,Information on Printer.
 cups,Common Unix Printer System,#model,Printer model.
 dailymotion,Dailymotion.com,#login,User's login string.
-dailymotion,Dailymotion.com,#email,"Parent entry
+dailymotion,Dailymotion.com,#email,"Parent entry, for fields belonging to the same email."
 dailymotion,Dailymotion.com,#password,User's password string.
 dailymotion,Dailymotion.com,#query_text,Query sent to the search engine.
 dailymotion,Dailymotion.com,#query_raw,Contains the query sent to the search engine as indicated in the URL.
@@ -214,9 +214,9 @@ dhcp,Dynamic Host Configuration Protocol,#circuit_id,A suboption that contains t
 dhcp,Dynamic Host Configuration Protocol,#remote_id,The remote agent
 dhcp,Dynamic Host Configuration Protocol,#remote_id_type,An suboption that contains the remote agent identifier.
 dhcp,Dynamic Host Configuration Protocol,#remote_id_subtype,Subtype for the remote agent
-dhcp,Dynamic Host Configuration Protocol,#ip_lease_time,"In a server reply (dhcpoffer)
+dhcp,Dynamic Host Configuration Protocol,#ip_lease_time,"In a server reply (dhcpoffer), a dhcp server uses this option to specify the lease time it is willing to offer. the time is in seconds"
 dhcp,Dynamic Host Configuration Protocol,#end_status,An event sent when dhcp session expires. it's equal to 1 when a release message was observed and 0 if not
-dhcp,Dynamic Host Configuration Protocol,#xid,"Transaction ID
+dhcp,Dynamic Host Configuration Protocol,#xid,"Transaction ID, a random number chosen by the client, used by the client and server to associate requests and responses."
 diameter,Diameter,#acct_record_number,Unique identifier for one record within a session
 diameter,Diameter,#acct_record_type,Record type
 diameter,Diameter,#acct_output_octets,Indicates how many octets have been sent to the port in the course of delivering this service
@@ -231,7 +231,7 @@ diameter,Diameter,#result_code,Indicates whether a particular Diameter request w
 diameter,Diameter,#origin_host,Source Diameter host for the current message
 diameter,Diameter,#session_id,Uniquely identifies the current user session.
 diameter,Diameter,#calling_station_id,Client id.
-diameter,Diameter,#called_station_id,"The phone number that the user called
+diameter,Diameter,#called_station_id,"The phone number that the user called, using Dialed Number Identification (DNIS) or similar technology."
 diameter,Diameter,#framed_ip,IP address.
 diameter,Diameter,#nas_port,Physical port number of the user on the NAS
 diameter,Diameter,#nas_port_type,Indicates the type of the physical port of the NAS that is authenticating the user.
@@ -304,7 +304,7 @@ ebuddy,eBuddy.com,#chat_im,Instant Messaging network the message is being exchan
 ebuddy,eBuddy.com,#message,Contains the chat message.
 ebuddy,eBuddy.com,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
 ebuddy,eBuddy.com,#sender,Contains the identity of the sender of a chat session or a file transfer.
-ebuddy,eBuddy.com,#nickname,"User's nickname
+ebuddy,eBuddy.com,#nickname,"User's nickname, as seen in the ebuddy chat windows."
 ebuddy,eBuddy.com,#client_message,User's IM personal message.
 ebuddy,eBuddy.com,#client_status,Status of connected user.
 ebuddy,eBuddy.com,#e_action,Action of the user.
@@ -349,9 +349,9 @@ facebook,Facebook,#message_id,Instant message ID.
 facebook,Facebook,#client_time,Instant message client timestamp.
 facebook,Facebook,#query_text,Query sent to the search engine.
 facebook,Facebook,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-facebook,Facebook,#highschool,"(deprecated
-facebook,Facebook,#college,"(deprecated
-facebook,Facebook,#employer,"(deprecated
+facebook,Facebook,#highschool,"(deprecated, see profile_entry) Name of highschool."
+facebook,Facebook,#college,"(deprecated, see profile_entry) Name of college."
+facebook,Facebook,#employer,"(deprecated, see profile_entry) Name of employer."
 facebook,Facebook,#sex,User gender.
 facebook,Facebook,#uid,Generic user ID.
 facebook,Facebook,#lastname,User family name
@@ -384,16 +384,16 @@ facebook_mail,facebook mail,#subject,Message subject.
 facebook_mail,facebook mail,#uid,Generic user ID.
 facebook_mail,facebook mail,#login,User's login string.
 facebook_mail,facebook mail,#session_id,Uniquely identifies the current user session.
-facetime,Apple FaceTime,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+facetime,Apple FaceTime,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 facetime,Apple FaceTime,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 facetime,Apple FaceTime,#service,Current service identification string.
-facetime,Apple FaceTime,#service_duration,"4 bytes integer value indicating
-facetime,Apple FaceTime,#service_duration_tv,"Timeval structure indicating
+facetime,Apple FaceTime,#service_duration,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds"
+facetime,Apple FaceTime,#service_duration_tv,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds."
 firefox_update,Firefox Update,#plugin_new_version,Plugin version after update.
 firefox_update,Firefox Update,#plugin_name,Name of the plugin.
 firefox_update,Firefox Update,#new_version,Browser version after update.
 firefox_update,Firefox Update,#current_version,Browser version before update.
-flashplugin_update,Adobe Flash Plugin Update,#new_version,"New version number
+flashplugin_update,Adobe Flash Plugin Update,#new_version,"New version number, as returned by Adobe Web Server."
 flashplugin_update,Adobe Flash Plugin Update,#current_version,Current flash-plugin version number installed on the client.
 freebsd_update,FreeBSD Updates,#package_name,Software package name.
 friendster,Friendster.com,#password,User's password string.
@@ -406,7 +406,7 @@ ftp,File Transfer Protocol,#method,Contains the FTP command sent.
 ftp,File Transfer Protocol,#method_content,Method parameter
 ftp,File Transfer Protocol,#filesize,Size (byte) of the transferred file.
 ftp,File Transfer Protocol,#data_port_start_offset,Offset to the first FTP port byte given in the PORT command.
-ftp,File Transfer Protocol,#data_port_end_offset,"Offset to the first byte which is not part of the TCP port value
+ftp,File Transfer Protocol,#data_port_end_offset,"Offset to the first byte which is not part of the TCP port value, given in the PORT command."
 ftp,File Transfer Protocol,#loadway,Contains the file transfer way (Upload vs Download).
 ftp,File Transfer Protocol,#offset,Indicates the start offset of the file transfer.
 ftp,File Transfer Protocol,#greeting_message,First line of the server banner.
@@ -605,12 +605,12 @@ google_maps,Google Maps,#west,Longitude coordinate of West edge of the first til
 google_maps,Google Maps,#north,Latitude coordinate of North edge of the first tile that was loaded by the webpage.
 google_play,Google Play,#application_name,Name of the downloaded app.
 gotomypc,GoToMyPC Remote Access,#service,Current service identification string.
-gotomypc,GoToMyPC Remote Access,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+gotomypc,GoToMyPC Remote Access,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 gougou,Gougou.com,#query_raw,Contains the query sent to the search engine as indicated in the URL.
 gougou,Gougou.com,#query_text,Query sent to the search engine.
 gre,Generic Routing Encapsulation,#protocol,Identifier (string) of the upper layer protocol.
 gtp,GPRS Tunneling Protocol,#imsi,Unique ID of a mobile station SIM card (International Mobile Subscriber Identity).
-gtp,GPRS Tunneling Protocol,#teid,"Transaction ID
+gtp,GPRS Tunneling Protocol,#teid,"Transaction ID, available in version 1."
 gtp,GPRS Tunneling Protocol,#ms_address,IP address assigned to the mobile station.
 gtp,GPRS Tunneling Protocol,#ms_address_peer,IP address assigned to the mobile station on the peer half-session.
 gtp,GPRS Tunneling Protocol,#gsn_address,GSN IP address.
@@ -649,7 +649,7 @@ gtp,GPRS Tunneling Protocol,#location_rai,A Routing Area Identification (RAI) is
 gtp,GPRS Tunneling Protocol,#imsi_cc,Mobile Country Code
 gtp,GPRS Tunneling Protocol,#imsi_nc,Mobile National Code
 gtpv2,GPRS Tunneling Protocol version 2,#seq,Packet sequence number.
-gtpv2,GPRS Tunneling Protocol version 2,#teid,"Transaction ID
+gtpv2,GPRS Tunneling Protocol version 2,#teid,"Transaction ID, available in version 1."
 gtpv2,GPRS Tunneling Protocol version 2,#access_point,Access point name.
 gtpv2,GPRS Tunneling Protocol version 2,#imei,Unique ID of a mobile station equipment w/o SV (IMEI only).
 gtpv2,GPRS Tunneling Protocol version 2,#imei_sv,Unique ID of a mobile station equipment (IMEI+SV).
@@ -701,7 +701,7 @@ h225,H225,#call_duration,Call duration.
 h225,H225,#session_duration,Call setup duration.
 h225,H225,#start_time,Start date of the call.
 h225,H225,#time_before_spk,Waiting delay before speak
-h225,H225,#call_id,"Call id
+h225,H225,#call_id,"Call id, extracted for each call."
 h225,H225,#end_status,Status of the call end
 h225,H225,#media_attr_encoding,The encoding of media data.
 h225,H225,#caller,Contains the identity (or the phone number) of the initiator of the call.
@@ -722,26 +722,26 @@ h245,H245,#media_attr_encoding,The encoding of media data.
 h245,H245,#method,The command
 h245,H245,#media_control_channel_addr,Address used for a rtcp channel.
 h245,H245,#media_channel_addr,Address used for a rtp channel.
-h248_binary,h248 Protocol (Megaco) in binary mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer
-h248_binary,h248 Protocol (Megaco) in binary mode,#call_id,"Call id
-h248_binary,h248 Protocol (Megaco) in binary mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request
+h248_binary,h248 Protocol (Megaco) in binary mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer, -"
+h248_binary,h248 Protocol (Megaco) in binary mode,#call_id,"Call id, extracted for each call."
+h248_binary,h248 Protocol (Megaco) in binary mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request, by Reply if the transaction is a reply"
 h248_binary,h248 Protocol (Megaco) in binary mode,#from_ip,Source IPv4 address
 h248_binary,h248 Protocol (Megaco) in binary mode,#to_ip,Destination IPv4 address
 h248_binary,h248 Protocol (Megaco) in binary mode,#src_audio_connection,Source audio connection type
 h248_binary,h248 Protocol (Megaco) in binary mode,#src_video_connection,Source video connection type
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_audio_connection,Destination audio connection type
 h248_binary,h248 Protocol (Megaco) in binary mode,#dst_video_connection,Destination video connection type
-h248_binary,h248 Protocol (Megaco) in binary mode,#response_code,"Return code
-h248_text,h248 Protocol (Megaco) in text mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer
-h248_text,h248 Protocol (Megaco) in text mode,#call_id,"Call id
-h248_text,h248 Protocol (Megaco) in text mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request
+h248_binary,h248 Protocol (Megaco) in binary mode,#response_code,"Return code, extracted from the reply"
+h248_text,h248 Protocol (Megaco) in text mode,#context_id,"The context ID identifies the context. It is assigned by the Media Gateway. It can be an integer, -"
+h248_text,h248 Protocol (Megaco) in text mode,#call_id,"Call id, extracted for each call."
+h248_text,h248 Protocol (Megaco) in text mode,#action,"The action designates the command that is executed during the transaction. The coommand name is postfixed by Req if the transaction is a request, by Reply if the transaction is a reply"
 h248_text,h248 Protocol (Megaco) in text mode,#from_ip,Source IPv4 address
 h248_text,h248 Protocol (Megaco) in text mode,#to_ip,Destination IPv4 address
 h248_text,h248 Protocol (Megaco) in text mode,#src_audio_connection,Source audio connection type
 h248_text,h248 Protocol (Megaco) in text mode,#src_video_connection,Source video connection type
 h248_text,h248 Protocol (Megaco) in text mode,#dst_audio_connection,Destination audio connection type
 h248_text,h248 Protocol (Megaco) in text mode,#dst_video_connection,Destination video connection type
-h248_text,h248 Protocol (Megaco) in text mode,#response_code,"Return code
+h248_text,h248 Protocol (Megaco) in text mode,#response_code,"Return code, extracted from the reply"
 hi5,Hi5.com,#nickname,User's profile displayed name.
 hi5,Hi5.com,#password,User's password string.
 hi5,Hi5.com,#login,User's login string.
@@ -749,15 +749,15 @@ hi5,Hi5.com,#uid,Generic user ID.
 hi5,Hi5.com,#is_mobile_service,Whether or not the access was made through a mobile device.
 high_entropy,High Entropy,#entropy,Computed entropy value.
 hsrp,Hot Standby Router Protocol,#virtual_addr,Virtual IP address used by the group.
-http,HyperText Transfer Protocol,#server,"Normalized web server name
+http,HyperText Transfer Protocol,#server,"Normalized web server name, including lowercase transformation and suffix cleaning."
 http,HyperText Transfer Protocol,#host,Host name value extracted from the Host header.
 http,HyperText Transfer Protocol,#host_start_offset,Offset to the first Host HTTP header value byte in the TCP stream. The Host start is located in the current packet (the offset value is positive).
 http,HyperText Transfer Protocol,#location,Destination address where the client is redirected.
 http,HyperText Transfer Protocol,#referer,Source address from which the client obtained the requested URI.
 http,HyperText Transfer Protocol,#referer_path,Source address from which the client obtained the requested URI without query parameters.
 http,HyperText Transfer Protocol,#referer_server,Contains the host or the website name of the referer.
-http,HyperText Transfer Protocol,#uri,"Normalized URL form (path + request) of a web resource
-http,HyperText Transfer Protocol,#uri_path,"Normalized URL path of a web resource
+http,HyperText Transfer Protocol,#uri,"Normalized URL form (path + request) of a web resource, with UNRESERVED percent-encoded characters decoding (RFC3986)."
+http,HyperText Transfer Protocol,#uri_path,"Normalized URL path of a web resource, without query parameters."
 http,HyperText Transfer Protocol,#uri_full,Complete name (scheme/authority + path + request) of a web resource.
 http,HyperText Transfer Protocol,#uri_start_offset,Offset to the first URI byte in the TCP stream. The URI start is located in the current packet (the offset value is positive).
 http,HyperText Transfer Protocol,#user_agent,Software used by the client to access the web page.
@@ -766,7 +766,7 @@ http,HyperText Transfer Protocol,#mime_type,Content type of the request or the w
 http,HyperText Transfer Protocol,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 http,HyperText Transfer Protocol,#content_disposition,Information related to the disposition of the content present on the web page.
 http,HyperText Transfer Protocol,#forward_addr,IPv4 DNS address to which the client is redirected. This is the http header X-Forwarded-for.
-http,HyperText Transfer Protocol,#forward_redline,"IPv4 address found in the x-forward-redline"" HTTP header
+http,HyperText Transfer Protocol,#forward_redline,IPv4 address found in the x-forward-redline
 http,HyperText Transfer Protocol,#method,HTTP command sent by the client.
 http,HyperText Transfer Protocol,#proxy_auth,Authentication type on the proxy.
 http,HyperText Transfer Protocol,#proxy_login,Login used for proxy authentication.
@@ -774,9 +774,9 @@ http,HyperText Transfer Protocol,#proxy_realm,Parameter used for proxy authentic
 http,HyperText Transfer Protocol,#smb_client,Name of the computer during NTLM authentication (Windows environment).
 http,HyperText Transfer Protocol,#version,Protocol version.
 http,HyperText Transfer Protocol,#server_agent,Name of the server software.
-http,HyperText Transfer Protocol,#rtt,"Server response time
+http,HyperText Transfer Protocol,#rtt,"Server response time, calculated between the HTTP Request, and the client acknowledgement of the first non-empty HTTP Response packet."
 http,HyperText Transfer Protocol,#directory,Directory of the accessed web page.
-http,HyperText Transfer Protocol,#cookie,"Raw value of the HTTP Cookie header line
+http,HyperText Transfer Protocol,#cookie,"Raw value of the HTTP Cookie header line, containing the HTTP request cookies."
 http,HyperText Transfer Protocol,#code,Return code sent by the server.
 http,HyperText Transfer Protocol,#content_len,Contains the content length of the HTTP request/response.
 http,HyperText Transfer Protocol,#x_content_urn,Contains the different hashes of downloaded file (used by Gnutella).
@@ -788,15 +788,15 @@ http,HyperText Transfer Protocol,#header_raw,One HTTP header line (field and val
 http,HyperText Transfer Protocol,#header_name,One HTTP header line (field).
 http,HyperText Transfer Protocol,#header_value,One HTTP header line (value).
 http,HyperText Transfer Protocol,#header_end_offset,Offset to the first byte after the last HTTP Header-line (\\r\\n included). This is an offset to the '\\r' character of the second carriage return.
-http,HyperText Transfer Protocol,#header_statusline,"The status line
+http,HyperText Transfer Protocol,#header_statusline,"The status line, just before the header lines."
 http,HyperText Transfer Protocol,#auth_username,Login used in the HTTP Authorization request extension for authentication. The supported authentication methods are Basic and Digest.
 http,HyperText Transfer Protocol,#auth_password,Password used in the HTTP request Authorization extension. The only supported authentication method for password extraction is Basic.
 http,HyperText Transfer Protocol,#mime_type_main,Primary part of the MIME type.
 http,HyperText Transfer Protocol,#mime_type_sub,Second part of the MIME type.
-http,HyperText Transfer Protocol,#part_header_name,"Name of a header line. Extracted only if content-type is multipart""."""
-http,HyperText Transfer Protocol,#part_header_value,"Value of a header line. Extracted only if content-type is multipart""."""
-http,HyperText Transfer Protocol,#part_name,"Name of uploaded data or field. Extracted only if content-type is multipart""."""
-http,HyperText Transfer Protocol,#part_filename,"Name of uploaded file. Extracted only if content-type is multipart""."""
+http,HyperText Transfer Protocol,#part_header_name,Name of a header line. Extracted only if content-type is multipart
+http,HyperText Transfer Protocol,#part_header_value,Value of a header line. Extracted only if content-type is multipart
+http,HyperText Transfer Protocol,#part_name,Name of uploaded data or field. Extracted only if content-type is multipart
+http,HyperText Transfer Protocol,#part_filename,Name of uploaded file. Extracted only if content-type is multipart
 http,HyperText Transfer Protocol,#uri_param_name,URL parameter name (without URL decoding).
 http,HyperText Transfer Protocol,#uri_param_value,URL parameter value (without URL decoding).
 http,HyperText Transfer Protocol,#uri_raw,Complete name (scheme/authority + path + request) of a web resource.
@@ -804,8 +804,8 @@ http,HyperText Transfer Protocol,#uri_raw_path,Complete name (scheme/authority +
 http,HyperText Transfer Protocol,#index,Identifier of the request and response in a HTTP flow.
 http,HyperText Transfer Protocol,#response_ts,Timestamp of the first packet of a HTTP response.
 http,HyperText Transfer Protocol,#request_ts,Timestamp of the first packet of a HTTP query.
-http,HyperText Transfer Protocol,#connection_header,"Options in the content of Connection:"" general header desired by the sender for that particular connection."""
-http,HyperText Transfer Protocol,#upgrade_header,"Protocoles in the content of Upgrade:"" general header."""
+http,HyperText Transfer Protocol,#connection_header,Options in the content of Connection:
+http,HyperText Transfer Protocol,#upgrade_header,Protocoles in the content of Upgrade:
 http,HyperText Transfer Protocol,#request_size,Contains the total length in bytes of the request or the response (including HTTP headers). This attribute is computed at the end of the request or response.
 http,HyperText Transfer Protocol,#dechunk_size,Contains length of dechunked data.
 http,HyperText Transfer Protocol,#decompress_size,Contains length of decompressed data.
@@ -835,27 +835,27 @@ http,HyperText Transfer Protocol,#video_framerate,Number of frames per second.
 http,HyperText Transfer Protocol,#start_time,Start date of the call.
 http,HyperText Transfer Protocol,#video_url,URL of the binary video file referenced by the current metadata.
 http,HyperText Transfer Protocol,#total_datarate,Sum of video and audio datarates.
-http,HyperText Transfer Protocol,#ntlm_domain,"Domain"" attribute of the NTLM protocol."""
-http,HyperText Transfer Protocol,#ntlm_user,"User"" attribute of the NTLM protocol."""
-http,HyperText Transfer Protocol,#ntlm_workstation,"Workstation"" attribute of the NTLM protocol."""
-http,HyperText Transfer Protocol,#uri_decoded,"Normalized and decoded URL form (path + request) of a web resource
-http,HyperText Transfer Protocol,#uri_get_decoded,"Normalized and decoded URL form (path + request) of an HTTP GET request to a web resource
-http,HyperText Transfer Protocol,#uri_post_decoded,"Normalized and decoded URL form (path + request) of an HTTP POST request to a web resource
-http,HyperText Transfer Protocol,#uri_path_decoded,"Normalized and decoded URL path of a web resource
-http,HyperText Transfer Protocol,#post_variable_decoded,"Extracts the 'name/value' metadata from each web-form CGI parameter found in a POST HTTP Request. The name and value strings are normalized
+http,HyperText Transfer Protocol,#ntlm_domain,Domain
+http,HyperText Transfer Protocol,#ntlm_user,User
+http,HyperText Transfer Protocol,#ntlm_workstation,Workstation
+http,HyperText Transfer Protocol,#uri_decoded,"Normalized and decoded URL form (path + request) of a web resource, including UNRESERVED percent-encoded characters, '+' characters decoding, dot-segments decoding ('/./', '/../', '//'), and trailing '?' character removal."
+http,HyperText Transfer Protocol,#uri_get_decoded,"Normalized and decoded URL form (path + request) of an HTTP GET request to a web resource, including UNRESERVED percent-encoded characters, '+' characters decoding, dot-segments decoding ('/./', '/../', '//'), and trailing '?' character removal."
+http,HyperText Transfer Protocol,#uri_post_decoded,"Normalized and decoded URL form (path + request) of an HTTP POST request to a web resource, including UNRESERVED percent-encoded characters, '+' characters decoding, dot-segments decoding ('/./', '/../', '//'), and trailing '?' character removal."
+http,HyperText Transfer Protocol,#uri_path_decoded,"Normalized and decoded URL path of a web resource, without query parameters, including UNRESERVED percent-encoded characters, '+' characters decoding, dot-segments decoding ('/./', '/../', '//'), and trailing '?' character removal."
+http,HyperText Transfer Protocol,#post_variable_decoded,"Extracts the 'name/value' metadata from each web-form CGI parameter found in a POST HTTP Request. The name and value strings are normalized, including UNRESERVED percent-encoded characters, '+' characters decoding, dot-segments decoding ('/./', '/../', '//'), and trailing '?' character removal. The parameters are extracted from the URL of the request, and/or from the 'x-www-form-urlencoded' POST data."
 http,HyperText Transfer Protocol,#uri_unicode_normalized,UTF-8 normalized URL according to Unicode (http://unicode.org/reports/tr15/) (after decoding of unreserved percent-encoded characters and '+').
 http,HyperText Transfer Protocol,#last_modified,Contains the date and time at which the origin server believes the variant was last modified.
 hulu,Hulu,#video_datarate,Video bitrate in kilobits per second.
 iax,Inter Asterisk eXchange,#packet_type,Packet type.
-iax,Inter Asterisk eXchange,#trunk_timestamp,"Timestamp (in ms) after the start of this call
+iax,Inter Asterisk eXchange,#trunk_timestamp,"Timestamp (in ms) after the start of this call, indicating the time at which this trunk packet was transmitted."
 iax,Inter Asterisk eXchange,#trunk_call_data_offset,Trunk call data offset in bytes in the UDP Stream.
-iax,Inter Asterisk eXchange,#message_name,"For full IAX2 frames
-iax,Inter Asterisk eXchange,#subclass_name,"The command string for a message_name"" type packet."""
-iax,Inter Asterisk eXchange,#element_name,"Name of the information coming from a packet of type Full"" whose message_id is ""IAX""."""
+iax,Inter Asterisk eXchange,#message_name,"For full IAX2 frames, message_name is the name of a frame."
+iax,Inter Asterisk eXchange,#subclass_name,The command string for a message_name
+iax,Inter Asterisk eXchange,#element_name,Name of the information coming from a packet of type Full
 ica,Independant Computing Architecture (Citrix),#application,Application name used by the client.
-ica,Independant Computing Architecture (Citrix),#login_info,"Login information for the given connection (host
+ica,Independant Computing Architecture (Citrix),#login_info,"Login information for the given connection (host, username, network domain)."
 ica,Independant Computing Architecture (Citrix),#service,Current service identification string.
-icap,Internet Content Adaptation Protocol,#x_client_ip_respmod_req,"The IP source address of the encapsulated HTTP request
+icap,Internet Content Adaptation Protocol,#x_client_ip_respmod_req,"The IP source address of the encapsulated HTTP request, when using the X-Client-IP ICAP header extension (draft-stecher-icap-subid-00)."
 icap,Internet Content Adaptation Protocol,#referer_respmod_req,The HTTP referer embedded in the ICAP RESPMOD request (see http).
 icap,Internet Content Adaptation Protocol,#content_type_respmod_req,The HTTP content_type embedded in the http response part of the ICAP RESPMOD request (see http).
 icap,Internet Content Adaptation Protocol,#user_agent_respmod_req,The HTTP user_agent embedded in the ICAP RESPMOD request (see http).
@@ -874,27 +874,36 @@ ident,Identification Protocol,#client_port,TCP client's port
 igmp,Internet Group Management Protocol,#version,Protocol version.
 igmp,Internet Group Management Protocol,#address,Multicast address.
 igmp,Internet Group Management Protocol,#record_maddress,The multicast address in this record
+imap,Internet Message Access Protocol version 4,#request,"Parent entry, empty, for client request and server response."
 imap,Internet Message Access Protocol version 4,#index,Identifier of the request and response in a flow.
 imap,Internet Message Access Protocol version 4,#method,Command sent by the client
 imap,Internet Message Access Protocol version 4,#server_response,The return code of the server
+imap,Internet Message Access Protocol version 4,#email,"Parent entry, for fields belonging to the same email."
 imap,Internet Message Access Protocol version 4,#email_index,Index of the request which the email is attached to.
+imap,Internet Message Access Protocol version 4,#msglist_entry,"Parent entry, for different elements belonging to the same message of a message list."
+imap,Internet Message Access Protocol version 4,#attach,"Parent entry, for attach fields in a message."
+imap,Internet Message Access Protocol version 4,#msglist_attach,Parent entry for attached file in a list of emails.
 imap,Internet Message Access Protocol version 4,#login,User's login string.
 imap,Internet Message Access Protocol version 4,#password,User's password string.
 imap,Internet Message Access Protocol version 4,#message_id,A unique identifier of the message.
 imap,Internet Message Access Protocol version 4,#subject,Message subject.
 imap,Internet Message Access Protocol version 4,#date,Message date.
+imap,Internet Message Access Protocol version 4,#sender_entry,"Parent entry, for different elements belonging to the sender."
 imap,Internet Message Access Protocol version 4,#sender,Full address of email sender (alias followed by email address).
 imap,Internet Message Access Protocol version 4,#sender_email,Email address of the email sender.
 imap,Internet Message Access Protocol version 4,#sender_alias,Name of the email sender.
+imap,Internet Message Access Protocol version 4,#receiver_entry,"Parent entry, for different elements belonging to the email receiver."
 imap,Internet Message Access Protocol version 4,#receiver,Full address of email receiver (including cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 imap,Internet Message Access Protocol version 4,#receiver_type,Type of the email receiver.
 imap,Internet Message Access Protocol version 4,#msglist_subject,Message subject in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_date,Message date in a message list.
+imap,Internet Message Access Protocol version 4,#msglist_sender_entry,Parent entry for a sender in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_sender,Full address of email sender (alias and email address).
 imap,Internet Message Access Protocol version 4,#msglist_sender_alias,Name of email sender.
 imap,Internet Message Access Protocol version 4,#msglist_sender_email,Address of email sender.
+imap,Internet Message Access Protocol version 4,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_receiver,Full address of email receiver in a message list.
 imap,Internet Message Access Protocol version 4,#msglist_receiver_alias,Name of email receiver.
 imap,Internet Message Access Protocol version 4,#msglist_receiver_email,Email address of the email receiver.
@@ -911,6 +920,7 @@ imap,Internet Message Access Protocol version 4,#file_type,Received or sent file
 imap,Internet Message Access Protocol version 4,#replyto,Email address to use in a reply for this message.
 imap,Internet Message Access Protocol version 4,#login_server,Concatenated login and server: <login>@<server>.
 imap,Internet Message Access Protocol version 4,#header_raw,One IMAP header line (field and value).
+imap,Internet Message Access Protocol version 4,#received,"Parent entry, for fields added by each relay"
 imap,Internet Message Access Protocol version 4,#received_from_name,Contains the sending host name
 imap,Internet Message Access Protocol version 4,#received_from_ip,Contains the IP address of the sending host name
 imap,Internet Message Access Protocol version 4,#received_by_name,Contains the receiving host name
@@ -952,7 +962,7 @@ imp,Internet Messaging Program,#version,IMP version deployed.
 ip,Internet Protocol,#fragment_buffered_count,Number of segments that have been buffered for defragmentation
 ip,Internet Protocol,#fragment_buffered_size,Sizes sum of segments that have been buffered for defragmentation
 ipcp,Internet Protocol Control Protocol,#ip_addr,IP address attributed.
-ipcp,Internet Protocol Control Protocol,#mobile_ip_addr,"Mobile IP"" address attributed."""
+ipcp,Internet Protocol Control Protocol,#mobile_ip_addr,Mobile IP
 ipcp,Internet Protocol Control Protocol,#dns_ip_addr,IP address of the primary DNS server.
 ipcp,Internet Protocol Control Protocol,#win_ip_addr,IP address of the primary WINS server.
 ipcp,Internet Protocol Control Protocol,#second_dns_ip_addr,IP Address of the secondary DNS server.
@@ -1008,7 +1018,7 @@ jabber,XMPP Protocol (Jabber),#file_sid,Transferred file identifier.
 jabber,XMPP Protocol (Jabber),#contact_login,Contact login.
 jabber,XMPP Protocol (Jabber),#contact_name,Contact name.
 jabber,XMPP Protocol (Jabber),#contact_status,Contact status.
-jabber,XMPP Protocol (Jabber),#call_id,"Call id
+jabber,XMPP Protocol (Jabber),#call_id,"Call id, extracted for each call."
 jabber,XMPP Protocol (Jabber),#start_time,Start date of the call.
 jabber,XMPP Protocol (Jabber),#caller,Contains the identity (or the phone number) of the initiator of the call.
 jabber,XMPP Protocol (Jabber),#callee,Contains the identity (or the phone number) of the called party for a call.
@@ -1055,20 +1065,20 @@ ldap,Lighweight Directory Access Protocol,#payload_is_crypted,Indicates whether 
 ldap,Lighweight Directory Access Protocol,#seal_algo,Algorithm used to encrypt the Kerberos content.
 ldap,Lighweight Directory Access Protocol,#contains_sasl,Indicates whether the authentication is done using SASL mechanism.
 ldap,Lighweight Directory Access Protocol,#value_string,String value of the LDAP element.
-ldap,Lighweight Directory Access Protocol,#type,"Type of the LDAP element
-ldap,Lighweight Directory Access Protocol,#name,"Name of the LDAP element
+ldap,Lighweight Directory Access Protocol,#type,"Type of the LDAP element, in the LDAP tree."
+ldap,Lighweight Directory Access Protocol,#name,"Name of the LDAP element, in the LDAP tree (RFC2251)."
 ldap,Lighweight Directory Access Protocol,#number,Item number of the LDAP element.
 ldap,Lighweight Directory Access Protocol,#level,Depth level in ldap tree.
 ldap,Lighweight Directory Access Protocol,#hostname,Hostname extracted from a logon response to a CLDAP searchRequest.
-ldap,Lighweight Directory Access Protocol,#attribute_desc,"Filter expression first operand
-ldap,Lighweight Directory Access Protocol,#assertion_value,"Filter expression second operand
+ldap,Lighweight Directory Access Protocol,#attribute_desc,"Filter expression first operand, which is an attribute description."
+ldap,Lighweight Directory Access Protocol,#assertion_value,"Filter expression second operand, which is an assertion value."
 line,Line,#proto_version,Protocol version currently used by the client.
 line,Line,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 line,Line,#service,Current service identification string.
-line,Line,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-line,Line,#service_duration,"4 bytes integer value indicating
-line,Line,#service_duration_tv,"timeval structure indicating
-line,Line,#call_id,"Call id
+line,Line,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
+line,Line,#service_duration,"4 bytes integer value indicating, when the service is ended, the length of it in seconds."
+line,Line,#service_duration_tv,"timeval structure indicating, when the service is ended, the length of it in seconds and microseconds."
+line,Line,#call_id,"Call id, extracted for each call."
 line,Line,#user_agent,Name of the software used.
 line,Line,#caller_addr,Address which could be used by the initiator of the call.
 line,Line,#caller,Contains the identity (or the phone number) of the initiator of the call.
@@ -1203,7 +1213,7 @@ lotusnotes,Lotus Notes,#attach_content_size,Size of a attach file part.
 lpr,Line Printer Remote,#login,User's login string.
 lpr,Line Printer Remote,#server,Name of the machine that sent a file to print.
 lpr,Line Printer Remote,#job,Name of the printed file.
-lync,Microsoft Lync,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+lync,Microsoft Lync,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 lync,Microsoft Lync,#service,Current service identification string.
 mailru,Mail.ru Webmail,#contact_email,Email address of a contact.
 mailru,Mail.ru Webmail,#contact_alias,Alias of a contact.
@@ -1246,7 +1256,7 @@ mailru,Mail.ru Webmail,#msglist_folder,Indicates the directory from a message li
 mailru_agent,Mail.ru Agent,#file_id,Exchanged file identifier
 mailru_agent,Mail.ru Agent,#msg_receiver,The person who chat or voice is done with
 mailru_agent,Mail.ru Agent,#msg,Exchanged message during a chat
-mailru_agent,Mail.ru Agent,#conference_id,"Dialog session identifier
+mailru_agent,Mail.ru Agent,#conference_id,"Dialog session identifier, constant during a same session"
 mailru_agent,Mail.ru Agent,#im_action,Action of the user.
 mailru_agent,Mail.ru Agent,#user,Application user name.
 maktoob,Maktoob mail,#login,User's login string.
@@ -1293,13 +1303,13 @@ mapi,MS Exchange Message API,#domain,Network domain of the client.
 mapi,MS Exchange Message API,#action,Indicates if the message is read (Read) or composed (Compose).
 mapi,MS Exchange Message API,#importance,Indicates if the email has been marked by the user.
 mapi,MS Exchange Message API,#sensivity,Message sensibility.
-mapi,MS Exchange Message API,#date,"Message date: number of 100-nanosecond intervals since January 1
+mapi,MS Exchange Message API,#date,"Message date: number of 100-nanosecond intervals since January 1, 1601."
 mapi,MS Exchange Message API,#size,Message size.
 mapi,MS Exchange Message API,#flags,Message flags.
 mapi,MS Exchange Message API,#email_type,E-mail type (enumeration).
 mapi,MS Exchange Message API,#receiver_type,Type of the email receiver.
 mapi,MS Exchange Message API,#attach_id,Attachment identifier.
-mapi,MS Exchange Message API,#msglist_date,"Message date in a message list: number of 100-nanosecond intervals since January 1
+mapi,MS Exchange Message API,#msglist_date,"Message date in a message list: number of 100-nanosecond intervals since January 1, 1601."
 mapi,MS Exchange Message API,#msglist_msgid,Message identifier.
 mapi,MS Exchange Message API,#msglist_size,Message size in a message list.
 mapi,MS Exchange Message API,#msglist_importance,Indicates if the message has been marked by the user.
@@ -1329,9 +1339,9 @@ mgcp,Media Gateway Control Protocol,#session_duration,Call setup duration.
 mgcp,Media Gateway Control Protocol,#phone_number,The phone number.
 mgcp,Media Gateway Control Protocol,#event,Observed events
 mgcp,Media Gateway Control Protocol,#message_type,The message type
-mgcp,Media Gateway Control Protocol,#call_way,"The call Way (In
+mgcp,Media Gateway Control Protocol,#call_way,"The call Way (In, Out)"
 mgcp,Media Gateway Control Protocol,#start_time,Start date of the call.
-mgcp,Media Gateway Control Protocol,#mode,"Contains the connection mode (sendrcv
+mgcp,Media Gateway Control Protocol,#mode,"Contains the connection mode (sendrcv, recvonly, ...)"
 mgcp,Media Gateway Control Protocol,#notifiedEntity,Contains the identity of the notified identity
 mgcp,Media Gateway Control Protocol,#media_type,Contains the media type.
 mgcp,Media Gateway Control Protocol,#media_proto,Protocol used in client stream.
@@ -1350,7 +1360,7 @@ mgcp,Media Gateway Control Protocol,#media_attr_addr,The mentioned IPv4 address 
 mgcp,Media Gateway Control Protocol,#media_attr_channel,The channel value.
 mgcp,Media Gateway Control Protocol,#media_attr_transport,The transport protocol (TCP or UDP).
 mgcp,Media Gateway Control Protocol,#media_attr_value,Line value of the media attribute.
-mgcp,Media Gateway Control Protocol,#call_id,"Call id
+mgcp,Media Gateway Control Protocol,#call_id,"Call id, extracted for each call."
 mimp,IMP mobile version,#attach_filename,Attachment name.
 mimp,IMP mobile version,#date,Message date.
 mimp,IMP mobile version,#sender_alias,Name of the email sender.
@@ -1379,7 +1389,7 @@ mmse,MultiMedia Messages Encapsulation,#subject,MMS subject.
 mmse,MultiMedia Messages Encapsulation,#content_type,The content type of the message.
 mmse,MultiMedia Messages Encapsulation,#message_id,A unique reference assigned to the message. The ID enables a client to match delivery reports with previously sent messages.
 mmse,MultiMedia Messages Encapsulation,#content_location,Specifies a reference to the stored version of the MM that can be retrieved or can be used to obtain information about the MM using the WSP/HTTP GET or M-Mbox-View-req.
-mmse,MultiMedia Messages Encapsulation,#response_status_code,"It is used by the originating MMS Proxy-Relay to inform the MMS Client
+mmse,MultiMedia Messages Encapsulation,#response_status_code,"It is used by the originating MMS Proxy-Relay to inform the MMS Client, which has performed a submission or a forward the result of that particular operation."
 mmse,MultiMedia Messages Encapsulation,#response_status_text,Description which qualifies the response_status_code. The description may be based on the on the status code names contained in RFC1893.
 mmse,MultiMedia Messages Encapsulation,#message_sz,Full size of message in octets.
 mmse,MultiMedia Messages Encapsulation,#content_part_type,Message sub-part type.
@@ -1392,7 +1402,7 @@ mount,Mount,#status,Information status on the request process.
 mount,Mount,#path_value,Value of the data path string.
 mount,Mount,#path_length,Length of the data path string.
 mpegts,MPEG-Transport Stream,#chunk_len,Data length.
-mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 mplus_messenger,M+ Messenger,#service,Current service identification string.
 mplus_messenger,M+ Messenger,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 msrp,Message Session Relay Protocol,#session_id,Uniquely identifies the current user session.
@@ -1423,7 +1433,7 @@ netlog,Netlog.com,#login,User's login string.
 netlog,Netlog.com,#password,User's password string.
 netlog,Netlog.com,#is_mobile_service,Whether or not the access was made through a mobile device.
 nfs,Network File System,#version,Used version
-nfs,Network File System,#filename,"Accessed
+nfs,Network File System,#filename,"Accessed, written or read file name."
 nfs,Network File System,#offset,Offset of the written/read file. Extracted on READ and WRITE procedure replies.
 nfs,Network File System,#filesize,Size of the file.
 nfs,Network File System,#uid,Generic user ID.
@@ -1490,8 +1500,8 @@ ospf,Open Shortest Path First,#router_id,Router Id.
 ospf,Open Shortest Path First,#area_id,The Area ID of the area to which the attached network belongs.
 ospf,Open Shortest Path First,#netmask,The network mask associated with this interface.
 ospf,Open Shortest Path First,#dead_interval,The number of seconds before declaring a silent router down.
-ospf,Open Shortest Path First,#designed_router,"The identity of the Designated Router for this network
-ospf,Open Shortest Path First,#backup_router,"The identity of the Backup Designated Router for this network
+ospf,Open Shortest Path First,#designed_router,"The identity of the Designated Router for this network, in the view of the sending router>."
+ospf,Open Shortest Path First,#backup_router,"The identity of the Backup Designated Router for this network, in the view of the sending router."
 ospf,Open Shortest Path First,#neighbor,The Router IDs of each router from whom valid Hello packets have been seen recently on the network.
 ospf,Open Shortest Path First,#ls_type,The type of the LSA.
 ospf,Open Shortest Path First,#ls_id,This field identifies the portion of the internet environment that is being described by the LSA.
@@ -1501,32 +1511,40 @@ ospf,Open Shortest Path First,#ls_netmask,The IP address mask for the network.
 ospf,Open Shortest Path First,#ls_metric,The cost of this route.
 ospf,Open Shortest Path First,#ls_attach_router,The Router IDs of each of the routers attached to the network.
 ospf,Open Shortest Path First,#link_id,Identifies the object that this router link connects to.
-ospf,Open Shortest Path First,#link_data,"For connections to stub networks
+ospf,Open Shortest Path First,#link_data,"For connections to stub networks, Link Data specifies the network's IP address mask. For unnumbered point-to-point connections, it specifies the interface's MIB-II [Ref8] ifIndex value. For the other link types it specifies the router interface's IP address."
 ospf,Open Shortest Path First,#dd_seq_nbr,Used to sequence the collection of Database Description Packets.
 ospf,Open Shortest Path First,#external_fwd_addr,Data traffic for the advertised destination will be forwarded to this address.
 ospf,Open Shortest Path First,#external_route_tag,A 32-bit field attached to each external route.
 owa,Outlook Web App,#msglist_sender,Full address of email sender (alias and email address).
 owa,Outlook Web App,#msglist_receiver_alias,Name of email receiver.
+owa,Outlook Web App,#msglist_receiver_entry,Parent entry for a receiver in a message list.
 owa,Outlook Web App,#contact_email,Email address of a contact.
 owa,Outlook Web App,#contact_alias,Alias of a contact.
+owa,Outlook Web App,#contact_entry,This attribute groups information about a contact.
 owa,Outlook Web App,#draft,Indicates if the email is a draft or has really been posted
 owa,Outlook Web App,#receiver,Full address of email receiver (including cc and bcc receivers).
 owa,Outlook Web App,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 owa,Outlook Web App,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 owa,Outlook Web App,#receiver_type,Type of the email receiver.
+owa,Outlook Web App,#receiver_entry,"Parent entry, for different elements belonging to the email receiver."
 owa,Outlook Web App,#date,Message date.
 owa,Outlook Web App,#sender,Full address of email sender (alias followed by email address).
 owa,Outlook Web App,#sender_email,Email address of the email sender.
 owa,Outlook Web App,#sender_alias,Name of the email sender.
+owa,Outlook Web App,#sender_entry,"Parent entry, for different elements belonging to the sender."
 owa,Outlook Web App,#msg_id,Identifier of the message.
 owa,Outlook Web App,#subject,Message subject.
 owa,Outlook Web App,#action,Indicates if the message is read (Read) or composed (Compose).
 owa,Outlook Web App,#attach_filename,Attachment name.
 owa,Outlook Web App,#msglist_date,Message date in a message list.
 owa,Outlook Web App,#msglist_sender_alias,Name of email sender.
+owa,Outlook Web App,#msglist_sender_entry,Parent entry for a sender in a message list.
 owa,Outlook Web App,#msglist_subject,Message subject in a message list.
 owa,Outlook Web App,#msglist_msgid,Message identifier.
+owa,Outlook Web App,#msglist_entry,"Parent entry, for different elements belonging to the same message of a message list."
 owa,Outlook Web App,#attach_type,Content type of the sent attached file.
+owa,Outlook Web App,#attach,"Parent entry, for attach fields in a message."
+owa,Outlook Web App,#email,"Parent entry, for fields belonging to the same email."
 owa,Outlook Web App,#msglist_folder,Indicates the directory from a message list.
 owa,Outlook Web App,#folder,Indicates the directory from where messages are read.
 owa,Outlook Web App,#attach_id,Attachment identifier.
@@ -1550,7 +1568,7 @@ paltalk,PalTalk,#sender,Contains the identity of the sender of a chat session or
 paltalk,PalTalk,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
 paltalk,PalTalk,#sender_uid,Message sender's unique identifier.
 paltalk,PalTalk,#receiver_uid,Message receiver's unique identifier.
-paltalk,PalTalk,#call_id,"Call id
+paltalk,PalTalk,#call_id,"Call id, extracted for each call."
 paltalk,PalTalk,#start_time,Start date of the call.
 paltalk,PalTalk,#caller,Contains the identity (or the phone number) of the initiator of the call.
 paltalk,PalTalk,#caller_uid,Caller's unique identifier.
@@ -1576,10 +1594,13 @@ perfspot,Perfspot.com,#is_mobile_service,Whether or not the access was made thro
 perfspot,Perfspot.com,#password,User's password string.
 perfspot,Perfspot.com,#login,User's login string.
 pop3,Post Office Protocol (Version 3),#login,User's login string.
+pop3,Post Office Protocol (Version 3),#email,"Parent entry, for fields belonging to the same email."
 pop3,Post Office Protocol (Version 3),#password,User's password string.
+pop3,Post Office Protocol (Version 3),#sender_entry,"Parent entry, for different elements belonging to the sender."
 pop3,Post Office Protocol (Version 3),#sender,Full address of email sender (alias followed by email address).
 pop3,Post Office Protocol (Version 3),#sender_email,Email address of the email sender.
 pop3,Post Office Protocol (Version 3),#sender_alias,Name of the email sender.
+pop3,Post Office Protocol (Version 3),#receiver_entry,"Parent entry, for different elements belonging to the email receiver."
 pop3,Post Office Protocol (Version 3),#receiver,Full address of email receiver (including cc and bcc receivers).
 pop3,Post Office Protocol (Version 3),#receiver_email,Email address of message receiver (included cc and bcc receivers).
 pop3,Post Office Protocol (Version 3),#receiver_alias,Name of email receiver (included cc and bcc receivers).
@@ -1587,10 +1608,12 @@ pop3,Post Office Protocol (Version 3),#receiver_type,Type of the email receiver.
 pop3,Post Office Protocol (Version 3),#subject,Message subject.
 pop3,Post Office Protocol (Version 3),#date,Message date.
 pop3,Post Office Protocol (Version 3),#mime_type,Content type of received email body.
+pop3,Post Office Protocol (Version 3),#request,"Parent entry, empty, for client request and server response."
 pop3,Post Office Protocol (Version 3),#index,Identifier of the request and response in a flow.
 pop3,Post Office Protocol (Version 3),#email_index,Index of the request which the email is attached to.
 pop3,Post Office Protocol (Version 3),#method,Command sent by the client
 pop3,Post Office Protocol (Version 3),#server_response,The return code of the server
+pop3,Post Office Protocol (Version 3),#attach,"Parent entry, for attach fields in a message."
 pop3,Post Office Protocol (Version 3),#attach_filename,Attachment name.
 pop3,Post Office Protocol (Version 3),#attach_type,Content type of the sent attached file.
 pop3,Post Office Protocol (Version 3),#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
@@ -1603,6 +1626,7 @@ pop3,Post Office Protocol (Version 3),#xmailer,Contains the user_agent of the us
 pop3,Post Office Protocol (Version 3),#message_id,A unique identifier of the message.
 pop3,Post Office Protocol (Version 3),#user_agent,Name of the software used.
 pop3,Post Office Protocol (Version 3),#header_raw,One POP3 header line (field and value).
+pop3,Post Office Protocol (Version 3),#received,"Parent entry, for fields added by each relay"
 pop3,Post Office Protocol (Version 3),#received_from_name,Contains the sending host name
 pop3,Post Office Protocol (Version 3),#received_from_ip,Contains the IP address of the sending host name
 pop3,Post Office Protocol (Version 3),#received_by_name,Contains the receiving host name
@@ -1621,7 +1645,7 @@ postgres,PostgreSQL,#error,Error message
 pplive,PPlive,#method,Contains the method used for a PPLive Live Streaming command
 ppp,Point-to-Point Protocol,#protocol,Higher level protocol code or name.
 pptp,Point-to-Point Tunneling Protocol,#version,Protocol version.
-pptp,Point-to-Point Tunneling Protocol,#vendor,"The type of PAC being used
+pptp,Point-to-Point Tunneling Protocol,#vendor,"The type of PAC being used, or the type of PNS software being used"
 pricerunner,PriceRunner,#query_text,Query sent to the search engine.
 pricerunner,PriceRunner,#query_raw,Contains the query sent to the search engine as indicated in the URL.
 q931,Q.931,#display,Display name.
@@ -1652,7 +1676,7 @@ radius,Remote Authentication Dial-In User Service,#calling_station_id,Client id.
 radius,Remote Authentication Dial-In User Service,#framed_ip,Framed-IP-Address (an attribute defined in RFC2865).
 radius,Remote Authentication Dial-In User Service,#framed_ip_netmask,Framed-IP-Netmask (an attribute defined in RFC2865).
 radius,Remote Authentication Dial-In User Service,#acct_session_id,Accounting session ID.
-radius,Remote Authentication Dial-In User Service,#called_station_id,"The phone number that the user called
+radius,Remote Authentication Dial-In User Service,#called_station_id,"The phone number that the user called, using Dialed Number Identification (DNIS) or similar technology."
 radius,Remote Authentication Dial-In User Service,#nas_id,Unique identifier of the NAS originating the Access-Request
 radius,Remote Authentication Dial-In User Service,#nas_ip,IP address of the NAS originating the Access-Request
 radius,Remote Authentication Dial-In User Service,#nas_port,Physical port number of the user on the NAS
@@ -1669,7 +1693,7 @@ radius,Remote Authentication Dial-In User Service,#stop_time,Indicates the end o
 radius,Remote Authentication Dial-In User Service,#framed_ipv6_route,Provides the routing information to be configured for the user on the NAS
 radius,Remote Authentication Dial-In User Service,#framed_ipv6_pool,Contains the name of an assigned pool that SHOULD be used to assign an IPv6 prefix for the user.
 radius,Remote Authentication Dial-In User Service,#avp_ipv4,An IPv4 address. (CLEP_DATA_IP_ADDR)
-radius,Remote Authentication Dial-In User Service,#avp_int,"An 8
+radius,Remote Authentication Dial-In User Service,#avp_int,"An 8, 24 or 32 bits integer value. (CLEP_DATA_UINT32)"
 radius,Remote Authentication Dial-In User Service,#avp_int64,A 64 bits integer value. (CLEP_DATA_UINT64)
 radius,Remote Authentication Dial-In User Service,#avp_vendor_id,SMI Network Management Private Enterprise Code. (CLEP_DATA_UINT32)
 radius,Remote Authentication Dial-In User Service,#avp_interface_id,IPv6 interface identifier. (CLEP_DATA_UINT64)
@@ -1730,10 +1754,10 @@ rdp,Remote Desktop Protocol (Windows Terminal Server),#version,RDP Version used.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#client_build,RDP client build.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#desktop_width,desktop width.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#desktop_height,desktop height.
-rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_ascii,"Client hostname
-rdp,Remote Desktop Protocol (Windows Terminal Server),#domain_ascii,"Client domain
-rdp,Remote Desktop Protocol (Windows Terminal Server),#username_ascii,"Client login
-rdp,Remote Desktop Protocol (Windows Terminal Server),#default_username,"User's default login
+rdp,Remote Desktop Protocol (Windows Terminal Server),#hostname_ascii,"Client hostname, in ASCII."
+rdp,Remote Desktop Protocol (Windows Terminal Server),#domain_ascii,"Client domain, in ASCII."
+rdp,Remote Desktop Protocol (Windows Terminal Server),#username_ascii,"Client login, in ASCII."
+rdp,Remote Desktop Protocol (Windows Terminal Server),#default_username,"User's default login, provided at RDP's client runtime."
 rdp,Remote Desktop Protocol (Windows Terminal Server),#encrypted,Indicates if the traffic is encrypted with TLS or CresDDP.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#io_channel_id,IO channel ID.
 rdp,Remote Desktop Protocol (Windows Terminal Server),#channel_id,Communication channel ID.
@@ -1762,7 +1786,7 @@ rlogin,Remote Login,#speed,Connection speed.
 rpc,Remote Procedure Call,#program,Program Identifier.
 rpc,Remote Procedure Call,#version,Version of the RPC protocol.
 rpc,Remote Procedure Call,#program_version,Version of the used program over RPC.
-rpc,Remote Procedure Call,#procedure,"Contains the request used by the application program (NFS
+rpc,Remote Procedure Call,#procedure,"Contains the request used by the application program (NFS, YelloPages, ...)."
 rpc,Remote Procedure Call,#state,Status of the command response.
 rpc,Remote Procedure Call,#xid,Identifier of the request or the reply.
 rpc,Remote Procedure Call,#message_type,Message type (Call or Reply).
@@ -1788,8 +1812,8 @@ rtcp,Real Time Control Protocol,#rr_highestseqnum,highest sequence number receiv
 rtcp,Real Time Control Protocol,#rr_lsr,The middle 32 bits out of 64 in the NTP timestamp
 rtcp,Real Time Control Protocol,#rr_dlsr,The delay between receiving the last RR packet from source n and sending reception report block.
 rtcp,Real Time Control Protocol,#sr_pkt_sender_ssrc,The synchronization source identifier for the originator of this Sender Report packet.
-rtcp,Real Time Control Protocol,#sr_ntp_ts_msw,"NTP timestamp
-rtcp,Real Time Control Protocol,#sr_ntp_ts_lsw,"NTP timestamp
+rtcp,Real Time Control Protocol,#sr_ntp_ts_msw,"NTP timestamp, most significant word"
+rtcp,Real Time Control Protocol,#sr_ntp_ts_lsw,"NTP timestamp, least significant word"
 rtcp,Real Time Control Protocol,#sr_rtp_ts,RTP timestamp
 rtcp,Real Time Control Protocol,#sr_pkt_count,The total number of RTP data packets transmitted by the sender
 rtcp,Real Time Control Protocol,#sr_octet_count,The total number of payload octets transmitted in RTP
@@ -1810,8 +1834,8 @@ rtp,Real Time Protocol,#unseq,Contains the number of miss ordered packets (use s
 rtp,Real Time Protocol,#mos,Standard voice quality indicator (Mean Opinion Score). This attribute is deprecated.
 rtp,Real Time Protocol,#ssrc,Identity of the Synchronization source
 rtp,Real Time Protocol,#timestamp,RTP packet timestamp.
-rtp,Real Time Protocol,#mos_session,"Standard voice quality indicator
-rtp,Real Time Protocol,#rfactor,"Rfactor value
+rtp,Real Time Protocol,#mos_session,"Standard voice quality indicator, multiplied by 1000. The following codecs are supported: PCMU, GSM(GSM-FR), G723, PCMA, G729, EVRC, EVRCB, AMR-WB."
+rtp,Real Time Protocol,#rfactor,"Rfactor value, following the ITU G.107 calculation method, multiplied by 1000. The following codecs are supported: PCMU, GSM(GSM-FR), G723, PCMA, G729, EVRC, EVRCB, AMR-WB."
 rtp,Real Time Protocol,#mos_satellite,Standard voice quality indicator for satellite (Mean Opinion Score). This attribute is deprecated.
 rtp,Real Time Protocol,#session_duration,Call setup duration.
 rtsp,Real Time Streaming Protocol,#user_agent,Client's software.
@@ -1829,7 +1853,7 @@ rtsp,Real Time Streaming Protocol,#urilen,uri length.
 rtsp,Real Time Streaming Protocol,#uri_full,Complete name (path + filename) of a web resource (not truncated).
 rtsp,Real Time Streaming Protocol,#header_name,One RTSP header line (field).
 rtsp,Real Time Streaming Protocol,#header_value,One RTSP header line (value).
-rtsp,Real Time Streaming Protocol,#header_statusline,"The status line
+rtsp,Real Time Streaming Protocol,#header_statusline,"The status line, just before the header lines."
 rtsp,Real Time Streaming Protocol,#version,Protocol version.
 rtsp,Real Time Streaming Protocol,#cseq,Sequence number.
 rtsp,Real Time Streaming Protocol,#start_time,Start date of the call.
@@ -1856,14 +1880,14 @@ s1ap,S1 Application Protocol,#ep_ie_tai,Tracking Area Identifier (TAI).
 s1ap,S1 Application Protocol,#ep_ie_cgi,E-UTRAN Cell Global Identifier (E-UTRAN CGI).
 samsung_apps,Samsung Apps,#is_smartphone,Boolean attribute indicating whether the client is a smartphone(1) or not(0).
 sccp,Skinny Client Control Protocol,#message_type,The type of the message.
-sccp,Skinny Client Control Protocol,#call_id,"Call id
+sccp,Skinny Client Control Protocol,#call_id,"Call id, extracted for each call."
 sccp,Skinny Client Control Protocol,#caller,Contains the identity (or the phone number) of the initiator of the call.
 sccp,Skinny Client Control Protocol,#callee,Contains the identity (or the phone number) of the called party for a call.
 sccp,Skinny Client Control Protocol,#callername,Calling party identity
 sccp,Skinny Client Control Protocol,#calleename,Called party identity
 sccp,Skinny Client Control Protocol,#device_type,Device type
 sccp,Skinny Client Control Protocol,#device_name,Device name
-sccp,Skinny Client Control Protocol,#call_way,"The call Way (In
+sccp,Skinny Client Control Protocol,#call_way,"The call Way (In, Out)"
 sccp,Skinny Client Control Protocol,#start_time,Start date of the call.
 sccp,Skinny Client Control Protocol,#call_duration,Call duration.
 sccp,Skinny Client Control Protocol,#callstate,Status of the current call
@@ -1913,10 +1937,10 @@ sip,Session Initiation Protocol,#authorization_username,User's name as specified
 sip,Session Initiation Protocol,#alert_info,Specifies an alternative ring tone.
 sip,Session Initiation Protocol,#call_info,Provides additional information about the caller or callee.
 sip,Session Initiation Protocol,#accept_language,Indicates the preferred languages.
-sip,Session Initiation Protocol,#call_id,"Call id
+sip,Session Initiation Protocol,#call_id,"Call id, extracted for each call."
 sip,Session Initiation Protocol,#start_time,Start date of the call.
 sip,Session Initiation Protocol,#time_before_spk,Waiting delay before speak
-sip,Session Initiation Protocol,#session_duration,"Duration of the session
+sip,Session Initiation Protocol,#session_duration,"Duration of the session, between INVITE and BYE."
 sip,Session Initiation Protocol,#call_duration,Call duration.
 sip,Session Initiation Protocol,#setup_delay,Call setup delay.
 sip,Session Initiation Protocol,#caller,Contains the identity (or the phone number) of the initiator of the call.
@@ -1925,8 +1949,8 @@ sip,Session Initiation Protocol,#callee,Contains the identity (or the phone numb
 sip,Session Initiation Protocol,#callee_e164,Format of the callee's telephone numbers
 sip,Session Initiation Protocol,#caller_nickname,the caller nickname
 sip,Session Initiation Protocol,#callee_nickname,the callee nickname
-sip,Session Initiation Protocol,#confcall_caller,"Caller's name
-sip,Session Initiation Protocol,#confcall_callee,"Callee's name
+sip,Session Initiation Protocol,#confcall_caller,"Caller's name, in a confcall."
+sip,Session Initiation Protocol,#confcall_callee,"Callee's name, in a confcall."
 sip,Session Initiation Protocol,#caller_user_agent,Client's software in the caller way.
 sip,Session Initiation Protocol,#callee_user_agent,Client's software used by the callee.
 sip,Session Initiation Protocol,#caller_server_agent,Server's software in the caller way.
@@ -1955,14 +1979,14 @@ skyblog,Skyblog,#login,User's login string.
 skype,Skype,#version,Skype client version.
 skype,Skype,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 skype,Skype,#service,Current service identification string.
-skype,Skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-skype,Skype,#service_duration,"4 bytes integer value indicating
-skype,Skype,#service_duration_tv,"Timeval structure indicating
+skype,Skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
+skype,Skype,#service_duration,"4 bytes integer value indicating, when the service is ended, the length of it in seconds"
+skype,Skype,#service_duration_tv,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds."
 slsk,SoulSeek,#query,Query sent to find a file.
 slsk,SoulSeek,#version,Current version of the Soulseek client.
 slsk,SoulSeek,#filename,Name of the transferred file.
 slsk,SoulSeek,#filesize,Size (byte) of the transferred file.
-slsk,SoulSeek,#file_id,"Unique identifier of a file
+slsk,SoulSeek,#file_id,"Unique identifier of a file, based on IP of peer and the unique token for this combination file/peer."
 slsk,SoulSeek,#transfer_way,Indicates whether the file is uploaded or downloaded.
 slsk,SoulSeek,#password,User's password string.
 slsk,SoulSeek,#login,User's login string.
@@ -1998,18 +2022,24 @@ smpp,Short message peer-to-peer protocol,#sender,Sender's address.
 smpp,Short message peer-to-peer protocol,#receiver,Receiver's address.
 smtp,Simple Mail Transfer Protocol,#login,User's login string.
 smtp,Simple Mail Transfer Protocol,#password,User's password string.
+smtp,Simple Mail Transfer Protocol,#email,"Parent entry, for fields belonging to the same email."
+smtp,Simple Mail Transfer Protocol,#sender_entry,"Parent entry, for different elements belonging to the sender."
 smtp,Simple Mail Transfer Protocol,#sender,Full address of email sender (alias followed by email address).
 smtp,Simple Mail Transfer Protocol,#sender_alias,Name of the email sender.
 smtp,Simple Mail Transfer Protocol,#sender_email,Email address of the email sender.
+smtp,Simple Mail Transfer Protocol,#mailfrom,Contains the domain and the sender's email
 smtp,Simple Mail Transfer Protocol,#sender_mailfrom,Sender's email address (used by MAIL FROM method).
 smtp,Simple Mail Transfer Protocol,#sender_domain,Domain of the sender's email address.
+smtp,Simple Mail Transfer Protocol,#rcptto,Domain and recipient's email address (used by RCPT TO method).
 smtp,Simple Mail Transfer Protocol,#receiver_rcptto,Recipient's email address (used by RCPT TO method).
 smtp,Simple Mail Transfer Protocol,#receiver_domain,Domain of the recipient's email address.
 smtp,Simple Mail Transfer Protocol,#header_raw,One SMTP header line (field and value).
+smtp,Simple Mail Transfer Protocol,#receiver_entry,"Parent entry, for different elements belonging to the email receiver."
 smtp,Simple Mail Transfer Protocol,#receiver,Full address of email receiver (including cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_alias,Name of email receiver (included cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_email,Email address of message receiver (included cc and bcc receivers).
 smtp,Simple Mail Transfer Protocol,#receiver_type,Type of the email receiver.
+smtp,Simple Mail Transfer Protocol,#request,"Parent entry, empty, for client request and server response."
 smtp,Simple Mail Transfer Protocol,#index,Identifier of the request and response in a flow.
 smtp,Simple Mail Transfer Protocol,#email_index,Index of the request which the email is attached to.
 smtp,Simple Mail Transfer Protocol,#method,Command sent by the client
@@ -2023,6 +2053,7 @@ smtp,Simple Mail Transfer Protocol,#user_agent,Name of the software used.
 smtp,Simple Mail Transfer Protocol,#start_time,Starting time of SMTP session
 smtp,Simple Mail Transfer Protocol,#stop_time,Ending time of SMTP session
 smtp,Simple Mail Transfer Protocol,#duration,Duration of the SMTP session
+smtp,Simple Mail Transfer Protocol,#attach,"Parent entry, for attach fields in a message."
 smtp,Simple Mail Transfer Protocol,#attach_type,Content type of the sent attached file.
 smtp,Simple Mail Transfer Protocol,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 smtp,Simple Mail Transfer Protocol,#attach_size,Attached file MIME size.
@@ -2033,6 +2064,7 @@ smtp,Simple Mail Transfer Protocol,#server,Contains the name of the used smtp se
 smtp,Simple Mail Transfer Protocol,#server_agent,The software name used by the email server
 smtp,Simple Mail Transfer Protocol,#greeting_message,Contains the greeting message of the server when connection is established
 smtp,Simple Mail Transfer Protocol,#replyto,Email address to use in a reply for this message.
+smtp,Simple Mail Transfer Protocol,#received,"Parent entry, for fields added by each relay"
 smtp,Simple Mail Transfer Protocol,#received_from_name,Contains the sending host name
 smtp,Simple Mail Transfer Protocol,#received_from_ip,Contains the IP address of the sending host name
 smtp,Simple Mail Transfer Protocol,#received_by_name,Contains the receiving host name
@@ -2063,10 +2095,10 @@ spdy,SPDY,#stream_id,Stream identifier.
 spdy,SPDY,#length,Length of the message starting at the offset of this field.
 spdy,SPDY,#status_code,An indicator for why the stream is being terminated.
 spdy,SPDY,#header_count,The number of repeating name/value pairs following this field
-spdy,SPDY,#header_name,"Header name
+spdy,SPDY,#header_name,"Header name, prefixed by a ':' if it's a mandatory SPDY header."
 spdy,SPDY,#header_value,Header value.
 spid,Statistical Protocol IDentification,#found_protocol,Protocol name that has been discovered by SPID.
-spid,Statistical Protocol IDentification,#divergence,"Divergence giving the distance"" between the flow content and the selected SPID model. The smaller the divergence
+spid,Statistical Protocol IDentification,#divergence,Divergence giving the distance
 squirrelmail,SquirrelMail,#contact_email,Email address of a contact.
 squirrelmail,SquirrelMail,#contact_alias,Alias of a contact.
 squirrelmail,SquirrelMail,#msglist_sender_alias,Name of email sender.
@@ -2114,26 +2146,26 @@ stp,Spanning Tree Protocol,#root_addr,Root Bridge MAC address.
 stp,Spanning Tree Protocol,#root_path_cost,Cost of the path to the Root Bridge.
 stp,Spanning Tree Protocol,#bridge_addr,Bridge MAC address.
 stun,Session Traversal Utilities for NAT,#mapped_address_ipv4,IPv4 address to be mapped.
-stun,Session Traversal Utilities for NAT,#xor_mapped_address_ipv4,"IPv4 address to be mapped
+stun,Session Traversal Utilities for NAT,#xor_mapped_address_ipv4,"IPv4 address to be mapped, in XORed version (obfuscated)."
 stun,Session Traversal Utilities for NAT,#magic_cookie,The magic cookie used to deobfuscate the XOR Mapped Port and XOR Mapped Address.
 stun,Session Traversal Utilities for NAT,#remote_address_ipv4,IPv4 address of the distant peer as seen from the STUN relay server.
 syslog,Syslog,#code,Message type.
 t38,T.38,#caller,Calling subscriber identification
 t38,T.38,#callee,Called subscriber identification
-t38,T.38,#fax_message_number,"Identification associated to the following FAX messages: CSI the called subscriber identification (which is equal to the callee)
+t38,T.38,#fax_message_number,"Identification associated to the following FAX messages: CSI the called subscriber identification (which is equal to the callee), CIG the calling subscriber identification (which is the caller), PWD the password, SEP the selective polling, PSA the polled subaddress, TSI the transmitting subscriber identification, SUB the subaddress and SID the sender identification."
 tagged,Tagged.com,#login,User's login string.
 tagged,Tagged.com,#password,User's password string.
 tango,Tango Video Calls,#attach_filename,Transferred file name.
-tango,Tango Video Calls,#service_duration_tv,"Timeval structure indicating
-tango,Tango Video Calls,#service_duration,"4 bytes integer value indicating
-tango,Tango Video Calls,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+tango,Tango Video Calls,#service_duration_tv,"Timeval structure indicating, when the service is ended, the duration of it in seconds and microseconds."
+tango,Tango Video Calls,#service_duration,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds."
+tango,Tango Video Calls,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 tango,Tango Video Calls,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 tango,Tango Video Calls,#service,Current service identification string.
 tango,Tango Video Calls,#callee_id,Called part identifier.
 tango,Tango Video Calls,#caller_id,Calling part identifier.
 tango,Tango Video Calls,#callee,Contains the identity (or the phone number) of the called party for a call.
 tango,Tango Video Calls,#caller,Contains the identity (or the phone number) of the initiator of the call.
-tango,Tango Video Calls,#call_id,"Call id
+tango,Tango Video Calls,#call_id,"Call id, extracted for each call."
 tango,Tango Video Calls,#phone_number,User's phone number.
 tango,Tango Video Calls,#user_email,User's email address.
 tango,Tango Video Calls,#login,User's login string.
@@ -2152,7 +2184,7 @@ tds,Tabular Data Stream,#library,Name of network dynamic-link library used.
 tds,Tabular Data Stream,#database_name,Name of the used database.
 tds,Tabular Data Stream,#language,User locale.
 tds,Tabular Data Stream,#query,SQL query sent by the user.
-tds,Tabular Data Stream,#login_encrypted,"This attribute is set to one if the login phase is encrypted. Implemented conforming to the Microsoft 2014 MS-TDS official specification (http://msdn.microsoft.com/en-us/library/dd304523.aspx); beware
+tds,Tabular Data Stream,#login_encrypted,"This attribute is set to one if the login phase is encrypted. Implemented conforming to the Microsoft 2014 MS-TDS official specification (http://msdn.microsoft.com/en-us/library/dd304523.aspx); beware, the behaviour may be different with old releases of MS SQL Server not supporting the standard."
 teamspeak,Teamspeak v2,#channel_description,Channel description (long)
 teamspeak,Teamspeak v2,#channel_action,Action associated to a channel
 teamspeak,Teamspeak v2,#channel_topic,Channel topic (short)
@@ -2184,10 +2216,10 @@ telnet,Telnet,#login,User's login string.
 telnet,Telnet,#password,User's password string.
 telnet,Telnet,#term_type,Terminal type.
 telnet,Telnet,#rtt,Server response time.
-teredo,Teredo protocol,#server_ip,"The IPv4 network address of the Teredo server involved in the exchange
+teredo,Teredo protocol,#server_ip,"The IPv4 network address of the Teredo server involved in the exchange, read from the encapsulated IPv6 packet header"
 teredo,Teredo protocol,#client_ip,Client's mapped IPv4 net address.
 teredo,Teredo protocol,#origin_client_ip,IPv4 client address as visible in the Origin Indication
-teredo,Teredo protocol,#client_id,"Client identifier
+teredo,Teredo protocol,#client_id,"Client identifier, set up during its configuration"
 teredo,Teredo protocol,#auth_value,Client Authentication string
 tftp,Trivial File Transfer Protocol,#filename,Name of the transferred file.
 tftp,Trivial File Transfer Protocol,#request_filename,Name of the requested file.
@@ -2206,7 +2238,7 @@ tns,Transparent Network Service (Oracle),#client_program_name,Client program nam
 tns,Transparent Network Service (Oracle),#query,Database query.
 tns,Transparent Network Service (Oracle),#response_size,Unitary size in bytes of one the PDUs returned by the server.
 tns,Transparent Network Service (Oracle),#response_time,Elapsed time between sending of the dns request and reception of its response.
-twitter,Twitter.com,#relation,"Relation between two users
+twitter,Twitter.com,#relation,"Relation between two users, following/followed_by, or sender/recicipent for direct messages."
 twitter,Twitter.com,#media_url,URL of the image which is shared inside a tweet (legacy Twitter API).
 twitter,Twitter.com,#date,Message date.
 twitter,Twitter.com,#tweet,Text of a tweet or a direct message.
@@ -2232,9 +2264,9 @@ viadeo,Viadeo.com,#contact_alias,Contact's alias.
 viadeo,Viadeo.com,#groupe,Contact's alias.
 viber,Viber,#filesize,Size (byte) of the transferred file.
 viber,Viber,#service,Current service identification string.
-viber,Viber,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-viber,Viber,#service_duration,"4 bytes integer value indicating
-viber,Viber,#service_duration_tv,"structure indicating
+viber,Viber,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
+viber,Viber,#service_duration,"4 bytes integer value indicating, when the service is ended, the length of it in seconds"
+viber,Viber,#service_duration_tv,"structure indicating, when the service is ended, the length of it in second and microseconds."
 vkontakte,Vk.com (Vkontakte),#contact_email,Email address of a contact.
 vkontakte,Vk.com (Vkontakte),#group_name,Name of the group the user has subscribed to.
 vkontakte,Vk.com (Vkontakte),#contact_alias,Alias of a contact.
@@ -2243,10 +2275,10 @@ vkontakte,Vk.com (Vkontakte),#account_uid,User ID.
 vkontakte,Vk.com (Vkontakte),#password,User's password string.
 vkontakte,Vk.com (Vkontakte),#name,User's full name.
 vkontakte,Vk.com (Vkontakte),#login,User's login string.
-wechat,WeChat,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+wechat,WeChat,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 wechat,WeChat,#service,Current service identification string.
 wechat,WeChat,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
-whatsapp,WhatsApp Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+whatsapp,WhatsApp Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 whatsapp,WhatsApp Messenger,#service,Current service identification string.
 whatsapp,WhatsApp Messenger,#service_stats,Composite attribute containing the packet metrics used for each new service type detection. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).
 whatsapp,WhatsApp Messenger,#phone_number,Caller phone number.
@@ -2299,13 +2331,13 @@ yahoo_groups,Yahoo groups,#sender,Full address of email sender (alias followed b
 yahoo_groups,Yahoo groups,#sender_uid,Sender ID.
 yahoo_groups,Yahoo groups,#sender_email,Email address of the email sender.
 yahoo_groups,Yahoo groups,#sender_alias,Name of the email sender.
-yahoo_groups,Yahoo groups,#sender_nickname,"Message author's nickname
+yahoo_groups,Yahoo groups,#sender_nickname,"Message author's nickname, when reading a message."
 yahoo_groups,Yahoo groups,#date,Message date.
 yahoo_groups,Yahoo groups,#subject,Message subject.
 yahoo_groups,Yahoo groups,#msg_number,Number of the posted message.
 yahoo_groups,Yahoo groups,#action,Indicates if the message is read (Read) or composed (Compose).
 yahoo_groups,Yahoo groups,#draft,Indicates if the email is a draft or has really been posted
-yahoo_groups,Yahoo groups,#replyto,"When posting
+yahoo_groups,Yahoo groups,#replyto,"When posting, indicates is the recipient was only the author or the whole list."
 yahoo_maps,Yahoo Maps,#country,Location country value.
 yahoo_maps,Yahoo Maps,#city,Location city value.
 yahoo_maps,Yahoo Maps,#street,Location longitude value.

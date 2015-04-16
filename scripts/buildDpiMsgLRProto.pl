@@ -85,6 +85,20 @@ sub ReadPreviousData {
    close previousData;
 }
 
+# shamelessly lifted from Perl Monks: http://www.perlmonks.org/?node_id=5722
+sub parseCsv {
+   my $text = shift; ## record containing comma-separated values
+   my @new = ();
+   ## the first part groups the phrase inside the quotes
+   push(@new, $+) while $text =~ m{
+      "([^\"\\]*(?:\\.[^\"\\]*)*)",?
+        | ([^,]+),?
+        | ,
+      }gx;
+   push(@new, undef) if substr($text, -1,1) eq ',';
+   return @new; ## list of values that were comma-spearated
+}
+
 # Create a file with the set of protocols and attributes supported by the protobundle.
 sub CreateSummaryFile {
 
@@ -99,7 +113,7 @@ sub CreateSummaryFile {
    print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-         my @lineValues = split(/,/,$_);
+         my @lineValues = parseCsv($_);
          if ($lineValues[4] eq '' ) {
             print summaryFile "base,";
          } else {
@@ -110,7 +124,14 @@ sub CreateSummaryFile {
          } else {
             print summaryFile "$lineValues[5],";
          }
-         print summaryFile '#'."$lineValues[8],$lineValues[11]\n";
+         print summaryFile '#'."$lineValues[8],";
+         # Put quotes around descriptions which contain a comma
+         my $commaFound = index($lineValues[11], ',');
+         if ($commaFound != -1) {
+            print summaryFile "\"$lineValues[11]\"\n";
+         } else {
+            print summaryFile "$lineValues[11]\n";
+         }
       }
    }
 
@@ -137,6 +158,8 @@ sub CheckRenameFile {
    $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
+         # The split on comma works here since the description field, which sometimes contains a comma,
+         # is in column 11 and not used here.
          my @lineValues = split(/,/,$_);
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
@@ -248,6 +271,8 @@ seek $dpiMsgProtoBody, 0, 0; # Set file handle position to beginning of file
 # Open resources/Qosmos_Protobook.csv and save the previously supported attributes
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
+   # The split on comma works here since the description field, which sometimes contains a comma,
+   # is in column 11 and not used here.
    @lineValues = split(/,/,$line);
    $field = "$lineValues[8]$lineValues[2]";
    my $index = 0;
@@ -271,6 +296,8 @@ while (<qosmosWorkbook>) {
    # Include all attributes matching the includeFilter, but exclude the 19 attributes at the beginning 
    # of the Qosmos_Protobook.
    if ($_ =~ m/$includeFilter/ && $_ !~ ",\.,,,,," ) {
+      # The split on comma works here since the description field, which sometimes contains a comma,
+      # is in column 11 and not used here.
       @lineValues = split(/,/,$_);
       $field = "$lineValues[8]$lineValues[2]";
       if ( $field =~ /^[0-9]/ ) {
@@ -281,22 +308,24 @@ while (<qosmosWorkbook>) {
          $highest += 1;
          $type = $lineValues[10];
          $optionalStuff = "";
-         if ($lineValues[10] =~ /timeval/ ) {
+         if ($lineValues[10] =~ /timeval/) {
             $type = "string";
             $optionalStuff = ",timeval,timevalToString";
-         } elsif ( $lineValues[10] =~ /ip_addr/ ) {
+         } elsif ($lineValues[10] =~ /ip_addr/) {
             $type = "string";
             $optionalStuff = ",uint32,ip_addrToString";
-         } elsif ( $lineValues[10] =~ /mac_addr/ ) {
+         } elsif ($lineValues[10] =~ /mac_addr/) {
             $type = "string";
             $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
-         } elsif ($lineValues[10] eq "" ) {
+         } elsif ($lineValues[10] eq "") {
             print $ARGV[0]." MALFORMED FILE!!!!\n";
             print $ARGV[0]." 0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]\n";
             exit(1);
-         } elsif ( $lineValues[10] =~ /string/ ) {
+         } elsif ($lineValues[10] =~ /string/) {
             $type = "bytes";
             $requirement = "repeated";
+         } elsif ($lineValues[10] =~ /parent/) {
+            $type = "bool";
          }
          if ($_ !~ /$excludeFilter/ ) {
             # Protobuffer output; add new attribute.
