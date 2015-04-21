@@ -45,10 +45,11 @@ message BaseConf {
   optional string pcapRecordsToClearPerCycle = 47;
   optional string flowReportInterval = 48;
   optional string esIndexerQueueSize = 49;
-  optional string syslogQueue = 50;
-  optional string diskpacketwriterQueueSize = 51;
-  optional string diskpacketwriterFeedbackQueueSize = 52;
-  optional string pCapFlushInterval = 53;
+  optional string maxRepeatedFieldCount = 50;
+  optional string syslogQueue = 51;
+  optional string diskpacketwriterQueueSize = 52;
+  optional string diskpacketwriterFeedbackQueueSize = 53;
+  optional string pCapFlushInterval = 54;
   optional string sizeOfPcapChunks = 55;
   optional string numberOfPcapChunks = 56;
   optional string pCapRemovalNotifyQueue = 57;
