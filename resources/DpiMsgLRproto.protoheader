@@ -66,5 +66,6 @@ message DpiMsgLRproto
    optional bool HeaderWritten = 45;
    optional bool ConnectionEstablished = 46;
    optional uint32 MaxRepeatedFieldCount = 47;
+   optional uint32 FieldCountIndexed = 48;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
