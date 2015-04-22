@@ -1,0 +1,11 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "EncryptedString";
+
+
+message EncryptedString {
+  optional string encryptedString  = 1;
+}
+
+
