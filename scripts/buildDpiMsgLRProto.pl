@@ -150,29 +150,30 @@ sub CheckRenameFile {
    # $staticField_ptr = $_[4]; - this line seems to have a typo (missing 'c')
    $staticField_ptr = $_[4];
 
-   my $filename = 'MissingAttributesReport.txt';
+   my $filename = 'MissingAttributesReport.csv';
    open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
    print $missAttrFile "remapping file - missing attributes\n";
+   # print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status,Description\n";
+   print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status\n";
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
    $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-         # The split on comma works here since the description field, which sometimes contains a comma,
-         # is in column 11 and not used here.
-         my @lineValues = split(/,/,$_);
+         my @lineValues = parseCsv($_);
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
-#           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
-#           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
-#           NetMonFieldNames.csv file to complete the Protobuffer compilation.
+            # The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
+            # If there are missing attributes, work with Labs to get mappings assigned. Use an updated
+            # NetMonFieldNames.csv file to complete the Protobuffer compilation.
             $proto = $lineValues[2];
             $proto =~ s/Q_PROTO_//; 
             $removedUnderscore = upperCamelCase($lineValues[8]);
             $removedSpaces = $removedUnderscore;
             my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;
             $scal = join(" ", @split);
-            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,1st Review,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
+            # print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,\"$lineValues[11]\"\n";
+            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
             $mapGood = 0;
          } 
       } 
