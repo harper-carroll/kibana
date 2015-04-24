@@ -385,8 +385,8 @@ facebook_mail,facebook mail,#subject,Message subject.
 facebook_mail,facebook mail,#uid,Generic user ID.
 facebook_mail,facebook mail,#login,User's login string.
 facebook_mail,facebook mail,#session_id,Uniquely identifies the current user session.
-facetime,Apple FaceTime,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-facetime,Apple FaceTime,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
+facetime,Apple FaceTime,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
+facetime,Apple FaceTime,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 facetime,Apple FaceTime,#service,Current service identification string.
 facetime,Apple FaceTime,#service_duration,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds"
 facetime,Apple FaceTime,#service_duration_tv,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds."
@@ -1074,7 +1074,7 @@ ldap,Lighweight Directory Access Protocol,#hostname,Hostname extracted from a lo
 ldap,Lighweight Directory Access Protocol,#attribute_desc,"Filter expression first operand, which is an attribute description."
 ldap,Lighweight Directory Access Protocol,#assertion_value,"Filter expression second operand, which is an assertion value."
 line,Line,#proto_version,Protocol version currently used by the client.
-line,Line,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
+line,Line,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 line,Line,#service,Current service identification string.
 line,Line,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 line,Line,#service_duration,"4 bytes integer value indicating, when the service is ended, the length of it in seconds."
@@ -1405,47 +1405,7 @@ mount,Mount,#path_length,Length of the data path string.
 mpegts,MPEG-Transport Stream,#chunk_len,Data length.
 mplus_messenger,M+ Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 mplus_messenger,M+ Messenger,#service,Current service identification string.
-mplus_messenger,M+ Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
-msn,MSN Messenger,#login,User's login string.
-msn,MSN Messenger,#sender,Contains the identity of the sender of a chat session or a file transfer.
-msn,MSN Messenger,#receiver,Contains the identity of the receiver for a chat message or a file transfer.
-msn,MSN Messenger,#message,Contains the chat message.
-msn,MSN Messenger,#message_len,Contains the length of the chat message.
-msn,MSN Messenger,#encoding,Message encoding.
-msn,MSN Messenger,#caller,Contains the identity (or the phone number) of the initiator of the call.
-msn,MSN Messenger,#callee,Contains the identity (or the phone number) of the called party for a call.
-msn,MSN Messenger,#call_id,"Call id
-msn,MSN Messenger,#service,Current service identification string.
-msn,MSN Messenger,#method,Contains the MSN command.
-msn,MSN Messenger,#file_sender,Contains the identity of the sender of a file transfer.
-msn,MSN Messenger,#file_receiver,Contains the identity of the receiver for a file transfer.
-msn,MSN Messenger,#file_identifier,File identifier.
-msn,MSN Messenger,#filename,Name of the transferred file.
-msn,MSN Messenger,#filesize,Size (byte) of the transferred file.
-msn,MSN Messenger,#ip_local,Local IP address.
-msn,MSN Messenger,#profile,Information about the user.
-msn,MSN Messenger,#group,Information about group.
-msn,MSN Messenger,#contact,Information about a member of the contact list.
-msn,MSN Messenger,#client_nickname,Nickname used by the user.
-msn,MSN Messenger,#contact_nickname,Nickname used by a member of the contact list.
-msn,MSN Messenger,#contact_id,Identification number of member changing status.
-msn,MSN Messenger,#contact_status,Contact status.
-msn,MSN Messenger,#contact_login,Contact login.
-msn,MSN Messenger,#uid,The client ID number is the sum of several values specifying client's options.
-msn,MSN Messenger,#client_status,Status of connected user.
-msn,MSN Messenger,#online_principal,Message signaling change of status of member of contact list.
-msn,MSN Messenger,#file_chunk_len,Size of the transferred piece.
-msn,MSN Messenger,#file_chunk_data_offset,Offset of the transferred data.
-msn,MSN Messenger,#file_chunk_type,Transfer type.
-msn,MSN Messenger,#file_chunk_identifier,File identifier related to the current chunk.
-msn,MSN Messenger,#proto_version,Protocol versions used.
-msn_groups,MSN groups,#group_name,Name of the group the user has subscribed to.
-msn_search,MSN Search,#query_text,Query sent to the search engine.
-msn_search,MSN Search,#query_raw,Contains the query sent to the search engine as indicated in the URL.
-msn_search,MSN Search,#query_type,Sort of query sent to the search engine.
-msn_search,MSN Search,#encoding,Query encoding.
-msn_video,MSN Video,#recipientid,Identification number of recipient.
-msn_video,MSN Video,#sessionid,Identification number of session.
+mplus_messenger,M+ Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 msrp,Message Session Relay Protocol,#session_id,Uniquely identifies the current user session.
 msrp,Message Session Relay Protocol,#authority,Authority part of an MSRP uri
 msrp,Message Session Relay Protocol,#uri,MSRP uri
@@ -2018,7 +1978,7 @@ sip,Session Initiation Protocol,#user_id,Client identifier used for his register
 skyblog,Skyblog,#password,User's password string.
 skyblog,Skyblog,#login,User's login string.
 skype,Skype,#version,Skype client version.
-skype,Skype,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
+skype,Skype,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 skype,Skype,#service,Current service identification string.
 skype,Skype,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 skype,Skype,#service_duration,"4 bytes integer value indicating, when the service is ended, the length of it in seconds"
@@ -2198,10 +2158,10 @@ t38,T.38,#fax_message_number,"Identification associated to the following FAX mes
 tagged,Tagged.com,#login,User's login string.
 tagged,Tagged.com,#password,User's password string.
 tango,Tango Video Calls,#attach_filename,Transferred file name.
-tango,Tango Video Calls,#service_duration_tv,"Timeval structure indicating
-tango,Tango Video Calls,#service_duration,"4 bytes integer value indicating
-tango,Tango Video Calls,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
-tango,Tango Video Calls,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
+tango,Tango Video Calls,#service_duration_tv,"Timeval structure indicating, when the service is ended, the duration of it in seconds and microseconds."
+tango,Tango Video Calls,#service_duration,"4 bytes integer value indicating, when the service is ended, the duration of it in seconds."
+tango,Tango Video Calls,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
+tango,Tango Video Calls,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 tango,Tango Video Calls,#service,Current service identification string.
 tango,Tango Video Calls,#callee_id,Called part identifier.
 tango,Tango Video Calls,#caller_id,Calling part identifier.
@@ -2295,8 +2255,6 @@ twitter,Twitter.com,#session_id,Uniquely identifies the current user session.
 twoo,Twoo.com,#login,User's login string.
 twoo,Twoo.com,#password,User's password string.
 twoo,Twoo.com,#is_mobile_service,Whether or not the access was made through a mobile device.
-udp,User Datagram Protocol,#cnx_duration,Connection duration.
-udp,User Datagram Protocol,#start_time,Timestamp of the connection start time.
 unknown,Unknown virtual protocol,#maybe_application_id,Possible application's ID for this flow.
 unknown,Unknown virtual protocol,#maybe_application,Possible application's name for this flow.
 unknown,Unknown virtual protocol,#maybe_family,Protocol family of a possible application for this flow.
@@ -2324,10 +2282,10 @@ vkontakte,Vk.com (Vkontakte),#name,User's full name.
 vkontakte,Vk.com (Vkontakte),#login,User's login string.
 wechat,WeChat,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 wechat,WeChat,#service,Current service identification string.
-wechat,WeChat,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
-whatsapp,WhatsApp Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition
+wechat,WeChat,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
+whatsapp,WhatsApp Messenger,#service_id,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer)."
 whatsapp,WhatsApp Messenger,#service,Current service identification string.
-whatsapp,WhatsApp Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection
+whatsapp,WhatsApp Messenger,#service_stats,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user)."
 whatsapp,WhatsApp Messenger,#phone_number,Caller phone number.
 whatsapp,WhatsApp Messenger,#version,Program version.
 wikipedia,Wikipedia.com,#query_text,Query sent to the search engine.
