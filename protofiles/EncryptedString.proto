@@ -5,7 +5,7 @@ option java_outer_classname = "EncryptedStringMsg";
 
 
 message EncryptedString {
-  optional string encryptedString  = 1;
+  optional bytes encryptedString  = 1;
 }
 
 
