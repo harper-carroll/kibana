@@ -7,6 +7,14 @@ option java_outer_classname = "ElasticSearchClientConfigMsg";
 
 
 message ElasticSearchClientConfig {
-   optional string elasticsearchClusterName = 1;
-   optional string elasticsearchNodeIp = 2;
+   message SettingsEntry {
+      optional string key = 1;
+      optional string value = 2;
+   }
+   
+// deprecated   optional string elasticsearchClusterName = 1;
+// deprecated   optional string elasticsearchNodeIp = 2;
+   optional string elasticsearchServerConfigPath = 3;
+   repeated string elasticsearchClientTransportAddress = 4;
+   repeated SettingsEntry elasticsearchClientSettings = 5;
 }
