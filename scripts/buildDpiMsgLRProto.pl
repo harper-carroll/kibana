@@ -327,6 +327,8 @@ while (<qosmosWorkbook>) {
             $requirement = "repeated";
          } elsif ($lineValues[10] =~ /parent/) {
             $type = "bool";
+         } elsif ($lineValues[10] =~ /ptr/) {
+            $type = "Void";
          }
          if ($_ !~ /$excludeFilter/ ) {
             # Protobuffer output; add new attribute.
