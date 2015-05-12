@@ -75,8 +75,7 @@ message DpiMsgLRproto
    optional bool ConnectionEstablished = 46;
    optional uint32 MaxRepeatedFieldCount = 47;
    optional uint32 FieldCountIndexed = 48;
-   optional Void doNothing = 49;
-   repeated EmailAttach emailAttachments = 50;
+   repeated EmailAttach emailAttachments = 49;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
