@@ -52,4 +52,5 @@ message CarpenterConfig {
    optional EncryptedString dbUsername = 45;
    optional EncryptedString dbPassword = 46;
    optional string emdbHost = 47;
+   optional int32 sqlPagingSize = 48;
 }
