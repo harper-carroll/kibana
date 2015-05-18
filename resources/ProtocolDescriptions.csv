@@ -1,4 +1,5 @@
 protocolName,longProtocolName,attributeName,attributeDescription
+0zz0,0zz0.com,#end,Indicates the end of a top level event.
 0zz0,0zz0.com,#login,User's login string.
 0zz0,0zz0.com,#password,User's password string.
 0zz0,0zz0.com,#action,Indicates the action executed by the user.
@@ -875,6 +876,7 @@ ident,Identification Protocol,#client_port,TCP client's port
 igmp,Internet Group Management Protocol,#version,Protocol version.
 igmp,Internet Group Management Protocol,#address,Multicast address.
 igmp,Internet Group Management Protocol,#record_maddress,The multicast address in this record
+imap,Internet Message Access Protocol version 4,#end,Indicates the end of a top level event.
 imap,Internet Message Access Protocol version 4,#request,"Parent entry, empty, for client request and server response."
 imap,Internet Message Access Protocol version 4,#index,Identifier of the request and response in a flow.
 imap,Internet Message Access Protocol version 4,#method,Command sent by the client
@@ -917,6 +919,7 @@ imap,Internet Message Access Protocol version 4,#user_agent,Name of the software
 imap,Internet Message Access Protocol version 4,#attach_mime_type,Content type of the attachment.
 imap,Internet Message Access Protocol version 4,#attach_transfer_encoding,Contains the encoding of the attached content
 imap,Internet Message Access Protocol version 4,#attach_filename,Attachment name.
+imap,Internet Message Access Protocol version 4,#attach_content_decoded,Decoded attached files content.
 imap,Internet Message Access Protocol version 4,#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 imap,Internet Message Access Protocol version 4,#replyto,Email address to use in a reply for this message.
 imap,Internet Message Access Protocol version 4,#login_server,Concatenated login and server: <login>@<server>.
@@ -1516,6 +1519,7 @@ ospf,Open Shortest Path First,#link_data,"For connections to stub networks, Link
 ospf,Open Shortest Path First,#dd_seq_nbr,Used to sequence the collection of Database Description Packets.
 ospf,Open Shortest Path First,#external_fwd_addr,Data traffic for the advertised destination will be forwarded to this address.
 ospf,Open Shortest Path First,#external_route_tag,A 32-bit field attached to each external route.
+owa,Outlook Web App,#end,Indicates the end of a top level event.
 owa,Outlook Web App,#msglist_sender,Full address of email sender (alias and email address).
 owa,Outlook Web App,#msglist_receiver_alias,Name of email receiver.
 owa,Outlook Web App,#msglist_receiver_entry,Parent entry for a receiver in a message list.
@@ -1543,6 +1547,7 @@ owa,Outlook Web App,#msglist_sender_entry,Parent entry for a sender in a message
 owa,Outlook Web App,#msglist_subject,Message subject in a message list.
 owa,Outlook Web App,#msglist_msgid,Message identifier.
 owa,Outlook Web App,#msglist_entry,"Parent entry, for different elements belonging to the same message of a message list."
+owa,Outlook Web App,#attach_content,Attached file content.
 owa,Outlook Web App,#attach_type,Content type of the sent attached file.
 owa,Outlook Web App,#attach,"Parent entry, for attach fields in a message."
 owa,Outlook Web App,#email,"Parent entry, for fields belonging to the same email."
@@ -1594,6 +1599,7 @@ perforce,Perforce Protocol,#parameter_size,Size in bytes of the parameter value.
 perfspot,Perfspot.com,#is_mobile_service,Whether or not the access was made through a mobile device.
 perfspot,Perfspot.com,#password,User's password string.
 perfspot,Perfspot.com,#login,User's login string.
+pop3,Post Office Protocol (Version 3),#end,Indicates the end of a top level event.
 pop3,Post Office Protocol (Version 3),#login,User's login string.
 pop3,Post Office Protocol (Version 3),#email,"Parent entry, for fields belonging to the same email."
 pop3,Post Office Protocol (Version 3),#password,User's password string.
@@ -1620,6 +1626,7 @@ pop3,Post Office Protocol (Version 3),#attach_type,Content type of the sent atta
 pop3,Post Office Protocol (Version 3),#file_type,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.
 pop3,Post Office Protocol (Version 3),#attach_transfer_encoding,Contains the encoding of the attached content
 pop3,Post Office Protocol (Version 3),#attach_disposition,Attached file disposition
+pop3,Post Office Protocol (Version 3),#attach_content_decoded,Decoded attached files content.
 pop3,Post Office Protocol (Version 3),#replyto,Email address to use in a reply for this message.
 pop3,Post Office Protocol (Version 3),#greeting_message,Server banner line.
 pop3,Post Office Protocol (Version 3),#login_server,Concatenated login and server: <login>@<server>.
@@ -2021,6 +2028,7 @@ smb,Server Message Block (Windows File Server),#attributes,File attributes/folde
 smb,Server Message Block (Windows File Server),#ext_attributes,(deprecated) Extended File attributes/folder (bit field).
 smpp,Short message peer-to-peer protocol,#sender,Sender's address.
 smpp,Short message peer-to-peer protocol,#receiver,Receiver's address.
+smtp,Simple Mail Transfer Protocol,#end,Indicates the end of a top level event.
 smtp,Simple Mail Transfer Protocol,#login,User's login string.
 smtp,Simple Mail Transfer Protocol,#password,User's password string.
 smtp,Simple Mail Transfer Protocol,#email,"Parent entry, for fields belonging to the same email."
@@ -2060,6 +2068,7 @@ smtp,Simple Mail Transfer Protocol,#file_type,Received or sent file content type
 smtp,Simple Mail Transfer Protocol,#attach_size,Attached file MIME size.
 smtp,Simple Mail Transfer Protocol,#attach_disposition,Attached file disposition
 smtp,Simple Mail Transfer Protocol,#attach_filename,Attachment name.
+smtp,Simple Mail Transfer Protocol,#attach_content_decoded,Decoded attached files content.
 smtp,Simple Mail Transfer Protocol,#attach_transfer_encoding,Contains the encoding of the attached content
 smtp,Simple Mail Transfer Protocol,#server,Contains the name of the used smtp server
 smtp,Simple Mail Transfer Protocol,#server_agent,The software name used by the email server
