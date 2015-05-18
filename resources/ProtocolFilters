@@ -950,6 +950,9 @@
 ![,:]Q_PROTO_YMSG_WEBMESSENGER.*,Q_MPA_END[,\n]|
 ![,:]Q_PROTO_YOUTUBE.*,Q_MPA_END[,\n]|
 ![,:]Q_PROTO_ZIMBRA.*,Q_MPA_END[,\n]|
+<<<<<<< HEAD
+![,:]Q_PROTO_ZIMBRA_STANDARD.*,Q_MPA_END[,\n]
+=======
 ![,:]Q_PROTO_ZIMBRA_STANDARD.*,Q_MPA_END[,\n]|
 ![,:].*,Q_GEN_DATA[,\n]|
 ![,:]Q_PROTO_ADC.*,Q_MPA_FILE_CHUNK_CONTENT[,\n]|
