@@ -3,9 +3,6 @@ package networkMonitor;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "DPIMessageProtosProtos";
 
-
-
-
 message DpiMsgLRproto 
 {
    enum Type {
@@ -67,6 +64,9 @@ message DpiMsgLRproto
    optional string NormalizedSyslogData = 43;
    optional uint64 TimeEnd = 44;
    optional bool HeaderWritten = 45;
+   optional bool ConnectionEstablished = 46;
+   optional uint32 MaxRepeatedFieldCount = 47;
+   optional uint32 FieldCountIndexed = 48;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
@@ -1544,7 +1544,6 @@ repeated bytes receiverQ_PROTO_OWA = 1817; // QOSMOS:Q_PROTO_OWA,Q_MPA_RECEIVER
 repeated bytes msglist_dateQ_PROTO_OWA = 1818; // QOSMOS:Q_PROTO_OWA,Q_MPA_MSGLIST_DATE
 repeated bytes msglist_subjectQ_PROTO_OWA = 1819; // QOSMOS:Q_PROTO_OWA,Q_MPA_MSGLIST_SUBJECT
 repeated bytes dateQ_PROTO_OWA = 1820; // QOSMOS:Q_PROTO_OWA,Q_MPA_DATE
-repeated bytes subjectQ_PROTO_OWA = 1821; // QOSMOS:Q_PROTO_OWA,Q_MPA_SUBJECT
 repeated bytes receiver_emailQ_PROTO_OWA = 1822; // QOSMOS:Q_PROTO_OWA,Q_MPA_RECEIVER_EMAIL
 repeated bytes receiver_aliasQ_PROTO_OWA = 1823; // QOSMOS:Q_PROTO_OWA,Q_MPA_RECEIVER_ALIAS
 repeated bytes receiver_typeQ_PROTO_OWA = 1824; // QOSMOS:Q_PROTO_OWA,Q_MPA_RECEIVER_TYPE
@@ -2711,4 +2710,67 @@ repeated bytes userQ_PROTO_MAILRU_AGENT = 3020; // QOSMOS:Q_PROTO_MAILRU_AGENT,Q
 optional uint32 magic_cookieQ_PROTO_STUN = 3021; // QOSMOS:Q_PROTO_STUN,Q_STUN_MAGIC_COOKIE
 repeated bytes conference_idQ_PROTO_YMSG = 3022; // QOSMOS:Q_PROTO_YMSG,Q_YMSG_CONFERENCE_ID
 repeated bytes video_typeQ_PROTO_YOUTUBE = 3023; // QOSMOS:Q_PROTO_YOUTUBE,Q_MPA_VIDEO_TYPE
+repeated bytes message_rawQ_PROTO_AIM = 3024; // QOSMOS:Q_PROTO_AIM,Q_AIM_MESSAGE_RAW
+optional string bssidQ_PROTO_CAPWAP = 3025; // QOSMOS:Q_PROTO_CAPWAP,Q_CAPWAP_BSSID,clep_mac_addr_t,mac_addrToString
+optional uint64 bssid_64Q_PROTO_CAPWAP = 3026; // QOSMOS:Q_PROTO_CAPWAP,Q_CAPWAP_BSSID_64
+repeated bytes section_typeQ_PROTO_DNS = 3027; // QOSMOS:Q_PROTO_DNS,Q_DNS_SECTION_TYPE
+repeated bytes service_statsQ_PROTO_FACETIME = 3028; // QOSMOS:Q_PROTO_FACETIME,Q_MPA_SERVICE_STATS
+repeated bytes serviceQ_PROTO_GOTOMYPC = 3029; // QOSMOS:Q_PROTO_GOTOMYPC,Q_MPA_SERVICE
+optional uint32 service_idQ_PROTO_GOTOMYPC = 3030; // QOSMOS:Q_PROTO_GOTOMYPC,Q_MPA_SERVICE_ID
+repeated bytes uidQ_PROTO_HI5 = 3031; // QOSMOS:Q_PROTO_HI5,Q_MPA_UID
+repeated bytes video_datarateQ_PROTO_HULU = 3032; // QOSMOS:Q_PROTO_HULU,Q_MPA_VIDEO_DATARATE
+repeated bytes packet_typeQ_PROTO_IAX = 3033; // QOSMOS:Q_PROTO_IAX,Q_IAX_PACKET_TYPE
+optional uint32 trunk_timestampQ_PROTO_IAX = 3034; // QOSMOS:Q_PROTO_IAX,Q_IAX_TRUNK_TIMESTAMP
+optional uint32 trunk_call_data_offsetQ_PROTO_IAX = 3035; // QOSMOS:Q_PROTO_IAX,Q_IAX_TRUNK_CALL_DATA_OFFSET
+repeated bytes message_nameQ_PROTO_IAX = 3036; // QOSMOS:Q_PROTO_IAX,Q_IAX_MESSAGE_NAME
+repeated bytes subclass_nameQ_PROTO_IAX = 3037; // QOSMOS:Q_PROTO_IAX,Q_IAX_SUBCLASS_NAME
+repeated bytes element_nameQ_PROTO_IAX = 3038; // QOSMOS:Q_PROTO_IAX,Q_IAX_ELEMENT_NAME
+repeated bytes file_typeQ_PROTO_IMAP = 3039; // QOSMOS:Q_PROTO_IMAP,Q_MPA_FILE_TYPE
+optional uint32 filesizeQ_PROTO_IRC = 3040; // QOSMOS:Q_PROTO_IRC,Q_MPA_FILESIZE
+repeated bytes service_statsQ_PROTO_LINE = 3041; // QOSMOS:Q_PROTO_LINE,Q_MPA_SERVICE_STATS
+repeated bytes service_statsQ_PROTO_MPLUS_MESSENGER = 3042; // QOSMOS:Q_PROTO_MPLUS_MESSENGER,Q_MPA_SERVICE_STATS
+repeated bytes attach_filenameQ_PROTO_NNTP = 3043; // QOSMOS:Q_PROTO_NNTP,Q_MPA_ATTACH_FILENAME
+repeated bytes encryptionQ_PROTO_RTMP = 3044; // QOSMOS:Q_PROTO_RTMP,Q_RTMP_ENCRYPTION
+repeated bytes video_datarateQ_PROTO_SILVERLIGHT = 3045; // QOSMOS:Q_PROTO_SILVERLIGHT,Q_MPA_VIDEO_DATARATE
+repeated bytes service_statsQ_PROTO_SKYPE = 3046; // QOSMOS:Q_PROTO_SKYPE,Q_MPA_SERVICE_STATS
+repeated bytes hostQ_PROTO_SMB = 3047; // QOSMOS:Q_PROTO_SMB,Q_SMB_HOST
+optional string remote_address_ipv4Q_PROTO_STUN = 3048; // QOSMOS:Q_PROTO_STUN,Q_STUN_REMOTE_ADDRESS_IPV4,uint32,ip_addrToString
+repeated bytes service_statsQ_PROTO_TANGO = 3049; // QOSMOS:Q_PROTO_TANGO,Q_MPA_SERVICE_STATS
+optional uint32 login_encryptedQ_PROTO_TDS = 3050; // QOSMOS:Q_PROTO_TDS,Q_TDS_LOGIN_ENCRYPTED
+repeated bytes service_statsQ_PROTO_WECHAT = 3051; // QOSMOS:Q_PROTO_WECHAT,Q_MPA_SERVICE_STATS
+repeated bytes service_statsQ_PROTO_WHATSAPP = 3052; // QOSMOS:Q_PROTO_WHATSAPP,Q_MPA_SERVICE_STATS
+repeated bytes subjectQ_PROTO_OWA = 3053; // QOSMOS:Q_PROTO_OWA,Q_MPA_SUBJECT
+repeated bytes exchange_typeQ_PROTO_AMQP = 3054; // QOSMOS:Q_PROTO_AMQP,Q_AMQP_EXCHANGE_TYPE
+repeated bytes routing_keyQ_PROTO_AMQP = 3055; // QOSMOS:Q_PROTO_AMQP,Q_AMQP_ROUTING_KEY
+repeated bytes correlation_idQ_PROTO_AMQP = 3056; // QOSMOS:Q_PROTO_AMQP,Q_AMQP_CORRELATION_ID
+repeated bytes replytoQ_PROTO_AMQP = 3057; // QOSMOS:Q_PROTO_AMQP,Q_MPA_REPLYTO
+optional uint32 call_idQ_PROTO_DCERPC = 3058; // QOSMOS:Q_PROTO_DCERPC,Q_DCERPC_CALL_ID
+optional uint32 xidQ_PROTO_DHCP = 3059; // QOSMOS:Q_PROTO_DHCP,Q_DHCP_XID
+repeated bytes accept_languageQ_PROTO_HTTP = 3060; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_ACCEPT_LANGUAGE
+repeated bytes content_languageQ_PROTO_HTTP = 3061; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_CONTENT_LANGUAGE
+repeated bytes pragmaQ_PROTO_HTTP = 3062; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_PRAGMA
+repeated bytes cache_controlQ_PROTO_HTTP = 3063; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_CACHE_CONTROL
+repeated bytes dateQ_PROTO_HTTP = 3064; // QOSMOS:Q_PROTO_HTTP,Q_MPA_DATE
+repeated bytes expiresQ_PROTO_HTTP = 3065; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_EXPIRES
+repeated bytes ageQ_PROTO_HTTP = 3066; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_AGE
+repeated bytes etagQ_PROTO_HTTP = 3067; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_ETAG
+repeated bytes set_cookieQ_PROTO_HTTP = 3068; // QOSMOS:Q_PROTO_HTTP,Q_HTTP_SET_COOKIE
+repeated bytes hl7_message_rawQ_PROTO_LLP = 3069; // QOSMOS:Q_PROTO_LLP,Q_LLP_HL7_MESSAGE_RAW
+optional uint32 flavorQ_PROTO_MOUNT = 3070; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_FLAVOR
+optional uint32 flavorsQ_PROTO_MOUNT = 3071; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_FLAVORS
+optional uint32 length_fhandleQ_PROTO_MOUNT = 3072; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_LENGTH_FHANDLE
+optional uint32 statusQ_PROTO_MOUNT = 3073; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_STATUS
+repeated bytes path_valueQ_PROTO_MOUNT = 3074; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_PATH_VALUE
+optional uint32 path_lengthQ_PROTO_MOUNT = 3075; // QOSMOS:Q_PROTO_MOUNT,Q_MOUNT_PATH_LENGTH
+repeated bytes message_typeQ_PROTO_RPC = 3076; // QOSMOS:Q_PROTO_RPC,Q_RPC_MESSAGE_TYPE
+repeated bytes supplementary_serviceQ_PROTO_XCAP = 3077; // QOSMOS:Q_PROTO_XCAP,Q_XCAP_SUPPLEMENTARY_SERVICE
+repeated bytes auidQ_PROTO_XCAP = 3078; // QOSMOS:Q_PROTO_XCAP,Q_XCAP_AUID
+optional uint32 service_idQ_PROTO_LYNC = 3079; // QOSMOS:Q_PROTO_LYNC,Q_MPA_SERVICE_ID
+repeated bytes serviceQ_PROTO_LYNC = 3080; // QOSMOS:Q_PROTO_LYNC,Q_MPA_SERVICE
+optional string session_durationQ_PROTO_RTP = 3081; // QOSMOS:Q_PROTO_RTP,Q_RTP_SESSION_DURATION,timeval,timevalToString
+optional uint32 flagsQ_PROTO_DNS = 3082; // QOSMOS:Q_PROTO_DNS,Q_DNS_FLAGS
+optional uint32 associated_stream_idQ_PROTO_SPDY = 3083; // QOSMOS:Q_PROTO_SPDY,Q_SPDY_ASSOCIATED_STREAM_ID
+repeated bytes loginQ_PROTO_TWOO = 3084; // QOSMOS:Q_PROTO_TWOO,Q_MPA_LOGIN
+repeated bytes passwordQ_PROTO_TWOO = 3085; // QOSMOS:Q_PROTO_TWOO,Q_MPA_PASSWORD
+optional uint32 is_mobile_serviceQ_PROTO_TWOO = 3086; // QOSMOS:Q_PROTO_TWOO,Q_MPA_IS_MOBILE_SERVICE
 }
