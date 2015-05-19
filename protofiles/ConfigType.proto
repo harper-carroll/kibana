@@ -24,4 +24,5 @@ enum ConfigType {
    // EventManagerClientConfig = 14; Depreciated
    ColumboClientConfig = 15;
    VitalsClientConfig = 16;
+   EnigmaConfig = 17;
 }
