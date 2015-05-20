@@ -19,6 +19,14 @@ message DpiMsgLRproto
       MID_FLOW_DETECT = 5;
    }
 
+   message Void {
+   }
+
+   message EmailAttach {
+      optional string FileName = 1;
+      optional uint32 FileSize = 2;
+   }
+
    optional string Session = 1;
    optional uint64 SrcMAC = 2;
    optional uint64 DestMAC = 3;
@@ -65,6 +73,8 @@ message DpiMsgLRproto
    optional uint64 TimeEnd = 44;
    optional bool HeaderWritten = 45;
    optional bool ConnectionEstablished = 46;
-   optional uint32 MaxRepeatedFieldCount = 47; // max per field per update.
+   optional uint32 MaxRepeatedFieldCount = 47;
+   optional uint32 FieldCountIndexed = 48;
+   repeated EmailAttach emailAttachments = 49;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 

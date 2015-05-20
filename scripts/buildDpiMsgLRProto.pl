@@ -12,7 +12,7 @@ sub ReadFilters {
    my($filename) = @_;
 
    open filters, "$filename" or die $!;
-   my $exludeFilter;
+   my $excludeFilter;
    my $includeFilter;
    while (<filters>) {
       if ($_ =~ m/^(?!#)!(\S+)/ ) {
@@ -22,7 +22,7 @@ sub ReadFilters {
       }
    }
    close filters;
-   return ($exludeFilter,$includeFilter);
+   return ($excludeFilter,$includeFilter);
 }
 
 # Create an associative mapping between the pairs of values read from the filename passed
@@ -64,6 +64,17 @@ sub ReadPreviousData {
          $$callbackNames_ptr .= "$2,";
          push(@$previousFields_ptr,$2);
          push(@$previousData_ptr,$_);
+      } elsif ($_ =~ m/^(\/\/)(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
+         push(@$ids_ptr,$4);
+         if ( $4 > $$highest_ptr ) {
+            $$highest_ptr = $4;
+         }
+         $$callbackNames_ptr .= "$3,";
+         push(@$previousFields_ptr,$3);
+         # Remove the // from the beginning of the string. The // will be re-added later if the
+         # attribute is still on the blacklist
+         my $removeCommentFromLine = substr $_, 2;
+         push(@$previousData_ptr,$removeCommentFromLine);
       }
       if ( index($_,'Q_PROTO') == -1 && (index($_,'optional') != -1 || index($_,'repeated') != -1)) {
          my @lineValues = split(/\s+/,$_);
@@ -72,6 +83,20 @@ sub ReadPreviousData {
 
    }
    close previousData;
+}
+
+# shamelessly lifted from Perl Monks: http://www.perlmonks.org/?node_id=5722
+sub parseCsv {
+   my $text = shift; ## record containing comma-separated values
+   my @new = ();
+   ## the first part groups the phrase inside the quotes
+   push(@new, $+) while $text =~ m{
+      "([^\"\\]*(?:\\.[^\"\\]*)*)",?
+        | ([^,]+),?
+        | ,
+      }gx;
+   push(@new, undef) if substr($text, -1,1) eq ',';
+   return @new; ## list of values that were comma-spearated
 }
 
 # Create a file with the set of protocols and attributes supported by the protobundle.
@@ -88,7 +113,7 @@ sub CreateSummaryFile {
    print summaryFile "protocolName,longProtocolName,attributeName,attributeDescription\n";
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-         my @lineValues = split(/,/,$_);
+         my @lineValues = parseCsv($_);
          if ($lineValues[4] eq '' ) {
             print summaryFile "base,";
          } else {
@@ -99,7 +124,14 @@ sub CreateSummaryFile {
          } else {
             print summaryFile "$lineValues[5],";
          }
-         print summaryFile '#'."$lineValues[8],$lineValues[11]\n";
+         print summaryFile '#'."$lineValues[8],";
+         # Put quotes around descriptions which contain a comma
+         my $commaFound = index($lineValues[11], ',');
+         if ($commaFound != -1) {
+            print summaryFile "\"$lineValues[11]\"\n";
+         } else {
+            print summaryFile "$lineValues[11]\n";
+         }
       }
    }
 
@@ -108,7 +140,7 @@ sub CreateSummaryFile {
 }
 
 sub upperCamelCase {
-	join '', map ucfirst, split '_', $_[0];
+   join '', map ucfirst, split '_', $_[0];
 }
 
 # Read through the resources/Qosmos_Protobook.csv file. Ensure that all values use in the 
@@ -118,27 +150,30 @@ sub CheckRenameFile {
    # $staticField_ptr = $_[4]; - this line seems to have a typo (missing 'c')
    $staticField_ptr = $_[4];
 
-   my $filename = 'MissingAttributesReport.txt';
+   my $filename = 'MissingAttributesReport.csv';
    open(my $missAttrFile, '>', $filename) or die "Could not open file '$filename' $!";
    print $missAttrFile "remapping file - missing attributes\n";
+   # print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status,Description\n";
+   print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status\n";
    open qosmosWorkbook, "$qosmosFileName" or die $!;
 
    $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-         my @lineValues = split(/,/,$_);
+         my @lineValues = parseCsv($_);
          if ( !defined $renameMapping { $lineValues[8] } &&
                !defined $renameMapping { "_$lineValues[8]" } ) {
-#           The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
-#           If there are missing attributes, work with Labs to get mappings assigned. Use an updated
-#           NetMonFieldNames.csv file to complete the Protobuffer compilation.
-				$proto = $lineValues[2];
-				$proto =~ s/Q_PROTO_//; 
-				$removedUnderscore = upperCamelCase($lineValues[8]);
-				$removedSpaces = $removedUnderscore;
-				my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;
-				$scal = join(" ", @split);
-            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,1st Review,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
+            # The remapping file needs to have an entry in it for each attribute name in the Qosmos Workbook.
+            # If there are missing attributes, work with Labs to get mappings assigned. Use an updated
+            # NetMonFieldNames.csv file to complete the Protobuffer compilation.
+            $proto = $lineValues[2];
+            $proto =~ s/Q_PROTO_//; 
+            $removedUnderscore = upperCamelCase($lineValues[8]);
+            $removedSpaces = $removedUnderscore;
+            my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;
+            $scal = join(" ", @split);
+            # print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,\"$lineValues[11]\"\n";
+            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
             $mapGood = 0;
          } 
       } 
@@ -183,10 +218,19 @@ sub CreateRemappingFile {
 
 # ================== main starts here ================== 
 # QosmosWorkBookName = resources/Qosmos_Protobook.csv 
+#ARGV[0] is resources/Qosmos_Protobook.csv 
+#ARGV[1] is protofiles/DpiMsgLRproto.proto.orig 
+#ARGV[2] is resources/ProtocolFilters 
+#ARGV[3] is resources/ProtocolDescriptions.csv 
+#ARGV[4] is resources/remapping 
+#ARGV[5] is resources/remapping.yaml 
+#ARGV[6] is resources/NetMonFieldNames.csv 
+#ARGV[7] is /tmp/buildDpiMsgLRProto2.$BASHPID
+
 $QosmosWorkBookName = $ARGV[0];
 
 # Load a set of regex strings from resources/ProtocolFilters
-($exludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
+($excludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
 
 # Update the remapping file using, 4 = resources/remapping, 6 = resources/NetMonFieldNames.csv
 CreateRemappingFile($ARGV[4],$ARGV[6]);
@@ -219,17 +263,28 @@ CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping
 # Create a yaml file with the rename mapping
 DumpFile($renameMap,\%renameMapping);
 
+# Create a temporary file at /tmp/buildDpiMsgLRProto2.$BASHPID. This is a scratch file used
+# to sort the body contents of the DPI message by enum ID. A header and footer are added around
+# the body contents.
+open(my $dpiMsgProtoBody, '>', $ARGV[7]) or die "Could not open file '$filename' $!";
+seek $dpiMsgProtoBody, 0, 0; # Set file handle position to beginning of file
+
 # Open resources/Qosmos_Protobook.csv and save the previously supported attributes
 open qosmosWorkbook, "$ARGV[0]" or die $!;
 while ( my $line = <qosmosWorkbook>) {
+   # The split on comma works here since the description field, which sometimes contains a comma,
+   # is in column 11 and not used here.
    @lineValues = split(/,/,$line);
    $field = "$lineValues[8]$lineValues[2]";
    my $index = 0;
    foreach (@previousData) {
       if ( $_ =~ /$field/ ) {
-         print $_; # Protobuffer output; retain the previous enum value assignments
+         if ($_ =~ /$excludeFilter/) {
+            print $dpiMsgProtoBody "\/\/$_"; # Protobuffer output; comment out this blacklisted item.
+         } else {
+            print $dpiMsgProtoBody $_; # Protobuffer output; retain the previous enum value assignments
+         }
          splice(@previousData, $index, 1);
-         # break; - Not sure what is intended here. "break" is not part of the perl language.
       }
       $index += 1;
    }
@@ -239,36 +294,51 @@ seek qosmosWorkbook, 0, 0;
 #print @previousData;
 
 while (<qosmosWorkbook>) {
-  if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
-     @lineValues = split(/,/,$_);
-     $field = "$lineValues[8]$lineValues[2]";
-     if ( $field =~ /^[0-9]/ ) {
-        $field = "_$lineValues[8]$lineValues[2]";
-     }
-     if ($callbackNames !~ /,$field,/ ) {
-        $requirement = "optional";
-        $highest += 1;
-        $type = $lineValues[10];
-        $optionalStuff = "";
-        if ($lineValues[10] =~ /timeval/ ) {
-           $type = "string";
-           $optionalStuff = ",timeval,timevalToString";
-        } elsif ( $lineValues[10] =~ /ip_addr/ ) {
-           $type = "string";
-           $optionalStuff = ",uint32,ip_addrToString";
-        } elsif ( $lineValues[10] =~ /mac_addr/ ) {
-           $type = "string";
-           $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
-        } elsif ($lineValues[10] eq "" ) {
-           print "MALFORMED FILE!!!!";
-           print "0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]";
-           exit(1);
-        } elsif ( $lineValues[10] =~ /string/ ) {
-           $type = "bytes";
-           $requirement = "repeated";
-        }
-        print "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
-     }
-  } 
+   # Include all attributes matching the includeFilter, but exclude the 19 attributes at the beginning 
+   # of the Qosmos_Protobook.
+   if ($_ =~ m/$includeFilter/ && $_ !~ ",\.,,,,," ) {
+      # The split on comma works here since the description field, which sometimes contains a comma,
+      # is in column 11 and not used here.
+      @lineValues = split(/,/,$_);
+      $field = "$lineValues[8]$lineValues[2]";
+      if ( $field =~ /^[0-9]/ ) {
+         $field = "_$lineValues[8]$lineValues[2]";
+      }
+      if ($callbackNames !~ /,$field,/ ) {
+         $requirement = "optional";
+         $highest += 1;
+         $type = $lineValues[10];
+         $optionalStuff = "";
+         if ($lineValues[10] =~ /timeval/) {
+            $type = "string";
+            $optionalStuff = ",timeval,timevalToString";
+         } elsif ($lineValues[10] =~ /ip_addr/) {
+            $type = "string";
+            $optionalStuff = ",uint32,ip_addrToString";
+         } elsif ($lineValues[10] =~ /mac_addr/) {
+            $type = "string";
+            $optionalStuff = ",clep_mac_addr_t,mac_addrToString";
+         } elsif ($lineValues[10] eq "") {
+            print $ARGV[0]." MALFORMED FILE!!!!\n";
+            print $ARGV[0]." 0:$lineValues[1],1:$lineValues[2],2:$lineValues[2],3:lineValues[4],4:$lineValues[5],5:$lineValues[6],6:$lineValues[7],7:$lineValues[8],8:$lineValues[9],9:$lineValues[10]\n";
+            exit(1);
+         } elsif ($lineValues[10] =~ /string/) {
+            $type = "bytes";
+            $requirement = "repeated";
+         } elsif ($lineValues[10] =~ /parent/) {
+            $type = "bool";
+         } elsif ($lineValues[10] =~ /ptr/) {
+            $type = "Void";
+         }
+         if ($_ !~ /$excludeFilter/ ) {
+            # Protobuffer output; add new attribute.
+            print $dpiMsgProtoBody "$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
+         } else {
+            # Protobuffer output. Add new attribute, but commented out since it is blacklisted
+            print $dpiMsgProtoBody "//$requirement $type $field = $highest; // QOSMOS:$lineValues[2],$lineValues[7]$optionalStuff\n";
+         }
+      }
+   }
 }
 
+close $dpiMsgProtoBody;
