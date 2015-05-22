@@ -80,6 +80,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libprocess "$protoFileDir"/ProcessRequest.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libprocess "$protoFileDir"/ProcessReply.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/DriveInfo.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/LuaDefinedRule.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/ConfigDefaults.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/ConfigDefaultsRequest.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libfork "$protoFileDir"/ForkerReply.proto
@@ -109,6 +110,8 @@ mv  libcommand/CommandReply.pb.cc  libcommand/CommandReply.pb.cpp
 mv  libprocess/ProcessRequest.pb.cc  libprocess/ProcessRequest.pb.cpp
 mv  libprocess/ProcessReply.pb.cc  libprocess/ProcessReply.pb.cpp
 mv  libcommand/DriveInfo.pb.cc  libcommand/DriveInfo.pb.cpp
+mv  libcommand/LuaDefinedRule.pb.cc  libcommand/LuaDefinedRule.pb.cpp
+
 mv  libcommand/ConfigDefaults.pb.cc  libcommand/ConfigDefaults.pb.cpp
 mv  libcommand/ConfigDefaultsRequest.pb.cc  libcommand/ConfigDefaultsRequest.pb.cpp
 mv  libfork/ForkerReply.pb.cc  libfork/ForkerReply.pb.cpp

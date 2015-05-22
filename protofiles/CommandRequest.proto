@@ -21,6 +21,7 @@ message CommandRequest {
      PCAP_RECONSTRUCTION = 10;
      LICENSE = 11;
      MACHINE_ID = 12;
+     LUA_IMPORT = 13;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
