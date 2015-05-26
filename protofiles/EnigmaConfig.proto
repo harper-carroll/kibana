@@ -1,0 +1,11 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "EnigmaConfigMsg";
+
+
+
+
+message EnigmaConfig {
+   optional string pathToKeys = 1;
+}
