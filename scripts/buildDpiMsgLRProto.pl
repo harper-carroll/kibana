@@ -53,7 +53,6 @@ sub ReadPreviousData {
 
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
-
    open previousData, "$filename" or die $!;
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
@@ -195,6 +194,32 @@ sub CheckRenameFile {
 
 }
 
+
+sub GetStartOfIpp {
+   my $fileContents = 
+   "#pragma once\n" .
+   "#include <string>\n" .
+   "#include <map>\n" .
+   "namespace {\n" .
+   "const std::map{\n";
+
+   return $fileContents;
+}
+
+sub GetEndOfIpp {
+   my $fileContents = 
+   "}; // map end\n" .
+   "} // namespace end\n";
+   return $fileContents;
+}
+
+sub FormatAsCppMap {
+   my $key = $_[0];
+   my $value = $_[1];
+   my $mapString = "{\"" . $key . "\", \"" . $value . "\"}\n";
+   return $mapString; 
+}
+
 # Using the NetMonFieldNames.csv provided by Labs, create a remapping file from the values in the 
 # second and third columns for any row containing the Q_PROTO prefix.
 sub CreateRemappingFile {
@@ -204,12 +229,20 @@ sub CreateRemappingFile {
    open remappingFile, '>'."$remappingfile" or die $!; # Open $remappingFile for writing
    seek remappingFile, 0, 0; # Set file handle position to beginning of file
 
+   $header = GetStartOfIpp();
+   $footer = GetEndOfIpp();
+   print remappingFile "$header";
+
    while (<nmfieldnamesFile>) {
       if ($_ =~ m/.*Q_PROTO.*/ ) {
          my @lineValues = split(/,/,$_);
-         print remappingFile "$lineValues[2] $lineValues[3]\n";
+         print remappingFile FormatAsCppMap($lineValues[2], $lineValues[3]);
+         if (!eof){
+            print remappingFile ","
+         }
       }
    }
+   print remappingFile "$footer";
 
    close nmfieldnamesFile;
    close remappingFile;
@@ -259,9 +292,6 @@ CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
 # Check to make sure every field in the resources/Qosmos_Protobook.csv has a remapping assigned to it.
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
-
-# Create a yaml file with the rename mapping
-DumpFile($renameMap,\%renameMapping);
 
 # Create a temporary file at /tmp/buildDpiMsgLRProto2.$BASHPID. This is a scratch file used
 # to sort the body contents of the DPI message by enum ID. A header and footer are added around
