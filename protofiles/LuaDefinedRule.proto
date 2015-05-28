@@ -22,7 +22,7 @@ message LuaDefinedRule {
   optional bool enabled = 4;
   optional string description = 5;
   optional string author = 6;
-  optional string uuid = 7;
+  required string uuid = 7;
   optional uint64 last_modified_date =8;
 }
 
