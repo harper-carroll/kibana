@@ -11,11 +11,6 @@ message LuaDefinedRule {
      SYSTEM = 1;
   }
 
-  enum LuaExecution {
-    PACKET_RULE = 0;
-    FLOW_RULE = 1;
-  }
-
   required LuaType type = 1; 
   required RuleConf.Type ruleType = 2;
   required string code = 3;
