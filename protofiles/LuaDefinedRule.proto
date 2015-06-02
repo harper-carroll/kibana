@@ -2,6 +2,7 @@ package protoMsg;
 
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "LuaRulesMsg";
+import "Rule.proto";
 
 
 message LuaDefinedRule {
@@ -10,20 +11,16 @@ message LuaDefinedRule {
      SYSTEM = 1;
   }
 
-  enum LuaExecution {
-    PACKET_RULE = 0;
-    FLOW_RULE = 1;
-  }
-
   required LuaType type = 1; 
-  required string code =2;
+  required RuleConf.Type ruleType = 2;
+  required string code = 3;
 
-  optional string name = 3;
-  optional bool enabled = 4;
-  optional string description = 5;
-  optional string author = 6;
-  optional string uuid = 7;
-  optional uint64 last_modified_date =8;
+  optional string name = 4;
+  optional bool enabled = 5;
+  optional string description = 6;
+  optional string author = 7;
+  optional string uuid = 8;
+  optional uint64 last_modified_date = 9;
 }
 
 
