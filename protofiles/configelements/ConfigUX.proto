@@ -1,0 +1,44 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigUXMsg";
+
+
+message ConfigUX {
+
+  enum DisplayType {
+    INTEGER = 1;
+    NATURAL = 2;
+    REAL = 3;
+    TEXT = 4;
+    BOOLEAN = 5;
+    ENUMERATION = 6;
+    USERNAME = 7;
+    PASSWORD = 8;
+    IPV4 = 9;
+    IPV6 = 10;
+    DISPLAY = 11; // This is to control cross-referenced data-points.
+  }
+
+  enum DisplayUnit {
+    NONE = 0;
+    MILLISECONDS = 1;
+    SECONDS = 2;
+  }
+
+  message SelectableValue {
+    required string display = 1;
+    required string value = 2;
+  }
+
+  optional string defaultValue = 1;               // Default value associated with the field.
+  optional string currentValue = 2;               // Currently saved value in the config.yaml file(s).
+  repeated SelectableValue selectableValues = 3;  // Pairs for a drop-down.
+  optional DisplayType displayType = 4;           // Helps UX control input (ie positive numbers only).
+  optional DisplayUnit displayUnit = 5;           // Possible units of the display type
+  optional string displayValue = 6;               // Human readable version of camel-case name of data-point.
+  optional bool isReadOnly = 7;                   // Renders the data-point as read-only.
+  optional bool isVisible = 8;                    // Flag causes UI to not render the data point.
+  optional string validateHint = 9;               // Text that can be read as part of tool tip.
+  repeated string validateErrors = 10;            // Messages resulting from invalid input.
+}

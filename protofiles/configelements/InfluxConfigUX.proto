@@ -1,0 +1,17 @@
+package configelements; import "ConfigUX.proto";
+
+import "EncryptedString.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "InfluxConfigUXMsg";
+
+
+message InfluxConfig {
+   optional ConfigUX hostname = 1;
+   optional ConfigUX port = 2;
+   optional ConfigUX database = 3;
+   optional ConfigUX adminUsername = 4;
+   optional ConfigUX adminPassword = 5;
+   optional ConfigUX dbUsername = 6;
+   optional ConfigUX dbPassword = 7;
+}

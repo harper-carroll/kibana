@@ -1,0 +1,30 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "PlaybackConfigUXMsg";
+
+
+
+
+message PlaybackConfig {
+   
+   message DataReaderConfig {
+      repeated ConfigUX outputQueue = 1;
+      optional ConfigUX outputQueueHighWaterMark = 2;
+      optional ConfigUX generateIndexName = 3;
+      optional ConfigUX generateIndexId = 4;
+      optional ConfigUX generateMessageDate = 5;
+   }
+
+   message DataInjectorConfig {
+      optional ConfigUX inputQueue = 1;
+      optional ConfigUX inputQueueHighWaterMark = 2;
+      optional ConfigUX inputQueueTimeoutMs = 3;
+      optional ConfigUX dataFormatter = 4;
+      optional ConfigUX outputQueueHighWaterMark = 5;
+      optional ConfigUX outputQueueOwnsSocket = 6;
+   }
+
+   optional DataReaderConfig dataReaderConf = 1;
+   repeated DataInjectorConfig dataInjectorConf = 2;
+}

@@ -1,0 +1,20 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigUXRequestMsg";
+import "AllConf.proto";
+
+
+
+
+message ConfigUXRequest {
+   enum RequestType {
+      READ_ALL = 0;
+      WRITE = 1;
+      VALIDATE = 2;
+   }
+
+   optional string requestId = 1;
+   optional RequestType requestType = 2;
+   optional AllConf allConf = 3;
+}
