@@ -10,28 +10,19 @@ message LuaDefinedRule {
      SYSTEM = 1;
   }
 
-  enum LuaExecution {
-    PACKET_RULE = 0;
-    FLOW_RULE = 1;
-  }
-
   required LuaType type = 1; 
-  required string code =2;
-
-  optional string name = 3;
-  optional bool enabled = 4;
-  optional string description = 5;
-  optional string author = 6;
-  required string uuid = 7;
-  optional uint64 last_modified_date =8;
+  required RuleConf.Type ruleType = 2;
+  required string code = 3;
+  optional string name = 4;
+  optional bool enabled = 5;
+  optional string description = 6;
+  optional string author = 7;
+  required string uuid = 8;
+  optional uint64 last_modified_date = 9;
 }
 
 
 
 message LuaRules {
-  message LuaSerializedRule {
-     optional string uuid = 1;
-     required string rule = 2;
-   }  
-  repeated LuaSerializedRule rules =1;
+  repeated LuaDefinedRule rules = 1;
 }
