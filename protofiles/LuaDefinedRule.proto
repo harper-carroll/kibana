@@ -24,11 +24,6 @@ message LuaDefinedRule {
 }
 
 
-
 message LuaRules {
-  message LuaSerializedRule {
-     optional string uuid = 1;
-     required string rule = 2;
-   }  
-  repeated LuaSerializedRule rules =1;
+  repeated LuaDefinedRule rules = 1;
 }
