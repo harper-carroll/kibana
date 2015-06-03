@@ -6,7 +6,7 @@ option java_outer_classname = "PlaybackConfigUXMsg";
 
 
 
-message PlaybackConfig {
+message PlaybackConfigUX {
    
    message DataReaderConfig {
       repeated ConfigUX outputQueue = 1;

@@ -6,7 +6,7 @@ option java_outer_classname = "ElasticSearchClientConfigUXMsg";
 
 
 
-message ElasticSearchClientConfig {
+message ElasticSearchClientConfigUX {
    message SettingsEntry {
       optional ConfigUX key = 1;
       optional ConfigUX value = 2;

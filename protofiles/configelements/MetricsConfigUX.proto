@@ -7,7 +7,7 @@ import "PortRange.proto";
 
 
 
-message MetricsConfig {
+message MetricsConfigUX {
    repeated ConfigUX statsQueue = 1;
    repeated ConfigUX statsAggregationQueue = 2;
    repeated ConfigUX statsAccumulatorQueue = 3;

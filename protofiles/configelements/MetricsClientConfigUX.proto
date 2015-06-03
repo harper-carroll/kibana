@@ -6,7 +6,7 @@ option java_outer_classname = "MetricsClientConfigUXMsg";
 
 
 
-message MetricsClientConfig {
+message MetricsClientConfigUX {
    optional ConfigUX statsDestinationQueue = 1;
    optional ConfigUX statsAggregatorDestinationQueue = 2;
    optional ConfigUX statsAccumulatorDestinationQueue = 3;

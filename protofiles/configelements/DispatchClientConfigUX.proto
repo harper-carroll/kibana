@@ -6,7 +6,7 @@ option java_outer_classname = "DispatchClientConfigUXMsg";
 
 
 
-message DispatchClientConfig {
+message DispatchClientConfigUX {
    
    optional ConfigUX dataInsertQueue = 1;
    optional ConfigUX bulkDataInsertQueue = 2;

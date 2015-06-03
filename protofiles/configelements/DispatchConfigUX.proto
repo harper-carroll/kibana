@@ -6,7 +6,7 @@ option java_outer_classname = "DispatchConfigUXMsg";
 
 
 
-message DispatchConfig {
+message DispatchConfigUX {
    
    message IndexerConfig {
       optional ConfigUX inputQueue = 1;

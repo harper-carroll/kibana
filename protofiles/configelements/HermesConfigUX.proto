@@ -6,7 +6,7 @@ option java_outer_classname = "HermesConfigUXMsg";
 
 
 
-message HermesConfig {
+message HermesConfigUX {
    repeated ConfigUX pollStatsQueue = 1;
    optional ConfigUX pollStatsWorkerQueue = 2;
 }
