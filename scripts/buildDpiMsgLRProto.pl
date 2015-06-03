@@ -216,33 +216,37 @@ sub GetEndOfIpp {
 sub FormatAsCppMap {
    my $key = $_[0];
    my $value = $_[1];
-   my $mapString = "{\"" . $key . "\", \"" . $value . "\"}\n";
+   my $mapString = "{\"" . $key . "\", \"" . $value . "\"}";
    return $mapString; 
 }
 
 # Using the NetMonFieldNames.csv provided by Labs, create a remapping file from the values in the 
 # second and third columns for any row containing the Q_PROTO prefix.
 sub CreateRemappingFile {
-   my($remappingfile,$nmfieldnames) = @_;
+   my($remappingfile,$nmfieldnames,$ippfile) = @_;
 
    open nmfieldnamesFile, "$nmfieldnames" or die $!;
    open remappingFile, '>'."$remappingfile" or die $!; # Open $remappingFile for writing
+   open ippFile, '>'. "$ippfile" or die $!;
+
    seek remappingFile, 0, 0; # Set file handle position to beginning of file
+   seek ippFile, 0, 0;
 
    $header = GetStartOfIpp();
    $footer = GetEndOfIpp();
-   print remappingFile "$header";
+   print ippFile "$header";
 
    while (<nmfieldnamesFile>) {
       if ($_ =~ m/.*Q_PROTO.*/ ) {
          my @lineValues = split(/,/,$_);
-         print remappingFile FormatAsCppMap($lineValues[2], $lineValues[3]);
+         print remappingFile "$lineValues[2] $lineValues[3]\n";
+         print ippFile FormatAsCppMap($lineValues[2], $lineValues[3]) . "\n";
          if (!eof){
-            print remappingFile ","
+            print ippFile ","
          }
       }
    }
-   print remappingFile "$footer";
+   print ippFile "$footer";
 
    close nmfieldnamesFile;
    close remappingFile;
@@ -256,7 +260,7 @@ sub CreateRemappingFile {
 #ARGV[2] is resources/ProtocolFilters 
 #ARGV[3] is resources/ProtocolDescriptions.csv 
 #ARGV[4] is resources/remapping 
-#ARGV[5] is resources/remapping.yaml 
+#ARGV[5] is resources/remapping.ipp 
 #ARGV[6] is resources/NetMonFieldNames.csv 
 #ARGV[7] is /tmp/buildDpiMsgLRProto2.$BASHPID
 
@@ -266,7 +270,7 @@ $QosmosWorkBookName = $ARGV[0];
 ($excludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
 
 # Update the remapping file using, 4 = resources/remapping, 6 = resources/NetMonFieldNames.csv
-CreateRemappingFile($ARGV[4],$ARGV[6]);
+CreateRemappingFile($ARGV[4],$ARGV[6], $ARGV[5]);
 
 # Get the new mapping of names to use
 (%renameMapping) = ReadRemappingFile($ARGV[4]);
