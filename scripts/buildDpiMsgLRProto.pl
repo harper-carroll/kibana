@@ -200,16 +200,14 @@ sub GetStartOfIpp {
    "#pragma once\n" .
    "#include <string>\n" .
    "#include <map>\n" .
-   "namespace {\n" .
-   "const std::map{\n";
+   "static std::unordered_map<std::string,std::string> renameMap({\n";
 
    return $fileContents;
 }
 
 sub GetEndOfIpp {
    my $fileContents = 
-   "}; // map end\n" .
-   "} // namespace end\n";
+   "}); // map end\n" .
    return $fileContents;
 }
 
