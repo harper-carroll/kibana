@@ -6,7 +6,7 @@ option java_outer_classname = "LinkConfigUXMsg";
 
 
 
-message LinkConfig {
+message LinkConfigUX {
    optional ConfigUX webHeartbeatIntervalMs = 1;
    optional ConfigUX webUIBrokerPort = 2;
    optional ConfigUX webUIIndexerPort = 3;

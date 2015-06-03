@@ -6,7 +6,7 @@ option java_outer_classname = "IndexManagerConfigUXMsg";
 
 
 
-message IndexManagerConfig {
+message IndexManagerConfigUX {
 
    message IndexConfig {
       optional ConfigUX name = 1;

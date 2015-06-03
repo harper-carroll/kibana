@@ -6,7 +6,7 @@ option java_outer_classname = "CassandraConfigUXMsg";
 
 
 
-message CassandraConfig {
+message CassandraConfigUX {
    optional ConfigUX statsDBClusterName = 1;
    optional ConfigUX statsDBUrl = 2;
 }

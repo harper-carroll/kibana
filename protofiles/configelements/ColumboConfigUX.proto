@@ -6,7 +6,7 @@ option java_outer_classname = "ColumboConfigUXMsg";
 
 
 
-message ColumboConfig {
+message ColumboConfigUX {
    optional ConfigUX requestQueue = 1;
    optional ConfigUX resendTranslationTableIntervalInMS = 2;
    optional ConfigUX requestBackend = 3;

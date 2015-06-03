@@ -6,7 +6,7 @@ option java_outer_classname = "ConfigServerConfigUXMsg";
 
 
 
-message ConfigServerConfig {
+message ConfigServerConfigUX {
    repeated ConfigUX configRequestQueue = 1;
    optional ConfigUX frontEndRelayQueue = 2;
    optional ConfigUX backEndHandlerQueue = 3;

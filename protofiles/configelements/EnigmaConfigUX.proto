@@ -6,6 +6,6 @@ option java_outer_classname = "EnigmaConfigUXMsg";
 
 
 
-message EnigmaConfig {
+message EnigmaConfigUX {
    optional ConfigUX pathToKeys = 1;
 }
