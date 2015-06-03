@@ -1,0 +1,12 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "HermesConfigUXMsg";
+
+
+
+
+message HermesConfig {
+   repeated ConfigUX pollStatsQueue = 1;
+   optional ConfigUX pollStatsWorkerQueue = 2;
+}

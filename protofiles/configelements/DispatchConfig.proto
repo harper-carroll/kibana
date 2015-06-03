@@ -1,0 +1,53 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "DispatchConfigMsg";
+
+
+
+
+message DispatchConfig {
+   
+   message IndexerConfig {
+      optional string inputQueue = 1;
+      optional int32 inputQueueTimeoutSec = 2;
+      optional bool inputQueueOwnsSocket = 3;
+      optional int64 inputQueueHighWaterMark = 4;
+      optional int32 indexAttemptLimit = 5;
+      optional int64 indexRetryBackoffDurationMs = 6;
+      optional int32 dataBufferLimit = 7;
+      optional int64 statReportIntervalMs = 8;
+      optional string statCountKey = 9;
+      optional string statFinishedKey = 10;
+      optional string statRetryKey = 11;
+      optional string statFailedKey = 12;
+      optional string statRequestKey = 13;
+      optional string dataHandler = 14;
+      optional bool sendToPercolator = 15;
+      optional bool sendToRecorder = 16;
+      optional string passthroughQName = 17;
+   }
+
+   message AccumulatorConfig {
+      optional int32 secondsToAccumulate = 1;
+      optional int32 entriesToAccumulate = 2;
+      optional string inputQueue = 3;
+      optional string outputQueue = 4;
+      optional string dataAccumulator = 5;
+   }
+
+   message PercolatorConfig {
+      optional string inputQueue = 1;
+      optional int32 inputQueueTimeoutSec = 2;
+      optional int64 inputQueueHighWaterMark = 3;
+      optional string dataHandler = 4;
+      optional int32 dataBufferLimit = 5;
+      optional int32 percolateAttemptLimit = 6;
+      optional string syslogQueue = 7;
+   }
+
+   repeated IndexerConfig indexerConf = 1;
+   optional AccumulatorConfig accumulatorConf = 2;
+   optional PercolatorConfig percolatorConf = 3;
+
+}

@@ -1,0 +1,15 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "MaintenanceConfigUXMsg";
+import "IndexManagerConfig.proto";
+
+
+
+
+message MaintenanceConfig {
+
+   optional ConfigUX runPcapStatReporter = 1;
+   optional IndexManagerConfig indexManagerConf = 2;
+
+}

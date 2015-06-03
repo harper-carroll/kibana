@@ -1,0 +1,15 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "LinkConfigMsg";
+
+
+
+
+message LinkConfig {
+   optional int64 webHeartbeatIntervalMs = 1;
+   optional int32 webUIBrokerPort = 2;
+   optional int32 webUIIndexerPort = 3;
+   optional string frontEndToSearchQueue = 4;
+   optional string webUIBrokerHost = 5;
+}

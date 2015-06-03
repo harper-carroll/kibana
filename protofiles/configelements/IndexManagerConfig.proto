@@ -1,0 +1,20 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "IndexManagerConfigMsg";
+
+
+
+
+message IndexManagerConfig {
+
+   message IndexConfig {
+      optional string name = 1;
+      optional int32 limit = 2;
+   }
+
+   repeated IndexConfig indexConfig = 1;
+   optional string partitionLocation = 2;
+   optional float partitionSizeLimit = 3;
+
+}

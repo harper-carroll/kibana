@@ -1,0 +1,20 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "IndexManagerConfigUXMsg";
+
+
+
+
+message IndexManagerConfig {
+
+   message IndexConfig {
+      optional ConfigUX name = 1;
+      optional ConfigUX limit = 2;
+   }
+
+   repeated IndexConfig indexConfig = 1;
+   optional ConfigUX partitionLocation = 2;
+   optional ConfigUX partitionSizeLimit = 3;
+
+}

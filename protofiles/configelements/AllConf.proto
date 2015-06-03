@@ -1,0 +1,19 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "AllConfUXMsg";
+
+import "ConfigUX.proto";
+
+// http://host:port/getAll/
+// http://news.softpedia.com/news/Hasbro-Setting-Up-AllSpark-Website-for-3D-Printed-Transformers-442669.shtml
+message AllConf {
+
+   message Entry {
+      optional string type = 1;
+      optional ConfigUX configUX = 2;
+      optional bytes serializedConfigUXMessage = 3;
+   }
+
+   repeated Entry allConf = 1;
+}

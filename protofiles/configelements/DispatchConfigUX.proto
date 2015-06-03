@@ -1,0 +1,53 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "DispatchConfigUXMsg";
+
+
+
+
+message DispatchConfig {
+   
+   message IndexerConfig {
+      optional ConfigUX inputQueue = 1;
+      optional ConfigUX inputQueueTimeoutSec = 2;
+      optional ConfigUX inputQueueOwnsSocket = 3;
+      optional ConfigUX inputQueueHighWaterMark = 4;
+      optional ConfigUX indexAttemptLimit = 5;
+      optional ConfigUX indexRetryBackoffDurationMs = 6;
+      optional ConfigUX dataBufferLimit = 7;
+      optional ConfigUX statReportIntervalMs = 8;
+      optional ConfigUX statCountKey = 9;
+      optional ConfigUX statFinishedKey = 10;
+      optional ConfigUX statRetryKey = 11;
+      optional ConfigUX statFailedKey = 12;
+      optional ConfigUX statRequestKey = 13;
+      optional ConfigUX dataHandler = 14;
+      optional ConfigUX sendToPercolator = 15;
+      optional ConfigUX sendToRecorder = 16;
+      optional ConfigUX passthroughQName = 17;
+   }
+
+   message AccumulatorConfig {
+      optional ConfigUX secondsToAccumulate = 1;
+      optional ConfigUX entriesToAccumulate = 2;
+      optional ConfigUX inputQueue = 3;
+      optional ConfigUX outputQueue = 4;
+      optional ConfigUX dataAccumulator = 5;
+   }
+
+   message PercolatorConfig {
+      optional ConfigUX inputQueue = 1;
+      optional ConfigUX inputQueueTimeoutSec = 2;
+      optional ConfigUX inputQueueHighWaterMark = 3;
+      optional ConfigUX dataHandler = 4;
+      optional ConfigUX dataBufferLimit = 5;
+      optional ConfigUX percolateAttemptLimit = 6;
+      optional ConfigUX syslogQueue = 7;
+   }
+
+   repeated IndexerConfig indexerConf = 1;
+   optional AccumulatorConfig accumulatorConf = 2;
+   optional PercolatorConfig percolatorConf = 3;
+
+}
