@@ -2,6 +2,9 @@ import sys
 
 #Run this script to find duplicates.
 # First argument is the file name.
+#Command to run this script python printDuplicates.py <filename>
+#e.g. python printDuplicates.py resources/ProtocolFilters
+
 file=sys.argv[1]
 fileContent = open(file);
 seen = set();
