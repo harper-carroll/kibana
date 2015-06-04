@@ -1,8 +1,8 @@
-package configux; import "ConfigUX.proto";
+package configelements.ux; import "ConfigUX.proto";
 
 option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "MetricsConfigUXMsg";
-import "PortRange.proto";
+import "PortRangeUX.proto";
 
 
 
@@ -13,7 +13,7 @@ message MetricsConfigUX {
    repeated ConfigUX statsAccumulatorQueue = 3;
    optional ConfigUX statsAggregateDispatchQueue = 4;
    optional ConfigUX statsRollupHost = 7;
-   optional PortRange statsRollupPortRange = 8;
+   optional PortRangeUX statsRollupPortRange = 8;
    
    message ContinuouslyReportedStat {
       optional ConfigUX key = 1;

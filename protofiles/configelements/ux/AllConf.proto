@@ -1,6 +1,6 @@
-package configux;
+package configelements.ux;
 
-option java_package = "com.logrhythm.configux";
+option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "AllConfMsg";
 
 import "ConfigUX.proto";
@@ -22,7 +22,7 @@ import "VitalsClientConfigUX.proto";
 message AllConf {
 
   optional ConfigUX carpenterConfigUX = 1;
-  optional CarpenterConfigUX carpenterConf = 2;
+  optional CarpenterConfigUX carpenterConfig = 2;
 
   optional ConfigUX columboClientConfigUX = 3;
   optional ColumboClientConfigUX columboClientConfig = 4;

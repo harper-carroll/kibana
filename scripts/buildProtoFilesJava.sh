@@ -35,7 +35,7 @@ cd "$javaSrcDir"
 for file in `ls -p "$protoFileDir" | grep -v / | grep -v DpiMsgLRproto | grep -v Applications` ; do
   "$protoc" -I="$protoFileDir":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. "$protoFileDir"/$file
 done
-for directory in `find "$protoFileDir" -type d -mindepth 1 -maxdepth 1` ; do
+for directory in `find "$protoFileDir" -type d -mindepth 1` ; do
     for file in `ls "$directory"/*.proto`; do
         "$protoc" -I="$directory":$thirdPartyDir::/usr/local/include:/usr/include --java_out=. $file
     done

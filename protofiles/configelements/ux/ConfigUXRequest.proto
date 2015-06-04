@@ -1,6 +1,6 @@
-package configelements;
+package configelements.ux;
 
-option java_package = "com.logrhythm.configelements";
+option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "ConfigUXRequestMsg";
 import "AllConf.proto";
 
