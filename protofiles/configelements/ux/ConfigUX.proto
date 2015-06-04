@@ -1,6 +1,6 @@
-package configelements;
+package configux;
 
-option java_package = "com.logrhythm.configelements";
+option java_package = "com.logrhythm.configelementsux";
 option java_outer_classname = "ConfigUXMsg";
 
 

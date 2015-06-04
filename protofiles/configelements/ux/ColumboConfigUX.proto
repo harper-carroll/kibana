@@ -1,6 +1,6 @@
-package configelements; import "ConfigUX.proto";
+package configux; import "ConfigUX.proto";
 
-option java_package = "com.logrhythm.configelements";
+option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "ColumboConfigUXMsg";
 
 
