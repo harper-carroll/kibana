@@ -200,7 +200,7 @@ sub GetStartOfIpp {
    "#pragma once\n" .
    "#include <string>\n" .
    "#include <map>\n" .
-   "static std::unordered_map<std::string,std::string> renameMap({\n";
+   "const static std::unordered_map<std::string,std::string> renameMap({\n";
 
    return $fileContents;
 }
