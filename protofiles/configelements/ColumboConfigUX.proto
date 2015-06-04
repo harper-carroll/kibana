@@ -1,0 +1,16 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ColumboConfigUXMsg";
+
+
+
+
+message ColumboConfigUX {
+   optional ConfigUX requestQueue = 1;
+   optional ConfigUX resendTranslationTableIntervalInMS = 2;
+   optional ConfigUX requestBackend = 3;
+   optional ConfigUX searchThreadpoolSize = 4;
+   optional ConfigUX minutesToCache = 5;
+   optional ConfigUX cacheSizeInRecords = 6;
+}

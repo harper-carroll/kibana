@@ -1,0 +1,21 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigUXReplyMsg";
+import "AllConf.proto";
+
+
+
+
+message ConfigUXReply {
+   enum ReplyType {
+      SUCCESS = 0;
+      ERROR = 1;
+   }
+   
+
+   optional string requestId = 1;
+   optional ReplyType replyType = 2;
+   optional string errorMessage = 3;
+   optional AllConf allConf = 4;
+}

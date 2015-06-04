@@ -1,0 +1,12 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "CassandraConfigMsg";
+
+
+
+
+message CassandraConfig {
+   optional string statsDBClusterName = 1;
+   optional string statsDBUrl = 2;
+}

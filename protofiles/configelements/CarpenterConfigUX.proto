@@ -1,0 +1,56 @@
+package configelements; import "ConfigUX.proto";
+
+import "EncryptedString.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "CarpenterConfigUXMsg";
+
+message CarpenterConfigUX {
+   optional ConfigUX minutesToRest = 1;
+   optional ConfigUX listTable = 3;
+   optional ConfigUX listTableIDColumn = 4;
+   optional ConfigUX listTableItemColumn = 5;
+   optional ConfigUX commonEventTable = 6;
+   optional ConfigUX commonEventTableIDColumn = 7;
+   optional ConfigUX commonEventTableItemColumn = 8;
+   optional ConfigUX hostTable = 9;
+   optional ConfigUX hostTableIDColumn = 10;
+   optional ConfigUX hostTableItemColumn = 11;
+   optional ConfigUX networkTable = 12;
+   optional ConfigUX networkTableIDColumn = 13;
+   optional ConfigUX networkTableItemColumn = 14;
+   optional ConfigUX serviceTable = 15;
+   optional ConfigUX serviceTableIDColumn = 16;
+   optional ConfigUX serviceTableItemColumn = 17;
+   optional ConfigUX protocolTable = 18;
+   optional ConfigUX protocolTableIDColumn = 19;
+   optional ConfigUX protocolTableItemColumn = 20;
+   optional ConfigUX msgSourceTable = 21;
+   optional ConfigUX msgSourceTableIDColumn = 22;
+   optional ConfigUX msgSourceTableItemColumn = 23;
+   optional ConfigUX msgSourceTypeTable = 24;
+   optional ConfigUX msgSourceTypeTableIDColumn = 25;
+   optional ConfigUX msgSourceTypeTableItemColumn = 26;
+   optional ConfigUX msgClassTable = 27;
+   optional ConfigUX msgClassTableIDColumn = 28;
+   optional ConfigUX msgClassTableItemColumn = 29;
+   optional ConfigUX entityTable = 30;
+   optional ConfigUX entityTableIDColumn = 31;
+   optional ConfigUX entityTableItemColumn = 32;
+   optional ConfigUX mpeRuleTable = 33;
+   optional ConfigUX mpeRuleTableIDColumn = 34;
+   optional ConfigUX mpeRuleTableItemColumn = 35;
+   optional ConfigUX aclTable = 36;
+   optional ConfigUX aclTableIDColumn = 37;
+   optional ConfigUX aclTableItemColumn = 38;
+   optional ConfigUX directionTable = 39;
+   optional ConfigUX directionTableIDColumn = 40;
+   optional ConfigUX directionTableItemColumn = 41;
+   optional ConfigUX zoneTable = 42;
+   optional ConfigUX zoneTableIDColumn = 43;
+   optional ConfigUX zoneTableItemColumn = 44;
+   optional ConfigUX dbUsername = 45;
+   optional ConfigUX dbPassword = 46;
+   optional ConfigUX emdbHost = 47;
+   optional ConfigUX sqlPagingSize = 48;
+}

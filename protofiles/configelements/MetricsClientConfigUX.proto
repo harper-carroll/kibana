@@ -1,0 +1,14 @@
+package configelements; import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "MetricsClientConfigUXMsg";
+
+
+
+
+message MetricsClientConfigUX {
+   optional ConfigUX statsDestinationQueue = 1;
+   optional ConfigUX statsAggregatorDestinationQueue = 2;
+   optional ConfigUX statsAccumulatorDestinationQueue = 3;
+   optional ConfigUX reportIntervalMs = 4;
+}
