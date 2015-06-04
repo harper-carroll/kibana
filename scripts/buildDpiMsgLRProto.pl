@@ -206,7 +206,7 @@ sub GetStartOfIpp {
 }
 
 sub GetEndOfIpp {
-   my $fileContents =  "}); // map end\n";
+   my $fileContents = "}); // map end\n";
    return $fileContents;
 }
 
