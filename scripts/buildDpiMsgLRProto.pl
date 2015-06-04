@@ -206,8 +206,7 @@ sub GetStartOfIpp {
 }
 
 sub GetEndOfIpp {
-   my $fileContents = 
-   "}); // map end\n" .
+   my $fileContents =  "}); // map end\n";
    return $fileContents;
 }
 
@@ -240,14 +239,15 @@ sub CreateRemappingFile {
          print remappingFile "$lineValues[2] $lineValues[3]\n";
          print ippFile FormatAsCppMap($lineValues[2], $lineValues[3]) . "\n";
          if (!eof){
-            print ippFile ","
+            print ippFile ",";
          }
       }
    }
-   print ippFile "$footer";
+   print ippFile $footer . "\n";
 
    close nmfieldnamesFile;
    close remappingFile;
+   close ippFile;
 
 }
 
