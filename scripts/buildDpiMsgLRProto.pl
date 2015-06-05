@@ -53,7 +53,6 @@ sub ReadPreviousData {
 
    $$highest_ptr = 1;
    $$callbackNames_ptr = ",";
-
    open previousData, "$filename" or die $!;
    while (<previousData>) {
       if ($_ =~ m/^(optional|repeated)\s+.*\s+(\w+)\s+=\s+(\d+)\;/) {
@@ -195,24 +194,60 @@ sub CheckRenameFile {
 
 }
 
+
+sub GetStartOfIpp {
+   my $fileContents = 
+   "#pragma once\n" .
+   "#include <string>\n" .
+   "#include <map>\n" .
+   "const static std::unordered_map<std::string,std::string> renameMap({\n";
+
+   return $fileContents;
+}
+
+sub GetEndOfIpp {
+   my $fileContents = "}); // map end\n";
+   return $fileContents;
+}
+
+sub FormatAsCppMap {
+   my $key = $_[0];
+   my $value = $_[1];
+   my $mapString = "{\"" . $key . "\", \"" . $value . "\"}";
+   return $mapString; 
+}
+
 # Using the NetMonFieldNames.csv provided by Labs, create a remapping file from the values in the 
 # second and third columns for any row containing the Q_PROTO prefix.
 sub CreateRemappingFile {
-   my($remappingfile,$nmfieldnames) = @_;
+   my($remappingfile,$nmfieldnames,$ippfile) = @_;
 
    open nmfieldnamesFile, "$nmfieldnames" or die $!;
    open remappingFile, '>'."$remappingfile" or die $!; # Open $remappingFile for writing
+   open ippFile, '>'. "$ippfile" or die $!;
+
    seek remappingFile, 0, 0; # Set file handle position to beginning of file
+   seek ippFile, 0, 0;
+
+   $header = GetStartOfIpp();
+   $footer = GetEndOfIpp();
+   print ippFile "$header";
 
    while (<nmfieldnamesFile>) {
       if ($_ =~ m/.*Q_PROTO.*/ ) {
          my @lineValues = split(/,/,$_);
          print remappingFile "$lineValues[2] $lineValues[3]\n";
+         print ippFile FormatAsCppMap($lineValues[2], $lineValues[3]) . "\n";
+         if (!eof){
+            print ippFile ",";
+         }
       }
    }
+   print ippFile $footer . "\n";
 
    close nmfieldnamesFile;
    close remappingFile;
+   close ippFile;
 
 }
 
@@ -223,7 +258,7 @@ sub CreateRemappingFile {
 #ARGV[2] is resources/ProtocolFilters 
 #ARGV[3] is resources/ProtocolDescriptions.csv 
 #ARGV[4] is resources/remapping 
-#ARGV[5] is resources/remapping.yaml 
+#ARGV[5] is resources/remapping.ipp 
 #ARGV[6] is resources/NetMonFieldNames.csv 
 #ARGV[7] is /tmp/buildDpiMsgLRProto2.$BASHPID
 
@@ -233,7 +268,7 @@ $QosmosWorkBookName = $ARGV[0];
 ($excludeFilter,$includeFilter) = ReadFilters($ARGV[2]);
 
 # Update the remapping file using, 4 = resources/remapping, 6 = resources/NetMonFieldNames.csv
-CreateRemappingFile($ARGV[4],$ARGV[6]);
+CreateRemappingFile($ARGV[4],$ARGV[6], $ARGV[5]);
 
 # Get the new mapping of names to use
 (%renameMapping) = ReadRemappingFile($ARGV[4]);
@@ -259,9 +294,6 @@ CreateSummaryFile($QosmosWorkBookName,$ARGV[3],$excludeFilter,$includeFilter);
 
 # Check to make sure every field in the resources/Qosmos_Protobook.csv has a remapping assigned to it.
 CheckRenameFile($QosmosWorkBookName,$includeFilter,$excludeFilter,%renameMapping,\@staticFields);
-
-# Create a yaml file with the rename mapping
-DumpFile($renameMap,\%renameMapping);
 
 # Create a temporary file at /tmp/buildDpiMsgLRProto2.$BASHPID. This is a scratch file used
 # to sort the body contents of the DPI message by enum ID. A header and footer are added around
