@@ -1,0 +1,11 @@
+package configelements.ux;
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "PortRangeUXMsg";
+
+import "ConfigUX.proto";
+
+message PortRangeUX {
+   optional ConfigUX start = 1;
+   optional ConfigUX end = 2;
+}
