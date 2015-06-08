@@ -4,8 +4,6 @@ option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "ColumboConfigUXMsg";
 
 
-
-
 message ColumboConfigUX {
    optional ConfigUX requestQueue = 1;
    optional ConfigUX resendTranslationTableIntervalInMS = 2;
@@ -13,4 +11,7 @@ message ColumboConfigUX {
    optional ConfigUX searchThreadpoolSize = 4;
    optional ConfigUX minutesToCache = 5;
    optional ConfigUX cacheSizeInRecords = 6;
+   optional ConfigUX gumshoeQueue = 7;
+   optional ConfigUX gumshoeBackend = 8;
+   optional ConfigUX gumshoeThreadpoolSize = 9;
 }

@@ -1,0 +1,13 @@
+package columbo;
+
+option java_package = "com.logrhythm.columbo";
+option java_outer_classname = "GumshoeRequestMsg";
+
+message GumshoeRequest {
+
+    optional string trackerId = 1;
+    optional int32 restrictedUserId = 2;
+    optional string indices = 3;
+    optional string searchType = 4;
+    optional string source = 5;
+}

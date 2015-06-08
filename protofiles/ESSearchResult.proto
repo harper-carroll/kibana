@@ -3,9 +3,6 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ESSearchResultMsg";
 
-
-
-
 message ESSearchResult {
 
    enum ResultType {
@@ -15,7 +12,6 @@ message ESSearchResult {
    }
 
    message Hit {
-
       optional string json = 1;
    }
 
@@ -23,6 +19,7 @@ message ESSearchResult {
    optional string errorMessage = 2;
    optional int64 totalHits = 3;
    repeated Hit hits = 4;
-   optional string nextPageToken = 5; 
+   optional string nextPageToken = 5;
+   optional string esQueryFilter = 6;
 
 }
