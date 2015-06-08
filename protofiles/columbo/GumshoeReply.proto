@@ -4,6 +4,7 @@ option java_package = "com.logrhythm.columbo";
 option java_outer_classname = "GumshoeReplyMsg";
 
 message GumshoeReply {
+
    enum ResultType {
       SUCCESS = 0;
       TIMEOUT = 1;
