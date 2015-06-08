@@ -12,8 +12,8 @@ message ElasticSearchClientConfigUX {
       optional ConfigUX value = 2;
    }
    
-   optional ConfigUX OBSOLETE_elasticsearchClusterName = 1;
-   optional ConfigUX OBSOLETE_elasticsearchNodeIp = 2;
+// DEPRECATED   optional ConfigUX elasticsearchClusterName = 1;
+// DEPRECATED  optional ConfigUX elasticsearchNodeIp = 2;
    optional ConfigUX elasticsearchServerConfigPath = 3;
    repeated ConfigUX elasticsearchClientTransportAddress = 4;
    repeated SettingsEntry elasticsearchClientSettings = 5;

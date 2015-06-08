@@ -7,15 +7,14 @@ import "ConfigUX.proto";
 import "CarpenterConfigUX.proto";
 import "ColumboClientConfigUX.proto";
 import "ColumboConfigUX.proto";
+import "ConfigServerConfigUX.proto";
 import "DispatchConfigUX.proto";
 import "DispatchClientConfigUX.proto";
 import "ElasticSearchClientConfigUX.proto";
-import "IndexManagerConfigUX.proto";
+import "EnigmaConfigUX.proto";
+import "HermesConfigUX.proto";
 import "InfluxConfigUX.proto";
 import "LinkConfigUX.proto";
-import "MaintenanceConfigUX.proto";
-import "MetricsClientConfigUX.proto";
-import "MetricsConfigUX.proto";
 import "VitalsClientConfigUX.proto";
 
 
@@ -30,30 +29,27 @@ message AllConf {
   optional ConfigUX columboConfigUX = 5;
   optional ColumboConfigUX columboConfig = 6;
 
-  optional ConfigUX dispatchClientConfigUX = 7;
-  optional DispatchClientConfigUX dispatchClientConfig = 8;
+  optional ConfigUX configServerConfigUX = 7;
+  optional ConfigServerConfigUX configServerConfig = 8;
 
-  optional ConfigUX dispatchConfigUX = 9;
-  optional DispatchConfigUX dispatchConfig = 10;
+  optional ConfigUX dispatchClientConfigUX = 9;
+  optional DispatchClientConfigUX dispatchClientConfig = 10;
 
-  optional ConfigUX elasticSearchClientConfigUX = 11;
-  optional ElasticSearchClientConfigUX elasticSearchClientConfig = 12;
+  optional ConfigUX dispatchConfigUX = 11;
+  optional DispatchConfigUX dispatchConfig = 12;
 
-  optional ConfigUX influxConfigUX = 13;
-  optional InfluxConfigUX influxConfig = 14;
+  optional ConfigUX elasticSearchClientConfigUX = 13;
+  optional ElasticSearchClientConfigUX elasticSearchClientConfig = 14;
 
-  optional ConfigUX linkConfigUX = 15;
-  optional LinkConfigUX linkConfig = 16;
+  optional ConfigUX enigmaConfigUX = 15;
+  optional EnigmaConfigUX enigmaConfig = 16;
 
-  optional ConfigUX maintenanceConfigUX = 17;
-  optional MaintenanceConfigUX maintenanceConfig = 18;
+  optional ConfigUX influxConfigUX = 17;
+  optional InfluxConfigUX influxConfig = 18;
 
-  optional ConfigUX metricsClientConfigUX = 19;
-  optional MetricsClientConfigUX metricsClientConfig = 20;
+  optional ConfigUX linkConfigUX = 19;
+  optional LinkConfigUX linkConfig = 20;
 
-  optional ConfigUX metricsConfigUX = 21;
-  optional MetricsConfigUX metricsConfig = 22;
-
-  optional ConfigUX vitalsClientConfigUX = 23;
-  optional VitalsClientConfigUX vitalsClientConfig = 24;
+  optional ConfigUX vitalsClientConfigUX = 21;
+  optional VitalsClientConfigUX vitalsClientConfig = 22;
 }
