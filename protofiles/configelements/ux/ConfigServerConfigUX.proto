@@ -11,4 +11,7 @@ message ConfigServerConfigUX {
    optional ConfigUX frontEndRelayQueue = 2;
    optional ConfigUX backEndHandlerQueue = 3;
    optional ConfigUX maxSimultaneousRequests = 4;
+   repeated ConfigUX configUxRequestQueue = 5;
+   optional ConfigUX configUxHandlerQueue = 6;
+   optional ConfigUX maxSimultaneousUxRequests = 7;
 }
