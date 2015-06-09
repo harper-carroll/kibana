@@ -785,6 +785,7 @@ cache_control CacheControl
 charset Charset
 code Code
 connection_header ConnectionHeader
+content HttpContent
 content_disposition ContentDisposition
 content_encoding ContentEncoding
 content_language ContentLanguage
