@@ -783,6 +783,7 @@ http,HyperText Transfer Protocol,#code,Return code sent by the server.
 http,HyperText Transfer Protocol,#content_len,Contains the content length of the HTTP request/response.
 http,HyperText Transfer Protocol,#x_content_urn,Contains the different hashes of downloaded file (used by Gnutella).
 http,HyperText Transfer Protocol,#filename,Name of the transferred file.
+http,HyperText Transfer Protocol,#content,Message content.
 http,HyperText Transfer Protocol,#content_range,Contains information about the size and offset of downloaded file (used by Gnutella).
 http,HyperText Transfer Protocol,#charset,Contains the name of the used charset.
 http,HyperText Transfer Protocol,#wap_profile,url link that contains the specification of the used handset.

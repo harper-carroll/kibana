@@ -828,6 +828,7 @@ HTTP,cache_controlQ_PROTO_HTTP,cache_control,CacheControl,Cache Control,,,,,Comp
 HTTP,charsetQ_PROTO_HTTP,charset,Charset,Charset,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 HTTP,codeQ_PROTO_HTTP,code,Code,Code,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 HTTP,connection_headerQ_PROTO_HTTP,connection_header,ConnectionHeader,Connection Header,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HTTP,contentQ_PROTO_HTTP,content,HttpContent,Http Content,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 HTTP,content_dispositionQ_PROTO_HTTP,content_disposition,ContentDisposition,Content Disposition,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 HTTP,content_encodingQ_PROTO_HTTP,content_encoding,ContentEncoding,Content Encoding,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 HTTP,content_languageQ_PROTO_HTTP,content_language,ContentLanguage,Content Language,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
