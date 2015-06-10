@@ -1,0 +1,22 @@
+package columbo;
+
+option java_package = "com.logrhythm.columbo";
+option java_outer_classname = "GumshoeRequestMsg";
+
+message GumshoeRequest {
+
+    enum SearchType {
+       COUNT = 0;
+       DFS_QUERY_AND_FETCH = 1;
+       DFS_QUERY_THEN_FETCH = 2;
+       QUERY_AND_FETCH = 3;
+       QUERY_THEN_FETCH = 4;
+       SCAN = 5;
+    }
+
+    optional string trackerId = 1;
+    optional int32 restrictedUserId = 2;
+    repeated string indices = 3;
+    optional SearchType searchType = 4;
+    optional string source = 5;
+}
