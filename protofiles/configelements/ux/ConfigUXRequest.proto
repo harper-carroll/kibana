@@ -10,8 +10,8 @@ import "AllConf.proto";
 message ConfigUXRequest {
    enum RequestType {
       READ_ALL = 0;
-      WRITE = 1;
-      VALIDATE = 2;
+      WRITE_ALL = 1;
+      VALIDATE_ALL = 2;
    }
 
    optional string requestId = 1;
