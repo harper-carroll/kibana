@@ -27,6 +27,11 @@ message DpiMsgLRproto
       optional uint32 FileSize = 2;
    }
 
+   message CustomField { 
+      required string key = 1;
+      required string value = 2;
+   }
+
    optional string Session = 1;
    optional uint64 SrcMAC = 2;
    optional uint64 DestMAC = 3;
@@ -76,5 +81,6 @@ message DpiMsgLRproto
    optional uint32 MaxRepeatedFieldCount = 47;
    optional uint32 FieldCountIndexed = 48;
    repeated EmailAttach emailAttachments = 49;
+   repeated CustomField customFields = 50;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
 
