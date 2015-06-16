@@ -7,7 +7,7 @@ option java_outer_classname = "ConfigUXMsg";
 message ConfigUX {
 
   enum DisplayType {
-    INVALID1 = 0;
+    INVALID_DISPLAY_TYPE = 0;
     INTEGER = 1;
     NATURAL = 2;
     REAL = 3;
@@ -23,7 +23,7 @@ message ConfigUX {
   }
 
   enum DisplayUnit {
-    INVALID2 = 0;
+    INVALID_DISPLAY_UNIT = 0;
     NONE = 1;
     MILLISECONDS = 2;
     SECONDS = 3;
