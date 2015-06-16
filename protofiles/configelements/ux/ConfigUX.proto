@@ -7,6 +7,7 @@ option java_outer_classname = "ConfigUXMsg";
 message ConfigUX {
 
   enum DisplayType {
+    INVALID_DISPLAY_TYPE = 0;
     INTEGER = 1;
     NATURAL = 2;
     REAL = 3;
@@ -18,12 +19,14 @@ message ConfigUX {
     IPV4 = 9;
     IPV6 = 10;
     DISPLAY = 11; // This is to control cross-referenced data-points.
+    QUEUE = 12;
   }
 
   enum DisplayUnit {
-    NONE = 0;
-    MILLISECONDS = 1;
-    SECONDS = 2;
+    INVALID_DISPLAY_UNIT = 0;
+    NONE = 1;
+    MILLISECONDS = 2;
+    SECONDS = 3;
   }
 
   message SelectableValue {
