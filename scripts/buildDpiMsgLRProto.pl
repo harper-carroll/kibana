@@ -328,7 +328,8 @@ while (<qosmosWorkbook>) {
          }
       }
       if ($_ !~ /$excludeFilter/ ) {
-         print luaProtoFieldsCsv "$lineValues[4], $lineValues[5], $lineValues[8], $field, $type, \"$lineValues[11]\"\n";
+         my $lcField = lc($field);
+         print luaProtoFieldsCsv "$lineValues[4], $lineValues[5], $lineValues[8], $lcField, $type, \"$lineValues[11]\"\n";
       }
    }
 }
