@@ -24,7 +24,8 @@ fi
 
 (cd "$protoFileDir"; "$scriptsDir"/rewriteProto/rewriteProto . $goSrc/)
 
-( cd $goSrc; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:/$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/*.proto )
-( cd "$goSrc"/clipboard; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/clipboard/*.proto)
-rm "$goSrc"/*.proto
-rm "$goSrc"/clipboard/*.proto
+( cd $goSrc; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/ $goSrc/*.proto )
+( cd "$goSrc"/clipboard; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/clipboard/*.proto) 
+( cd "$goSrc"/clipboard; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/heartthrob/*.proto) 
+rm "$goSrc"/*.proto || true
+rm "$goSrc"/clipboard/*.proto || true

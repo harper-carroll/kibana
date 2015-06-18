@@ -1,0 +1,27 @@
+package heartthrob;
+
+option java_package = "com.logrhythm.nm.message.heartthrob";
+option java_outer_classname = "CensusReplyMsg";
+
+message reply {
+  optional Census census = 1;
+  optional bool fail = 100;
+  optional string failReason = 101; 
+  message Census {
+    enum Status {
+        RED = 0;
+        YELLOW = 1;
+        GREEN = 2;
+    }
+    enum Platform {
+        LINUX = 0;
+        WINDOWS = 1;
+    }
+     optional Status status = 1;
+     optional string host = 2;
+     optional Platform platform = 3;
+     optional string notices = 4;
+  } 
+}
+
+

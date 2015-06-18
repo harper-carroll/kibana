@@ -15,6 +15,7 @@ text: |
   option (gogoproto.unmarshaler_all) = true;
 exclude: 
   - RuleConf
+  - Rule
   - DpiMsgLRproto
   - Applications
   - BaseConfMsg
