@@ -5,8 +5,7 @@ option java_outer_classname = "CensusReplyMsg";
 
 message reply {
   optional Census census = 1;
-  optional bool fail = 100;
-  optional string failReason = 101; 
+  optional string failure = 100; 
   message Census {
     enum Status {
         RED = 0;
@@ -23,5 +22,4 @@ message reply {
      optional string notices = 4;
   } 
 }
-
 
