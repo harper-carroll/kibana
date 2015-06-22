@@ -14,6 +14,7 @@ message LogMessage {
      DEBUG = 3;
      SYSTEM = 4;
      EVENT = 5;
+     USER_LUA_ALARM = 10;
   }
   enum SourceType {
      DPIMSG = 0;
