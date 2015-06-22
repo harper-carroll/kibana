@@ -1,0 +1,12 @@
+package heartthrob;
+
+option java_package = "com.logrhythm.nm.message.heartthrob";
+option java_outer_classname = "RequestMsg";
+
+message Request {
+  enum Type {
+   INVALID = 0;
+   CENSUS = 1;
+  }
+ optional Type request = 1;
+}
