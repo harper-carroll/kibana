@@ -282,6 +282,12 @@ open luaProtoFieldsCsv, '>'."$ARGV[3]" or die $!;
 seek luaProtoFieldsCsv, 0, 0;
 print luaProtoFieldsCsv "Protocol Name, Long Protocol Name, Attribute Name, Full Attribute Name, Attribute Type, Attribute Description\n";
 
+# Add static fields to the Lua Protocol description file.
+open (staticFieldsCsv, "<", "resources/StaticFields.csv") or die 'Could not open resources/StaticFields.csv';
+while ( my $line = <staticFieldsCsv> ) {
+   print luaProtoFieldsCsv $line;
+}
+
 seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
    # Include all attributes matching the includeFilter, but exclude the 19 attributes at the beginning 
