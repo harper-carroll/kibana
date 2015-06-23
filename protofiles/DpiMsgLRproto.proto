@@ -83,6 +83,7 @@ message DpiMsgLRproto
    repeated EmailAttach emailAttachments = 49;
    repeated CustomField customFields = 50;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
+   // REMEMBER TO UPDATE resources/StaticFields.csv as well
 
 repeated bytes framed_ipQ_PROTO_DIAMETER = 343; // QOSMOS:Q_PROTO_DIAMETER,Q_DIAMETER_FRAMED_IP
 repeated bytes applicationQ_PROTO_BASE = 344; // QOSMOS:Q_PROTO_BASE,Q_BASE_APPLICATION
