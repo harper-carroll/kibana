@@ -4,9 +4,9 @@ option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "VitalsClientConfigUXMsg";
 
 message VitalsClientConfigUX {
-   optional ConfigUX host = 1;
+// DEPRECATED      optional ConfigUX host = 1;
    optional ConfigUX region = 2;
-   optional ConfigUX service = 3;
+// DEPRECATED      optional ConfigUX service = 3;
    optional ConfigUX pulseQueue = 4;
    optional ConfigUX accumulatorQueue = 5;
    optional ConfigUX defaultSecsToAccumulate = 6;
