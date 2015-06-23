@@ -7,7 +7,7 @@ option java_outer_classname = "ConfigUXMsg";
 message ConfigUX {
 
   enum DisplayType {
-    INVALID_DISPLAY_TYPE = 0;
+    INVALID_DISPLAY_TYPE = 0;                     // With protostuff, the first enum literal is the default, so make it invalid
     INTEGER = 1;
     NATURAL = 2;
     REAL = 3;
@@ -18,12 +18,12 @@ message ConfigUX {
     PASSWORD = 8;
     IPV4 = 9;
     IPV6 = 10;
-    DISPLAY = 11; // This is to control cross-referenced data-points.
+    DISPLAY = 11;                                 // This is to control cross-referenced data-points.
     QUEUE = 12;
   }
 
   enum DisplayUnit {
-    INVALID_DISPLAY_UNIT = 0;
+    INVALID_DISPLAY_UNIT = 0;                     // With protostuff, the first enum literal is the default, so make it invalid
     NONE = 1;
     MILLISECONDS = 2;
     SECONDS = 3;
@@ -36,12 +36,13 @@ message ConfigUX {
 
   optional string defaultValue = 1;               // Default value associated with the field.
   optional string currentValue = 2;               // Currently saved value in the config.yaml file(s).
-  repeated SelectableValue selectableValues = 3;  // Pairs for a drop-down.
-  optional DisplayType displayType = 4;           // Helps UX control input (ie positive numbers only).
-  optional DisplayUnit displayUnit = 5;           // Possible units of the display type
-  optional string displayValue = 6;               // Human readable version of camel-case name of data-point.
-  optional bool isReadOnly = 7;                   // Renders the data-point as read-only.
-  optional bool isVisible = 8;                    // Flag causes UI to not render the data point.
-  optional string validateHint = 9;               // Text that can be read as part of tool tip.
-  repeated string validateErrors = 10;            // Messages resulting from invalid input.
+  optional string newValue = 3;                   // A potential new value (defaults to the current value).
+  repeated SelectableValue selectableValues = 4;  // Pairs for a drop-down.
+  optional DisplayType displayType = 5;           // Helps UX control input (ie positive numbers only).
+  optional DisplayUnit displayUnit = 6;           // Possible units of the display type
+  optional string displayValue = 7;               // Human readable version of camel-case name of data-point.
+  optional bool isReadOnly = 8;                   // Renders the data-point as read-only.
+  optional bool isVisible = 9;                    // Flag causes UI to not render the data point.
+  optional string validateHint = 10;              // Text that can be read as part of tool tip.
+  repeated string validateErrors = 11;            // Messages resulting from invalid input.
 }
