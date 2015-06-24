@@ -4,9 +4,9 @@ option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "VitalsClientConfigMsg";
 
 message VitalsClientConfig {
-   optional string host = 1;
+// DEPRECATED      optional string host = 1;
    optional string region = 2;
-   optional string service = 3;
+// DEPRECATED      optional string service = 3;
    optional string pulseQueue = 4;
    optional string accumulatorQueue = 5;
    optional int32 defaultSecsToAccumulate = 6;
