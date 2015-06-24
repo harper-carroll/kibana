@@ -1,4 +1,6 @@
-package configelements.ux; import "ConfigUX.proto";
+package configelements.ux;
+
+import "ConfigUX.proto";
 
 option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "MetricsClientConfigUXMsg";
