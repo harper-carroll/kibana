@@ -17,8 +17,8 @@ sub CheckRenameFile {
    print $missAttrFile "remapping file - missing attributes\n";
    # print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status,Description\n";
    print $missAttrFile "Application,QProto Name,NetMon Old Name,Short Name,Long Name,Syslog Field,SIEM MPE Tag,SIEM Mapped Field (6.3 Name),SIEM Long Name 6.3,Status\n";
-   open qosmosWorkbook, "$qosmosFileName" or die $!;
 
+   open qosmosWorkbook, "$qosmosFileName" or die $!;
    my $mapGood = 1;
    while (<qosmosWorkbook>) {
       if ($_ =~ m/$includeFilter/ && $_ !~ /$excludeFilter/ ) {
@@ -29,7 +29,7 @@ sub CheckRenameFile {
             # If there are missing attributes, work with Labs to get mappings assigned. Use an updated
             # NetMonFieldNames.csv file to complete the Protobuffer compilation.
             my $proto = $lineValues[2];
-            my $proto =~ s/Q_PROTO_//; 
+            $proto =~ s/Q_PROTO_//; 
             my $removedUnderscore = upperCamelCase($lineValues[8]);
             my $removedSpaces = $removedUnderscore;
             my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;

@@ -1,4 +1,4 @@
-,protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_name,attr_name,deprecated,attr_type,attr_desc,stream,pkt/session,content.
+,protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_name,attr_name,deprecated,attr_type,attr_desc,stream,pkt/session,content
 ,.,,,,,-1,Q_GEN_TOT_LEN,tot_len,,uint32,Remaining data length starting from the defined protocol layer (including header).,0,pkt,0
 ,.,,,,,-2,Q_GEN_HDR_LEN,hdr_len,,uint32,Packet length for the considered protocol.,0,pkt,0
 ,.,,,,,-3,Q_GEN_PAYLOAD_LEN,payload_len,,uint32,"Length of data contained by the selected protocol, excluding the header.",0,pkt,0
@@ -42,6 +42,9 @@
 ,1437,Q_PROTO_3GPP_LI,Tunneling,3gpp_li,3GPP LI,8,Q_3GPP_LI_COUNTRY_CODE,country_code,,string,Country code according to ISO 3166-1,0,session_mod,0
 ,1437,Q_PROTO_3GPP_LI,Tunneling,3gpp_li,3GPP LI,9,Q_3GPP_LI_ICE_TYPE,ice_type,,uint32,Intercepting Control Element type,0,session_mod,0
 ,1437,Q_PROTO_3GPP_LI,Tunneling,3gpp_li,3GPP LI,10,Q_3GPP_LI_NATIONAL_PARAMS,national_params,,binary,National parameters (other than country) in ASN.1 format,0,session_mod,0
+,2346,Q_PROTO_8021AD,Network Service,8021ad,IEEE 802.1ad,1,Q_8021AD_PRIORITY,priority,,uint8,Packet priority.,0,session_fix,0
+,2346,Q_PROTO_8021AD,Network Service,8021ad,IEEE 802.1ad,2,Q_8021AD_DEI,dei,,uint8,Flag used to indicate that the frame is eligible to be dropped in the presence of congestion.,0,session_fix,0
+,2346,Q_PROTO_8021AD,Network Service,8021ad,IEEE 802.1ad,3,Q_8021AD_VLAN_ID,vlan_id,,uint16,VLAN Identifier of the frame.,0,session_fix,0
 ,7,Q_PROTO_8021Q,Network Service,8021q,802.1Q Ethernet VLAN,1,Q_8021Q_PRIORITY,priority,,uint8,Packet priority.,0,session_fix,0
 ,7,Q_PROTO_8021Q,Network Service,8021q,802.1Q Ethernet VLAN,2,Q_8021Q_CFI,cfi,,uint8,Flag used for compatibility reason between Ethernet type network and Token Ring type network. Canonical Format Indicator is always set to zero for Ethernet switches.,0,session_fix,0
 ,7,Q_PROTO_8021Q,Network Service,8021q,802.1Q Ethernet VLAN,3,Q_8021Q_VLAN_ID,vlan_id,,uint16,VLAN Identifier of the frame.,0,session_fix,0
@@ -215,6 +218,7 @@
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,9,Q_BASE_DELAY,delay,,timeval,Elapsed time between consecutive packets processing.,0,session_mod,0
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,10,Q_BASE_JITTER,jitter,,timeval,Variation of delay compared to the last processed packet (calculated per half-session).,0,session_mod,0
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,11,Q_BASE_FAMILY,family,,string,Family to which the uppermost protocol of the protocol stack belongs to.,0,session_prt,0
+,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,72,Q_BASE_FAMILY_ID,family_id,,uint32,Identifier of the family to which the uppermost protocol of the protocol stack belongs to.,0,session_prt,0
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,14,Q_BASE_APPLICATION_ID,application_id,,uint32,Unique ID of application to which the packet belongs.,0,session_prt,0
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,32,Q_BASE_PATH_LEN,path_len,,uint32,Contains the number of protocols in the packet protocol stack (path).,0,pkt,0
 ,3,Q_PROTO_BASE,Standard,base,Base virtual protocol,33,Q_BASE_PACKET_COUNTER,packet_counter,,uint32,Number of packets received.,0,pkt,0
@@ -413,7 +417,8 @@
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,11,Q_DHCP_BOOTFILENAME,bootfilename,,string,File name used when initializing,0,session_mod,0
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,12,Q_DHCP_OPTION,option,,parent,An empty parent attribute,0,session_mod,0
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,13,Q_DHCP_OPTION_TYPE,option_type,,uint8,Option type,0,session_mod,0
-,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,14,Q_DHCP_OPTION_VALUE,option_value,,binary,Content or value of the option,0,session_mod,0
+,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,14,Q_DHCP_OPTION_VALUE,option_value,x,binary,"Content or value of the option. This is deprecated, please use option_value_buffer instead.",0,session_mod,0
+,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,25,Q_DHCP_OPTION_VALUE_BUFFER,option_value_buffer,,buffer,Content or value of the option.,0,session_mod,0
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,15,Q_DHCP_AGENT,agent,,parent,A parent attribute for agent information,0,session_mod,0
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,16,Q_DHCP_CIRCUIT_ID,circuit_id,,string,A suboption that contains the circuit identifier,0,session_mod,0
 ,29,Q_PROTO_DHCP,Network Service,dhcp,Dynamic Host Configuration Protocol,20,Q_DHCP_REMOTE_ID,remote_id,,string,The remote agent,0,session_mod,0
@@ -525,7 +530,7 @@
 ,32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,17,Q_DNS_TTL,ttl,,uint32,Time (in seconds) a DNS information returned by the server will be kept in cache.,0,session_mod,0
 ,32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,67,Q_DNS_WEB_APPLICATION_INFO,web_application_info,,,"Structure containing metadata for classification of known HTTP-based web applications. These metadata are based on Type A (IPv4) DNS responses returned from the server. The ul3l4_addr_t structure contains the web application protocol path, classified using the requested host name, and the IPv4 address resolved by the server. The hostname lookup is performed on Q_HTTP_SERVER registered PDATA signatures only.",0,session_mod,0
 ,32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,68,Q_DNS_SECTION_TYPE,section_type,,string,Type of section for each DNS answer.,0,session_mod,0
-,32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,69,Q_DNS_FLAGS,flags,,uint32,Flags.,0,session_mod,0
+,32,Q_PROTO_DNS,Network Service,dns,Domain Name Service,69,Q_DNS_FLAGS,flags,,uint16,"16-bit representation of some DNS header flags. These fields are described in RFC 1035 section 4.1.1 Header section format"" and are the following: QA, Opcode, AA, TC, RD, RA, Z, RCODE.""",0,session_mod,0
 ,34,Q_PROTO_EBAY,Web,ebay,eBay.com,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,34,Q_PROTO_EBAY,Web,ebay,eBay.com,581,Q_MPA_QUERY,query,,parent,Contains query metadata sent to the server.,0,session_mod,0
 ,34,Q_PROTO_EBAY,Web,ebay,eBay.com,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session_prt,0
@@ -1330,6 +1335,7 @@
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,59,Q_HTTP_HEADER_END,header_end,,no_type,Token marking end of the HTTP header.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,60,Q_HTTP_REQUEST_SIZE,request_size,,uint64,Contains the total length in bytes of the request or the response (including HTTP headers). This attribute is computed at the end of the request or response.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,61,Q_HTTP_DECHUNK_SIZE,dechunk_size,,uint32,Contains length of dechunked data.,0,session_mod,0
+,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,107,Q_HTTP_CHUNK_SIZE,chunk_size,,uint32,Contains length of chunked data.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,62,Q_HTTP_DECOMPRESS_SIZE,decompress_size,,uint32,Contains length of decompressed data.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,69,Q_HTTP_CONTENT_ENCODING,content_encoding,,string,Contains content encoding format.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,70,Q_HTTP_ACCEPT_ENCODING,accept_encoding,,string,Contains the accepted encodings.,0,session_mod,0
@@ -1792,11 +1798,38 @@
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,577,Q_MPA_NAME,name,,string,"Name of the LDAP element, in the LDAP tree (RFC2251).",0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,10,Q_LDAP_NUMBER,number,,uint32,Item number of the LDAP element.,0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,16,Q_LDAP_LEVEL,level,,uint32,Depth level in ldap tree.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,17,Q_LDAP_KRB5_BLOB,krb5_blob,,buffer,Data contained in the KRB5 security blob.,0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,11,Q_LDAP_HOSTNAME,hostname,,string,Hostname extracted from a logon response to a CLDAP searchRequest.,0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,12,Q_LDAP_FILTER_EXPRESSION,filter_expression,,parent,Filter sub expression extracted from a CLDAP searchRequest.,0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,13,Q_LDAP_ATTRIBUTE_DESC,attribute_desc,,string,"Filter expression first operand, which is an attribute description.",0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,14,Q_LDAP_ASSERTION_VALUE,assertion_value,,string,"Filter expression second operand, which is an assertion value.",0,session_mod,0
 ,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,15,Q_LDAP_ASSERTION_VALUE_RAW,assertion_value_raw,,buffer,Raw value of filter expression second operand.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,818,Q_MPA_KRB5_MESSAGE,krb5_message,,parent,Parent attribute containing the metadata related to a Kerberos message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,812,Q_MPA_KRB5_MESSAGE_TYPE,krb5_message_type,,uint32,Message type.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,813,Q_MPA_KRB5_SERVICE,krb5_service,,string,Service type.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,814,Q_MPA_KRB5_SERVER,krb5_server,,string,Name of the server requiring Kerberos authentication.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,815,Q_MPA_KRB5_ENC_DATA,krb5_enc_data,,binary,Encrypted data (hash) sent in the AS-RQ message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,816,Q_MPA_KRB5_ENC_DATA_TYPE,krb5_enc_data_type,,uint32,Indicate type of Encrypted data (hash) sent in the AS-RQ message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,819,Q_MPA_KRB5_PA_DATA,krb5_pa_data,,parent,"Parent attribute, containing PA-DATA type and value.",0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,820,Q_MPA_KRB5_PA_DATA_TYPE,krb5_pa_data_type,,uint32,PA-DATA type.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,821,Q_MPA_KRB5_PA_DATA_VALUE,krb5_pa_data_value,,binary,PA-DATA value.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,822,Q_MPA_KRB5_TICKET,krb5_ticket,,parent,"Parent attribute, containing name-type, name and enc_part of a ticket.",0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,824,Q_MPA_KRB5_TICKET_NAME_TYPE,krb5_ticket_name_type,,uint32,Ticket name-type.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,823,Q_MPA_KRB5_TICKET_NAME,krb5_ticket_name,,string,Ticket name component.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,825,Q_MPA_KRB5_TICKET_ENC_PART,krb5_ticket_enc_part,,buffer,Ticket encrypted part.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,840,Q_MPA_KRB5_KDCOPTIONS,krb5_kdcoptions,,buffer,KDC options as a bitstring.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,826,Q_MPA_KRB5_ERROR_CODE,krb5_error_code,,int32,Error code in KRB-ERROR message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,817,Q_MPA_KRB5_REALM,krb5_realm,,string,Realm in KRB-ERROR message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,827,Q_MPA_KRB5_ERR_CREALM,krb5_err_crealm,,string,Realm in KRB-ERROR message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,828,Q_MPA_KRB5_ERR_CNAME,krb5_err_cname,,parent,"Parent attribute, containing name-type and name of a KRB-ERROR message.",0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,839,Q_MPA_KRB5_ERR_REALM,krb5_err_realm,,string,Correct realm in KRB-ERROR message.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,829,Q_MPA_KRB5_ERR_CNAME_TYPE,krb5_err_cname_type,,uint32,KRB-ERROR cname type.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,830,Q_MPA_KRB5_ERR_CNAME_NAME,krb5_err_cname_name,,string,KRB-ERROR message cname component.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,836,Q_MPA_KRB5_ERR_SNAME,krb5_err_sname,,parent,"Parent attribute, containing name-type and name of a KRB-ERROR message server.",0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,837,Q_MPA_KRB5_ERR_SNAME_TYPE,krb5_err_sname_type,,uint32,KRB-ERROR message server sname type.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,838,Q_MPA_KRB5_ERR_SNAME_NAME,krb5_err_sname_name,,string,KRB-ERROR message server sname component.,0,session_prt,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,834,Q_MPA_KRB5_ERR_TEXT,krb5_err_text,,string,KRB-ERROR message error description.,0,session_mod,0
+,100,Q_PROTO_LDAP,Application Service,ldap,Lighweight Directory Access Protocol,835,Q_MPA_KRB5_ERR_DATA,krb5_err_data,,binary,Error-related data.,0,session_mod,0
 ,1124,Q_PROTO_LINE,Instant Messaging,line,Line,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,1124,Q_PROTO_LINE,Instant Messaging,line,Line,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol version currently used by the client.,0,session_mod,0
 ,1124,Q_PROTO_LINE,Instant Messaging,line,Line,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata. The service type is resolved by a STATISTICAL method (non deterministic behaviorial analysis) with periodic revaluation. The revaluation period as well as other service detection parameters are modifiable using proto-tunes.,0,session_mod,0
@@ -3127,6 +3160,7 @@
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,61,Q_SIP_ALERT_INFO,alert_info,,string,Specifies an alternative ring tone.,0,session_prt,0
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,62,Q_SIP_CALL_INFO,call_info,,string,Provides additional information about the caller or callee.,0,session_prt,0
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,63,Q_SIP_ACCEPT_LANGUAGE,accept_language,,string,Indicates the preferred languages.,0,session_prt,0
+,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,67,Q_SIP_ILLEGAL_HDR_LENGTH,illegal_hdr_length,,uint8,Flag indicating the violation of maximal SDP header line length.,0,session_mod,0
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,522,Q_MPA_CALL,call,,parent,"Parent entry, empty, for fields belonging to the call (caller, callee, etc.).",0,session_mod,0
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,8,Q_SIP_CALL_ID,call_id,,string,"Call id, extracted for each call.",0,session_prt,0
 ,182,Q_PROTO_SIP,Audio/Video,sip,Session Initiation Protocol,709,Q_MPA_START_TIME,start_time,,timeval,Start date of the call.,0,session_prt,0
@@ -3190,10 +3224,11 @@
 ,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,608,Q_MPA_VERSION,version,,string,Skype client version.,0,session_mod,0
 ,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata. The service type is resolved by a STATISTICAL method (non deterministic behaviorial analysis) with periodic revaluation. The revaluation period as well as other service detection parameters are modifiable using proto-tunes.,0,session_mod,0
 ,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,807,Q_MPA_SERVICE_STATS,service_stats,,string,"Composite attribute containing the packet metrics used for each new service type detection, extracting when performing STATISCAL detection method only. Note: this attribute won't be extracted in case of session expiration (eg. when the current service is not ended properly by the user).",0,session_prt,0
-,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string.,0,session_prt,0
-,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer).",0,session_prt,0
+,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,1,Q_SKYPE_SERVICE,service,,string,Current service identification string.,0,session_mod,0
+,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer).",0,session_mod,0
 ,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,797,Q_MPA_SERVICE_DURATION,service_duration,,uint32,"4 bytes integer value indicating, when the service is ended, the length of it in seconds",0,session_prt,0
 ,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,800,Q_MPA_SERVICE_DURATION_TV,service_duration_tv,,timeval,"Timeval structure indicating, when the service is ended, the length of it in second and microseconds.",0,session_prt,0
+,183,Q_PROTO_SKYPE,Instant Messaging,skype,Skype,4,Q_SKYPE_SERVICE_DIVERGENCE,service_divergence,,uint32,"The minimal distance"" between the real traffic and its theoretical model as implemented in the Qosmos plugin.""",0,session_mod,0
 ,184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,581,Q_MPA_QUERY,query,,string,Query sent to find a file.,0,session_mod,0
 ,184,Q_PROTO_SLSK,Peer to Peer,slsk,SoulSeek,608,Q_MPA_VERSION,version,,uint32,Current version of the Soulseek client.,0,session_mod,0
@@ -3242,11 +3277,40 @@
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),24,Q_SMB_DIALECT,dialect,,string,The version of the SMB Protocol.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),25,Q_SMB_DIALECT_INDEX,dialect_index,,uint16,Index of the selected SMB Protocol version.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),26,Q_SMB_DIALECT_NAME,dialect_name,,uint16,The version name of the SMB Protocol.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),32,Q_SMB_TARGET_INFO,target_info,,parent,Parent attribute containing the metadata related to CHALLENGE_MESSAGE message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),33,Q_SMB_TARGET_INFO_TYPE,target_info_type,,uint16,Type of target info item.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),34,Q_SMB_TARGET_INFO_VALUE,target_info_value,,buffer,Value of target info item.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),538,Q_MPA_FILE,file,,parent,File related information.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),542,Q_MPA_FILESIZE,filesize,,uint64,Size (byte) of the transferred file.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),23,Q_SMB_ATTRIBUTES,attributes,,uint32,File attributes/folder (bit field).,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),22,Q_SMB_EXT_ATTRIBUTES,ext_attributes,x,uint32,(deprecated) Extended File attributes/folder (bit field).,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),818,Q_MPA_KRB5_MESSAGE,krb5_message,,parent,Parent attribute containing the metadata related to a Kerberos message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),812,Q_MPA_KRB5_MESSAGE_TYPE,krb5_message_type,,uint32,Message type.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),813,Q_MPA_KRB5_SERVICE,krb5_service,,string,Service type.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),814,Q_MPA_KRB5_SERVER,krb5_server,,string,Name of the server requiring Kerberos authentication.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),815,Q_MPA_KRB5_ENC_DATA,krb5_enc_data,,binary,Encrypted data (hash) sent in the AS-RQ message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),816,Q_MPA_KRB5_ENC_DATA_TYPE,krb5_enc_data_type,,uint32,Indicate type of Encrypted data (hash) sent in the AS-RQ message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),819,Q_MPA_KRB5_PA_DATA,krb5_pa_data,,parent,"Parent attribute, containing PA-DATA type and value.",0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),820,Q_MPA_KRB5_PA_DATA_TYPE,krb5_pa_data_type,,uint32,PA-DATA type.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),821,Q_MPA_KRB5_PA_DATA_VALUE,krb5_pa_data_value,,binary,PA-DATA value.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),822,Q_MPA_KRB5_TICKET,krb5_ticket,,parent,"Parent attribute, containing name-type, name and enc_part of a ticket.",0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),824,Q_MPA_KRB5_TICKET_NAME_TYPE,krb5_ticket_name_type,,uint32,Ticket name-type.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),823,Q_MPA_KRB5_TICKET_NAME,krb5_ticket_name,,string,Ticket name component.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),825,Q_MPA_KRB5_TICKET_ENC_PART,krb5_ticket_enc_part,,buffer,Ticket encrypted part.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),840,Q_MPA_KRB5_KDCOPTIONS,krb5_kdcoptions,,buffer,KDC options as a bitstring.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),826,Q_MPA_KRB5_ERROR_CODE,krb5_error_code,,int32,Error code in KRB-ERROR message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),817,Q_MPA_KRB5_REALM,krb5_realm,,string,Realm in KRB-ERROR message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),827,Q_MPA_KRB5_ERR_CREALM,krb5_err_crealm,,string,Realm in KRB-ERROR message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),828,Q_MPA_KRB5_ERR_CNAME,krb5_err_cname,,parent,"Parent attribute, containing name-type and name of a KRB-ERROR message.",0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),839,Q_MPA_KRB5_ERR_REALM,krb5_err_realm,,string,Correct realm in KRB-ERROR message.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),829,Q_MPA_KRB5_ERR_CNAME_TYPE,krb5_err_cname_type,,uint32,KRB-ERROR cname type.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),830,Q_MPA_KRB5_ERR_CNAME_NAME,krb5_err_cname_name,,string,KRB-ERROR message cname component.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),836,Q_MPA_KRB5_ERR_SNAME,krb5_err_sname,,parent,"Parent attribute, containing name-type and name of a KRB-ERROR message server.",0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),837,Q_MPA_KRB5_ERR_SNAME_TYPE,krb5_err_sname_type,,uint32,KRB-ERROR message server sname type.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),838,Q_MPA_KRB5_ERR_SNAME_NAME,krb5_err_sname_name,,string,KRB-ERROR message server sname component.,0,session_prt,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),834,Q_MPA_KRB5_ERR_TEXT,krb5_err_text,,string,KRB-ERROR message error description.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),835,Q_MPA_KRB5_ERR_DATA,krb5_err_data,,binary,Error-related data.,0,session_mod,0
 ,738,Q_PROTO_SMPP,Wap,smpp,Short message peer-to-peer protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,738,Q_PROTO_SMPP,Wap,smpp,Short message peer-to-peer protocol,552,Q_MPA_MESSAGE,message,,parent,Parent attribute containing SMS information.,0,session_mod,0
 ,738,Q_PROTO_SMPP,Wap,smpp,Short message peer-to-peer protocol,600,Q_MPA_SENDER,sender,,string,Sender's address.,0,session_prt,0
@@ -3354,11 +3418,24 @@
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,13,Q_SPDY_RST_STREAM,rst_stream,,parent,Parent attribute for elements of stream reset frames.,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,14,Q_SPDY_STATUS_CODE,status_code,,uint32,An indicator for why the stream is being terminated.,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,15,Q_SPDY_HEADER_COUNT,header_count,,uint32,The number of repeating name/value pairs following this field,0,session_prt,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,16,Q_SPDY_HEADER,header,,parent,Parent attribute for a name/value pair.,0,session_prt,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,21,Q_SPDY_HEADER_NAME,header_name,,string,"Header name, prefixed by a ':' if it's a mandatory SPDY header.",0,session_prt,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,22,Q_SPDY_HEADER_VALUE,header_value,,string,Header value.,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,19,Q_SPDY_DATA_FRAME,data_frame,,parent,Parent attribute for elements of a data frame.,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,20,Q_SPDY_CONTENT,content,,buffer,Message content.,0,session_prt,1
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,643,Q_MPA_REQUEST,request,,parent,Parent attribute gathering the main headers of an SPDY request.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,16,Q_SPDY_HEADER,header,,parent,Parent attribute for a name/value pair.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,21,Q_SPDY_HEADER_NAME,header_name,,string,"Header name, prefixed by a ':' if it's a mandatory SPDY header.",0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,22,Q_SPDY_HEADER_VALUE,header_value,,string,Header value.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,23,Q_SPDY_HOST,host,,string,Host name value extracted from the Host header.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,24,Q_SPDY_SERVER_AGENT,server_agent,,string,Name of the server software.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,25,Q_SPDY_LOCATION,location,,string,Destination address where the client is redirected.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,26,Q_SPDY_REFERER,referer,,string,Source address from which the client obtained the requested URI.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,27,Q_SPDY_URI_RAW,uri_raw,,string,Complete name (scheme/authority + path + request) of a web resource.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,28,Q_SPDY_COOKIE,cookie,,string,"Raw value of the HTTP Cookie header line, containing the HTTP request cookies.",0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,29,Q_SPDY_CONTENT_DISPOSITION,content_disposition,,string,Information related to the disposition of the content present on the web page.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,30,Q_SPDY_CONTENT_LEN,content_len,,string,Contains the content length of the HTTP request/response.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,555,Q_MPA_METHOD,method,,string,HTTP command sent by the client.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,626,Q_MPA_USER_AGENT,user_agent,,string,Software used by the client to access the web page.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,556,Q_MPA_MIME_TYPE,mime_type,,string,Content type of the request or the web page.,0,session_mod,0
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,649,Q_MPA_CONTENT_TRANSFER_ENCODING,content_transfer_encoding,,string,Corresponds to HTTP's Transfer-Encoding header. Contains the content encoding (TRANSFER-ENCODING HTTP header).,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,1,Q_SPID_RESULT,result,,parent,Parent attribute containing SPID classification results.,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,2,Q_SPID_FOUND_PROTOCOL,found_protocol,,string,Protocol name that has been discovered by SPID.,0,session_mod,0
@@ -3738,7 +3815,7 @@
 ,222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia.com,583,Q_MPA_QUERY_TEXT,query_text,,string,Query sent to the search engine.,0,session_mod,0
 ,222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia.com,582,Q_MPA_QUERY_RAW,query_raw,,string,Contains the query sent to the search engine as indicated in the URL.,0,session_mod,0
 ,222,Q_PROTO_WIKIPEDIA,Web,wikipedia,Wikipedia.com,581,Q_MPA_QUERY,query,,parent,Contains query metadata sent to the server.,0,session_mod,0
-,1111,Q_PROTO_WINDOWS_MARKETPLACE,Application Service,windows_marketplace,Windows Phone Marketplace,1,Q_WINDOWS_MARKETPLACE_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session_mod,0
+,1111,Q_PROTO_WINDOWS_MARKETPLACE,Application Service,windows_marketplace,Windows Marketplace,1,Q_WINDOWS_MARKETPLACE_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session_mod,0
 ,562,Q_PROTO_WINDOWS_UPDATE,Web,windows_update,Windows Update,1,Q_WINDOWS_UPDATE_PLATFORM,platform,,string,Indicating the Windows version using this update,0,session_fix,0
 ,562,Q_PROTO_WINDOWS_UPDATE,Web,windows_update,Windows Update,2,Q_WINDOWS_UPDATE_KB,kb,,string,kb (Knowledge base) is a unique internal Microsoft number to identify different software and updates.,0,session_fix,0
 ,223,Q_PROTO_WINMX,Peer to Peer,winmx,Winmx,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
@@ -4221,3 +4298,37 @@
 ,325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session_mod,0
 ,325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,532,Q_MPA_DATE,date,,string,Message date.,0,session_prt,0
 ,325,Q_PROTO_ZIMBRA_STANDARD,Webmail,zimbra_standard,Zimbra Webmail Standard Version,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session_prt,0
+BASE,family_idQ_PROTO_BASE,family_id,FamilyId,Family Id,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+HTTP,chunk_sizeQ_PROTO_HTTP,chunk_size,ChunkSize,Chunk Size,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_message_typeQ_PROTO_LDAP,krb5_message_type,Krb5MessageType,Krb Message Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_serviceQ_PROTO_LDAP,krb5_service,Krb5Service,Krb Service,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_serverQ_PROTO_LDAP,krb5_server,Krb5Server,Krb Server,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_enc_data_typeQ_PROTO_LDAP,krb5_enc_data_type,Krb5EncDataType,Krb Enc Data Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_pa_data_typeQ_PROTO_LDAP,krb5_pa_data_type,Krb5PaDataType,Krb Pa Data Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_ticket_name_typeQ_PROTO_LDAP,krb5_ticket_name_type,Krb5TicketNameType,Krb Ticket Name Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_ticket_nameQ_PROTO_LDAP,krb5_ticket_name,Krb5TicketName,Krb Ticket Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_realmQ_PROTO_LDAP,krb5_realm,Krb5Realm,Krb Realm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_crealmQ_PROTO_LDAP,krb5_err_crealm,Krb5ErrCrealm,Krb Err Crealm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_realmQ_PROTO_LDAP,krb5_err_realm,Krb5ErrRealm,Krb Err Realm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_cname_typeQ_PROTO_LDAP,krb5_err_cname_type,Krb5ErrCnameType,Krb Err Cname Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_cname_nameQ_PROTO_LDAP,krb5_err_cname_name,Krb5ErrCnameName,Krb Err Cname Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_sname_typeQ_PROTO_LDAP,krb5_err_sname_type,Krb5ErrSnameType,Krb Err Sname Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_sname_nameQ_PROTO_LDAP,krb5_err_sname_name,Krb5ErrSnameName,Krb Err Sname Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_err_textQ_PROTO_LDAP,krb5_err_text,Krb5ErrText,Krb Err Text,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SKYPE,service_divergenceQ_PROTO_SKYPE,service_divergence,ServiceDivergence,Service Divergence,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_message_typeQ_PROTO_SMB,krb5_message_type,Krb5MessageType,Krb Message Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_serviceQ_PROTO_SMB,krb5_service,Krb5Service,Krb Service,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_serverQ_PROTO_SMB,krb5_server,Krb5Server,Krb Server,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_enc_data_typeQ_PROTO_SMB,krb5_enc_data_type,Krb5EncDataType,Krb Enc Data Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_pa_data_typeQ_PROTO_SMB,krb5_pa_data_type,Krb5PaDataType,Krb Pa Data Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_ticket_name_typeQ_PROTO_SMB,krb5_ticket_name_type,Krb5TicketNameType,Krb Ticket Name Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_ticket_nameQ_PROTO_SMB,krb5_ticket_name,Krb5TicketName,Krb Ticket Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_realmQ_PROTO_SMB,krb5_realm,Krb5Realm,Krb Realm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_crealmQ_PROTO_SMB,krb5_err_crealm,Krb5ErrCrealm,Krb Err Crealm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_realmQ_PROTO_SMB,krb5_err_realm,Krb5ErrRealm,Krb Err Realm,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_cname_typeQ_PROTO_SMB,krb5_err_cname_type,Krb5ErrCnameType,Krb Err Cname Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_cname_nameQ_PROTO_SMB,krb5_err_cname_name,Krb5ErrCnameName,Krb Err Cname Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_sname_typeQ_PROTO_SMB,krb5_err_sname_type,Krb5ErrSnameType,Krb Err Sname Type,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_sname_nameQ_PROTO_SMB,krb5_err_sname_name,Krb5ErrSnameName,Krb Err Sname Name,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SMB,krb5_err_textQ_PROTO_SMB,krb5_err_text,Krb5ErrText,Krb Err Text,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SPDY,content_transfer_encodingQ_PROTO_SPDY,content_transfer_encoding,ContentTransferEncoding,Content Transfer Encoding,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
