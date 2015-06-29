@@ -1,28 +1,30 @@
 package configelements;
 
 option java_package = "com.logrhythm.configelements";
-option java_outer_classname = "ConfigTypeMsg";
+option java_outer_classname = "ConfigTypeMessage";
 
-enum ConfigType {
-   // Intentional use of CamelCase; enum literals are
-   // matched up with a YAML and ProtoMessage of the
-   // same name (e.g. ConfigServerConfig.yaml, ConfigServerConfigMessage).
-   ConfigServerConfig = 0;
-   MetricsClientConfig = 1;
-   MetricsConfig = 2;
-   LinkConfig = 3;
-   HermesConfig = 4;
-   CassandraConfig = 5;
-   ElasticSearchClientConfig = 6;
-   DispatchConfig = 7;
-   DispatchClientConfig = 8;
-   PlaybackConfig = 9;
-   MaintenanceConfig = 10;
-   ColumboConfig = 11;
-   CarpenterConfig = 12;
-   InfluxConfig = 13;
-   // EventManagerClientConfig = 14; Depreciated
-   ColumboClientConfig = 15;
-   VitalsClientConfig = 16;
-   EnigmaConfig = 17;
+message ConfigTypeMsg {
+   enum ConfigType {
+      // Intentional use of CamelCase; enum literals are
+      // matched up with a YAML and ProtoMessage of the
+      // same name (e.g. ConfigServerConfig.yaml, ConfigServerConfigMessage).
+      ConfigServerConfig = 0;
+      MetricsClientConfig = 1;
+      MetricsConfig = 2;
+      LinkConfig = 3;
+      HermesConfig = 4;
+      CassandraConfig = 5;
+      ElasticSearchClientConfig = 6;
+      DispatchConfig = 7;
+      DispatchClientConfig = 8;
+      PlaybackConfig = 9;
+      MaintenanceConfig = 10;
+      ColumboConfig = 11;
+      CarpenterConfig = 12;
+      InfluxConfig = 13;
+      // EventManagerClientConfig = 14; Deprecated
+      ColumboClientConfig = 15;
+      VitalsClientConfig = 16;
+      EnigmaConfig = 17;
+   }
 }
