@@ -1,4 +1,6 @@
-package configelements.ux; import "ConfigUX.proto";
+package configelements.ux;
+
+import "ConfigUX.proto";
 
 
 
