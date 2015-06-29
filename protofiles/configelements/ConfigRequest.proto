@@ -14,7 +14,7 @@ message ConfigRequest {
    }
 
    optional RequestType requestType = 1;
-   optional ConfigType configType = 2;
+   optional ConfigTypeMsg.ConfigType configType = 2;
    optional string override = 3;
    optional bytes serializedConfigMessage = 4;
 }
