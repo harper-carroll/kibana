@@ -14,8 +14,17 @@ go get github.com/gogo/protobuf/protoc-gen-gogo
 go get github.com/gogo/protobuf/gogoproto
 
 mkdir -p $goSrc
-rm "$goSrc"/*.proto || true
-rm "$goSrc"/clipboard/*.proto || true
+
+( cd $goSrc;
+ for d in */ ; do
+  #ignore UX files
+#  if [ "$d" = "configelementsux/" ]; then
+#    continue;
+#  fi
+    rm $goSrc/"$d"*.proto || true
+ done
+)
+
 if [ ! -d "$goSrc" ]; then
    cd $goLR
    git clone git@github.schq.secious.com:Logrhythm/GoMessaging.git
@@ -24,8 +33,7 @@ fi
 
 (cd "$protoFileDir"; "$scriptsDir"/rewriteProto/rewriteProto . $goSrc/)
 
-( cd $goSrc; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/ $goSrc/*.proto )
-#( cd "$goSrc"/clipboard; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/clipboard/*.proto) 
-( cd "$goSrc"/clipboard; protoc -I="$GOPATH"/src/:/usr/local/include:/usr/include:$goSrc:$goSrc/clipboard/ --gogo_out=$GOPATH/src/ "$goSrc"/heartthrob/*.proto) 
-rm "$goSrc"/*.proto || true
-rm "$goSrc"/clipboard/*.proto || true
+( cd $goSrc; 
+find * -not -path '*/\.*'  -type d  -exec  /usr/bin/sh -c "protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
+find * -not -path '*/\.*'  -type d  -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
+)
