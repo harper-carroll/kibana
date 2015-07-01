@@ -23,6 +23,7 @@ message CommandRequest {
      MACHINE_ID = 12;
      LUA_SAVE = 13;
      GET_LUA_USER_RULES = 14;
+     LUA_DELETE = 15;
   }
   required CommandType type = 1; 
   optional string stringArgOne = 2;
