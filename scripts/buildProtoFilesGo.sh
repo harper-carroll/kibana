@@ -36,4 +36,8 @@ fi
 ( cd $goSrc; 
 find * -not -path '*/\.*'  -type d  -exec  /usr/bin/sh -c "protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
 find * -not -path '*/\.*'  -type d  -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
+#compile all main level protos
+protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
+rm $goSrc/*.proto
+
 )
