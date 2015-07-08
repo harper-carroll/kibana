@@ -15,5 +15,7 @@ message ConfigBulkReply {
 
    optional ReplyType replyType = 1;
    optional string errorMessage = 2;
-   repeated ConfigTypeMessagePair serializedConfigMessages = 3;
+// DEPRECATED   optional ConfigTypeMsg.ConfigType configType = 3;
+// DEPRECATED   optional bytes serializedConfigMessage = 4;
+   repeated ConfigTypeMessagePair serializedConfigMessages = 5;
 }
