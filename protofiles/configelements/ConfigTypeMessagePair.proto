@@ -1,0 +1,10 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigTypeMessagePairMsg";
+import "ConfigType.proto";
+
+message ConfigTypeMessagePair {
+   optional ConfigTypeMsg.ConfigType configType = 1;
+   optional bytes serializedConfigMessage = 2;
+}

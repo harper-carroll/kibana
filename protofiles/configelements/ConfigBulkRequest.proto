@@ -1,0 +1,20 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigBulkRequestMsg";
+import "ConfigTypeMessagePair.proto";
+
+
+message ConfigBulkRequest {
+
+   enum RequestType {
+      READ_ALL = 0;
+      WRITE_ALL = 1;
+   }
+
+   optional RequestType requestType = 1;
+// DEPRECATED   optional ConfigTypeMsg.ConfigType configType = 2;
+   optional string override = 3;
+// DEPRECATED   optional bytes serializedConfigMessage = 4;
+   repeated ConfigTypeMessagePair serializedConfigMessages = 5;
+}

@@ -1,0 +1,21 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ConfigBulkReplyMsg";
+import "ConfigTypeMessagePair.proto";
+
+
+
+
+message ConfigBulkReply {
+   enum ReplyType {
+      SUCCESS = 0;
+      ERROR = 1;
+   }
+
+   optional ReplyType replyType = 1;
+   optional string errorMessage = 2;
+// DEPRECATED   optional ConfigTypeMsg.ConfigType configType = 3;
+// DEPRECATED   optional bytes serializedConfigMessage = 4;
+   repeated ConfigTypeMessagePair serializedConfigMessages = 5;
+}
