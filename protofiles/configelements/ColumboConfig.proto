@@ -14,4 +14,5 @@ message ColumboConfig {
    optional string gumshoeQueue = 7;
    optional string gumshoeBackend = 8;
    optional int32 gumshoeThreadpoolSize = 9;
+   optional bool gumshoeEnabled = 10;
 }
