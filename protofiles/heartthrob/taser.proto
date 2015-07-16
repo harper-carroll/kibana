@@ -1,6 +1,7 @@
 message TaserRequest {
 	enum RequestType {
-		RESTART = 0;
+		INVALID = 0;
+		RESTART = 1;
 	}
 	optional RequestType Type = 1;
 	optional string RequestID = 2;
@@ -9,8 +10,9 @@ message TaserRequest {
 
 message TaserReply {
 	enum ReplyType {
-		SUCCESSFUL = 0;
-		ERROR = 1;
+		INVALID = 0;
+		SUCCESSFUL = 1;
+		ERROR = 2;
 	}
 
 	optional ReplyType Type = 1;
