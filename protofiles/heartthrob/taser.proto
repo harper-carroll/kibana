@@ -1,0 +1,22 @@
+message TaserRequest {
+	enum RequestType {
+		INVALID = 0;
+		RESTART = 1;
+	}
+	optional RequestType Type = 1;
+	optional string RequestID = 2;
+	repeated string Services = 3;
+}
+
+message TaserReply {
+	enum ReplyType {
+		INVALID = 0;
+		SUCCESSFUL = 1;
+		ERROR = 2;
+	}
+
+	optional ReplyType Type = 1;
+	optional string RequestID = 2;
+	optional string ErrorMsg = 3;
+	repeated string SuccessfulServices = 4;
+}
