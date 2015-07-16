@@ -1,0 +1,20 @@
+message TaserRequest {
+	enum RequestType {
+		RESTART = 0;
+	}
+	optional RequestType Type = 1;
+	optional string RequestID = 2;
+	repeated string Services = 3;
+}
+
+message TaserReply {
+	enum ReplyType {
+		SUCCESSFUL = 0;
+		ERROR = 1;
+	}
+
+	optional ReplyType Type = 1;
+	optional string RequestID = 2;
+	optional string ErrorMsg = 3;
+	repeated string SuccessfulServices = 4;
+}
