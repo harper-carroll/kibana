@@ -26,5 +26,6 @@ message ConfigTypeMsg {
       ColumboClientConfig = 15;
       VitalsClientConfig = 16;
       EnigmaConfig = 17;
+      AllConfConfig = 18;
    }
 }
