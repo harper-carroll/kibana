@@ -1,0 +1,18 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "AllConfConfigMsg";
+
+
+
+
+message AllConfConfig {
+   optional string hostIp = 1;
+   optional int32 hostPort = 2;
+   optional string assetPath = 3;
+   optional string configServerQueue = 4;
+   optional string adminUsername = 5;
+   optional string adminPassword = 6;
+   optional string devUsername = 7;
+   optional string devPassword = 8;
+}
