@@ -1,3 +1,8 @@
+package heartthrob;
+
+option java_package = "com.logrhythm.nm.message.heartthrob";
+option java_outer_classname = "TaserMsg";
+
 message TaserRequest {
 	enum RequestType {
 		INVALID = 0;
