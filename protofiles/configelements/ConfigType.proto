@@ -28,6 +28,5 @@ message ConfigTypeMsg {
       EnigmaConfig = 17;
       AllConfConfig = 18;
       GoMaintainConfig = 19;
-      
    }
 }
