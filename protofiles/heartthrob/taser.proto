@@ -1,7 +1,7 @@
 package heartthrob;
 
 option java_package = "com.logrhythm.nm.message.heartthrob";
-option java_outer_classname = "RequestMsg";
+option java_outer_classname = "TaserMsg";
 
 message TaserRequest {
 	enum RequestType {
