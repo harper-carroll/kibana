@@ -7,7 +7,7 @@ message GoMaintainConfig {
   optional int32 diskUtilLimit = 1;
   optional int32 restPort = 2;
   optional bool startWithoutConsul = 3;
-  repeated indexConfigList = 4;
+  repeated IndexConfigList indexConfigList = 4;
   
   message IndexConfigList {
     optional string regex = 1;
@@ -15,6 +15,6 @@ message GoMaintainConfig {
     optional int32 min = 3;
     optional int32 priority = 4;
     optional string groupPattern = 5;
-
   }
+
 }
