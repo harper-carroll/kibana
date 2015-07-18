@@ -27,5 +27,6 @@ message ConfigTypeMsg {
       VitalsClientConfig = 16;
       EnigmaConfig = 17;
       AllConfConfig = 18;
+      GoMaintainConfig = 19;
    }
 }
