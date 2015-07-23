@@ -339,8 +339,8 @@ message FilterValue {
     }
 
     required Operator operator = 1;
-    required int32 value1 = 2;
-    optional int32 value2 = 3;
+    required float value1 = 2;
+    optional float value2 = 3;
     required FieldFilterTypeEnum filterType = 4;
   }
 
