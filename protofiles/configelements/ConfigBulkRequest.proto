@@ -14,7 +14,8 @@ message ConfigBulkRequest {
 
    optional RequestType requestType = 1;
 // DEPRECATED   optional ConfigTypeMsg.ConfigType configType = 2;
-   optional string override = 3;
+// DEPRECATED   optional string override = 3;
 // DEPRECATED   optional bytes serializedConfigMessage = 4;
    repeated ConfigTypeMessagePair serializedConfigMessages = 5;
+   optional string requesterServiceName = 6;
 }
