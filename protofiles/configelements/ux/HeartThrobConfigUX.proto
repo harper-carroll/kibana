@@ -1,0 +1,12 @@
+package configelements.ux;
+
+import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "HeartThrobConfigUXMsg";
+
+message HeartThrobConfigUX {
+  optional ConfigUX pollingIntervalSeconds = 1;
+  optional ConfigUX TaserPort = 2;
+  optional ConfigUX TaserURL = 3;
+}

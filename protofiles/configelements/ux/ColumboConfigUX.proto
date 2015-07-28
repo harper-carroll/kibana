@@ -16,4 +16,5 @@ message ColumboConfigUX {
    optional ConfigUX gumshoeQueue = 7;
    optional ConfigUX gumshoeBackend = 8;
    optional ConfigUX gumshoeThreadpoolSize = 9;
+   optional ConfigUX gumshoeEnabled = 10;
 }
