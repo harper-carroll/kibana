@@ -4,19 +4,15 @@ import "ConfigUX.proto";
 
 option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "ElasticSearchClientConfigUXMsg";
-
+import "ElasticSearchSettingUX.proto";
 
 
 
 message ElasticSearchClientConfigUX {
-   message SettingsEntry {
-      optional ConfigUX key = 1;
-      optional ConfigUX value = 2;
-   }
    
 // DEPRECATED   optional ConfigUX elasticsearchClusterName = 1;
 // DEPRECATED  optional ConfigUX elasticsearchNodeIp = 2;
    optional ConfigUX elasticsearchServerConfigPath = 3;
    repeated ConfigUX elasticsearchClientTransportAddress = 4;
-   repeated SettingsEntry elasticsearchClientSettings = 5;
+   repeated ElasticSearchSettingUX elasticsearchClientSettings = 5;
 }
