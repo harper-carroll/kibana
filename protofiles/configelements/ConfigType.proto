@@ -28,6 +28,9 @@ message ConfigTypeMsg {
       EnigmaConfig = 17;
       AllConfConfig = 18;
       GoMaintainConfig = 19;
-      HeartThrobConfig = 20;
+      HeartThrobConfig = 23;
+      VitalsConfig = 20;
+      ClusterNodeConfig = 21;
+      ElasticSearchServerConfig = 22;
    }
 }

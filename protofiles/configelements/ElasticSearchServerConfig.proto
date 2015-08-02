@@ -1,0 +1,12 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ElasticSearchServerConfigMsg";
+import "ElasticSearchSetting.proto";
+
+
+
+message ElasticSearchServerConfig {
+   
+   repeated ElasticSearchSetting elasticsearchServerSettings = 5;
+}

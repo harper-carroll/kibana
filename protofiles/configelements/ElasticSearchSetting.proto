@@ -1,0 +1,13 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ElasticSearchSettingMsg";
+
+
+
+
+
+message ElasticSearchSetting {
+   optional string name = 1;
+   optional string value = 2;
+}

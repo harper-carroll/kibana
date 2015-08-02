@@ -2,19 +2,15 @@ package configelements;
 
 option java_package = "com.logrhythm.configelements";
 option java_outer_classname = "ElasticSearchClientConfigMsg";
-
+import "ElasticSearchSetting.proto";
 
 
 
 message ElasticSearchClientConfig {
-   message SettingsEntry {
-      optional string key = 1;
-      optional string value = 2;
-   }
    
 // DEPRECATED   optional string elasticsearchClusterName = 1;
 // DEPRECATED  optional string elasticsearchNodeIp = 2;
    optional string elasticsearchServerConfigPath = 3;
    repeated string elasticsearchClientTransportAddress = 4;
-   repeated SettingsEntry elasticsearchClientSettings = 5;
+   repeated ElasticSearchSetting elasticsearchClientSettings = 5;
 }
