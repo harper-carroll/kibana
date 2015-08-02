@@ -1,0 +1,10 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "HeartThrobConfigMsg";
+
+message HeartThrobConfig {
+  optional int32 pollingIntervalSeconds = 1;
+  optional int32 TaserPort = 2;
+  optional string TaserURL = 3;
+}

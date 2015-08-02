@@ -31,5 +31,6 @@ message ConfigTypeMsg {
       VitalsConfig = 20;
       ClusterNodeConfig = 21;
       ElasticSearchServerConfig = 22;
+      HeartThrobConfig = 23;
    }
 }
