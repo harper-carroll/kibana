@@ -1,0 +1,17 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "ClusterNodeConfigMsg";
+
+
+
+
+message ClusterNodeConfig {
+
+   message NodeInfo {
+      optional string hostname = 2;
+      optional string publicIP = 3;
+   }
+
+   repeated NodeInfo nodeInfo = 1;
+}
