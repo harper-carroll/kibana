@@ -82,6 +82,7 @@ message DpiMsgLRproto
    optional uint32 FieldCountIndexed = 48;
    repeated EmailAttach emailAttachments = 49;
    repeated CustomField customFields = 50;
+   optional uint64 RepeatedFieldCount = 51; 
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
    // REMEMBER TO UPDATE resources/StaticFields.csv as well
 
