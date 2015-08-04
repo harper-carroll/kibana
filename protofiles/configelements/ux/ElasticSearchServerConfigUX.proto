@@ -1,14 +1,13 @@
 package configelements.ux;
 
 import "ConfigUX.proto";
+import "ElasticSearchSettingUX.proto";
 
 option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "ElasticSearchServerConfigUXMsg";
-import "ElasticSearchSettingUX.proto";
 
 
 
 message ElasticSearchServerConfigUX {
-   
    repeated ElasticSearchSettingUX elasticsearchServerSettings = 5;
 }
