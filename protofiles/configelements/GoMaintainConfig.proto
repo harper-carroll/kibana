@@ -6,7 +6,7 @@ option java_outer_classname = "GoMaintainConfigMsg";
 message GoMaintainConfig {
   optional int32 diskUtilLimit = 1;
   optional bool startWithoutConsul = 3;
-  repeated IndexConfig indexConfigList = 4;
+  repeated IndexConfig indexConfigs = 4;
   optional int32 pollingIntervalSeconds = 5;
   
   message IndexConfig {

@@ -16,6 +16,7 @@ import "HermesConfigUX.proto";
 import "InfluxConfigUX.proto";
 import "LinkConfigUX.proto";
 import "VitalsClientConfigUX.proto";
+import "GoMaintainConfigUX.proto";
 
 
 message AllConf {
@@ -52,4 +53,7 @@ message AllConf {
 
   optional ConfigUX vitalsClientConfigUX = 21;
   optional VitalsClientConfigUX vitalsClientConfig = 22;
+
+  optional ConfigUX goMaintainConfigUX = 23;
+  optional GoMaintainConfigUX goMaintainConfig = 24;
 }

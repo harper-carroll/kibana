@@ -8,7 +8,7 @@ option java_outer_classname = "GoMaintainConfigUXMsg";
 message GoMaintainConfigUX {
   optional ConfigUX diskUtilLimit = 1;
   optional ConfigUX startWithoutConsul = 3;
-  repeated IndexConfig indexConfigList = 4;
+  repeated IndexConfig indexConfigs = 4;
   optional ConfigUX pollingIntervalSeconds = 5;
   
   message IndexConfig {
