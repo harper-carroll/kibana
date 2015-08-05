@@ -5,6 +5,7 @@ option java_outer_classname = "AllConfMsg";
 
 import "ConfigUX.proto";
 import "CarpenterConfigUX.proto";
+import "ClusterNodeConfigUX.proto";
 import "ColumboClientConfigUX.proto";
 import "ColumboConfigUX.proto";
 import "ConfigServerConfigUX.proto";
@@ -56,4 +57,7 @@ message AllConf {
 
   optional ConfigUX goMaintainConfigUX = 23;
   optional GoMaintainConfigUX goMaintainConfig = 24;
+
+  optional ConfigUX clusterNodeConfigUX = 25;
+  optional ClusterNodeConfigUX clusterNodeConfig = 26;
 }
