@@ -15,6 +15,7 @@ message LogMessage {
      SYSTEM = 4;
      EVENT = 5;
      DEEP_SCRIPT_ALARM = 10;
+     HEARTBEAT = 100;
   }
   enum SourceType {
      DPIMSG = 0;
