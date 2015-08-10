@@ -15,5 +15,6 @@ message SyslogConf {
   optional string siemLogging = 6;
 //  optional string debugSiemLogging = 7;
   optional string scrubPasswords = 8;
+  optional string heartbeatReportTimeSeconds = 9;
 //  optional string reportEverything = 99;
 }
