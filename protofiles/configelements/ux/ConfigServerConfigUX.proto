@@ -9,6 +9,7 @@ option java_outer_classname = "ConfigServerConfigUXMsg";
 
 
 message ConfigServerConfigUX {
+   
    repeated ConfigUX configRequestQueue = 1;
    optional ConfigUX frontEndRelayQueue = 2;
    optional ConfigUX backEndHandlerQueue = 3;
@@ -16,4 +17,5 @@ message ConfigServerConfigUX {
    repeated ConfigUX configUxRequestQueue = 5;
    optional ConfigUX configUxHandlerQueue = 6;
    optional ConfigUX maxSimultaneousUxRequests = 7;
+   repeated ConfigUX serviceRestart = 8;
 }
