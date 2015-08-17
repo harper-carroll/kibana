@@ -16,4 +16,5 @@ message ConfigServerConfig {
    optional string configUxHandlerQueue = 6;
    optional int32 maxSimultaneousUxRequests = 7;
    repeated string serviceRestart = 8;
+   optional int32 serviceRestartStableIntervalMs = 9;
 }

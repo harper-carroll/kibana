@@ -18,4 +18,5 @@ message ConfigServerConfigUX {
    optional ConfigUX configUxHandlerQueue = 6;
    optional ConfigUX maxSimultaneousUxRequests = 7;
    repeated ConfigUX serviceRestart = 8;
+   optional ConfigUX serviceRestartStableIntervalMs = 9;
 }

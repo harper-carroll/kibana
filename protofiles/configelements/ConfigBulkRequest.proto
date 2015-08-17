@@ -10,6 +10,7 @@ message ConfigBulkRequest {
    enum RequestType {
       READ_ALL = 0;
       WRITE_ALL = 1;
+      RELOAD = 2;
    }
 
    optional RequestType requestType = 1;
