@@ -1,0 +1,48 @@
+package configelements.ux;
+
+import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "VitalsConfigUXMsg";
+
+
+
+
+message VitalsConfigUX {
+   message DBConf {
+      message ShardSpec {
+         optional ConfigUX shardSpaceName = 1;
+         optional ConfigUX regex = 2;
+         optional ConfigUX retentionPolicy = 3;
+         optional ConfigUX shardDuration = 4;
+      }
+
+      optional ConfigUX host = 1;
+      optional ConfigUX db = 2;
+      optional ConfigUX user = 3;
+      optional ConfigUX pass = 4;
+      optional ShardSpec shardSpec = 5;
+   }
+   
+   message Pulse {
+      optional ConfigUX name = 1;
+      optional ConfigUX port = 2;
+      optional ConfigUX url = 3;
+   }
+
+   message AccumulatorConf {
+      message UrlPortPair {
+         optional ConfigUX url = 1;
+         optional ConfigUX port = 2;
+      }
+      
+      optional ConfigUX region = 1;
+      optional UrlPortPair zmqVamp = 2;
+      optional UrlPortPair sendTo = 3;
+   }
+
+   optional DBConf dbConf = 1;
+   repeated Pulse pulse = 2;
+   optional AccumulatorConf accumulatorConf = 3;
+
+}
