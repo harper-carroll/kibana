@@ -1,0 +1,18 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "DeepScriptIOMessage";
+import "LuaDefinedRule.proto";
+
+message DeepScriptIOMsg {
+  enum IOType {
+     READ = 0;
+     WRITE = 1;
+  }
+
+  required IOType type = 1; 
+  required LuaDefinedRule rule = 2;
+  required string location = 3;
+  required bool notify = 4;
+  optional string subscriber = 5;
+}
