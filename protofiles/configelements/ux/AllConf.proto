@@ -12,6 +12,7 @@ import "ConfigServerConfigUX.proto";
 import "DispatchConfigUX.proto";
 import "DispatchClientConfigUX.proto";
 import "ElasticSearchClientConfigUX.proto";
+import "ElasticSearchServerConfigUX.proto";
 import "EnigmaConfigUX.proto";
 import "HermesConfigUX.proto";
 import "InfluxConfigUX.proto";
@@ -60,4 +61,7 @@ message AllConf {
 
   optional ConfigUX clusterNodeConfigUX = 25;
   optional ClusterNodeConfigUX clusterNodeConfig = 26;
+
+  optional ConfigUX elasticsearchServerConfigUX = 27;
+  optional ElasticSearchServerConfigUX elasticsearchServerConfig = 28;
 }
