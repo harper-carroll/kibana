@@ -41,8 +41,8 @@ message AllConf {
   optional ConfigUX dispatchConfigUX = 11;
   optional DispatchConfigUX dispatchConfig = 12;
 
-  optional ConfigUX elasticSearchClientConfigUX = 13;
-  optional ElasticSearchClientConfigUX elasticSearchClientConfig = 14;
+  optional ConfigUX elasticsearchClientConfigUX = 13;
+  optional ElasticSearchClientConfigUX elasticsearchClientConfig = 14;
 
   optional ConfigUX enigmaConfigUX = 15;
   optional EnigmaConfigUX enigmaConfig = 16;
