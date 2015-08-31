@@ -48,3 +48,4 @@ Internal, Internal, maxrepeatedfieldcount, MaxRepeatedFieldCount, uint32, "Maxim
 Internal, Internal, fieldcountindexed, FieldCountIndexed, uint32, "Field count indexed by ElasticSearch."
 Internal, Internal, emailAttachments, EmailAttachments, EmailAttach, "Email attachment structure."
 Internal, Internal, customfields, CustomFields, CustomField, "Custom Fields."
+Internal, Internal, repeatedfieldcount, RepeatedFieldCount, uint64, "Total repeated fields in DPI message."
