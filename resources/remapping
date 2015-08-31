@@ -308,6 +308,7 @@ host Host
 host_addr HostAddr
 name Name
 nscount NSCount
+opcode Opcode
 qdcount QDCount
 query Query
 response_time ResponseTime
@@ -909,8 +910,10 @@ version Version
 attach Attach
 attach_content AttachContent
 attach_filename Filename
+attach_filename_cdispo AttachFilenameCdispo
 attach_mime_type AttachMIMEType
 attach_transfer_encoding AttachTransferEncoding
+content_decoded ContentDecoded
 date Date
 email_index EmailIndex
 end End
@@ -1543,11 +1546,13 @@ videoid VidID
 is_mobile_service IsMobileService
 login Login
 password Passwd
+current_state CurrentState
 filename Filename
 filesize FileSize
 gid GID
 mode Mode
 offset Offset
+symlink_name SymlinkName
 type_string TypeString
 uid UID
 version Version
@@ -2163,6 +2168,8 @@ security_blob SecurityBlob
 security_blob_len SecurityBlobLen
 service Service
 service_data ServiceData
+session_key SessionKey
+tree_id TreeId
 user_id UserID
 version Version
 receiver Receiver
@@ -2172,9 +2179,11 @@ attach_content AttachContent
 attach_content_decoded AttachContentDecoded
 attach_disposition AttachDisposition
 attach_filename Filename
+attach_filename_cdispo AttachFilenameCdispo
 attach_size AttachSize
 attach_transfer_encoding AttachTransferEncoding
 attach_type AttachType
+content_decoded ContentDecoded
 date Date
 duration SessionDuration
 email_index EmailIndex
