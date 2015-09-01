@@ -44,7 +44,7 @@ _n/a,   repeated bytes CustomApplication = 23;,,CustomApplication,Custom Appli
 0ZZ0,download_urlQ_PROTO_0ZZ0,download_url,DownloadURL,Download URL,url,<url>,URL,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0ZZ0,email_addressQ_PROTO_0ZZ0,email_address,EmailAddr,Email Address,sender,<sender>,Sender,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0ZZ0,email_invitedQ_PROTO_0ZZ0,email_invited,EmailInvited,Email Invited,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-0ZZ0,endQ_PROTO_0ZZ0,end,End,End,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+0ZZ0,endQ_PROTO_0ZZ0,end,End,End,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0ZZ0,filenameQ_PROTO_0ZZ0,filename,Filename,Filename,objectname,<objectname>,Object Name,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0ZZ0,filesizeQ_PROTO_0ZZ0,filesize,FileSize,File Size,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 0ZZ0,loginQ_PROTO_0ZZ0,login,Login,Login,login,<login>,Login,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
