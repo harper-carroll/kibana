@@ -959,7 +959,7 @@ IMAP,attach_transfer_encodingQ_PROTO_IMAP,attach_transfer_encoding,AttachTransfe
 IMAP,content_decodedQ_PROTO_IMAP,content_decoded,ContentDecoded,Content Decoded,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,dateQ_PROTO_IMAP,date,Date,Date,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,email_indexQ_PROTO_IMAP,email_index,EmailIndex,Email Index,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-IMAP,endQ_PROTO_IMAP,end,End,End,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IMAP,endQ_PROTO_IMAP,end,End,End,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,file_typeQ_PROTO_IMAP,file_type,FileType,FileType,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,greeting_messageQ_PROTO_IMAP,greeting_message,GreetingMsg,Greeting Message,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,indexQ_PROTO_IMAP,index,Index,Index,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
