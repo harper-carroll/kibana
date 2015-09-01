@@ -956,7 +956,7 @@ IMAP,attach_filenameQ_PROTO_IMAP,attach_filename,Filename,Filename,objectname,<o
 IMAP,attach_filename_cdispoQ_PROTO_IMAP,attach_filename_cdispo,AttachFilenameCdispo,Attach Filename Cdispo,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,attach_mime_typeQ_PROTO_IMAP,attach_mime_type,AttachMIMEType,Attach MIME Type,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,attach_transfer_encodingQ_PROTO_IMAP,attach_transfer_encoding,AttachTransferEncoding,Attach Transfer Encoding,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-IMAP,content_decodedQ_PROTO_IMAP,content_decoded,ContentDecoded,Content Decoded,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+IMAP,content_decodedQ_PROTO_IMAP,content_decoded,ContentDecoded,Content Decoded,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,dateQ_PROTO_IMAP,date,Date,Date,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,email_indexQ_PROTO_IMAP,email_index,EmailIndex,Email Index,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 IMAP,endQ_PROTO_IMAP,end,End,End,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
