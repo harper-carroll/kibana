@@ -1155,7 +1155,7 @@ LDAP,assertion_value_rawQ_PROTO_LDAP,assertion_value_raw,AssertionValueRaw,Asser
 LDAP,attribute_descQ_PROTO_LDAP,attribute_desc,AttributeDesc,Attribute Description,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 LDAP,contains_saslQ_PROTO_LDAP,contains_sasl,ContainsSASL,Contains SASL,,,,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 LDAP,hostnameQ_PROTO_LDAP,hostname,Hostname,Hostname,dname,<group>,Group,,Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-LDAP,krb5_enc_data_typeQ_PROTO_LDAP,krb5_enc_data_type,Krb5EncDataType,Krb Enc Data Type,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+LDAP,krb5_enc_data_typeQ_PROTO_LDAP,krb5_enc_data_type,Krb5EncDataType,Krb Enc Data Type,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 LDAP,krb5_err_cname_nameQ_PROTO_LDAP,krb5_err_cname_name,Krb5ErrCnameName,Krb Err Cname Name,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 LDAP,krb5_err_cname_typeQ_PROTO_LDAP,krb5_err_cname_type,Krb5ErrCnameType,Krb Err Cname Type,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 LDAP,krb5_err_crealmQ_PROTO_LDAP,krb5_err_crealm,Krb5ErrCrealm,Krb Err Crealm,,,,,Labs Complete,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
