@@ -19,6 +19,8 @@ message LuaDefinedRule {
   optional string author = 7;
   required string uuid = 8;
   optional uint64 last_modified_date = 9;
+  required bool visible = 10;
+  required bool editable = 11;
 }
 
 
