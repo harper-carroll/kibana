@@ -3,9 +3,12 @@ package clipboard;
 option java_package = "com.logrhythm.nm.message.clipboard";
 option java_outer_classname = "SampleMsg";
 
+import "tag.proto";
+
 message Sample {
   required string name = 1;
   optional double value = 2;
   //optional int32 sampleRate = 3; no longer used
   optional int64 time = 4;
+  repeated Tag tag = 5;
 }
