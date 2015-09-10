@@ -112,7 +112,7 @@ mv  libprocess/ProcessRequest.pb.cc  libprocess/ProcessRequest.pb.cpp
 mv  libprocess/ProcessReply.pb.cc  libprocess/ProcessReply.pb.cpp
 mv  libcommand/DriveInfo.pb.cc  libcommand/DriveInfo.pb.cpp
 mv  libcommand/LuaDefinedRule.pb.cc  libcommand/LuaDefinedRule.pb.cpp
-mv  libcommand/DeepScriptIOIOMsg.pb.cc  libcommand/DeepScriptIOMsg.pb.cpp
+mv  libcommand/DeepScriptIOMsg.pb.cc  libcommand/DeepScriptIOMsg.pb.cpp
 
 mv  libcommand/ConfigDefaults.pb.cc  libcommand/ConfigDefaults.pb.cpp
 mv  libcommand/ConfigDefaultsRequest.pb.cc  libcommand/ConfigDefaultsRequest.pb.cpp
