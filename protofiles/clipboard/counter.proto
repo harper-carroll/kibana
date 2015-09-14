@@ -3,9 +3,12 @@ package clipboard;
 option java_package = "com.logrhythm.nm.message.clipboard";
 option java_outer_classname = "CounterMsg";
 
+import "tag.proto";
+
 message Counter {
   required string name = 1;
   optional double value = 2;
   optional int64 time = 3;
   optional int32 sampleRate = 4;
+  repeated Tag tag = 5;
 }
