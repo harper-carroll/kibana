@@ -417,7 +417,7 @@ receiver_email ReceiverEmail
 receiver_uid ReceiverUID
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 sender_uid SenderUID
 session_id SessionID
 subject Subject
@@ -496,7 +496,7 @@ receiver_type ReceiverType
 replyto ReplyTo
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 thumbnail Thumbnail
@@ -525,7 +525,7 @@ receiver_email ReceiverEmail
 receiver_type ReceiverType
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 callee Callee
@@ -556,7 +556,7 @@ receiver_email ReceiverEmail
 receiver_type ReceiverType
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 attach_content AttachContent
@@ -570,7 +570,7 @@ receiver_email ReceiverEmail
 receiver_type ReceiverType
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 file_chunk_content FileChunkContent
@@ -634,7 +634,7 @@ receiver_email ReceiverEmail
 receiver_type ReceiverType
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 subject Subject
 east East
 encoding Encoding
@@ -1248,7 +1248,7 @@ receiver_type ReceiverType
 replyto ReplyTo
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 hl7_message_raw HL7MessageRaw
@@ -1316,7 +1316,7 @@ receiver_email ReceiverEmail
 receiver_type ReceiverType
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 subject Subject
 conference_id ConferenceId
 file_id FileId
@@ -1355,7 +1355,7 @@ receiver_type ReceiverType
 replyto ReplyTo
 sender Sender
 sender_alias SenderAlias
-sender_email SenderEmail
+sender Sender
 session_id SessionID
 subject Subject
 package_archi PkgArch
