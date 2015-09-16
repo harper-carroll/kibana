@@ -18,6 +18,7 @@ import "HermesConfigUX.proto";
 import "InfluxConfigUX.proto";
 import "LinkConfigUX.proto";
 import "VitalsClientConfigUX.proto";
+import "VitalsConfigUX.proto";
 import "GoMaintainConfigUX.proto";
 
 
@@ -66,5 +67,5 @@ message AllConf {
   optional ElasticSearchServerConfigUX elasticsearchServerConfig = 28;
 
   optional ConfigUX vitalsConfigUX = 29;
-  optional ElasticSearchServerConfigUX vitalsConfig = 30;
+  optional VitalsConfigUX vitalsConfig = 30;
 }
