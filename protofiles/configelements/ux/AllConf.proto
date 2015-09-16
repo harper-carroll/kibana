@@ -64,4 +64,7 @@ message AllConf {
 
   optional ConfigUX elasticsearchServerConfigUX = 27;
   optional ElasticSearchServerConfigUX elasticsearchServerConfig = 28;
+
+  optional ConfigUX vitalsConfigUX = 29;
+  optional ElasticSearchServerConfigUX vitalsConfig = 30;
 }
