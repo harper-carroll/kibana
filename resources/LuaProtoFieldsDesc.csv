@@ -802,6 +802,7 @@ http, HyperText Transfer Protocol, filename, filenameq_proto_http, bytes, "Name 
 http, HyperText Transfer Protocol, content_range, content_rangeq_proto_http, bytes, "Contains information about the size and offset of downloaded file (used by Gnutella)."
 http, HyperText Transfer Protocol, charset, charsetq_proto_http, bytes, "Contains the name of the used charset."
 http, HyperText Transfer Protocol, wap_profile, wap_profileq_proto_http, bytes, "url link that contains the specification of the used handset."
+http, HyperText Transfer Protocol, header_raw, header_rawq_proto_http, bytes, "One HTTP header line (field and value)."
 http, HyperText Transfer Protocol, header_name, header_nameq_proto_http, bytes, "One HTTP header line (field)."
 http, HyperText Transfer Protocol, header_end_offset, header_end_offsetq_proto_http, uint32, "Offset to the first byte after the last HTTP Header-line (\r\n included). This is an offset to the '\r' character of the second carriage return."
 http, HyperText Transfer Protocol, header_statusline, header_statuslineq_proto_http, bytes, "The status line, just before the header lines."
