@@ -25,6 +25,7 @@ message CommandRequest {
      GET_LUA_USER_RULES = 14;
      LUA_DELETE = 15;
      RESTART_SERVICES = 16;
+     AUDIT_LOG = 17;
   }
   required CommandType type = 1;
   optional string stringArgOne = 2;
