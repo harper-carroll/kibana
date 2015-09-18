@@ -1,0 +1,11 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "DeepScriptIOMessage";
+
+message DeepScriptIOMsg {
+  required string rule = 1;
+  required string location = 2;
+  required bool notify = 3;
+  optional string subscriber = 4;
+}

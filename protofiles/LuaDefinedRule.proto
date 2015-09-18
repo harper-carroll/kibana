@@ -21,6 +21,7 @@ message LuaDefinedRule {
   optional uint64 last_modified_date = 9;
   optional bool visible_and_downloadable = 10;
   optional bool editable = 11;
+  optional string error = 12;
 }
 
 
