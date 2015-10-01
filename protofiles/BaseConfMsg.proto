@@ -53,7 +53,7 @@ message BaseConf {
   optional string sizeOfPcapChunks = 55;
   optional string numberOfPcapChunks = 56;
   optional string pCapRemovalNotifyQueue = 57;
-  optional string highThroughput = 58;
+  optional string enableHighThroughput = 58;
 
 
 
