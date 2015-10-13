@@ -1,0 +1,25 @@
+package dispatch;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "ESDataMsg";
+
+
+
+
+message ReliableLog {
+   enum RequestType {
+      INSERT = 1;
+      UPDATE = 2;
+      DELETE = 3;
+   }
+   optional string indexName = 1;
+   optional string indexType = 2;
+   optional string indexId = 3;
+   optional int32 msgSourceId = 4;
+   optional uint64 normalMsgDate = 5;
+   optional string normalMsgDateStr = 6;
+   optional string json = 7;
+   optional RequestType requestType = 8;
+   optional bool shouldPercolate = 9;
+   optional string returnPath = 10;
+}
