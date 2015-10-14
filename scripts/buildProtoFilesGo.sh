@@ -9,35 +9,37 @@ goLR=$GOPATH/src/github.schq.secious.com/Logrhythm
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
+
+# Seems as though we should be able to do a `go get` for this repo, but it
+# reports 'unrecognized import path'
+if [ ! -d $goLR/rewriteProto ]; then
+  git clone github.schq.secious.com/Logrhythm/rewriteProto $goLR/rewriteProto
+fi
+go install github.schq.secious.com/Logrhythm/rewriteProto
+go get github.com/LogRhythm/protobuf/proto
 go get github.com/LogRhythm/protobuf/proto
 go get github.com/gogo/protobuf/protoc-gen-gogo
 go get github.com/gogo/protobuf/gogoproto
 
 mkdir -p $goSrc
 
-( cd $goSrc;
- for d in */ ; do
-  #ignore UX files
-#  if [ "$d" = "configelementsux/" ]; then
-#    continue;
-#  fi
-    rm $goSrc/"$d"*.proto || true
- done
+(
+cd $goSrc;
+for d in */ ; do
+  rm $goSrc/"$d"*.proto || true
+done
 )
 
-if [ ! -d "$goSrc" ]; then
-   cd $goLR
-   git clone git@github.schq.secious.com:Logrhythm/GoMessaging.git
-   cd $startDir
-fi
+# rewriteProto process proto files for use with gogoprotobuf and deposits the result in $goSrc
+# which are then compiled into .pb.go files by protoc, etc below
+(cd "$protoFileDir"; rewriteProto -conf $goLR/rewriteProto/c.yml . $goSrc/)
 
-(cd "$protoFileDir"; "$scriptsDir"/rewriteProto/rewriteProto . $goSrc/)
+(
+cd $goSrc;
+find * -type d -exec /usr/bin/sh -c "protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
+find * -type d -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
 
-( cd $goSrc; 
-find * -not -path '*/\.*'  -type d  -exec  /usr/bin/sh -c "protoc -I=$GOPATH/src/:/usr/local/include:/usr/local/probe/include:/usr/include:$goSrc:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
-find * -not -path '*/\.*'  -type d  -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
 #compile all main level protos
-protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:/usr/local/probe/include:$goSrc:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
+protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
 rm $goSrc/*.proto
-
 )
