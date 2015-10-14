@@ -5,7 +5,6 @@ option java_outer_classname = "ESDataMsg";
 
 
 
-
 message ESData {
    enum RequestType {
       INSERT = 1;
@@ -21,4 +20,5 @@ message ESData {
    optional string json = 7;
    optional RequestType requestType = 8;
    optional bool shouldPercolate = 9;
+   optional string returnPath = 10;
 }
