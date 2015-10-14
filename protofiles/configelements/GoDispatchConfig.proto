@@ -1,0 +1,34 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "GoDispatchConfigMsg";
+
+
+message GoDispatchConfig {
+
+  message Endpoint {
+    optional string protoHostAndPort = 1;
+    optional bool isOwner = 2;
+    optional int32 size = 3;
+  }
+
+  message Stats {
+    optional string countKey = 1;
+    optional string failedKey = 2;
+    optional string finishedKey = 3;
+    optional string requestKey = 4;
+    optional string retryKey = 5;
+  }
+
+  optional Endpoint endpoint = 1;
+  optional Stats stats = 2;
+
+  optional int32 batchPeriodReportSec = 3;
+  optional int32 receiveLogTimeoutMs = 4;
+  optional int32 batchingCapturePeriodMs = 5;
+  optional int32 maxBatchSize = 6;
+  optional int32 maxInFlightBatches = 7;
+
+  optional bool sendToRecorder = 8;
+  optional int32 indexRetryBackoffDurationMs = 9;
+}
