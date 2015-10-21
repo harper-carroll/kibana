@@ -9,7 +9,6 @@ message GoDispatchConfig {
   message Endpoint {
     optional string protoHostAndPort = 1;
     optional bool isOwner = 2;
-    optional int32 queueSize = 3;
   }
 
   message Stats {
@@ -21,14 +20,15 @@ message GoDispatchConfig {
   }
 
   optional Endpoint inputQueue = 1;
-  optional Stats stats = 2;
+  optional Endpoint confirmQueue = 2;
+  optional Stats stats = 3;
 
-  optional int32 batchingReportPeriodSec = 3;
-  optional int32 receiveLogTimeoutMs = 4;
-  optional int32 batchingCapturePeriodMs = 5;
-  optional int32 maxBatchSize = 6;
-  optional int32 maxInFlightBatches = 7;
+  optional int32 batchingReportPeriodSec = 4;
+  optional int32 receiveLogTimeoutMs = 5;
+  optional int32 batchingCapturePeriodMs = 6;
+  optional int32 maxBatchSize = 7;
+  optional int32 maxInFlightBatches = 8;
 
-  optional bool sendToRecorder = 8;
-  optional int32 indexRetryBackoffDurationMs = 9;
+  optional bool sendToRecorder = 9;
+  optional int32 indexRetryBackoffDurationMs = 10;
 }
