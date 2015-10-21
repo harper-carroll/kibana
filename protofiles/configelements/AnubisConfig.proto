@@ -1,0 +1,43 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "AnubisConfigMsg";
+
+message AnubisConfig {
+   
+   message GigawattDBConfig {
+      optional string name = 1;
+      optional uint64 batchWeightLim = 2;
+      optional int32 batchCountLim = 3;
+   }
+
+   message GatlingConfig {
+      optional string dispatchMsgUrl = 1; 
+      optional int32 dispatchMsgPort = 2;
+   }
+
+   message RelayConfig {
+      optional string mediatorMsgUrl = 1; 
+      optional int32 mediatorMsgPort = 2;
+      optional int32 bufferSize = 3;
+      optional int32 timeoutAutoSend = 4;
+      optional int32 timeoutReceive = 5;
+   }
+
+   message BiffConfig {
+      optional string dispatchAckidUrl = 1;
+      optional int32 dispatchAckidPort = 2;
+   }
+
+   message MessageRetryConfig {
+      optional int64 tryInterval = 1;
+      optional int64 ageForOld = 2;
+   }
+
+   optional GigawattDBConfig gigawattDBConfig= 1;
+   optional GatlingConfig gatlingConfig = 2;
+   optional RelayConfig relayConfig = 3;
+   optional BiffConfig biffConfig = 4;
+   optional MessageRetryConfig messageRetryConfig = 5;
+
+}
