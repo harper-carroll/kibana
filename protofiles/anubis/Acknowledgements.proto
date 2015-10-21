@@ -1,0 +1,8 @@
+package protoMsg;
+
+option java_package = "com.logrhythm.nm.message";
+option java_outer_classname = "AcknowledgementsMsg";
+
+message Acknowledgements {
+  repeated string id = 1;
+}
