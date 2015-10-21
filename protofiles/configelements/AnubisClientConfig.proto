@@ -1,0 +1,11 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "AnubisClientConfigMsg";
+
+message AnubisClientConfig {
+   
+   optional string msgQueue = 1;
+   optional string ackidQueue = 2;
+
+}
