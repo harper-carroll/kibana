@@ -32,5 +32,7 @@ message ConfigTypeMsg {
       ClusterNodeConfig = 21;
       ElasticSearchServerConfig = 22;
       HeartThrobConfig = 23;
+      AnubisConfig = 24;
+      AnubisClientConfig = 25;
    }
 }
