@@ -6,11 +6,6 @@ option java_outer_classname = "GoDispatchConfigMsg";
 
 message GoDispatchConfig {
 
-  message Endpoint {
-    optional string protoHostAndPort = 1;
-    optional bool isOwner = 2;
-  }
-
   message Stats {
     optional string countKey = 1;
     optional string failedKey = 2;
@@ -19,16 +14,14 @@ message GoDispatchConfig {
     optional string retryKey = 5;
   }
 
-  optional Endpoint inputQueue = 1;
-  optional Endpoint confirmQueue = 2;
-  optional Stats stats = 3;
+  optional Stats stats = 1;
 
-  optional int32 batchingReportPeriodSec = 4;
-  optional int32 receiveLogTimeoutMs = 5;
-  optional int32 batchingCapturePeriodMs = 6;
-  optional int32 maxBatchSize = 7;
-  optional int32 maxInFlightBatches = 8;
+  optional int32 batchingReportPeriodSec = 2;
+  optional int32 receiveLogTimeoutMs = 3;
+  optional int32 batchingCapturePeriodMs = 4;
+  optional int32 maxBatchSize = 5;
+  optional int32 maxInFlightBatches = 6;
 
-  optional bool sendToRecorder = 9;
-  optional int32 indexRetryBackoffDurationMs = 10;
+  optional bool sendToRecorder = 7;
+  optional int32 indexRetryBackoffDurationMs = 8;
 }
