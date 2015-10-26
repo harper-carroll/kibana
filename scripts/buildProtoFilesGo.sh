@@ -13,16 +13,20 @@ thirdPartyDir="$startDir"/thirdParty
 # Seems as though we should be able to do a `go get` for this repo, but it
 # reports 'unrecognized import path'
 if [ ! -d $goLR/rewriteProto ]; then
-  git clone github.schq.secious.com/Logrhythm/rewriteProto $goLR/rewriteProto
+  echo "Cloning http://github.schq.secious.com/Logrhythm/rewriteProto.git"
+  git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
 fi
+
+echo "Running 'go get' dependencies this script requires"
+go get gopkg.in/yaml.v2 # required by rewriteProto
 go install github.schq.secious.com/Logrhythm/rewriteProto
 go get github.com/LogRhythm/protobuf/proto
-go get github.com/LogRhythm/protobuf/proto
-go get github.com/gogo/protobuf/protoc-gen-gogo
-go get github.com/gogo/protobuf/gogoproto
+go get github.com/gogo/protobuf || true # no buildable source (exits with non-zero)
 
-mkdir -p $goSrc
 
+mkdir -p $goSrc # Gauranteeing GoMessaging is a real directory
+
+echo "Removing pre-existing .proto files in $goSrc"
 (
 cd $goSrc;
 for d in */ ; do
@@ -32,14 +36,19 @@ done
 
 # rewriteProto process proto files for use with gogoprotobuf and deposits the result in $goSrc
 # which are then compiled into .pb.go files by protoc, etc below
+echo "Processing .proto files from Protobuffers repo into GoMessaging to add gogoprotobuf extensions"
 (cd "$protoFileDir"; rewriteProto -conf $goLR/rewriteProto/c.yml . $goSrc/)
 
+echo "Running Protoc"
 (
 cd $goSrc;
 find * -type d -exec /usr/bin/sh -c "protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
 find * -type d -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
 
-#compile all main level protos
+echo "Compile all main level protos"
 protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
 rm $goSrc/*.proto
+
+echo "Fixing import to use godeps _workspace path"
+find * -name '*.go' -exec /usr/bin/sh -c "sed -i '' -e 's/\"github\.com/\"github.schq.secious.com\/Logrhythm\/Godeps\/_workspace\/src\/github.com/' {}" \;
 )
