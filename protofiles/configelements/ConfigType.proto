@@ -34,7 +34,7 @@ message ConfigTypeMsg {
       HeartThrobConfig = 23;
       AnubisConfig = 24;
       AnubisClientConfig = 25;
-      GoDispatchConfig = 24;
-      GoDispatchClientConfig = 25;
+      GoDispatchConfig = 26;
+      GoDispatchClientConfig = 27;
    }
 }
