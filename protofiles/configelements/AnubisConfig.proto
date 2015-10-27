@@ -5,23 +5,26 @@ option java_outer_classname = "AnubisConfigMsg";
 
 message AnubisConfig {
    
+   message AccumulatorConf {
+      optional int32 secondsToAccumulate = 1;
+      optional int32 entriesToAccumulate = 2;
+      optional int32 maxBatchSizeBytes = 3;
+   }
+
    message GigawattDBConfig {
-      optional string name = 1;
-      optional uint64 batchLimBytes = 2;
-      optional int32 batchLimRows = 3;
-      optional int32 dbMaxRows = 4;
+      optional string gigawattDbPath = 1;
+      optional int32 dbMaxRows = 2;
    }
 
    message RelayConfig {
       optional string mediatorQueue = 1; 
       optional int32 mediatorQueueSize = 2;
-      optional int32 timeoutAutoSendMs = 3; 
-      optional int32 timeoutReceiveMs = 4;
+      optional int32 timeoutReceiveMs = 3;
    }
 
    message BiffConfig {
-      optional string ackidQueue = 1;
-      optional int32 ackidQueueSize = 2;
+      optional string ackQueue = 1;
+      optional int32 ackQueueSize = 2;
    }
 
    message MessageRetryConfig {
@@ -29,9 +32,10 @@ message AnubisConfig {
       optional int32 ageForOldSecs = 2;
    }
 
-   optional GigawattDBConfig gigawattDBConfig= 1;
-   optional RelayConfig relayConfig = 2;
-   optional BiffConfig biffConfig = 3;
-   optional MessageRetryConfig messageRetryConfig = 4;
+   optional AccumulatorConf accumulatorConf = 1;
+   optional GigawattDBConfig gigawattDBConfig= 2;
+   optional RelayConfig relayConfig = 3;
+   optional BiffConfig biffConfig = 4;
+   optional MessageRetryConfig messageRetryConfig = 5;
 
 }
