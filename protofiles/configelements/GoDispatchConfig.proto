@@ -15,17 +15,20 @@ message GoDispatchConfig {
   }
 
   message Endpoint {
-
+    optional string queue = 1;
+    optional int32 queueSize = 2;
+    optional bool isOwner = 3;
   }
 
   optional Stats stats = 1;
+  optional Endpoint inputQueue = 2;
 
-  optional int32 batchingReportPeriodSec = 2;
-  optional int32 receiveLogTimeoutMs = 3;
-  optional int32 batchingCapturePeriodMs = 4;
-  optional int32 maxBatchSize = 5;
-  optional int32 maxInFlightBatches = 6;
+  optional int32 batchingReportPeriodSec = 3;
+  optional int32 receiveLogTimeoutMs = 4;
+  optional int32 batchingCapturePeriodMs = 5;
+  optional int32 maxBatchSize = 6;
+  optional int32 maxInFlightBatches = 7;
 
-  optional bool sendToRecorder = 7;
-  optional int32 indexRetryBackoffDurationMs = 8;
+  optional bool sendToRecorder = 8;
+  optional int32 indexRetryBackoffDurationMs = 9;
 }

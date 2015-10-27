@@ -6,5 +6,4 @@ option java_outer_classname = "GoDispatchClientConfigMsg";
 
 message GoDispatchClientConfig {
   optional string batchingQueue = 1;
-  optional int32 batchingQueueSize = 2;
 }
