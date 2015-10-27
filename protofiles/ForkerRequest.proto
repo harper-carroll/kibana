@@ -15,4 +15,5 @@ message ForkerRequest {
    optional uint32 pid = 6;
    optional string uuid = 7;
    optional bool expectReply = 8;
+   optional bool clientShutdown = 9;
 }
