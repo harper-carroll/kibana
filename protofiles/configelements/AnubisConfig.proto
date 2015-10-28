@@ -17,8 +17,8 @@ message AnubisConfig {
    }
 
    message RelayConfig {
-      optional string mediatorQueue = 1; 
-      optional int32 mediatorQueueSize = 2;
+      optional string inputQueue = 1; 
+      optional int32 inputQueueSize = 2;
       optional int32 timeoutReceiveMs = 3;
    }
 
