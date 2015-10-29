@@ -1,4 +1,4 @@
-package protoMsg;
+package anubis;
 
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "AcknowledgementsMsg";
