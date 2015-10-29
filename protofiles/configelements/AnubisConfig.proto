@@ -32,7 +32,7 @@ message AnubisConfig {
 
    message MessageRetryConfig {
       optional int32 tryIntervalSecs = 1;
-      optional int32 ageForOldSecs = 2;
+      optional int32 maxRetrySecs = 2;
    }
 
    optional AccumulatorConf accumulatorConf = 1;
