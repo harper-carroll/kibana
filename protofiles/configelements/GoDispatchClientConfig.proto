@@ -5,5 +5,5 @@ option java_outer_classname = "GoDispatchClientConfigMsg";
 
 
 message GoDispatchClientConfig {
-  optional string batchingQueue = 1;
+  optional string inputQueue = 1;
 }
