@@ -14,12 +14,15 @@ import "DispatchClientConfigUX.proto";
 import "ElasticSearchClientConfigUX.proto";
 import "ElasticSearchServerConfigUX.proto";
 import "EnigmaConfigUX.proto";
-import "HermesConfigUX.proto";
 import "InfluxConfigUX.proto";
 import "LinkConfigUX.proto";
 import "VitalsClientConfigUX.proto";
 import "VitalsConfigUX.proto";
 import "GoMaintainConfigUX.proto";
+import "AnubisClientConfigUX.proto";
+import "AnubisConfigUX.proto";
+import "GoDispatchClientConfigUX.proto";
+import "GoDispatchConfigUX.proto";
 
 
 message AllConf {
@@ -68,4 +71,16 @@ message AllConf {
 
   optional ConfigUX vitalsConfigUX = 29;
   optional VitalsConfigUX vitalsConfig = 30;
+
+  optional ConfigUX goDispatchConfigUX = 31;
+  optional GoDispatchConfigUX goDispatchConfig = 32;
+
+  optional ConfigUX goDispatchClientConfigUX = 33;
+  optional GoDispatchClientConfigUX goDispatchClientConfig = 34;
+
+  optional ConfigUX anubisClientConfigUX = 35;
+  optional AnubisClientConfigUX anubisClientConfig = 36;
+
+  optional ConfigUX anubisConfigUX = 37;
+  optional AnubisConfigUX anubisConfig = 38;
 }

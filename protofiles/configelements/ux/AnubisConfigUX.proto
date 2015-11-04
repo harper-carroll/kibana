@@ -1,0 +1,47 @@
+package configelements.ux;
+
+import "ConfigUX.proto";
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "AnubisConfigUXMsg";
+
+message AnubisConfigUX {
+   
+   message AccumulatorConf {
+      optional ConfigUX secondsToAccumulate = 1;
+      optional ConfigUX entriesToAccumulate = 2;
+      optional ConfigUX maxBatchSizeBytes = 3;
+   }
+
+   message GigawattDBConfig {
+      optional ConfigUX gigawattDbPath = 1;
+   }
+
+   message RelayConfig {
+      optional ConfigUX inputQueue = 1; 
+      optional ConfigUX inputQueueSize = 2;
+      optional ConfigUX dbMaxRows = 3;
+      optional ConfigUX dbResumeRows = 4;
+      optional ConfigUX dbMaxBytes = 5;
+      optional ConfigUX dbResumeBytes = 6;
+      optional ConfigUX dbCheckSizeMs = 7;
+   }
+
+   message BiffConfig {
+      optional ConfigUX ackQueue = 1;
+      optional ConfigUX ackQueueSize = 2;
+   }
+
+   message MessageRetryConfig {
+      optional ConfigUX retryIntervalSecs = 1;
+      optional ConfigUX minRetrySecs = 2;
+      optional ConfigUX maxRetrySecs = 3;
+   }
+
+   optional AccumulatorConf accumulatorConf = 1;
+   optional GigawattDBConfig gigawattDBConfig= 2;
+   optional RelayConfig relayConfig = 3;
+   optional BiffConfig biffConfig = 4;
+   optional MessageRetryConfig messageRetryConfig = 5;
+
+}
