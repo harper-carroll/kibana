@@ -9,6 +9,7 @@ message AnubisConfig {
       optional int32 secondsToAccumulate = 1;
       optional int32 entriesToAccumulate = 2;
       optional int32 maxBatchSizeBytes = 3;
+      optional int32 maxLogSizeBytes = 4;
    }
 
    message GigawattDBConfig {
