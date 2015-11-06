@@ -39,11 +39,13 @@ message AllConf {
   optional ConfigUX configServerConfigUX = 7;
   optional ConfigServerConfigUX configServerConfig = 8;
 
+  /********* DEPRECATED ************
   optional ConfigUX dispatchClientConfigUX = 9;
   optional DispatchClientConfigUX dispatchClientConfig = 10;
 
   optional ConfigUX dispatchConfigUX = 11;
   optional DispatchConfigUX dispatchConfig = 12;
+  */
 
   optional ConfigUX elasticsearchClientConfigUX = 13;
   optional ElasticSearchClientConfigUX elasticsearchClientConfig = 14;
