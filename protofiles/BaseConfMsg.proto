@@ -55,6 +55,7 @@ message BaseConf {
   optional string numberOfPcapChunks = 52;
   optional string pCapRemovalNotifyQueue = 53;
   optional string enableThreadAffinity = 54;
+  optional string currentThreadAffinityStatus = 55;
 
 
 
