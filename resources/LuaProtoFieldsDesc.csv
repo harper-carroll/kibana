@@ -50,7 +50,7 @@ Internal, Internal, fieldcountindexed, FieldCountIndexed, uint32, "Field count i
 Internal, Internal, emailAttachments, EmailAttachments, EmailAttach, "Email attachment structure."
 Internal, Internal, customfields, CustomFields, CustomField, "Custom Fields."
 Internal, Internal, repeatedfieldcount, RepeatedFieldCount, uint64, "Total repeated fields in DPI message."
-0zz0, 0zz0.com, login, loginq_proto_0zz0, bytes, "User's login string."
+Internal, Internal, flowclassified, FlowClassified, bool, "Flow Classified"0zz0, 0zz0.com, login, loginq_proto_0zz0, bytes, "User's login string."
 0zz0, 0zz0.com, password, passwordq_proto_0zz0, bytes, "User's password string."
 0zz0, 0zz0.com, action, actionq_proto_0zz0, bytes, "Indicates the action executed by the user."
 0zz0, 0zz0.com, filename, filenameq_proto_0zz0, bytes, "Name of the transferred file."
