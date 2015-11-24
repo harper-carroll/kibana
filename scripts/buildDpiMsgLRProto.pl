@@ -287,7 +287,7 @@ open (staticFieldsCsv, "<", "resources/StaticFields.csv") or die 'Could not open
 while ( my $line = <staticFieldsCsv> ) {
    print luaProtoFieldsCsv $line;
 }
-
+print luaProtoFieldsCsv "\n";
 seek qosmosWorkbook, 0, 0;
 while (<qosmosWorkbook>) {
    # Include all attributes matching the includeFilter, but exclude the 19 attributes at the beginning 
