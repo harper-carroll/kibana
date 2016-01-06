@@ -824,6 +824,7 @@ ntlm_domain NTLMDomain
 ntlm_user NTLMUser
 ntlm_workstation NTLMWorkstation
 part_content PartContent
+part_content_type PartContentType
 part_filename PartFilename
 part_header_name PartHeaderName
 part_header_value PartHeaderValue
@@ -869,8 +870,10 @@ video_avgdatarate VidAvgDataRate
 video_brand VideBrand
 video_datarate VidDataRate
 video_duration VidDuration
+video_firsttimestamp VideoFirstTimestamp
 video_framerate VidFrameRate
 video_height VidHeight
+video_lasttimestamp VideoLastTimestamp
 video_type VidType
 video_url VideoUrl
 video_width VidWidth
@@ -1760,6 +1763,7 @@ password Passwd
 proto_version ProtoVersion
 query Query
 server_version ServerVersion
+sqlstate_code SqlStateCode
 method Method
 protocol Proto
 vendor Vendor
@@ -2127,6 +2131,8 @@ transfer_way TransferWay
 version Version
 attributes Attributes
 command_string CommandString
+create_action CreateAction
+create_options CreateOptions
 dialect Dialect
 directory Directory
 domain Domain
@@ -2169,6 +2175,7 @@ security_blob_len SecurityBlobLen
 service Service
 service_data ServiceData
 session_key SessionKey
+share_access ShareAccess
 tree_id TreeId
 user_id UserID
 version Version
@@ -2784,8 +2791,10 @@ total_datarate TotalDataRate
 url URL
 video_datarate VidDataRate
 video_duration VidDuration
+video_firsttimestamp VideoFirstTimestamp
 video_framerate VidFrameRate
 video_height VidHeight
+video_lasttimestamp VideoLastTimestamp
 video_totalduration VidTotalDuration
 video_width VidWidth
 videoid VidID
