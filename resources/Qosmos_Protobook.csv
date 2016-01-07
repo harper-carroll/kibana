@@ -1,5 +1,5 @@
-,,,,,,,,,,,,,,
 ,protocol id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_name,attr_name,deprecated,attr_type,attr_desc,stream,pkt/session,content
+,proto_id,proto_idname,proto_family,proto_name,proto_longname,attr_id,attr_id_name,attr_name,deprecated,attr_type,attr_desc,stream,fill_type,content
 ,.,,,,,-1,Q_GEN_TOT_LEN,tot_len,,uint32,Remaining data length starting from the defined protocol layer (including header).,0,pkt,0
 ,.,,,,,-2,Q_GEN_HDR_LEN,hdr_len,,uint32,Packet length for the considered protocol.,0,pkt,0
 ,.,,,,,-3,Q_GEN_PAYLOAD_LEN,payload_len,,uint32,"Length of data contained by the selected protocol, excluding the header.",0,pkt,0
@@ -76,13 +76,6 @@
 ,549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,4,Q_ADOBE_UPDATE_UPDATE_MANAGER,update_manager,,string,Adobe Update Manager version and identifier.,0,session_prt,0
 ,549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,11,Q_ADOBE_UPDATE_PRODUCT_NAME,product_name,,string,User's request for a product update.,0,session_prt,0
 ,549,Q_PROTO_ADOBE_UPDATE,Web,adobe_update,Adobe Update Manager,512,Q_MPA_ACTION,action,,string,Indicates the action executed by the user.,0,session_prt,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,538,Q_MPA_FILE,file,,parent,File related information.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,618,Q_MPA_FILE_CHUNK,file_chunk,,parent,A piece of a transferred file.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint64,Size of the transferred piece.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,621,Q_MPA_FILE_CHUNK_DATA_OFFSET,file_chunk_data_offset,,uint64,Offset of the transferred data.,0,session_mod,0
-,2645,Q_PROTO_AFP,File Server,afp,Apple Filing Protocol,622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session_mod,1
 ,8,Q_PROTO_AIM,Instant Messaging,aim,AOL Instant Messenger (formerly OSCAR),617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,8,Q_PROTO_AIM,Instant Messaging,aim,AOL Instant Messenger (formerly OSCAR),545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session_mod,0
 ,8,Q_PROTO_AIM,Instant Messaging,aim,AOL Instant Messenger (formerly OSCAR),546,Q_MPA_INHERIT_PARENT,inherit_parent,,binary,"Parent inheritance key, stored in an hashtable and kept until parent session expiration.",0,session_mod,0
@@ -781,11 +774,10 @@
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,532,Q_MPA_DATE,date,,string,Message date.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session_prt,0
-,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,701,Q_MPA_EMAIL_INDEX,email_index,,string,Index of the request which the email is attached to.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session_mod,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session_prt,0
-,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,11,Q_GMAIL_NEXT_ATTACH_ID,next_attach_id,x,string,(deprecated) New value for the attach_id of an attachment.,0,session_prt,0
+,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,11,Q_GMAIL_NEXT_ATTACH_ID,next_attach_id,,string,New value for the attach_id of an attachment.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session_prt,0
 ,51,Q_PROTO_GMAIL,Webmail,gmail,Google Mail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached file content.,1,session_mod,1
@@ -809,6 +801,19 @@
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session_mod,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session_mod,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session_mod,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_mod,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session_prt,0
+,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session_mod,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session_prt,0
@@ -825,7 +830,6 @@
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,557,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session_mod,0
-,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,550,Q_MPA_LOGIN,login,,string,User's login string. It's also sender id in case of e-mail compose/send workflow (use session_id to correlate email and login).,0,session_mod,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session_prt,0
 ,263,Q_PROTO_GMAIL_BASIC,Webmail,gmail_basic,Gmail Basic,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session_mod,0
 ,273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
@@ -838,60 +842,40 @@
 ,273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,524,Q_MPA_CALLER,caller,,string,Contains the identity (or the phone number) of the initiator of the call.,0,session_mod,0
 ,273,Q_PROTO_GMAIL_CHAT,Instant Messaging,gmail_chat,Google Chat,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session_mod,0
 ,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session_fix,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,577,Q_MPA_NAME,name,,string,User's full name.,0,session_fix,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,537,Q_MPA_ENCODING,encoding,,string,Page encoding,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,572,Q_MPA_MSGLIST_SENDER,msglist_sender,,string,Full address of email sender (alias and email address).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session_prt,0
 ,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,573,Q_MPA_MSGLIST_SENDER_ALIAS,msglist_sender_alias,,string,Name of email sender.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,574,Q_MPA_MSGLIST_SENDER_EMAIL,msglist_sender_email,,string,Address of email sender.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,569,Q_MPA_MSGLIST_RECEIVER,msglist_receiver,,string,Full address of email receiver in a message list.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,571,Q_MPA_MSGLIST_RECEIVER_EMAIL,msglist_receiver_email,,string,Email address of the email receiver.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,576,Q_MPA_MSGLIST_SUBJECT,msglist_subject,,string,Message subject in a message list.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,568,Q_MPA_MSGLIST_MSGID,msglist_msgid,,string,Message identifier.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,565,Q_MPA_MSGLIST_DATE,msglist_date,,string,Message date in a message list.,0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,611,Q_MPA_MSGLIST_SENDER_ENTRY,msglist_sender_entry,,parent,Parent entry for a sender in a message list.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,566,Q_MPA_MSGLIST_ENTRY,msglist_entry,,parent,"Parent entry, for different elements belonging to the same message of a message list.",0,session_mod,0
 ,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,567,Q_MPA_MSGLIST_FOLDER,msglist_folder,,string,Indicates the directory from a message list.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,7,Q_GMAIL_MOBILE_REAL_SENDER_DOMAIN,real_sender_domain,,string,Domain of the email sender.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,8,Q_GMAIL_MOBILE_REAL_SENDER_MSGID,real_sender_msgid,,string,Email identifier.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,532,Q_MPA_DATE,date,,string,Message date.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,553,Q_MPA_MSG_ID,msg_id,,string,Identifier of the message.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,701,Q_MPA_EMAIL_INDEX,email_index,,string,Index of the request which the email is attached to.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,530,Q_MPA_CONTENT,content,,buffer,Message content.,1,session_mod,1
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,11,Q_GMAIL_MOBILE_NEXT_ATTACH_ID,next_attach_id,x,string,(deprecated) New value for the attach_id of an attachment.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached file content.,1,session_mod,1
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,10,Q_GMAIL_MOBILE_THUMBNAIL,thumbnail,,uint32,Indicates whether or not this attachment is an image thumbnail.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,2,Q_GMAIL_MOBILE_ACCESS_INFO,access_info,,parent,Contains Gmail access data.,0,session_mod,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,5,Q_GMAIL_MOBILE_LAST_ACTIVITY,last_activity,,string,Time elapsed since last account activity.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,6,Q_GMAIL_MOBILE_LAST_ACTIVITY_TIMESTAMP,last_activity_timestamp,,timeval,Last account-activity timestamp.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,3,Q_GMAIL_MOBILE_CURRENT_IP_ADDRESS,current_ip_address,,ip_addr,IP address of the logged user.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,4,Q_GMAIL_MOBILE_OTHER_IP_ADDRESS,other_ip_address,,ip_addr,IP address of the other logged user.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session_mod,0
 ,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,616,Q_MPA_CONTACT_EMAIL,contact_email,,string,Email address of a contact.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,677,Q_MPA_CONTACT_UID,contact_uid,,string,The GMAIL unique identifier for a contact.,0,session_prt,0
 ,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Alias of a contact.,0,session_prt,0
-,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,659,Q_MPA_ATTACH_TRANSFER_ENCODING,attach_transfer_encoding,,string,Contains the encoding of the attached content,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,532,Q_MPA_DATE,date,,string,Message date.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached file content.,1,session_mod,1
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,517,Q_MPA_ATTACH_ID,attach_id,,string,Attachment identifier.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,513,Q_MPA_ATTACH,attach,,parent,"Parent entry, for attach fields in a message.",0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,701,Q_MPA_EMAIL_INDEX,email_index,,string,Index of the request which the email is attached to.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,607,Q_MPA_SUBJECT,subject,,string,Message subject.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,597,Q_MPA_RECEIVER_TYPE,receiver_type,,string,Type of the email receiver.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,593,Q_MPA_RECEIVER_EMAIL,receiver_email,,string,Email address of message receiver (included cc and bcc receivers).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,601,Q_MPA_SENDER_ALIAS,sender_alias,,string,Name of the email sender.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,602,Q_MPA_SENDER_EMAIL,sender_email,,string,Email address of the email sender.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,600,Q_MPA_SENDER,sender,,string,Full address of email sender (alias followed by email address).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,609,Q_MPA_SENDER_ENTRY,sender_entry,,parent,"Parent entry, for different elements belonging to the sender.",0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,512,Q_MPA_ACTION,action,,string,Indicates if the message is read (Read) or composed (Compose).,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,535,Q_MPA_EMAIL,email,,parent,"Parent entry, for fields belonging to the same email.",0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,739,Q_MPA_SESSION_ID,session_id,,string,Uniquely identifies the current user session.,0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,570,Q_MPA_MSGLIST_RECEIVER_ALIAS,msglist_receiver_alias,,string,Name of email receiver.,0,session_prt,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,612,Q_MPA_MSGLIST_RECEIVER_ENTRY,msglist_receiver_entry,,parent,Parent entry for a receiver in a message list.,0,session_mod,0
+,280,Q_PROTO_GMAIL_MOBILE,Webmail,gmail_mobile,Gmail Mobile,533,Q_MPA_DRAFT,draft,,uint32,Indicates if the email is a draft or has really been posted,0,session_prt,0
 ,1116,Q_PROTO_GMX,Webmail,gmx,GMX webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,1116,Q_PROTO_GMX,Webmail,gmx,GMX webmail,514,Q_MPA_ATTACH_CONTENT,attach_content,,buffer,Attached file content.,1,session_mod,1
 ,1116,Q_PROTO_GMX,Webmail,gmx,GMX webmail,516,Q_MPA_ATTACH_FILENAME,attach_filename,,string,Attachment name.,0,session_mod,0
@@ -1019,7 +1003,7 @@
 ,57,Q_PROTO_GOOGLE_MAPS,Web,google_maps,Google Maps,9,Q_GOOGLE_MAPS_EAST,east,,string,Longitude coordinate of East edge of the first tile that was loaded by the webpage.,0,session_mod,0
 ,57,Q_PROTO_GOOGLE_MAPS,Web,google_maps,Google Maps,10,Q_GOOGLE_MAPS_WEST,west,,string,Longitude coordinate of West edge of the first tile that was loaded by the webpage.,0,session_mod,0
 ,57,Q_PROTO_GOOGLE_MAPS,Web,google_maps,Google Maps,11,Q_GOOGLE_MAPS_NORTH,north,,string,Latitude coordinate of North edge of the first tile that was loaded by the webpage.,0,session_mod,0
-,1122,Q_PROTO_GOOGLE_PLAY,Application Service,google_play,Google Play Store,1,Q_GOOGLE_PLAY_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session_mod,0
+,1122,Q_PROTO_GOOGLE_PLAY,Application Service,google_play,Google Play,1,Q_GOOGLE_PLAY_APPLICATION_NAME,application_name,,string,Name of the downloaded app.,0,session_mod,0
 ,894,Q_PROTO_GOTOMYPC,Thin Client,gotomypc,GoToMyPC Remote Access,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,894,Q_PROTO_GOTOMYPC,Thin Client,gotomypc,GoToMyPC Remote Access,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata. The service type is resolved by a DETERMINISTIC method.,0,session_mod,0
 ,894,Q_PROTO_GOTOMYPC,Thin Client,gotomypc,GoToMyPC Remote Access,604,Q_MPA_SERVICE,service,,string,Current service identification string.,0,session_prt,0
@@ -1338,7 +1322,6 @@
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,41,Q_HTTP_PART_HEADER,part_header,,parent,"Groups part_header_name and part_header_value. Extracted only if content-type is multipart"".""",0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,42,Q_HTTP_PART_HEADER_NAME,part_header_name,,string,"Name of a header line. Extracted only if content-type is multipart"".""",0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,43,Q_HTTP_PART_HEADER_VALUE,part_header_value,,string,"Value of a header line. Extracted only if content-type is multipart"".""",0,session_mod,0
-,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,108,Q_HTTP_PART_CONTENT_TYPE,part_content_type,,string,Indicates the content type of transferred data.,0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,39,Q_HTTP_PART_CONTENT,part_content,,buffer,"Uploaded data. Extracted only if content-type is multipart"".""",1,session_mod,1
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,38,Q_HTTP_PART_NAME,part_name,,string,"Name of uploaded data or field. Extracted only if content-type is multipart"".""",0,session_mod,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,40,Q_HTTP_PART_FILENAME,part_filename,,string,"Name of uploaded file. Extracted only if content-type is multipart"".""",0,session_mod,0
@@ -1389,9 +1372,6 @@
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,709,Q_MPA_START_TIME,start_time,,uint32,Start date of the call.,0,session_prt,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,785,Q_MPA_VIDEO_URL,video_url,,string,URL of the binary video file referenced by the current metadata.,0,session_prt,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,770,Q_MPA_TOTAL_DATARATE,total_datarate,,uint32,Sum of video and audio datarates.,0,session_prt,0
-,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,769,Q_MPA_VIDEO_TOTALDURATION,video_totalduration,,uint32,Total duration of the video in seconds. It is extracted from the FLV attribute.,0,session_prt,0
-,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,842,Q_MPA_VIDEO_FIRSTTIMESTAMP,video_firsttimestamp,,uint32,Start time of the current segment in the full video. It is extracted from the FLV attribute.,0,session_prt,0
-,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,843,Q_MPA_VIDEO_LASTTIMESTAMP,video_lasttimestamp,,uint32,End time of the current segment in the full video. It is extracted from the FLV attribute.,0,session_prt,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,786,Q_MPA_NTLM_DOMAIN,ntlm_domain,,string,"Domain"" attribute of the NTLM protocol.""",0,session_prt,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,787,Q_MPA_NTLM_USER,ntlm_user,,string,"User"" attribute of the NTLM protocol.""",0,session_prt,0
 ,67,Q_PROTO_HTTP,Web,http,HyperText Transfer Protocol,788,Q_MPA_NTLM_WORKSTATION,ntlm_workstation,,string,"Workstation"" attribute of the NTLM protocol.""",0,session_prt,0
@@ -1521,7 +1501,7 @@
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,631,Q_MPA_GREETING_MESSAGE,greeting_message,,string,Contains the greeting message of the server when connection is established.,0,session_fix,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,626,Q_MPA_USER_AGENT,user_agent,,string,Name of the software used.,0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,519,Q_MPA_ATTACH_SIZE,attach_size,,uint32,Attached file MIME size.,0,session_mod,0
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,518,Q_MPA_ATTACH_MIME_TYPE,attach_mime_type,x,string,Content type of the attachment.,0,session_prt,0
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,518,Q_MPA_ATTACH_MIME_TYPE,attach_mime_type,,string,Content type of the attachment.,0,session_prt,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,520,Q_MPA_ATTACH_TYPE,attach_type,,string,Content type of the sent attached file.,0,session_prt,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,659,Q_MPA_ATTACH_TRANSFER_ENCODING,attach_transfer_encoding,,string,Contains the encoding of the attached content,0,session_prt,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,515,Q_MPA_ATTACH_DISPOSITION,attach_disposition,,string,Attached file disposition,0,session_prt,0
@@ -1531,14 +1511,14 @@
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,693,Q_MPA_ATTACH_CONTENT_DECODED,attach_content_decoded,,buffer,Decoded attached files content.,1,session_mod,1
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,678,Q_MPA_CONTENT_ENTRY,content_entry,,parent,"Parent entry, information about email content.",0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,806,Q_MPA_FILE_TYPE,file_type,,string,Received or sent file content type (prefix-based pattern recognition) exchanged using this protocol.,0,session_mod,0
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,530,Q_MPA_CONTENT,content,,buffer,Message content.,1,session_mod,1
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,531,Q_MPA_CONTENT_TYPE,content_type,,string,Indicates the content type of transferred file.,0,session_mod,1
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,811,Q_MPA_CONTENT_DECODED,content_decoded,,buffer,Decoded content.,0,session_mod,1
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,679,Q_MPA_CONTENT_HEADER,content_header,,buffer,Data containing headers.,1,session_mod,1
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,680,Q_MPA_CONTENT_BODY,content_body,,buffer,Data containing body.,1,session_mod,1
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,811,Q_MPA_CONTENT_DECODED,content_decoded,,string,Decoded content.,0,session_mod,1
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,679,Q_MPA_CONTENT_HEADER,content_header,,string,Data containing headers.,1,session_mod,1
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,680,Q_MPA_CONTENT_BODY,content_body,,string,Data containing body.,1,session_mod,1
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,598,Q_MPA_REPLYTO,replyto,,string,Email address to use in a reply for this message.,0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,641,Q_MPA_LOGIN_SERVER,login_server,,string,Concatenated login and server: <login>@<server>.,0,session_mod,0
-,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,805,Q_MPA_HEADER_RAW,header_raw,,buffer,One IMAP header line (field and value).,0,session_mod,0
+,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,805,Q_MPA_HEADER_RAW,header_raw,,string,One IMAP header line (field and value).,0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,649,Q_MPA_CONTENT_TRANSFER_ENCODING,content_transfer_encoding,,string,Contains the encoding of the content,0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,650,Q_MPA_RECEIVED,received,,parent,"Parent entry, for fields added by each relay",0,session_mod,0
 ,75,Q_PROTO_IMAP,Mail,imap,Internet Message Access Protocol version 4,651,Q_MPA_RECEIVED_FROM_NAME,received_from_name,,string,Contains the sending host name,0,session_prt,0
@@ -2741,11 +2721,7 @@
 ,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,580,Q_MPA_PROTO_VERSION,proto_version,,string,Protocol version used,0,session_fix,0
 ,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,581,Q_MPA_QUERY,query,,string,Query sent,0,session_mod,0
 ,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,3,Q_POSTGRES_ERROR,error,,string,Error message,0,session_mod,0
-,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,845,Q_MPA_SQLSTATE_CODE,sqlstate_code,,string,the SQLSTATE code (supported from the protocol version 3.0).,0,session_mod,0
 ,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,643,Q_MPA_REQUEST,request,,parent,Structured attribute regarding to a query.,0,session_mod,0
-,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,847,Q_MPA_RESULT_SET,result_set,,parent,Parent attribute of number_rows and number_columns.,0,session_mod,0
-,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,849,Q_MPA_NUMBER_COLUMNS,number_columns,,uint16,The number of columns in a result_set row.,0,session_mod,0
-,150,Q_PROTO_POSTGRES,Database,postgres,PostgreSQL,848,Q_MPA_NUMBER_ROWS,number_rows,,uint16,The number of rows in a result_set.,0,session_mod,0
 ,331,Q_PROTO_PPLIVE,Audio/Video,pplive,PPlive,555,Q_MPA_METHOD,method,,string,Contains the method used for a PPLive Live Streaming command,0,session_mod,0
 ,151,Q_PROTO_PPP,Tunneling,ppp,Point-to-Point Protocol,1,Q_PPP_PROTOCOL,protocol,,string,Higher level protocol code or name.,0,pkt,0
 ,152,Q_PROTO_PPPOE,Tunneling,pppoe,Point-to-Point Protocol Over Ethernet,1,Q_PPPOE_VERSION,version,,uint8,Version of the protocol.,0,pkt,0
@@ -2771,13 +2747,10 @@
 ,154,Q_PROTO_Q931,Audio/Video,q931,Q.931,5,Q_Q931_CAUSE_CODE,cause_code,,uint8,Disconnect cause Codes.,0,session_mod,0
 ,154,Q_PROTO_Q931,Audio/Video,q931,Q.931,6,Q_Q931_CAUSE,cause,,string_index,Disconnect cause.,0,session_mod,0
 ,154,Q_PROTO_Q931,Audio/Video,q931,Q.931,7,Q_Q931_REF_FLAG,ref_flag,,uint8,The call reference flag is used to identify which end of the layer two-logical link originated a call reference.,0,session_mod,0
-,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,1,Q_QQ_VERSION_CODE,version_code,,string,The protocol version number used by the client.,0,session_fix,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,2,Q_QQ_MSG_TYPE,msg_type,,uint32,QQ command name.,0,session_mod,0
-,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata. The service type is resolved by a STATISTICAL method (non deterministic behaviorial analysis) with periodic revaluation. The revaluation period as well as other service detection parameters are modifiable using proto-tunes.,0,session_mod,0
-,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,604,Q_MPA_SERVICE,service,,string,Current service identification string.,0,session_prt,0
-,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,789,Q_MPA_SERVICE_ID,service_id,,uint32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer).",0,session_prt,0
+,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,604,Q_MPA_SERVICE,service,,string,Current service identification string.,0,session_fix,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,524,Q_MPA_CALLER,caller,,string,Contains the identity (or the phone number) of the initiator of the call.,0,session_fix,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,523,Q_MPA_CALLEE,callee,,string,Contains the identity (or the phone number) of the called party for a call.,0,session_fix,0
 ,156,Q_PROTO_QQ,Instant Messaging,qq,QQ,4,Q_QQ_CALL_DATA,call_data,,buffer,QQ payload containing the data of the call (audio/video),0,session_mod,0
@@ -2981,22 +2954,9 @@
 ,170,Q_PROTO_RSH,Terminal,rsh,Remote Shell,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
 ,170,Q_PROTO_RSH,Terminal,rsh,Remote Shell,1,Q_RSH_REMOTE_LOGIN,remote_login,x,string,(Deprecated) User login on the remote server.,0,session_fix,0
 ,170,Q_PROTO_RSH,Terminal,rsh,Remote Shell,2,Q_RSH_SERVER,server,,string,Remote server.,0,session_fix,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),1,Q_RSYNC_MODULE,module,,string,Name of the group in which files are gathered.,0,session_mod,0
 ,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
 ,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session_fix,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),538,Q_MPA_FILE,file,,parent,File related information.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),530,Q_MPA_CONTENT,content,,buffer,File content,1,session_mod,1
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),541,Q_MPA_FILENAME,filename,,string,Name of the transferred file.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),542,Q_MPA_FILESIZE,filesize,,uint32,Size (byte) of the transferred file.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),2,Q_RSYNC_BLOCK_SIZE,block_size,,int32,Size on which is calculated a delta.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),623,Q_MPA_FILE_HASH,file_hash,,binary,Hash of the transferred file.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),625,Q_MPA_FILE_IS_COMPRESSED,file_is_compressed,,uint32,Tells whether a file is compressed.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),618,Q_MPA_FILE_CHUNK,file_chunk,,parent,A piece of a transferred file.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),620,Q_MPA_FILE_CHUNK_NUMBER,file_chunk_number,,uint32,Number of the transferred piece.,0,session_prt,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),619,Q_MPA_FILE_CHUNK_LEN,file_chunk_len,,uint32,Size of the transferred piece.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),621,Q_MPA_FILE_CHUNK_DATA_OFFSET,file_chunk_data_offset,,uint32,Offset of the transferred data.,0,session_mod,0
-,173,Q_PROTO_RSYNC,File Server,rsync,Remote synchronous (file transfer),622,Q_MPA_FILE_CHUNK_CONTENT,file_chunk_content,,buffer,Content of the transferred data.,1,session_mod,1
 ,174,Q_PROTO_RTCP,Audio/Video,rtcp,Real Time Control Protocol,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,174,Q_PROTO_RTCP,Audio/Video,rtcp,Real Time Control Protocol,545,Q_MPA_INHERIT_KEY,inherit_key,,binary,"Candidate inheritance key, generated from the first ixE-classified child session packet.",0,session_mod,0
 ,174,Q_PROTO_RTCP,Audio/Video,rtcp,Real Time Control Protocol,1,Q_RTCP_CNAME,cname,,string,User name.,0,session_mod,0
@@ -3306,15 +3266,10 @@
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),8,Q_SMB_FILE_ID,file_id,,string,Identifier of the file affected by the command (v1:4 char; usmb_v2:32 char).,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),27,Q_SMB_END_OF_FILE,end_of_file,,uint64,The end of file offset value.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),7,Q_SMB_FILE_ATTRIBUTES,file_attributes,,uint32,File attributes (bit field).,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),40,Q_SMB_OPLOCK_LEVEL,oplock_level,,uint8,The oplock level value.,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),37,Q_SMB_CREATE_OPTIONS,create_options,,uint32,The options to be applied when creating or opening the file.,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),38,Q_SMB_SHARE_ACCESS,share_access,,uint32,The sharing mode value.,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),39,Q_SMB_NAME_LENGTH,name_length,,uint16,The length of the file name.,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),41,Q_SMB_CREATE_ACTION,create_action,,uint32,The action taken in establishing the open.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),9,Q_SMB_USER_ID,user_id,,uint32,User identifier (SMB usmb_v1 only).,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),10,Q_SMB_PROCESS_ID,process_id,,uint32,Identifier of the process being affected by the following command.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),11,Q_SMB_NT_STATUS,nt_status,,uint32,NT error code.,0,session_mod,0
-,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),2,Q_SMB_DIRECTORY,directory,,string,Name of the shared directory on the server host.,0,session_mod,0
+,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),2,Q_SMB_DIRECTORY,directory,x,string,(deprecated) Name of the shared directory on the server host.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),20,Q_SMB_PATH,path,,string,The server/share name of the resource to which the client attempts to connect.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),3,Q_SMB_DOMAIN,domain,,string,Domain name.,0,session_mod,0
 ,185,Q_PROTO_SMB,File Server,smb,Server Message Block (Windows File Server),31,Q_SMB_HOST,host,,string,Server name (NTLMSSP).,0,session_mod,0
@@ -3392,7 +3347,7 @@
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,4,Q_SMTP_RCPTTO,rcptto,,parent,Domain and recipient's email address (used by RCPT TO method).,0,session_mod,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,5,Q_SMTP_RECEIVER_RCPTTO,receiver_rcptto,,string,Recipient's email address (used by RCPT TO method).,0,session_prt,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,6,Q_SMTP_RECEIVER_DOMAIN,receiver_domain,,string,Domain of the recipient's email address.,0,session_prt,0
-,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,805,Q_MPA_HEADER_RAW,header_raw,,buffer,One SMTP header line (field and value).,0,session_mod,0
+,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,805,Q_MPA_HEADER_RAW,header_raw,,string,One SMTP header line (field and value).,0,session_mod,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,610,Q_MPA_RECEIVER_ENTRY,receiver_entry,,parent,"Parent entry, for different elements belonging to the email receiver.",0,session_mod,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,585,Q_MPA_RECEIVER,receiver,,string,Full address of email receiver (including cc and bcc receivers).,0,session_prt,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,586,Q_MPA_RECEIVER_ALIAS,receiver_alias,,string,Name of email receiver (included cc and bcc receivers).,0,session_prt,0
@@ -3424,11 +3379,11 @@
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,693,Q_MPA_ATTACH_CONTENT_DECODED,attach_content_decoded,,buffer,Decoded attached files content.,1,session_mod,1
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,659,Q_MPA_ATTACH_TRANSFER_ENCODING,attach_transfer_encoding,,string,Contains the encoding of the attached content,0,session_mod,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,678,Q_MPA_CONTENT_ENTRY,content_entry,,parent,"Parent entry, information about email content.",0,session_mod,0
-,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,530,Q_MPA_CONTENT,content,,buffer,Message content.,1,session_mod,1
-,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,811,Q_MPA_CONTENT_DECODED,content_decoded,,buffer,Decoded content.,1,session_mod,1
+,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,530,Q_MPA_CONTENT,content,,string,Message content.,1,session_mod,1
+,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,811,Q_MPA_CONTENT_DECODED,content_decoded,,string,Decoded content.,1,session_mod,1
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,531,Q_MPA_CONTENT_TYPE,content_type,,string,Indicates the content type of transferred file.,0,session_mod,1
-,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,679,Q_MPA_CONTENT_HEADER,content_header,,buffer,Data containing headers.,1,session_mod,1
-,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,680,Q_MPA_CONTENT_BODY,content_body,,buffer,Data containing body.,1,session_mod,1
+,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,679,Q_MPA_CONTENT_HEADER,content_header,,string,Data containing headers.,1,session_mod,1
+,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,680,Q_MPA_CONTENT_BODY,content_body,,string,Data containing body.,1,session_mod,1
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,12,Q_SMTP_SERVER,server,,string,Contains the name of the used smtp server,0,session_fix,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,13,Q_SMTP_SERVER_AGENT,server_agent,,string,The software name used by the email server,0,session_fix,0
 ,186,Q_PROTO_SMTP,Mail,smtp,Simple Mail Transfer Protocol,631,Q_MPA_GREETING_MESSAGE,greeting_message,,string,Contains the greeting message of the server when connection is established,0,session_fix,0
@@ -3464,7 +3419,6 @@
 ,264,Q_PROTO_SNPP,Network Service,snpp,Simple Network Paging Protocol,2,Q_SNPP_PAGER_ID,pager_id,,string,Contains pager number.,0,session_mod,0
 ,192,Q_PROTO_SOCKS4,Tunneling,socks4,SOCKet Secure v4,1,Q_SOCKS4_REMOTE_ADDR,remote_addr,,ip_addr,Remote IP address.,0,session_fix,0
 ,192,Q_PROTO_SOCKS4,Tunneling,socks4,SOCKet Secure v4,2,Q_SOCKS4_REMOTE_PORT,remote_port,,uint16,Remote TCP port.,0,session_fix,0
-,192,Q_PROTO_SOCKS4,Tunneling,socks4,SOCKet Secure v4,3,Q_SOCKS4_REMOTE_NAME,remote_name,,string,Fully qualified remote domain name.,0,session_fix,0
 ,193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKet Secure v5,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
 ,193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKet Secure v5,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session_fix,0
 ,193,Q_PROTO_SOCKS5,Tunneling,socks5,SOCKet Secure v5,1,Q_SOCKS5_REMOTE_ADDR,remote_addr,,ip_addr,Remote IP address.,0,session_fix,0
@@ -3486,8 +3440,7 @@
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,14,Q_SPDY_STATUS_CODE,status_code,,uint32,An indicator for why the stream is being terminated.,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,15,Q_SPDY_HEADER_COUNT,header_count,,uint32,The number of repeating name/value pairs following this field,0,session_prt,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,19,Q_SPDY_DATA_FRAME,data_frame,,parent,Parent attribute for elements of a data frame.,0,session_prt,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,20,Q_SPDY_CONTENT,content,,buffer,"decompressed SPDY content (requires IxE >= 4.20, the use of the libqmflow and the external_demultiplexing prototune set).",1,session_prt,1
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,632,Q_MPA_CONTENT_RAW,content_raw,,buffer,compressed SPDY content.,1,session_prt,1
+,1469,Q_PROTO_SPDY,Web,spdy,SPDY,20,Q_SPDY_CONTENT,content,,buffer,Message content.,0,session_prt,1
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,643,Q_MPA_REQUEST,request,,parent,Parent attribute gathering the main headers of an SPDY request.,0,session_mod,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,16,Q_SPDY_HEADER,header,,parent,Parent attribute for a name/value pair.,0,session_mod,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,21,Q_SPDY_HEADER_NAME,header_name,,string,"Header name, prefixed by a ':' if it's a mandatory SPDY header.",0,session_mod,0
@@ -3503,9 +3456,7 @@
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,555,Q_MPA_METHOD,method,,string,HTTP command sent by the client.,0,session_mod,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,626,Q_MPA_USER_AGENT,user_agent,,string,Software used by the client to access the web page.,0,session_mod,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,556,Q_MPA_MIME_TYPE,mime_type,,string,Content type of the request or the web page.,0,session_mod,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,31,Q_SPDY_CONTENT_ENCODING,content_encoding,,string,Contains content encoding format.,0,session_mod,0
 ,1469,Q_PROTO_SPDY,Web,spdy,SPDY,649,Q_MPA_CONTENT_TRANSFER_ENCODING,content_transfer_encoding,,string,Corresponds to HTTP's Transfer-Encoding header. Contains the content encoding (TRANSFER-ENCODING HTTP header).,0,session_mod,0
-,1469,Q_PROTO_SPDY,Web,spdy,SPDY,532,Q_MPA_DATE,date,,string,Message date.,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,1,Q_SPID_RESULT,result,,parent,Parent attribute containing SPID classification results.,0,session_mod,0
 ,1446,Q_PROTO_SPID,Behavioral,spid,Statistical Protocol IDentification,2,Q_SPID_FOUND_PROTOCOL,found_protocol,,string,Protocol name that has been discovered by SPID.,0,session_mod,0
@@ -3562,14 +3513,13 @@
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,3,Q_SSL_CERTIFICATE,certificate,,parent,Parent attribute for the common_name and the MD5 hash of the certificate,0,session_mod,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,13,Q_SSL_CERTIFICATE_RAW,certificate_raw,,buffer,Raw text content of the ssl certificate.,0,session_mod,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,1,Q_SSL_CERTIF_MD5,certif_md5,,binary,md5 of the certificate.,0,session_prt,0
-,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,19,Q_SSL_CERTIF_SHA1,certif_sha1,,binary,sha1 of the certificate.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,2,Q_SSL_COMMON_NAME,common_name,,string,Domain name mentioned in the certificate.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,14,Q_SSL_ORGANIZATION_NAME,organization_name,,string,Organisation name mentioned in the certificate.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,5,Q_SSL_SERVER_NAME,server_name,,string,Domain name mentioned in Client Hello message.,0,session_fix,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,12,Q_SSL_SUPPORTED_NEXT_PROTOCOL,supported_next_protocol,,string,Supported protocol on top of SSL specified by the server in the Next Protocol Negotiation or Application Layer Protocol Negotiation [RFC7301] TLS extensions.,0,session_fix,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,4,Q_SSL_ISSUER,issuer,,string,Certificate Authority.,0,session_prt,0
-,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,6,Q_SSL_VALIDITY_NOT_BEFORE,validity_not_before,,string,"Certificate's validity start date, in UTCTime format : YYMMDDHHMMSSZ.",0,session_prt,0
-,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,7,Q_SSL_VALIDITY_NOT_AFTER,validity_not_after,,string,"Certificate's validity end date, in UTCTime format : YYMMDDHHMMSSZ.",0,session_prt,0
+,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,6,Q_SSL_VALIDITY_NOT_BEFORE,validity_not_before,,string,Certificate's validity start date.,0,session_prt,0
+,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,7,Q_SSL_VALIDITY_NOT_AFTER,validity_not_after,,string,Certificate's validity end date.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,8,Q_SSL_SERIAL_NUMBER,serial_number,,buffer,Serial number of certificate.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,9,Q_SSL_SUBJECT_ALT_NAME,subject_alt_name,,string,Identifies a list of host names which belong to the same certificate.,0,session_prt,0
 ,199,Q_PROTO_SSL,Encrypted,ssl,Secure Socket Layer,11,Q_SSL_HANDSHAKE_TYPE,handshake_type,,uint8,Handshake type.,0,session_mod,0
@@ -3853,7 +3803,6 @@
 ,304,Q_PROTO_VIADEO,Web,viadeo,Viadeo.com,615,Q_MPA_CONTACT_ALIAS,contact_alias,,string,Contact's alias.,0,session_mod,0
 ,304,Q_PROTO_VIADEO,Web,viadeo,Viadeo.com,1,Q_VIADEO_GROUPE,groupe,,string,Contact's alias.,0,session_mod,0
 ,597,Q_PROTO_VIBER,Audio/Video,viber,Viber,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
-,597,Q_PROTO_VIBER,Audio/Video,viber,Viber,792,Q_MPA_SIGNALIZATION_OVERRIDE,signalization_override,,uint8,Attribute used to specify whether the current session may provide incoming flows information or not. This value overrides the proto_feature flag defined in the layer raising this event.,0,session_mod,0
 ,597,Q_PROTO_VIBER,Audio/Video,viber,Viber,542,Q_MPA_FILESIZE,filesize,,uint64,Size (byte) of the transferred file.,0,session_mod,0
 ,597,Q_PROTO_VIBER,Audio/Video,viber,Viber,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata. The service type is resolved by a STATISTICAL method (non deterministic behaviorial analysis) with periodic revaluation. The revaluation period as well as other service detection parameters are modifiable using proto-tunes.,0,session_mod,0
 ,597,Q_PROTO_VIBER,Audio/Video,viber,Viber,604,Q_MPA_SERVICE,service,,string,Current service identification string.,0,session_prt,0
@@ -4266,9 +4215,7 @@
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,529,Q_MPA_CONTACT_STATUS,contact_status,,string_index,Contact status.,0,session_mod,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,640,Q_MPA_CONTACT_NAME,contact_name,,string,Contact name.,0,session_mod,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,614,Q_MPA_CONTACT_ENTRY,contact_entry,,parent,This attribute groups information about a contact.,0,session_mod,0
-,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,789,Q_MPA_SERVICE_ID,service_id,,int32,"Composite 32-bit integer value defining the service currently used. The first byte (LSB) gives the generic service definition, the second byte gives an advanced service definition for specific cases (example: File Transfer).",0,session_prt,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,604,Q_MPA_SERVICE,service,,string,Current service identification string.,0,session_prt,0
-,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,798,Q_MPA_SERVICE_INFO,service_info,,parent,Service detection metadata.,0,session_mod,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,555,Q_MPA_METHOD,method,,string_index,Contains the description of YMSG command.,0,session_mod,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,1,Q_YMSG_WEBMESSENGER_MSG_CODE,msg_code,,string,Contains the number of YMSG command.,0,session_mod,0
 ,276,Q_PROTO_YMSG_WEBMESSENGER,Instant Messaging,ymsg_webmessenger,Yahoo Webmessenger,643,Q_MPA_REQUEST,request,,parent,Contains the YMSG command.,0,session_mod,0
@@ -4300,8 +4247,6 @@
 ,240,Q_PROTO_YOUTUBE,Web,youtube,Youtube.com,770,Q_MPA_TOTAL_DATARATE,total_datarate,,uint32,Sum of video and audio datarates.,0,session_prt,0
 ,240,Q_PROTO_YOUTUBE,Web,youtube,Youtube.com,784,Q_MPA_VIDEO_TYPE,video_type,,string,File format.,0,session_mod,0
 ,240,Q_PROTO_YOUTUBE,Web,youtube,Youtube.com,772,Q_MPA_VIDEO_AVGDATARATE,video_avgdatarate,,uint32,Average video bitrate in kilobits per second.,0,session_mod,0
-,240,Q_PROTO_YOUTUBE,Web,youtube,Youtube.com,842,Q_MPA_VIDEO_FIRSTTIMESTAMP,video_firsttimestamp,,uint32,Start time of the current segment in the full video. It is extracted from the FLV attribute.,0,session_prt,0
-,240,Q_PROTO_YOUTUBE,Web,youtube,Youtube.com,843,Q_MPA_VIDEO_LASTTIMESTAMP,video_lasttimestamp,,uint32,End time of the current segment in the full video. It is extracted from the FLV attribute.,0,session_prt,0
 ,311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra Webmail,617,Q_MPA_END,end,,ptr,Indicates the end of a top level event.,0,session_mod,0
 ,311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra Webmail,550,Q_MPA_LOGIN,login,,string,User's login string.,0,session_fix,0
 ,311,Q_PROTO_ZIMBRA,Webmail,zimbra,Zimbra Webmail,578,Q_MPA_PASSWORD,password,,string,User's password string.,0,session_fix,0

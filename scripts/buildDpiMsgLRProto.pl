@@ -35,7 +35,7 @@ sub CheckRenameFile {
             my @split = $removedSpaces =~ /([A-Z](?:[A-Z]*(?=$|[A-Z][a-z])|[a-z]*))/g;
             my $scal = join(" ", @split);
             # print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,\"$lineValues[11]\"\n";
-            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,\n";
+            print $missAttrFile "$proto,$lineValues[8]$lineValues[2],$lineValues[8],$removedUnderscore,$scal,,,,,New,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
             $mapGood = 0;
          } 
       } 
