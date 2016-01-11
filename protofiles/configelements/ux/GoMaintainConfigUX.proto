@@ -9,7 +9,7 @@ message GoMaintainConfigUX {
   optional ConfigUX diskUtilLimit = 1;
   optional ConfigUX startWithoutConsul = 3;
   repeated IndexConfig indexConfigs = 4;
-  optional ConfigUX indexMaintenanceIntervalSeconds = 600;
+  optional ConfigUX indexMaintenanceIntervalSeconds = 5;
   
   message IndexConfig {
     optional ConfigUX regex = 1;
