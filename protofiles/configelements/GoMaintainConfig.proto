@@ -7,7 +7,7 @@ message GoMaintainConfig {
   optional int32 diskUtilLimit = 1;
   optional bool startWithoutConsul = 3;
   repeated IndexConfig indexConfigs = 4;
-  optional int32 pollingIntervalSeconds = 5;
+  optional int32 indexMaintenanceIntervalSeconds = 5;
   
   message IndexConfig {
     optional string regex = 1;
