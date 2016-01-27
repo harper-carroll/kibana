@@ -824,6 +824,7 @@ ntlm_domain NTLMDomain
 ntlm_user NTLMUser
 ntlm_workstation NTLMWorkstation
 part_content PartContent
+part_content_type PartContentType
 part_filename PartFilename
 part_header_name PartHeaderName
 part_header_value PartHeaderValue
@@ -869,8 +870,10 @@ video_avgdatarate VidAvgDataRate
 video_brand VideBrand
 video_datarate VidDataRate
 video_duration VidDuration
+video_firsttimestamp VideoFirstTimestamp
 video_framerate VidFrameRate
 video_height VidHeight
+video_lasttimestamp VideoLastTimestamp
 video_type VidType
 video_url VideoUrl
 video_width VidWidth
@@ -916,6 +919,7 @@ attach_transfer_encoding AttachTransferEncoding
 content_decoded ContentDecoded
 date Date
 email_index EmailIndex
+email_size EmailSize
 end End
 file_type FileType
 greeting_message GreetingMsg
@@ -1530,7 +1534,12 @@ query_raw QueryRaw
 query_text QueryText
 base Base
 login Login
+number_columns NumberColumns
+number_rows NumberRows
 query Query
+sqlstate_code SqlStateCode
+variable_id VariableId
+variable_type VariableType
 myvideo MyVideo
 query Query
 service Service
@@ -1756,10 +1765,15 @@ authentification_type AuthType
 base Base
 error Err
 login Login
+number_columns NumberColumns
+number_rows NumberRows
 password Passwd
 proto_version ProtoVersion
 query Query
 server_version ServerVersion
+sqlstate_code SqlStateCode
+variable_id VariableId
+variable_type VariableType
 method Method
 protocol Proto
 vendor Vendor
@@ -2127,6 +2141,8 @@ transfer_way TransferWay
 version Version
 attributes Attributes
 command_string CommandString
+create_action CreateAction
+create_options CreateOptions
 dialect Dialect
 directory Directory
 domain Domain
@@ -2169,6 +2185,7 @@ security_blob_len SecurityBlobLen
 service Service
 service_data ServiceData
 session_key SessionKey
+share_access ShareAccess
 tree_id TreeId
 user_id UserID
 version Version
@@ -2187,6 +2204,7 @@ content_decoded ContentDecoded
 date Date
 duration SessionDuration
 email_index EmailIndex
+email_size EmailSize
 end End
 file_type FileType
 greeting_message GreetingMsg
@@ -2349,12 +2367,15 @@ tsecr Tsecr
 tsval Tsval
 unack_sequence UnackSequence
 application App
+bind_variable BindVariable
 database_name DatabaseName
 hostname Hostname
 language Language
 library Library
 login Login
 login_encrypted LoginEncrypted
+number_columns NumberColumns
+number_rows NumberRows
 password Passwd
 query Query
 rpc_parameter_name RPCParameterName
@@ -2362,6 +2383,8 @@ rpc_parameter_type RPCParameterType
 rpc_parameter_value RPCParameterValue
 rpc_proc_name RPCProcName
 server Server
+variable_id VariableId
+variable_type VariableType
 channel Channel
 channel_action ChannelAction
 channel_description ChannelDescription
@@ -2784,8 +2807,10 @@ total_datarate TotalDataRate
 url URL
 video_datarate VidDataRate
 video_duration VidDuration
+video_firsttimestamp VideoFirstTimestamp
 video_framerate VidFrameRate
 video_height VidHeight
+video_lasttimestamp VideoLasttimestamp
 video_totalduration VidTotalDuration
 video_width VidWidth
 videoid VidID
