@@ -10,8 +10,14 @@ message AllConfConfig {
    optional int32 hostPort = 2;
    optional string assetPath = 3;
    optional string configServerQueue = 4;
-   optional EncryptedString adminUsername = 5;
-   optional EncryptedString adminPassword = 6;
-   optional EncryptedString devUsername = 7;
-   optional EncryptedString devPassword = 8;
+
+//   optional string adminUsername = 5;
+//   optional string adminPassword = 6;
+//   optional string devUsername = 7;
+//   optional string devPassword = 8;
+
+   optional EncryptedString administratorUsername = 9;
+   optional EncryptedString administratorPassword = 10;
+   optional EncryptedString developerUsername = 11;
+   optional EncryptedString developerPassword = 12;
 }
