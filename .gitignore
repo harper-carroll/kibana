@@ -3,8 +3,7 @@ cpp
 java
 php
 thirdParty/dist
-thirdParty/protobuf-2.4.1/
-thirdParty/protobuf-2.5.0/
+thirdParty/protobuf-*/
 thirdParty/github.com
 source
 .idea/

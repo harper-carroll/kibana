@@ -10,10 +10,16 @@ thirdPartyDir="$startDir"/thirdParty
 DIST=dist
 DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
-protoc="$protoInstallDir"/bin/protoc
+protoc="/usr/local/probe/bin/protoc"
 phpprotoc="/usr/local/probe/bin/protoc-gen-php"
-PROTOBUFFER_VERSION=2.5.0
+PROTOBUFFER_VERSION=2.6.1
 GLOBAL_CPP_FLAGS="-fPIC"
+
+if [ ! -d "$startDir/thirdParty/dist/protobuf/include" ]; then
+  # skip a bunch of warnings. just create this directory if it doesn't already exist
+  # even if it is not always used
+  mkdir -p "$startDir/thirdParty/dist/protobuf/include"
+fi
 
 gogoBaseDir="$thirdPartyDir"/github.com/gogo/
 if [ ! -d "$gogoBaseDir/protobuf" ]; then
