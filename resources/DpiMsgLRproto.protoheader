@@ -84,6 +84,7 @@ message DpiMsgLRproto
    repeated CustomField customFields = 50;
    optional uint64 RepeatedFieldCount = 51; 
    optional bool FlowClassified = 52;
+   optional uint32 VlanID = 53;
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
    // REMEMBER TO UPDATE resources/StaticFields.csv as well
 
