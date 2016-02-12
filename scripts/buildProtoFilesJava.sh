@@ -9,7 +9,7 @@ DIST=dist
 DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
-PROTOBUFFER_VERSION=2.5.0
+PROTOBUFFER_VERSION=2.6.1
 GLOBAL_CPP_FLAGS="-fPIC"
 
 if [ ! -f "$protoc" ]; then
