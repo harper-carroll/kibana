@@ -16,6 +16,8 @@ message LogMessage {
      EVENT = 5;
      DEEP_SCRIPT_ALARM = 10;
      HEARTBEAT = 100;
+     SERVICE_START = 101;
+     SERVICE_TERMINATE = 102;
   }
   enum SourceType {
      DPIMSG = 0;
