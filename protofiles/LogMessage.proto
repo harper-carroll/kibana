@@ -16,13 +16,12 @@ message LogMessage {
      EVENT = 5;
      DEEP_SCRIPT_ALARM = 10;
      HEARTBEAT = 100;
-     SERVICE_START = 101;
-     SERVICE_TERMINATE = 102;
   }
   enum SourceType {
      DPIMSG = 0;
      JSON = 1;
      RAW = 2;
+     DIAGNOSTIC = 3;
   }
   enum SystemSubtype {
      RESTART = 0;
@@ -36,12 +35,32 @@ message LogMessage {
      PCAP_DOWNLOAD = 8;
      UNKNOWN = 9;
   }
+  enum DiagnosticType {
+     SERVICE_START = 1;
+     SERVICE_TERMINATE = 2;
+     ELASTIC_SEARCH_HEALTH = 3;
+     DRIVE_50_PERCENT = 4;
+     DRIVE_85_PERCENT = 5;
+  }
+  enum Severity {
+      LOG_EMERG = 0;
+      LOG_ALERT = 1;
+      LOG_CRIT = 2;
+      LOG_ERR = 3;
+      LOG_WARNING = 4;
+      LOG_NOTICE = 5;
+      LOG_INFO = 6;
+      LOG_DEBUG = 7;
+  }
   
   optional LogType outputType = 1; 
   repeated SourceType inputType = 2;
   repeated bytes inputData = 3;
   repeated SystemSubtype systemSubType = 4;
   repeated string eventName = 5;
+  optional DiagnosticType diagnosticType = 6;
+  Severity LogSeverity = 7 [default = LOG_DEBUG];
+  optional string serviceName = 8;
 }
 
 
