@@ -55,6 +55,7 @@ message BaseConf {
   optional string pCapRemovalNotifyQueue = 57;
   optional string enableHighThroughput = 58;
   optional string enableBasicDpi = 59;
+  optional string enableClassificationOnly = 60;
 
 
 
