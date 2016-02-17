@@ -1,0 +1,25 @@
+package configelements.ux;
+
+import "ConfigUX.proto";
+
+
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "AllConfConfigUXMsg";
+
+message AllConfConfigUX {
+   optional ConfigUX hostIp = 1;
+   optional ConfigUX hostPort = 2;
+   optional ConfigUX assetPath = 3;
+   optional ConfigUX configServerQueue = 4;
+
+//   optional ConfigUX adminUsername = 5;
+//   optional ConfigUX adminPassword = 6;
+//   optional ConfigUX devUsername = 7;
+//   optional ConfigUX devPassword = 8;
+
+   optional ConfigUX administratorUsername = 9;
+   optional ConfigUX administratorPassword = 10;
+   optional ConfigUX developerUsername = 11;
+   optional ConfigUX developerPassword = 12;
+}

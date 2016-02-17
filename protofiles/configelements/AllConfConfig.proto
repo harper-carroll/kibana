@@ -11,10 +11,10 @@ message AllConfConfig {
    optional string assetPath = 3;
    optional string configServerQueue = 4;
 
-//   optional string adminUsername = 5;
-//   optional string adminPassword = 6;
-//   optional string devUsername = 7;
-//   optional string devPassword = 8;
+// DEPRECATED  optional string adminUsername = 5;
+// DEPRECATED  optional string adminPassword = 6;
+// DEPRECATED  optional string devUsername = 7;
+// DEPRECATED  optional string devPassword = 8;
 
    optional EncryptedString administratorUsername = 9;
    optional EncryptedString administratorPassword = 10;
