@@ -59,7 +59,7 @@ message LogMessage {
   repeated SystemSubtype systemSubType = 4;
   repeated string eventName = 5;
   optional DiagnosticType diagnosticType = 6;
-  Severity LogSeverity = 7 [default = LOG_DEBUG];
+  required Severity LogSeverity = 7 [default = LOG_DEBUG];
   optional string serviceName = 8;
 }
 
