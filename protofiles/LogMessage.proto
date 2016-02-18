@@ -43,14 +43,14 @@ message LogMessage {
      DRIVE_85_PERCENT = 5;
   }
   enum Severity {
-      LOG_EMERG = 0;
-      LOG_ALERT = 1;
-      LOG_CRIT = 2;
-      LOG_ERR = 3;
-      LOG_WARNING = 4;
-      LOG_NOTICE = 5;
-      LOG_INFO = 6;
-      LOG_DEBUG = 7;
+      SYSLOG_EMERG = 0;
+      SYSLOG_ALERT = 1;
+      SYSLOG_CRIT = 2;
+      SYSLOG_ERR = 3;
+      SYSLOG_WARNING = 4;
+      SYSLOG_NOTICE = 5;
+      SYSLOG_INFO = 6;
+      SYSLOG_DEBUG = 7;
   }
   
   optional LogType outputType = 1; 
