@@ -2,7 +2,7 @@
 
 set -e
 cd thirdParty
-PATH:/usr/local/probe/bin:$PATH
+PATH=/usr/local/probe/bin:$PATH
 gtar xzf ExtUtils-MakeMaker-6.86.tar.gz 
 cd ExtUtils-MakeMaker-6.86
 perl Makefile.PL 
