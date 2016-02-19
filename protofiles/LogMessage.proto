@@ -19,9 +19,8 @@ message LogMessage {
   }
   enum SourceType {
      DPIMSG = 0;
-     JSON = 1;
+     DIAGNOSTIC = 1;
      RAW = 2;
-     DIAGNOSTIC = 3;
   }
   enum SystemSubtype {
      RESTART = 0;
