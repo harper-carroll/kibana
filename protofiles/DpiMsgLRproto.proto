@@ -3876,4 +3876,5 @@ optional uint64 number_columnsQ_PROTO_TDS = 4168; // QOSMOS:Q_PROTO_TDS,Q_MPA_NU
 optional uint32 number_rowsQ_PROTO_TDS = 4169; // QOSMOS:Q_PROTO_TDS,Q_MPA_NUMBER_ROWS
 optional uint32 video_firsttimestampQ_PROTO_YOUTUBE = 4170; // QOSMOS:Q_PROTO_YOUTUBE,Q_MPA_VIDEO_FIRSTTIMESTAMP
 optional uint32 video_lasttimestampQ_PROTO_YOUTUBE = 4171; // QOSMOS:Q_PROTO_YOUTUBE,Q_MPA_VIDEO_LASTTIMESTAMP
+repeated bytes ServerHttpContent = 4173;
 }
