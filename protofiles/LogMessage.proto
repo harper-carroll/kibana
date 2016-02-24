@@ -52,8 +52,8 @@ message LogMessage {
       SYSLOG_DEBUG = 7;
    }
    message Timestamp {
-      optional int64 sec = 1;
-      optional int32 usec = 2;
+      optional int64 sec = 1 [default = 0];
+      optional int32 usec = 2 [default = 0];
    }
 
    optional LogType outputType = 1; 
