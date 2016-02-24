@@ -19,5 +19,5 @@ message GumshoeRequest {
     repeated string indices = 3;
     optional SearchType searchType = 4;
     optional string source = 5;
-    optional int32 timeout = 6;
+    optional int32 timeoutSeconds = 6;
 }
