@@ -50,3 +50,6 @@ Internal, Internal, emailAttachments, EmailAttachments, EmailAttach, "Email atta
 Internal, Internal, customfields, CustomFields, CustomField, "Custom Fields."
 Internal, Internal, repeatedfieldcount, RepeatedFieldCount, uint64, "Total repeated fields in DPI message."
 Internal, Internal, flowclassified, FlowClassified, bool, "Flow Classified"
+Internal, Internal, clienthttpcontent, ClientHttpContent, bytes, "Client Http Content"
+Internal, Internal, serverhttpcontent, ServerHttpContent, bytes, "Server Http Content"
+
