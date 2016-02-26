@@ -13,10 +13,10 @@ message AllConfConfigUX {
    optional ConfigUX assetPath = 3;
    optional ConfigUX configServerQueue = 4;
 
-//   optional ConfigUX adminUsername = 5;
-//   optional ConfigUX adminPassword = 6;
-//   optional ConfigUX devUsername = 7;
-//   optional ConfigUX devPassword = 8;
+// DEPRECATED  optional ConfigUX adminUsername = 5;
+// DEPRECATED  optional ConfigUX adminPassword = 6;
+// DEPRECATED  optional ConfigUX devUsername = 7;
+// DEPRECATED  optional ConfigUX devPassword = 8;
 
    optional ConfigUX administratorUsername = 9;
    optional ConfigUX administratorPassword = 10;

@@ -23,7 +23,7 @@ import "AnubisClientConfigUX.proto";
 import "AnubisConfigUX.proto";
 import "GoDispatchClientConfigUX.proto";
 import "GoDispatchConfigUX.proto";
-
+import "AllConfConfigUX.proto";
 
 message AllConf {
 
@@ -83,4 +83,7 @@ message AllConf {
 
   optional ConfigUX anubisConfigUX = 37;
   optional AnubisConfigUX anubisConfig = 38;
+
+  optional ConfigUX allConfConfigUX = 39;
+  optional AllConfConfigUX allConfConfig = 40;
 }
