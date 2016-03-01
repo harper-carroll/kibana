@@ -59,6 +59,9 @@ print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
+# Add raw mappings for some fields so that they are regex searchable
+print "\"ReceiverType\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+
 if ( $ARGV[2] eq "events" ) {
 	print "\"RuleName\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
 	print "\"RuleSeverity\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
