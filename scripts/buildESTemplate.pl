@@ -61,11 +61,9 @@ print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"igno
 
 # Add raw mappings for some fields so that they are regex searchable
 # Email
-print "\"ReceiverType\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"ReceiverDomain\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"ReceiverAlias\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"ReceiverEmail\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
-print "\"SenderType\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"SenderDomain\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"SenderAlias\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"SenderEmail\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
