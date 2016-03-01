@@ -85,6 +85,9 @@ message DpiMsgLRproto
    optional uint64 RepeatedFieldCount = 51; 
    optional bool FlowClassified = 52;
    optional uint32 VlanID = 53;
+   repeated bytes HttpClientContent = 54;
+   repeated bytes HttpServerContent = 55;
+
    // REMEMBER TO UPDATE resources/DpiMsgLRproto.protoheader as well
    // REMEMBER TO UPDATE resources/StaticFields.csv as well
 
