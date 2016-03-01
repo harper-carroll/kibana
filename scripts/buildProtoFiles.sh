@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 startDir=`pwd`
 javaSrcDir="$startDir"/java/src/main/java
 cppSrcDir="$startDir"/cpp/source
