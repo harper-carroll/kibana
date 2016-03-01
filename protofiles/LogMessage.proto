@@ -7,39 +7,65 @@ option java_outer_classname = "LogMessageMsg";
 
 
 message LogMessage {
-  enum LogType {
-     NORMALIZED = 0;
-     FULL = 1;
-     INTERMEDIATE = 2;
-     DEBUG = 3;
-     SYSTEM = 4;
-     EVENT = 5;
-     DEEP_SCRIPT_ALARM = 10;
-     HEARTBEAT = 100;
-  }
-  enum SourceType {
-     DPIMSG = 0;
-     JSON = 1;
-     RAW = 2;
-  }
-  enum SystemSubtype {
-     RESTART = 0;
-     FATAL_ERROR = 1;
-     UPGRADE = 2;
-     INDEX_DELETE = 3;
-     CONFIG_CHANGE = 4;
-     ADMIN_PASSWD_CHANGE = 5;
-     USER_ADD = 6;
-     USER_DEL = 7;
-     PCAP_DOWNLOAD = 8;
-     UNKNOWN = 9;
-  }
-  
-  optional LogType outputType = 1; 
-  repeated SourceType inputType = 2;
-  repeated bytes inputData = 3;
-  repeated SystemSubtype systemSubType = 4;
-  repeated string eventName = 5;
+   enum LogType {
+      NORMALIZED = 0;
+      FULL = 1;
+      INTERMEDIATE = 2;
+      DEBUG = 3;
+      SYSTEM = 4;
+      EVENT = 5;
+      DEEP_SCRIPT_ALARM = 10;
+      HEARTBEAT = 100;
+   }
+   enum SourceType {
+      DPIMSG = 0;
+      JSON = 1;
+      RAW = 2;
+      DIAGNOSTIC = 3;
+   }
+   enum SystemSubtype {
+      RESTART = 0;
+      FATAL_ERROR = 1;
+      UPGRADE = 2;
+      INDEX_DELETE = 3;
+      CONFIG_CHANGE = 4;
+      ADMIN_PASSWD_CHANGE = 5;
+      USER_ADD = 6;
+      USER_DEL = 7;
+      PCAP_DOWNLOAD = 8;
+      UNKNOWN = 9;
+   }
+   enum DiagnosticType {
+      SERVICE_START = 1;
+      SERVICE_TERMINATE = 2;
+      ELASTIC_SEARCH_HEALTH = 3;
+      DRIVE_50_PERCENT = 4;
+      DRIVE_85_PERCENT = 5;
+   }
+   enum Severity {
+      SYSLOG_EMERG = 0;
+      SYSLOG_ALERT = 1;
+      SYSLOG_CRIT = 2;
+      SYSLOG_ERR = 3;
+      SYSLOG_WARNING = 4;
+      SYSLOG_NOTICE = 5;
+      SYSLOG_INFO = 6;
+      SYSLOG_DEBUG = 7;
+   }
+   message Timestamp {
+      optional int64 sec = 1 [default = 0];
+      optional int32 usec = 2 [default = 0];
+   }
+
+   optional LogType outputType = 1; 
+   repeated SourceType inputType = 2;
+   repeated bytes inputData = 3;
+   repeated SystemSubtype systemSubType = 4;
+   repeated string eventName = 5;
+   optional DiagnosticType diagnosticType = 6;
+   optional Severity LogSeverity = 7 [default = SYSLOG_DEBUG];
+   optional string serviceName = 8;
+   optional Timestamp timestamp = 9;
 }
 
 
