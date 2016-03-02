@@ -59,7 +59,7 @@ print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 # Convert Duration to a time field
-print "\"Duration\" : {\"type\": \"date\", \"format\": \"HH:mm:ss\"},\n";
+print "\"Duration\" : {\"type\": \"date\", \"format\": \"basic_time\"},\n";
 
 # Add raw mappings for some fields so that they are regex searchable
 # Email
