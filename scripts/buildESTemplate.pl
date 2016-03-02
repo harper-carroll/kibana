@@ -58,8 +58,6 @@ print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
-# Convert Duration to a time field
-print "\"Duration\" : {\"type\": \"date\", \"format\": \"HH:mm:ss.SSSZZ\"},\n";
 
 # Add raw mappings for some fields so that they are regex searchable
 # Email
