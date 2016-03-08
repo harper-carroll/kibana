@@ -59,6 +59,28 @@ print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
 print "\"SrcMAC\" : {\"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n";
 
+# Add raw mappings for some fields so that they are regex searchable
+# Email
+print "\"ReceiverDomain\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"ReceiverAlias\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"ReceiverEmail\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"SenderDomain\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"SenderAlias\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"SenderEmail\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Subject\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"FileType\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Filename\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"AttachType\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+# Non Email
+print "\"UserAgent\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Family\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Login\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Referer\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"URIFull\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"Cookie\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+print "\"HeaderName\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+
+
 if ( $ARGV[2] eq "events" ) {
 	print "\"RuleName\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
 	print "\"RuleSeverity\" : {\"type\" : \"string\", \"ignore_malformed\" : true},\n";
