@@ -310,6 +310,7 @@ dns, Domain Name Service, reverse_addr, reverse_addrq_proto_dns, string, "IP add
 dns, Domain Name Service, response_time, response_timeq_proto_dns, string, "Elapsed time between sending of the dns request and reception of its response."
 dns, Domain Name Service, ttl, ttlq_proto_dns, uint32, "Time (in seconds) a DNS information returned by the server will be kept in cache."
 dns, Domain Name Service, section_type, section_typeq_proto_dns, bytes, "Type of section for each DNS answer."
+dns, Domain Name Service, flags, flagsq_proto_dns, uint32, "16-bit representation of some DNS header flags. These fields are described in RFC 1035 section 4.1.1 Header section format"
 dns, Domain Name Service, opcode, opcodeq_proto_dns, uint32, "A four bit field that specifies kind of query in this message. This value is set by the originator of a query and copied into the response."
 ebay, eBay.com, query_text, query_textq_proto_ebay, bytes, "Query sent to the search engine."
 ebay, eBay.com, query_raw, query_rawq_proto_ebay, bytes, "Contains the query sent to the search engine as indicated in the URL."
