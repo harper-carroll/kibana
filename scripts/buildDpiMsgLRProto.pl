@@ -305,6 +305,9 @@ while (<qosmosWorkbook>) {
       if ($lineValues[10] =~ /timeval/) {
          $type = "string";
          $optionalStuff = ",timeval,timevalToString";
+      } elsif ($lineValues[10] =~ /uint16/) {
+         $type = "uint32";
+         $optionalStuff = ",uint16_t,convertUint16ToUint32";
       } elsif ($lineValues[10] =~ /ip_addr/) {
          $type = "string";
          $optionalStuff = ",uint32,ip_addrToString";
