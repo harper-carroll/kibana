@@ -2345,7 +2345,7 @@ SSL,serial_numberQ_PROTO_SSL,serial_number,SerialNumber,Serial Number,,,,,Comple
 SSL,server_nameQ_PROTO_SSL,server_name,ServerName,Server Name,dname,<group>,Group,,Complete,
 SSL,subject_alt_nameQ_PROTO_SSL,subject_alt_name,SubjectAltName,Subject Alternate Name,subject,<subject>,Subject,,Complete,
 SSL,supported_next_protocolQ_PROTO_SSL,supported_next_protocol,SupportedNextProto,Supported Next Protocol,command,<command>,Command,,Complete,
-SSL,tls_versionQ_PROTO_SSL,tls_version,TlsVersion,Tls Version,,,,,New,
+SSL,tls_versionQ_PROTO_SSL,tls_version,TlsVersion,Tls Version,version,<version>,Version,,Complete,
 SSL,validity_not_afterQ_PROTO_SSL,validity_not_after,ValidityNotAfter,Validity Not After,,,,,Complete,
 SSL,validity_not_beforeQ_PROTO_SSL,validity_not_before,ValidityNotBefore,Validity Not Before,,,,,Complete,
 STP,bridge_addrQ_PROTO_STP,bridge_addr,BridgeAddr,Bridge Address,,,,,Complete,
