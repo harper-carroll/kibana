@@ -1410,6 +1410,8 @@ smtp, Simple Mail Transfer Protocol, login, loginq_proto_smtp, bytes, "User's lo
 smtp, Simple Mail Transfer Protocol, password, passwordq_proto_smtp, bytes, "User's password string."
 smtp, Simple Mail Transfer Protocol, sender_alias, sender_aliasq_proto_smtp, bytes, "Name of the email sender."
 smtp, Simple Mail Transfer Protocol, sender_email, sender_emailq_proto_smtp, bytes, "Email address of the email sender."
+smtp, Simple Mail Transfer Protocol, sender_domain, sender_domainq_proto_smtp, bytes, "Domain of the sender's email address."
+smtp, Simple Mail Transfer Protocol, receiver_domain, receiver_domainq_proto_smtp, bytes, "Domain of the recipient's email address."
 smtp, Simple Mail Transfer Protocol, receiver_email, receiver_emailq_proto_smtp, bytes, "Email address of message receiver (included cc and bcc receivers)."
 smtp, Simple Mail Transfer Protocol, method, methodq_proto_smtp, bytes, "Command sent by the client"
 smtp, Simple Mail Transfer Protocol, response_code, response_codeq_proto_smtp, uint32, "Return code"
