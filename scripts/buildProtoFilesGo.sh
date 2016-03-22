@@ -21,7 +21,7 @@ echo "Running 'go get' dependencies this script requires"
 go get gopkg.in/yaml.v2 # required by rewriteProto
 go install github.schq.secious.com/Logrhythm/rewriteProto
 go get github.com/LogRhythm/protobuf/proto
-go get github.com/gogo/protobuf || true # no buildable source (exits with non-zero)
+#go get github.com/gogo/protobuf || true # no buildable source (exits with non-zero)
 
 
 mkdir -p $goSrc # Gauranteeing GoMessaging is a real directory
@@ -30,7 +30,9 @@ echo "Removing pre-existing .proto files in $goSrc"
 (
 cd $goSrc;
 for d in */ ; do
-  rm $goSrc/"$d"*.proto || true
+  if ["$d" -ne "vendor/"]; then
+    rm $goSrc/"$d"*.proto || true
+  fi
 done
 )
 
@@ -48,7 +50,4 @@ find * -type d -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
 echo "Compile all main level protos"
 protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
 rm $goSrc/*.proto
-
-echo "Fixing import to use godeps _workspace path"
-find * -name '*.go' -exec /usr/bin/sh -c "sed -i '' -e 's/\"github\.com/\"github.schq.secious.com\/Logrhythm\/Godeps\/_workspace\/src\/github.com/' {}" \;
 )
