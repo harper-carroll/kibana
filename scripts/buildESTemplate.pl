@@ -52,8 +52,8 @@ print "\"TimeStart\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-
 print "\"TimeUpdated\" : { \"format\": \"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||yyyy-MM-dd'T'HH:mm:ss.SSSZZ\", \"type\": \"date\"},\n";
 print "\"TimeTotal\" : { \"type\": \"long\", \"ignore_malformed\" : true},\n";
 print "\"TimeEnd\" : { \"type\": \"long\", \"ignore_malformed\" : true},\n";
-print "\"TimeStartRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : \"no\" },\n";
-print "\"TimeUpdatedRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : \"no\" },\n";
+print "\"TimeStartRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : false },\n";
+print "\"TimeUpdatedRaw\" : { \"type\": \"long\", \"ignore_malformed\" : true, \"index\" : \"no\", \"store\" : false },\n";
 print "\"TimeDelta\" : { \"type\": \"long\", \"ignore_malformed\" : true },\n";
 print "\"Captured\" : { \"type\": \"string\", \"null_value\": \"false\"},\n";
 print "\"Session\" : {\"type\": \"string\", \"index\" : \"not_analyzed\"},\n";
@@ -96,20 +96,20 @@ if ( $ARGV[2] eq "rules" ) {
 
 for $app ( keys %typeHash ) {
    if ($app eq "Timestamp" || $app eq "SyslogMessage" ) {
-      print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"no\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n"
+      print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : false, \"index\" : \"not_analyzed\", \"ignore_malformed\" : true },\n"
    } elsif ($app eq "FileID" || $app eq "Application" || $app eq "ApplicationEnd" || $app eq "ApplicationID" || $app eq "ApplicationIDEnd" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"object\", \"enabled\" : false },\n"
    } elsif ($app eq "index" || $app eq "CallID" || $app eq "Version" || $app eq "DeviceType" ) {
-      print "\"$remapping{$app}\" : { \"type\" : \"string\", \"index\" : \"not_analyzed\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
+      print "\"$remapping{$app}\" : { \"type\" : \"string\", \"index\" : \"not_analyzed\", \"store\" : true, \"ignore_malformed\" : true},\n"
    } elsif ($app eq "DeviceType" ) {
       print "\"$remapping{$app}\" : { \"type\" : \"string\", \"index\" : \"not_analyzed\", \"ignore_malformed\" : true},\n"
    } elsif ($app eq "ServerAddr" || $app eq "ClientAddr" ) {
       print "\"$remapping{$app}\" : { \"type\": \"ip\", \"ignore_malformed\" : true},\n"
    } elsif ($app eq "ttl"  ) {
-      print "\"$remapping{$app}\" : { \"type\" : \"long\", \"store\" : \"yes\", \"index\": \"not_analyzed\", \"ignore_malformed\" : true },\n"
+      print "\"$remapping{$app}\" : { \"type\" : \"long\", \"store\" : true, \"index\": \"not_analyzed\", \"ignore_malformed\" : true },\n"
    } elsif ( keys %{ $typeHash{$app} } > 1) {
       if ( exists $remapping{$app} ) {
-         print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : \"yes\", \"ignore_malformed\" : true},\n"
+         print "\"$remapping{$app}\" : { \"type\" : \"string\", \"store\" : true, \"ignore_malformed\" : true},\n"
       }
    }
 }
