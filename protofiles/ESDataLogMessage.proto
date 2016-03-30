@@ -9,7 +9,7 @@ message GeoPoint {
 }
 
 message ESDataLogMessage {
-    enum Version {
+    enum MetaDataVersionEnum {
         NORMALIZED = 0;
         DENORMALIZED = 1;
     }
@@ -136,5 +136,5 @@ message ESDataLogMessage {
     optional string SessionType = 122;
     optional string Action = 123;
     optional string ResponseCode = 124;
-    optional Version MessageVersion = 125;
+    optional MetaDataVersionEnum MetaDataVersion = 125;
 }
