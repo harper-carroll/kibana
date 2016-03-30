@@ -21,6 +21,5 @@ message ESData {
    optional RequestType requestType = 8;
    optional bool shouldPercolate = 9;
    optional string returnPath = 10;
-   optional int32 version = 11;
-   optional ESDataLogMessage logMessage = 12;
+   optional ESDataLogMessage logMessage = 11;
 }

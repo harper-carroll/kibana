@@ -9,6 +9,10 @@ message GeoPoint {
 }
 
 message ESDataLogMessage {
+    enum Version {
+        NORMALIZED = 0;
+        DENORMALIZED = 1;
+    }
     optional string Account = 1;
     optional double Amount = 2;
     optional double BytesIn = 3;
@@ -132,4 +136,5 @@ message ESDataLogMessage {
     optional string SessionType = 122;
     optional string Action = 123;
     optional string ResponseCode = 124;
+    optional Version MessageVersion = 125;
 }
