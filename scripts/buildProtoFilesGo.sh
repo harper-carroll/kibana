@@ -29,11 +29,8 @@ mkdir -p $goSrc # Gauranteeing GoMessaging is a real directory
 echo "Removing pre-existing .proto files in $goSrc"
 (
 cd $goSrc;
-for d in */ ; do
-  rm $goSrc/"$d"*.proto || true
-done
+rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
 )
-
 # rewriteProto process proto files for use with gogoprotobuf and deposits the result in $goSrc
 # which are then compiled into .pb.go files by protoc, etc below
 echo "Processing .proto files from Protobuffers repo into GoMessaging to add gogoprotobuf extensions"
@@ -47,8 +44,5 @@ find * -type d -exec /usr/bin/sh -c "rm $goSrc/{}/*.proto" \;
 
 echo "Compile all main level protos"
 protoc -I=$GOPATH/src/:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
-rm $goSrc/*.proto
-
-echo "Fixing import to use godeps _workspace path"
-find * -name '*.go' -exec /usr/bin/sh -c "sed -i '' -e 's/\"github\.com/\"github.schq.secious.com\/Logrhythm\/Godeps\/_workspace\/src\/github.com/' {}" \;
+rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
 )

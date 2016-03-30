@@ -3,7 +3,7 @@ package protoMsg;
 option java_package = "com.logrhythm.nm.message";
 option java_outer_classname = "ESDataMsg";
 
-
+import "ESDataLogMessage.proto";
 
 message ESData {
    enum RequestType {
@@ -21,4 +21,5 @@ message ESData {
    optional RequestType requestType = 8;
    optional bool shouldPercolate = 9;
    optional string returnPath = 10;
+   optional ESDataLogMessage logMessage = 11;
 }
