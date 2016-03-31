@@ -40,7 +40,7 @@ message LogMessage {
       SERVICE_TERMINATE = 2;
       ELASTIC_SEARCH_HEALTH = 3;
       DRIVE_50_PERCENT = 4;
-      DRIVE_85_PERCENT = 5;
+      DRIVE_90_PERCENT = 5;
    }
    enum Severity {
       SYSLOG_EMERG = 0;
