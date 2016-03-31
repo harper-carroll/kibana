@@ -8,7 +8,7 @@ message GeoPoint {
     optional double Lon = 2;
 }
 
-message ESDataLogMessage {
+message ESDataLog {
     enum MetaDataVersionEnum {
         NORMALIZED = 0;
         DENORMALIZED = 1;
