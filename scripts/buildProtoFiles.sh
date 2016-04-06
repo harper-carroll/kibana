@@ -98,6 +98,7 @@ cd "$cppSrcDir"
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=liblicense "$protoFileDir"/License.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libmessages "$protoFileDir"/LogMessage.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libmessages "$protoFileDir"/ESDataMsg.proto
+"$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libmessages "$protoFileDir"/ESDataLogMsg.proto
 "$protoc" -I="$protoFileDir":$thirdPartyDir:/usr/include:$DISTDIR/protobuf/include --cpp_out=libcommand "$protoFileDir"/PcapDownloadMsg.proto
 mv  liblrdpi/DpiMsgLRproto.pb.cc liblrdpi/DpiMsgLRproto.pb.cpp
 mv  liblrdpi/Applications.pb.cc liblrdpi/Applications.pb.cpp
@@ -130,6 +131,7 @@ mv  liblicense/LicenseRequest.pb.cc  liblicense/LicenseRequest.pb.cpp
 mv  liblicense/License.pb.cc  liblicense/License.pb.cpp
 mv  libmessages/LogMessage.pb.cc  libmessages/LogMessage.pb.cpp
 mv  libmessages/ESDataMsg.pb.cc  libmessages/ESDataMsg.pb.cpp
+mv  libmessages/ESDataLogMsg.pb.cc  libmessages/ESDataLogMsg.pb.cpp
 mv  libcommand/PcapDownloadMsg.pb.cc  libcommand/PcapDownloadMsg.pb.cpp
 cd "$startDir"
 
