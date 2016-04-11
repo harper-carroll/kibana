@@ -23,8 +23,8 @@ message BaseConf {
   optional string qosmos128BytePool = 20;
   optional string qosmos256BytePool = 21;
   optional string qosmos512BytePool = 22;
-  optional string statsAccumulatorQueue = 23;
-  optional string sendStatsQueue = 24;
+  //optional string statsAccumulatorQueue = 23;
+  //optional string sendStatsQueue = 24;
   optional string qosmosExpirePerCallback = 25;
   optional string dbClusterName = 30;
   optional string dbUrl = 31;
