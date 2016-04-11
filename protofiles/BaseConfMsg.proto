@@ -28,7 +28,7 @@ message BaseConf {
   optional string qosmosExpirePerCallback = 25;
   optional string dbClusterName = 30;
   optional string dbUrl = 31;
-  optional string statsAggregationQueue = 32;
+  //optional string statsAggregationQueue = 32;
   optional string commandQueue = 33;
   optional string enableIntermediateFlows = 34;
   //optional string enablePacketCapture = 35;
