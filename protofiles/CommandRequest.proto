@@ -26,6 +26,7 @@ message CommandRequest {
      LUA_DELETE = 15;
      RESTART_SERVICES = 16;
      AUDIT_LOG = 17;
+     DIAG_SYSLOG = 18;
   }
   required CommandType type = 1;
   optional string stringArgOne = 2;
