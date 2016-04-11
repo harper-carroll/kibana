@@ -2679,4 +2679,6 @@ optional string shop_com_mm = 2677 [default = "Myanmari online shopping website.
 optional string diply = 2678 [default = "Entertainment website powered by user's posts."];
 optional string origjinale = 2679 [default = "Albanian news portal."];
 optional string dsi = 2680 [default = "The Data Stream Interface (DSI) is a session layer used to carry Apple Filing Protocol traffic over Transmission Control Protocol (TCP)."];
+optional string nrdp = 2681 [default = "Nagios Remote Data Processor (NDRP) is a flexible data transport mechanism and processor for Nagios."];
+optional string nrpe = 2682 [default = "Nagios Remote Plugin Executor (NRPE) is a Nagios agent that allows remote system monitoring using scripts that are hosted on the remote systems."];
 }
