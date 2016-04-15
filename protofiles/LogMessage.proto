@@ -45,6 +45,11 @@ message LogMessage {
       FILE_RECONSTRUCTION_API = 123;
       PCAP_RECONSTRUCTION_UI = 124;
       PCAP_RECONSTRUCTION_API = 125;
+      ADD_USER = 126;
+      REMOVE_USER = 127;
+      UPDATE_USER = 128;
+      DELETE_USER = 129;
+      CHANGE_USER_PASS = 130;
    }
    enum Severity {
       SYSLOG_EMERG = 0;
