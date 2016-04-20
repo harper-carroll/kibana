@@ -41,6 +41,10 @@ message LogMessage {
       ELASTIC_SEARCH_HEALTH = 3;
       DRIVE_50_PERCENT = 4;
       DRIVE_90_PERCENT = 5;
+      FILE_RECONSTRUCTION_UI = 122;
+      FILE_RECONSTRUCTION_API = 123;
+      PCAP_RECONSTRUCTION_UI = 124;
+      PCAP_RECONSTRUCTION_API = 125;
    }
    enum Severity {
       SYSLOG_EMERG = 0;
@@ -66,6 +70,7 @@ message LogMessage {
    optional Severity LogSeverity = 7 [default = SYSLOG_DEBUG];
    optional string serviceName = 8;
    optional Timestamp timestamp = 9;
+   optional string userName = 10;
 }
 
 
