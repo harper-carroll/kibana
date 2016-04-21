@@ -75,6 +75,7 @@ message LogMessage {
    optional Severity LogSeverity = 7 [default = SYSLOG_DEBUG];
    optional string serviceName = 8;
    optional Timestamp timestamp = 9;
+   optional string userName = 10;
 }
 
 
