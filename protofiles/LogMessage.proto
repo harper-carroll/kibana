@@ -57,6 +57,7 @@ message LogMessage {
       FILE_RECONSTRUCTION_API = 123;
       PCAP_RECONSTRUCTION_UI = 124;
       PCAP_RECONSTRUCTION_API = 125;
+      USER_DELETED = 126;
    }
    enum Severity {
       SYSLOG_EMERG = 0;
