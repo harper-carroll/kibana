@@ -62,7 +62,7 @@ message LogMessage {
       SHUTDOWN = 128;
       REBOOT = 129;
       LICENSE_CHANGE = 130;
-      UPGRADE = 131;
+      NM_UPGRADE = 131;
       DPA_RULE_ADDED = 132;
       DPA_RULE_ENABLED = 133;
       DPA_RULE_DISABLED = 134;
