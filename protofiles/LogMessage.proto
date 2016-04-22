@@ -58,6 +58,17 @@ message LogMessage {
       PCAP_RECONSTRUCTION_UI = 124;
       PCAP_RECONSTRUCTION_API = 125;
       USER_DELETED = 126;
+      RESTART_SERVICES = 127;
+      SHUTDOWN = 128;
+      REBOOT = 129;
+      LICENSE_CHANGE = 130;
+      NM_UPGRADE = 131;
+      DPA_RULE_ADDED = 132;
+      DPA_RULE_ENABLED = 133;
+      DPA_RULE_DISABLED = 134;
+      DPA_RULE_MODIFIED = 135;
+      DPA_RULE_UPLOADED = 136;
+      DPA_RULE_DELETED = 137;
    }
    enum Severity {
       SYSLOG_EMERG = 0;
