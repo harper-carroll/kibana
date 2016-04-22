@@ -15,10 +15,10 @@ message VitalsConfig {
          optional string shardDuration = 4;
       }
 
-      optional string host = 1;
-      optional string db = 2;
-      optional string user = 3;
-      optional string pass = 4;
+      // DEPRECATED optional string host = 1;
+      // DEPRECATED optional string db = 2;
+      // DEPRECATED optional string user = 3;
+      // DEPRECATED optional string pass = 4;
       optional ShardSpec shardSpec = 5;
    }
    

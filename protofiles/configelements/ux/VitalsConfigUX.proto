@@ -17,10 +17,10 @@ message VitalsConfigUX {
          optional ConfigUX shardDuration = 4;
       }
 
-      optional ConfigUX host = 1;
-      optional ConfigUX db = 2;
-      optional ConfigUX user = 3;
-      optional ConfigUX pass = 4;
+      // DEPRECATED optional ConfigUX host = 1;
+      // DEPRECATED optional ConfigUX db = 2;
+      // DEPRECATED optional ConfigUX user = 3;
+      // DEPRECATED optional ConfigUX pass = 4;
       optional ShardSpec shardSpec = 5;
    }
    

@@ -12,8 +12,8 @@ message InfluxConfigUX {
    optional ConfigUX hostname = 1;
    optional ConfigUX port = 2;
    optional ConfigUX database = 3;
-   optional ConfigUX adminUsername = 4;
-   optional ConfigUX adminPassword = 5;
-   optional ConfigUX dbUsername = 6;
-   optional ConfigUX dbPassword = 7;
+// DEPRECATED   optional ConfigUX adminUsername = 4;
+// DEPRECATED   optional ConfigUX adminPassword = 5;
+// DEPRECATED   optional ConfigUX dbUsername = 6;
+// DEPRECATED   optional ConfigUX dbPassword = 7;
 }
