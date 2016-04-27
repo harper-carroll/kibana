@@ -1,6 +1,16 @@
 #!/bin/bash
 set -e
 
+expectedProtoCVersion="libprotoc 2.6.1"
+actualProtoCVersion=`protoc --version`
+if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]
+then
+   echo "Expected protoc version: $expectedProtoCVersion"
+   echo "Actual protoc version: $actualProtoCVersion"
+   echo "You must use the install the expected version to continue"
+   exit 1
+fi
+
 if [ -z "$PROTOINCLUDE" ]; then export PROTOINCLUDE=/usr/local/include; fi
 if [ -z "$GOPATH" ]; then export GOPATH=~/go; fi
 if [ -z "$GOBIN" ]; then export GOBIN=$GOPATH/bin; fi
