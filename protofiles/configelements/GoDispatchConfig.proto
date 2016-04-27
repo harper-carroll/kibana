@@ -15,4 +15,5 @@ message GoDispatchConfig {
   optional int32 receiveLogTimeoutMs = 2;
   optional int32 maxInFlightBatches = 3;
   optional bool sendToRecorder = 4;
+  optional int32 maxLogSizeBytes = 5;
 }
