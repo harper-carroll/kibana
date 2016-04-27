@@ -1,0 +1,11 @@
+package configelements.ux;
+
+option java_package = "com.logrhythm.configelements.ux";
+option java_outer_classname = "EndpointUXMsg";
+
+import "ConfigUX.proto";
+
+message EndpointUX {
+   optional ConfigUX queue = 1;
+   optional ConfigUX queueSize = 2;
+}

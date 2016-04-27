@@ -36,5 +36,6 @@ message ConfigTypeMsg {
       AnubisClientConfig = 25;
       GoDispatchConfig = 26;
       GoDispatchClientConfig = 27;
+      IndexingConfig = 28;
    }
 }
