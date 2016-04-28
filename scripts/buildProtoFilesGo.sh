@@ -22,13 +22,6 @@ protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
 
-# Seems as though we should be able to do a `go get` for this repo, but it
-# reports 'unrecognized import path'
-#if [ ! -d $goLR/rewriteProto ]; then
-#  echo "Cloning http://github.schq.secious.com/Logrhythm/rewriteProto.git"
-#  git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
-#fi
-
 echo "Running 'go get' dependencies this script requires"
 go get github.schq.secious.com/Logrhythm/rewriteProto
 go install github.schq.secious.com/Logrhythm/rewriteProto
@@ -55,4 +48,10 @@ find * -type d -exec /bin/sh -c "rm $goSrc/{}/*.proto" \;
 echo "Compile all main level protos"
 protoc -I=$GOPATH/src/:$PROTOINCLUDE:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
 rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
+)
+
+echo "Fixing imports on generated files"
+(
+cd $goSrc
+find . -name '*.go' -exec sed -i '' -E 's|github.com/gogo/protobuf|github.schq.secious.com/DataIndexer/GoGoProtobuf|g' {} \;
 )
