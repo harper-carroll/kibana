@@ -29,9 +29,9 @@ if [ ! -d $goLR/rewriteProto ]; then
   echo "Cloning http://github.schq.secious.com/Logrhythm/rewriteProto.git"
   git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
 fi
-if [ ! -d $goLR/rewriteProto ]; then
+if [ ! -d $goDX/GoGoProtobuf ]; then
   echo "Cloning http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git"
-  git clone http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git $goDX/rewriteProto
+  git clone http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git $goDX/GoGoProtobuf
 fi
 
 echo "Running 'go install' on dependencies this script requires"
