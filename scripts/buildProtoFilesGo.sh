@@ -18,14 +18,24 @@ if [ -z "$GOROOT" ]; then export GOROOT=/usr/local/go; fi
 startDir=`pwd`
 goSrc=$GOPATH/src/github.schq.secious.com/Logrhythm/GoMessaging
 goLR=$GOPATH/src/github.schq.secious.com/Logrhythm
+goDX=$GOPATH/src/github.schq.secious.com/DataIndexer
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
 
-echo "Running 'go get' dependencies this script requires"
-go get github.schq.secious.com/Logrhythm/rewriteProto
+# Seems as though we should be able to do a `go get` for this repo, but it
+# reports 'unrecognized import path'
+if [ ! -d $goLR/rewriteProto ]; then
+  echo "Cloning http://github.schq.secious.com/Logrhythm/rewriteProto.git"
+  git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
+fi
+if [ ! -d $goLR/rewriteProto ]; then
+  echo "Cloning http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git"
+  git clone http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git $goDX/rewriteProto
+fi
+
+echo "Running 'go install' on dependencies this script requires"
 go install github.schq.secious.com/Logrhythm/rewriteProto
-go get github.schq.secious.com/DataIndexer/GoGoProtobuf || true # ignore 'no buildable source' non-zero exit
 
 mkdir -p $goSrc # Guaranteeing GoMessaging is a real directory
 
