@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
 
+command -v protoc > /dev/null 2>&1 || { echo "protoc is not installed, or in the PATH"; exit 1; }
+
 expectedProtoCVersion="libprotoc 2.6.1"
-actualProtoCVersion=`protoc --version`
-if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]
-then
+actualProtoCVersion=`protoc --version` 
+if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]; then
    echo "Expected protoc version: $expectedProtoCVersion"
    echo "Actual protoc version: $actualProtoCVersion"
    echo "You must use the install the expected version to continue"
@@ -19,24 +20,33 @@ startDir=`pwd`
 goSrc=$GOPATH/src/github.schq.secious.com/Logrhythm/GoMessaging
 goLR=$GOPATH/src/github.schq.secious.com/Logrhythm
 goDX=$GOPATH/src/github.schq.secious.com/DataIndexer
+gogoprotobuf=$GOPATH/src/github.com/gogo/protobuf
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
 
-# Seems as though we should be able to do a `go get` for this repo, but it
-# reports 'unrecognized import path'
+# Use git clone instead of go get because:
+#  go get uses https, and github.schq repos refuse the connection; and
+#  we need to clone a specific version
 if [ ! -d $goLR/rewriteProto ]; then
   echo "Cloning http://github.schq.secious.com/Logrhythm/rewriteProto.git"
   git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
 fi
-if [ ! -d $goDX/GoGoProtobuf ]; then
-  echo "Cloning http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git"
-  git clone http://github.schq.secious.com/DataIndexer/GoGoProtobuf.git $goDX/GoGoProtobuf
+gogoHash="c3995ae437bb78d1189f4f147dfe5f87ad3596e4"
+if [ -d "$gogoprotobuf" ]; then
+  echo "Deleting existing gogoprotobuf src"
+  rm -rf "$gogoprotobuf"
 fi
+echo "Cloning https://github.com/gogo/protobuf.git"
+git clone https://github.com/gogo/protobuf.git $gogoprotobuf
+echo "Checking out specific commit"
+(cd $gogoprotobuf; git checkout $gogoHash)
 
 echo "Running 'go install' on dependencies this script requires"
-go install github.schq.secious.com/Logrhythm/rewriteProto
+go install github.schq.secious.com/Logrhythm/rewriteProto/./...
+go install github.com/gogo/protobuf/./...
 
+exit 0
 mkdir -p $goSrc # Guaranteeing GoMessaging is a real directory
 
 echo "Removing pre-existing .proto files in $goSrc"
@@ -63,5 +73,13 @@ rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
 echo "Fixing imports on generated files"
 (
 cd $goSrc
-find . -name '*.go' -exec sed -i '' -E 's|github.com/gogo/protobuf|github.schq.secious.com/DataIndexer/GoGoProtobuf|g' {} \;
+os=`uname`
+if [ "$os" == "Darwin" ]
+then
+  sedOpts="-i '' -E"
+else
+  sedOpts="-i -E"
+fi
+
+find . -name '*.go' -exec sed $sedOpts 's|github.com/gogo/protobuf|github.schq.secious.com/DataIndexer/GoGoProtobuf|g' {} \;
 )
