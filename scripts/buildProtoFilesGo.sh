@@ -1,6 +1,13 @@
 #!/bin/bash
 set -e
 
+os=`uname`
+if [ "$os" != "Linux" ] 
+then
+   echo "You must run this command on a Centos 7 machine"
+   exit 1
+fi
+
 command -v protoc > /dev/null 2>&1 || { echo "protoc is not installed, or in the PATH"; exit 1; }
 
 expectedProtoCVersion="libprotoc 2.6.1"
@@ -12,7 +19,6 @@ if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]; then
    exit 1
 fi
 
-if [ -z "$PROTOINCLUDE" ]; then export PROTOINCLUDE=/usr/local/include; fi
 if [ -z "$GOPATH" ]; then export GOPATH=~/go; fi
 if [ -z "$GOBIN" ]; then export GOBIN=$GOPATH/bin; fi
 if [ -z "$GOROOT" ]; then export GOROOT=/usr/local/go; fi
@@ -46,7 +52,6 @@ echo "Running 'go install' on dependencies this script requires"
 go install github.schq.secious.com/Logrhythm/rewriteProto/./...
 go install github.com/gogo/protobuf/./...
 
-exit 0
 mkdir -p $goSrc # Guaranteeing GoMessaging is a real directory
 
 echo "Removing pre-existing .proto files in $goSrc"
@@ -62,24 +67,10 @@ echo "Processing .proto files from Protobuffers repo into GoMessaging to add gog
 echo "Running Protoc"
 (
 cd $goSrc;
-find * -type d -exec /bin/sh -c "protoc -I=$GOPATH/src/:$PROTOINCLUDE:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
-find * -type d -exec /bin/sh -c "rm $goSrc/{}/*.proto" \;
+find * -type d -exec /bin/sh -c "protoc -I=$GOPATH/src/:$thirdPartyDir/dist/protobuf:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
 
 echo "Compile all main level protos"
 protoc -I=$GOPATH/src/:$PROTOINCLUDE:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
 rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
 )
 
-echo "Fixing imports on generated files"
-(
-cd $goSrc
-os=`uname`
-if [ "$os" == "Darwin" ]
-then
-  sedOpts="-i '' -E"
-else
-  sedOpts="-i -E"
-fi
-
-find . -name '*.go' -exec sed $sedOpts 's|github.com/gogo/protobuf|github.schq.secious.com/DataIndexer/GoGoProtobuf|g' {} \;
-)
