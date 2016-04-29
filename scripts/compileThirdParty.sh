@@ -7,7 +7,6 @@ DISTDIR="$thirdPartyDir"/$DIST
 protoInstallDir="$DISTDIR"/protobuf/
 protoc="$protoInstallDir"/bin/protoc
 PROTOBUFFER_VERSION=2.6.1
-#GLOBAL_CPP_FLAGS="-fPIC -Ofast -m64 -flto "
 PATH=/usr/local/probe/bin:$PATH
 
 rm -rf "$DISTDIR"/protobuf
@@ -23,7 +22,7 @@ then
    ./autogen.sh
 fi
 
-CPPFLAGS="$CPPFLAGS $GLOBAL_CPP_FLAGS" LDFLAGS=$GLOBAL_CPP_FLAGS ./configure --prefix="$DISTDIR"/protobuf
+./configure --prefix="$DISTDIR"/protobuf
 make -j
 make install
 
