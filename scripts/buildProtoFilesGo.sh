@@ -57,8 +57,9 @@ mkdir -p $goSrc # Guaranteeing GoMessaging is a real directory
 echo "Removing pre-existing .proto files in $goSrc"
 (
 cd $goSrc;
-rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
+find . -name '*.proto' -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec rm -rf {} \;
 )
+
 # rewriteProto process proto files for use with gogoprotobuf and deposits the result in $goSrc
 # which are then compiled into .pb.go files by protoc, etc below
 echo "Processing .proto files from Protobuffers repo into GoMessaging to add gogoprotobuf extensions"
@@ -67,10 +68,18 @@ echo "Processing .proto files from Protobuffers repo into GoMessaging to add gog
 echo "Running Protoc"
 (
 cd $goSrc;
-find * -type d -exec /bin/sh -c "protoc -I=$GOPATH/src/:$thirdPartyDir/dist/protobuf:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto" \;
+find . -type d -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec /bin/sh -c "protoc -I=$GOPATH/src/:$thirdPartyDir/dist/protobuf/include:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto 2>&1 | grep -v 'WARNING: failed finding publicly'" \;
+)
 
-echo "Compile all main level protos"
-protoc -I=$GOPATH/src/:$PROTOINCLUDE:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/*.proto
-rm -rf $(find * -name '*.proto' | grep -v 'vendor/')
+echo "Removing all re-written protos"
+(
+cd $goSrc;
+find . -name '*.proto' -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec rm -rf {} \;
+)
+
+echo "Running go tests"
+(
+cd $goSrc;
+go test --timeout=5m $(go list github.schq.secious.com/Logrhythm/$(basename $(pwd))/./... | grep -v vendor)
 )
 
