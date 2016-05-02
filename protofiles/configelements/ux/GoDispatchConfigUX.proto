@@ -2,18 +2,15 @@ package configelements.ux;
 
 import "ConfigUX.proto";
 
+import "EndpointUX.proto";
+
 option java_package = "com.logrhythm.configelements.ux";
 option java_outer_classname = "GoDispatchConfigUXMsg";
 
 
 message GoDispatchConfigUX {
 
-  message Endpoint {
-    optional ConfigUX queue = 1;
-    optional ConfigUX queueSize = 2;
-  }
-
-  optional Endpoint inputQueue = 1;
+  optional EndpointUX inputQueue = 1;
   optional ConfigUX receiveLogTimeoutMs = 2;
   optional ConfigUX maxInFlightBatches = 3;
   optional ConfigUX sendToRecorder = 4;

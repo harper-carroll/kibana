@@ -1,0 +1,10 @@
+package configelements;
+
+option java_package = "com.logrhythm.configelements";
+option java_outer_classname = "EndpointMsg";
+
+
+message Endpoint {
+  optional string queue = 1;
+  optional int32 queueSize = 2;
+}

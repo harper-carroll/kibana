@@ -9,8 +9,6 @@ import "ClusterNodeConfigUX.proto";
 import "ColumboClientConfigUX.proto";
 import "ColumboConfigUX.proto";
 import "ConfigServerConfigUX.proto";
-import "DispatchConfigUX.proto";
-import "DispatchClientConfigUX.proto";
 import "ElasticSearchClientConfigUX.proto";
 import "ElasticSearchServerConfigUX.proto";
 import "EnigmaConfigUX.proto";
