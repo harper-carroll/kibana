@@ -16,6 +16,16 @@ if [ ! -f "$protoc" ]; then
   sh "$scriptsDir"/compileThirdParty.sh
 fi
 
+expectedProtoCVersion="libprotoc 2.6.1"
+actualProtoCVersion=`$protoc --version`
+if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]
+then
+   echo "Expected protoc version: $expectedProtoCVersion"
+   echo "Actual protoc version: $actualProtoCVersion"
+   echo "You must use the install the expected version to continue"
+   exit 1
+fi
+
 
 export LD_LIBRARY_PATH="$protoInstallDir"/lib
 gogoBaseDir="$thirdPartyDir"/github.com/gogo/
