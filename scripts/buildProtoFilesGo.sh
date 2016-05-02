@@ -39,13 +39,12 @@ if [ ! -d $goLR/rewriteProto ]; then
   git clone http://github.schq.secious.com/Logrhythm/rewriteProto.git $goLR/rewriteProto
 fi
 gogoHash="c3995ae437bb78d1189f4f147dfe5f87ad3596e4"
-if [ -d "$gogoprotobuf" ]; then
-  echo "Deleting existing gogoprotobuf src"
-  rm -rf "$gogoprotobuf"
+if [ ! -d $gogoprotobuf ]
+then
+  echo "Cloning https://github.com/gogo/protobuf.git"
+  git clone https://github.com/gogo/protobuf.git $gogoprotobuf
 fi
-echo "Cloning https://github.com/gogo/protobuf.git"
-git clone https://github.com/gogo/protobuf.git $gogoprotobuf
-echo "Checking out specific commit"
+echo "Checking out specific commit of gogo protobuf"
 (cd $gogoprotobuf; git checkout $gogoHash)
 
 echo "Running 'go install' on dependencies this script requires"
