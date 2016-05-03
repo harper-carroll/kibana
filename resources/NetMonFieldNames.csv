@@ -40,6 +40,7 @@ _n/a,   optional uint64 TimePrevious = 38;,,TimePrevious,Time Previous,n/a,,,,Co
 _n/a,   optional uint64 TimeStart = 14;,,TimeStart,Time Start,n/a,,,,Complete,
 _n/a,   optional uint64 TimeUpdated = 15;,,TimeUpdated,Time Updated,n/a,,,,Complete,
 _n/a,   repeated bytes CustomApplication = 23;,,CustomApplication,Custom Application,n/a,,,,Complete,
+_n/a,   repeated uint32 VlanID = 55;,,VlanID,Vlan ID,n/a,,,,Complete,
 0ZZ0,actionQ_PROTO_0ZZ0,action,Action,Action,command,<command>,Command,,Complete,
 0ZZ0,download_urlQ_PROTO_0ZZ0,download_url,DownloadURL,Download URL,url,<url>,URL,,Complete,
 0ZZ0,email_addressQ_PROTO_0ZZ0,email_address,EmailAddr,Email Address,sender,<sender>,Sender,,Complete,
