@@ -6,14 +6,23 @@ protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
 DIST=dist
-DISTDIR="$thirdPartyDir"/$DIST
-protoInstallDir="$DISTDIR"/protobuf/
+protoInstallDir=/usr/local/probe
 protoc="$protoInstallDir"/bin/protoc
 PROTOBUFFER_VERSION=2.6.1
 GLOBAL_CPP_FLAGS="-fPIC"
 
 if [ ! -f "$protoc" ]; then
   sh "$scriptsDir"/compileThirdParty.sh
+fi
+
+expectedProtoCVersion="libprotoc 2.6.1"
+actualProtoCVersion=`$protoc --version`
+if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]
+then
+   echo "Expected protoc version: $expectedProtoCVersion"
+   echo "Actual protoc version: $actualProtoCVersion"
+   echo "You must use the install the expected version to continue"
+   exit 1
 fi
 
 
