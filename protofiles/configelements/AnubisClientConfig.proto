@@ -5,7 +5,8 @@ option java_outer_classname = "AnubisClientConfigMsg";
 
 message AnubisClientConfig {
    
-   optional string inputQueue = 1;
+   // DEPRECATED optional string inputQueue = 1;
    optional string ackQueue = 2;
+   optional string inQueue = 3;
 
 }
