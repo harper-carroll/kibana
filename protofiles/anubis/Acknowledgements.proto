@@ -5,4 +5,5 @@ option java_outer_classname = "AcknowledgementsMsg";
 
 message Acknowledgements {
   repeated string ids = 1;
+  repeated string failures = 2;
 }

@@ -17,4 +17,5 @@ message GoDispatchConfigUX {
   optional ConfigUX receiveLogTimeoutMs = 2;
   optional ConfigUX maxInFlightBatches = 3;
   optional ConfigUX sendToRecorder = 4;
+  optional ConfigUX maxLogSizeBytes = 5;
 }

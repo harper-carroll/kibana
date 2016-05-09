@@ -10,8 +10,8 @@ message InfluxConfig {
    optional string hostname = 1;
    optional int32 port = 2;
    optional string database = 3;
-   optional EncryptedString adminUsername = 4;
-   optional EncryptedString adminPassword = 5;
-   optional EncryptedString dbUsername = 6;
-   optional EncryptedString dbPassword = 7;
+// DEPRECATED   optional EncryptedString adminUsername = 4;
+// DEPRECATED   optional EncryptedString adminPassword = 5;
+// DEPRECATED   optional EncryptedString dbUsername = 6;
+// DEPRECATED   optional EncryptedString dbPassword = 7;
 }
