@@ -17,13 +17,14 @@ message AnubisConfig {
    }
 
    message RelayConfig {
-      optional string inputQueue = 1; 
+      // DEPRECATED optional string inputQueue = 1;
       optional int32 inputQueueSize = 2;
       optional int32 dbMaxRows = 3;
       optional int32 dbResumeRows = 4;
       optional int32 dbMaxBytes = 5;
       optional int32 dbResumeBytes = 6;
       optional int32 dbCheckSizeMs = 7;
+      optional string inQueue = 8;
    }
 
    message BiffConfig {

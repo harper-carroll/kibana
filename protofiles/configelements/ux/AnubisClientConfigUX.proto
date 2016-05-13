@@ -7,7 +7,8 @@ option java_outer_classname = "AnubisClientConfigUXMsg";
 
 message AnubisClientConfigUX {
    
-   optional ConfigUX inputQueue = 1;
+   // DEPRECATED optional ConfigUX inputQueue = 1;
    optional ConfigUX ackQueue = 2;
+   optional ConfigUX inQueue = 3;
 
 }

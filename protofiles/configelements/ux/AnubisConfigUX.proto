@@ -19,13 +19,14 @@ message AnubisConfigUX {
    }
 
    message RelayConfig {
-      optional ConfigUX inputQueue = 1; 
+      // DEPRECATED optional ConfigUX inputQueue = 1;
       optional ConfigUX inputQueueSize = 2;
       optional ConfigUX dbMaxRows = 3;
       optional ConfigUX dbResumeRows = 4;
       optional ConfigUX dbMaxBytes = 5;
       optional ConfigUX dbResumeBytes = 6;
       optional ConfigUX dbCheckSizeMs = 7;
+      optional ConfigUX inQueue = 8;
    }
 
    message BiffConfig {

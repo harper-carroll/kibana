@@ -9,8 +9,6 @@ import "ClusterNodeConfigUX.proto";
 import "ColumboClientConfigUX.proto";
 import "ColumboConfigUX.proto";
 import "ConfigServerConfigUX.proto";
-import "DispatchConfigUX.proto";
-import "DispatchClientConfigUX.proto";
 import "ElasticSearchClientConfigUX.proto";
 import "ElasticSearchServerConfigUX.proto";
 import "EnigmaConfigUX.proto";
@@ -24,6 +22,7 @@ import "AnubisConfigUX.proto";
 import "GoDispatchClientConfigUX.proto";
 import "GoDispatchConfigUX.proto";
 import "AllConfConfigUX.proto";
+import "IndexingConfigUX.proto";
 
 message AllConf {
 
@@ -86,4 +85,7 @@ message AllConf {
 
   optional ConfigUX allConfConfigUX = 39;
   optional AllConfConfigUX allConfConfig = 40;
+
+  optional ConfigUX indexingConfigUX = 41;
+  optional IndexingConfigUX indexingConfig = 42;
 }
