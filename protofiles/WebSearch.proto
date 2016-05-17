@@ -267,6 +267,25 @@ enum FieldFilterTypeEnum {
   MAC = 132;
   Interface = 133;
   RootEntity = 136;
+  DomainOrigin = 137;
+  Hash = 138;
+  Policy = 139;
+  VendorInfo = 140;
+  Result = 141;
+  ObjectType = 142;
+  CVE = 143;
+  UserAgent = 144;
+  ParentProcessId = 145;
+  ParentProcessName = 146;
+  ParentProcessPath = 147;
+  SerialNumber = 148;
+  Reason = 149;
+  Status = 150;
+  ThreatId = 151;
+  ThreatName = 152;
+  SessionType = 153;
+  Action = 154;
+  ResponseCode = 155;
   FilterGroup = 1000;
   PolyListItem = 1001;
 }
@@ -388,5 +407,3 @@ message FilterValue {
   }
   optional Value value = 1;
 }
-
-
