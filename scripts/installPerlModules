@@ -6,19 +6,19 @@ gtar xzf ExtUtils-MakeMaker-6.86.tar.gz
 cd ExtUtils-MakeMaker-6.86
 perl Makefile.PL 
 make
-make install
+sudo make install
 cd .. 
 rm -rf ExtUtils-MakeMaker-6.86
 gtar xzf YAML-LibYAML-0.41.tar.gz 
 cd YAML-LibYAML-0.41
 perl Makefile.PL 
 make
-make install
+sudo make install
 #rm -rf YAML-LibYAML-0.41
 cd ..
 gtar xzf YAML-0.88.tar.gz
 cd YAML-0.88
 perl Makefile.PL
 make
-make install
+sudo make install
 cd ../..
