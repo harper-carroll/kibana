@@ -23,10 +23,11 @@ if [ -z "$GOPATH" ]; then export GOPATH=~/go; fi
 if [ -z "$GOBIN" ]; then export GOBIN=$GOPATH/bin; fi
 if [ -z "$GOROOT" ]; then export GOROOT=/usr/local/go; fi
 startDir=`pwd`
-goSrc=$GOPATH/src/github.schq.secious.com/Logrhythm/GoMessaging
-goLR=$GOPATH/src/github.schq.secious.com/Logrhythm
-goDX=$GOPATH/src/github.schq.secious.com/DataIndexer
-gogoprotobuf=$GOPATH/src/github.com/gogo/protobuf
+firstGoPath=$(IFS=':' read -ra GPARRAY <<< "$GOPATH"; echo "${GPARRAY[0]}")
+goSrc=$firstGoPath/src/github.schq.secious.com/Logrhythm/GoMessaging
+goLR=$firstGoPath/src/github.schq.secious.com/Logrhythm
+goDX=$firstGoPath/src/github.schq.secious.com/DataIndexer
+gogoprotobuf=$firstGoPath/src/github.com/gogo/protobuf
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
@@ -67,7 +68,7 @@ echo "Processing .proto files from Protobuffers repo into GoMessaging to add gog
 echo "Running Protoc"
 (
 cd $goSrc;
-find . -type d -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec /bin/sh -c "protoc -I=$GOPATH/src/:$thirdPartyDir/dist/protobuf/include:/usr/local/include:/usr/include:$goSrc --gogo_out=$GOPATH/src/  $goSrc/{}/*.proto 2>&1 | grep -v 'WARNING: failed finding publicly'" \;
+find . -type d -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec /bin/sh -c "protoc -I=$firstGoPath/src/:$thirdPartyDir/dist/protobuf/include:/usr/local/include:/usr/include:$goSrc --gogo_out=$firstGoPath/src/  $goSrc/{}/*.proto 2>&1 | grep -v 'WARNING: failed finding publicly'" \;
 )
 
 echo "Removing all re-written protos"
