@@ -12,6 +12,7 @@ message ESDataLog {
     enum MetaDataVersionEnum {
         NORMALIZED = 0;
         DENORMALIZED = 1;
+        PARTIALLY_DENORMALIZED = 2;
     }
     optional string account = 1;
     optional double amount = 2;
