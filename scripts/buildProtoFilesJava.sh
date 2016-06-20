@@ -5,8 +5,12 @@ javaSrcDir="$startDir"/java/src/main/java
 protoFileDir="$startDir"/protofiles
 scriptsDir="$startDir"/scripts
 thirdPartyDir="$startDir"/thirdParty
-DIST=dist
-protoInstallDir=/usr/local/probe
+if [ -d /usr/local/probe ]; then
+   # For Network Monitor, use the protoc binaries and libraries installed in /usr/local/probe
+   protoInstallDir=/usr/local/probe 
+else
+   protoInstallDir="$thirdPartyDir"/dist/protobuf/
+fi 
 protoc="$protoInstallDir"/bin/protoc
 PROTOBUFFER_VERSION=2.6.1
 GLOBAL_CPP_FLAGS="-fPIC"
@@ -21,7 +25,7 @@ if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]
 then
    echo "Expected protoc version: $expectedProtoCVersion"
    echo "Actual protoc version: $actualProtoCVersion"
-   echo "You must use the install the expected version to continue"
+   echo "You must install the expected protoc version to continue"
    exit 1
 fi
 
