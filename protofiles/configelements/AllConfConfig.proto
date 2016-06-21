@@ -18,6 +18,10 @@ message AllConfConfig {
 
    optional EncryptedString administratorUsername = 9;
    optional EncryptedString administratorPassword = 10;
-   optional EncryptedString developerUsername = 11;
-   optional EncryptedString developerPassword = 12;
+
+// DEPRECATED  optional EncryptedString developerUsername = 11;
+// DEPRECATED  optional EncryptedString developerPassword = 12;
+
+   optional EncryptedString superUsername = 13;
+   optional EncryptedString superPassword = 14;
 }

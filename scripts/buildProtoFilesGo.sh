@@ -8,10 +8,15 @@ then
    exit 1
 fi
 
-command -v protoc > /dev/null 2>&1 || { echo "protoc is not installed, or in the PATH"; exit 1; }
+# choose a protoc binary to use
+#PROTOC=protoc
+PROTOC="$(pwd)/thirdParty/dist/protobuf/bin/protoc"
+[ ! -f $PROTOC ] && echo "$PROTOC not found" && exit 1
+
+command -v $PROTOC > /dev/null 2>&1 || { echo "protoc is not installed, or in the PATH"; exit 1; }
 
 expectedProtoCVersion="libprotoc 2.6.1"
-actualProtoCVersion=`protoc --version` 
+actualProtoCVersion=`$PROTOC --version` 
 if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]; then
    echo "Expected protoc version: $expectedProtoCVersion"
    echo "Actual protoc version: $actualProtoCVersion"
@@ -46,7 +51,7 @@ then
   git clone https://github.com/gogo/protobuf.git $gogoprotobuf
 fi
 echo "Checking out specific commit of gogo protobuf"
-(cd $gogoprotobuf; git checkout $gogoHash)
+(cd $gogoprotobuf; git pull origin master; git checkout $gogoHash)
 
 echo "Running 'go install' on dependencies this script requires"
 go install github.schq.secious.com/Logrhythm/rewriteProto/./...
@@ -68,7 +73,7 @@ echo "Processing .proto files from Protobuffers repo into GoMessaging to add gog
 echo "Running Protoc"
 (
 cd $goSrc;
-find . -type d -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec /bin/sh -c "protoc -I=$firstGoPath/src/:$thirdPartyDir/dist/protobuf/include:/usr/local/include:/usr/include:$goSrc --gogo_out=$firstGoPath/src/  $goSrc/{}/*.proto 2>&1 | grep -v 'WARNING: failed finding publicly'" \;
+find . -type d -not -name vendor -not -path "./vendor/*" -not -name .git -not -path "./.git/*" -exec /bin/sh -c "$PROTOC -I=$firstGoPath/src/:$thirdPartyDir/dist/protobuf/include:/usr/local/include:/usr/include:$goSrc --gogo_out=$firstGoPath/src/  $goSrc/{}/*.proto 2>&1 | grep -v 'WARNING: failed finding publicly'" \;
 )
 
 echo "Removing all re-written protos"
