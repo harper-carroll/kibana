@@ -20,6 +20,10 @@ message AllConfConfigUX {
 
    optional ConfigUX administratorUsername = 9;
    optional ConfigUX administratorPassword = 10;
-   optional ConfigUX developerUsername = 11;
-   optional ConfigUX developerPassword = 12;
+
+// DEPRECATED  optional ConfigUX developerUsername = 11;
+// DEPRECATED  optional ConfigUX developerPassword = 12;
+
+   optional ConfigUX superUsername = 13;
+   optional ConfigUX superPassword = 14;
 }
