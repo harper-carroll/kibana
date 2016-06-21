@@ -13,8 +13,6 @@ fi
 PROTOC="$(pwd)/thirdParty/dist/protobuf/bin/protoc"
 [ ! -f $PROTOC ] && echo "$PROTOC not found" && exit 1
 
-command -v $PROTOC > /dev/null 2>&1 || { echo "protoc is not installed, or in the PATH"; exit 1; }
-
 expectedProtoCVersion="libprotoc 2.6.1"
 actualProtoCVersion=`$PROTOC --version` 
 if [ "$actualProtoCVersion" != "$expectedProtoCVersion" ]; then
