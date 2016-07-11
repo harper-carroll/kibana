@@ -79,6 +79,8 @@ print "\"Referer\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"s
 print "\"URIFull\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"Cookie\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 print "\"HeaderName\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
+#System Rules
+print "\"Domain_FQDN_NM\" : {\"type\": \"string\", \"fields\": {\"raw\": {\"type\": \"string\", \"index\": \"not_analyzed\"}}},\n";
 
 
 if ( $ARGV[2] eq "events" ) {
